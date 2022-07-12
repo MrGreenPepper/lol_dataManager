@@ -18,27 +18,11 @@ export async function getItemData() {
 	let itemRawData = {};
 	let itemData = {};
 	let scrapedItemList = [];
-	for (let itemLink of itemLinkList) {
+	for (let itemNumber in itemLinkList) {
+		let itemLink = itemLinkList[itemNumber];
+
 		try {
 			itemRawData = await scrapeItemData(itemLink);
-
-			// no clue what i tried doing here:
-			/*try {
-				if (
-					itemRawData.recipe.combineCosts.length > 0 &&
-					itemRawData.recipe.buildPath.length == 0
-				) {
-					await timer();
-					itemRawData = await tools.getItemData(link);
-					await tools.saveRawData(itemRawData);
-					// } else {
-					// 	await tools.saveRawData(itemRawData);
-					// 	itemDataList.push(itemRawData.name);
-				}
-			} catch (e) {
-				await tools.saveRawData(itemRawData);
-				itemDataList.push(itemRawData.name);
-			}*/
 
 			await tools.saveJSONData(
 				itemRawData,
@@ -46,6 +30,7 @@ export async function getItemData() {
 			);
 			scrapedItemList.push(itemRawData.name);
 			console.info('scraped item: \t', itemRawData.name);
+			console.info(itemNumber, '  of  ', itemLinkList.length, '  done');
 		} catch (err) {
 			tools.reportError('failed to scrap item', itemLink, err.message);
 			console.log(err);
@@ -66,11 +51,7 @@ async function scrapeItemData(itemLink) {
 	let page = await browser.newPage();
 
 	await page.goto(itemLink[1]);
-	/*	try {
-		await page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 500 });
-	} catch (err) {
-		console.log(err);
-	}*/
+
 	await page.waitForSelector('span.mw-headline');
 
 	let itemData = await page.evaluate((test) => {
@@ -126,6 +107,7 @@ async function scrapeItemData(itemLink) {
 
 			let containerCategory = '';
 			let _tempContainerArray = [];
+
 			//for stopping after the first go threw, to prevent irritating data (f.e. sometimes there is a revision data version on the page)
 			let menuToogle = false;
 			let keyToogle = false;

@@ -3,26 +3,76 @@ import { getAbilitiesData } from './lol_scraper/abilities.js';
 import { getInGameData } from './lol_scraper/inGameData.js';
 import { getItemData } from './lol_scraper/itemData.js';
 import { createBaseChampionDataPool } from './lol_scraper/tools/createBaseData.js';
+import * as tools from './tools.js';
 
-console.log('%cLog Message', 'color: orange');
+let procedure = [
+	[false, false, false, false, false],
+	[false, false, false, false, false, false, false],
+];
 
-let procedure = [false, false, false, false, true];
-
-(async function scrappingProcedure() {
+await (async function scrappingProcedure() {
 	//list of champions and there baseStats for every single one
-	if (procedure[0] == true) await getBaseData();
+	if (procedure[0][0] == true) await getBaseData();
 
 	//creates single jsonFiles for every champion which is getting filled, to start wich,  with the concerning base data
-	if (procedure[1] == true) await createBaseChampionDataPool();
+	if (procedure[0][1] == true) await createBaseChampionDataPool();
 
 	// champion abilities data
-	if (procedure[2] == true) await getAbilitiesData();
+	if (procedure[0][2] == true) await getAbilitiesData();
 
 	// skillorder, items, masteries
-	if (procedure[3] == true) await getInGameData();
+	if (procedure[0][3] == true) await getInGameData();
 
-	// everyItem independent from the champions
-	if (procedure[4] == true) await getItemData();
+	// everyItem independent from the champions, SCRAPPING + EXTRACT
+	if (procedure[0][4] == true) await getItemData();
 
 	console.log('scrapping done');
+})();
+
+await (async function analysePrecudure() {
+	/**loads the championData and controls the anlyse sequence
+	 * analyse sequence:
+	 * 1. load the championData
+
+	 * 3. cleanUp the abilitiesData
+	 * 4. unify markers
+	 * 5. checks if there are any unknown markers
+	 * 6. summaries and the abilities and their markers
+	 * 7. saves the data
+	 */
+
+	let championList = await tools.loadJSONData('./lol_scraper/data/championList.json');
+
+	for (let championName of championList) {
+		//i know the objects returns arent necessary but I like them for more clear structure
+		//1.
+		let championData = await tools.loadJSONData(
+			`./lol_scraper/data/champion_inGameData/${championName}_data.json`
+		);
+
+		//metaNumbers to float;
+		championData.scraped_data.baseData.abilities = await markerTools.metaNumbersToFloat(
+			championData.scraped_data.baseData.abilities
+		);
+		//2.1
+		championData.abilities.skillTabs = await markerTools.createSkillTabArray(
+			championData.abilities
+		);
+		//all mathStrings to Math;
+		// championData.abilities = await markerTools.allStringsToMath(championData.abilities);
+		//3.
+		championData.abilities = await analyseTools.cleanAbilities(championData.abilities);
+		//4.
+		championData.abilities = await unifyMarkers.start(championData.abilities);
+
+		//5.
+		await checkMarkers.start(championData.abilities);
+
+		//5.2
+		await markerTools.showAllMarkerPositions(championData.abilities);
+		//6.
+		championData.abilities = await summariesAbilities.start(championData.abilities);
+		//7.
+		analyseTools.saveData(championData);
+	}
 })();

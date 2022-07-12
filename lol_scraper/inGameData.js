@@ -68,16 +68,24 @@ export async function getInGameData() {
 				champion.items.end = endItems;
 
 				//Masteries:
-				let masteries_container = document.querySelectorAll('div.box.box-padding-10.overviewBox');
+				let masteries_container = document.querySelectorAll(
+					'div.box.box-padding-10.overviewBox'
+				);
 				masteries_container = masteries_container[7];
 
 				let masteries_mainRaw = masteries_container.querySelectorAll('th');
 				let masteries_main = [];
 				masteries_main[0] = masteries_mainRaw[0].querySelector('img').getAttribute('src');
-				masteries_main[0] = masteries_main[0].replace('//lolg-cdn.porofessor.gg/img/perks/11.4/64/', '');
+				masteries_main[0] = masteries_main[0].replace(
+					'//lolg-cdn.porofessor.gg/img/perks/11.4/64/',
+					''
+				);
 				masteries_main[0] = masteries_main[0].replace('.png', '');
 				masteries_main[1] = masteries_mainRaw[1].querySelector('img').getAttribute('src');
-				masteries_main[1] = masteries_main[1].replace('//lolg-cdn.porofessor.gg/img/perks/11.4/64/', '');
+				masteries_main[1] = masteries_main[1].replace(
+					'//lolg-cdn.porofessor.gg/img/perks/11.4/64/',
+					''
+				);
 				masteries_main[1] = masteries_main[1].replace('.png', '');
 				champion.masteries.main = masteries_main;
 
@@ -88,10 +96,14 @@ export async function getInGameData() {
 				let smallMasteries_container = masteries_container.querySelectorAll('td');
 				let smallMasteries = [];
 				for (let i = 0; i < smallMasteries_container.length; i++) {
-					let masteryPointName = smallMasteries_container[i].querySelector('img').getAttribute('alt');
+					let masteryPointName = smallMasteries_container[i]
+						.querySelector('img')
+						.getAttribute('alt');
 					console.log(masteryPointName);
 					//if there is a div with style modifier the opacity is lowered --> mastery point is inactiv
-					let statusChecker = smallMasteries_container[i].querySelector('div[style="opacity: 0.2;"]');
+					let statusChecker = smallMasteries_container[i].querySelector(
+						'div[style="opacity: 0.2;"]'
+					);
 					let status = false;
 					if (statusChecker == null) status = true;
 					console.log(status);
@@ -101,7 +113,9 @@ export async function getInGameData() {
 				champion.masteries.smallMasteries = smallMasteries;
 
 				//Summoner Spells:
-				let summonerSpells_container = document.querySelectorAll('div.box.box-padding-10.overviewBox');
+				let summonerSpells_container = document.querySelectorAll(
+					'div.box.box-padding-10.overviewBox'
+				);
 				summonerSpells_container = summonerSpells_container[6];
 				let summonerSpells = [];
 				let summonerSpellsRaw = summonerSpells_container.querySelectorAll('img');
@@ -115,19 +129,26 @@ export async function getInGameData() {
 			});
 
 			await browser.close();
-			let championData = await tools.loadJSONData(`./lol_scraper/data/champion_baseData/${championName}_data.json`);
+			let championData = await tools.loadJSONData(
+				`./lol_scraper/data/champion_baseData/${championName}_data.json`
+			);
 			championData.scraped_data.inGameData.items = championRawData.items;
 
 			championData.scraped_data.inGameData.masteries = championRawData.masteries;
-			championData.scraped_data.inGameData.skillsOrder = championRawData.abilities.skillsOrder;
+			championData.scraped_data.inGameData.skillsOrder =
+				championRawData.abilities.skillsOrder;
 			championData.scraped_data.inGameData.summonerSpells = championRawData.summonerSpells;
 			let path = './scraper/data/' + championName + '_inGameData.json';
 
-			tools.saveCSVData(championData, `./lol_scraper/data/champion_inGameData/${championData.name}_data.json`);
+			await tools.saveJSONData(
+				championData,
+				`./lol_scraper/data/champion_inGameData/${championData.name}_data.json`
+			);
 			console.log('championData saved: ', path);
 		} catch (err) {
 			tools.reportError('failed scrapping inGameData', championName, err.message);
-			console.log(err);
+			console.error('\nfailed scraping inGameData: \t', err.message);
+			console.error('\n', err.stack, '\n');
 		}
 	}
 }

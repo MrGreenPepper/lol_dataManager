@@ -16,7 +16,7 @@ export async function createBaseChampionDataPool() {
 			championData.scraped_data.baseData.abilities = {};
 			championData.scraped_data.inGameData = {};
 			championData.scraped_data.inGameData.items = {};
-			championData.scraped_data.inGameData.skillOrder = {};
+			championData.scraped_data.inGameData.skillsOrder = {};
 			championData.scraped_data.inGameData.masteries = {};
 
 			championData.extracted_data = {};
@@ -25,7 +25,7 @@ export async function createBaseChampionDataPool() {
 			championData.extracted_data.baseData.abilities = {};
 			championData.extracted_data.inGameData = {};
 			championData.extracted_data.inGameData.items = {};
-			championData.extracted_data.inGameData.skillOrder = {};
+			championData.extracted_data.inGameData.skillsOrder = {};
 			championData.extracted_data.inGameData.masteries = {};
 			championData.extracted_data.inGameData.summonerSpells = {};
 
@@ -40,7 +40,10 @@ export async function createBaseChampionDataPool() {
 				}
 			}
 
-			saveJSONData(championData, `./lol_scraper/data/champion_baseData/${championData.name}_data.json`);
+			saveJSONData(
+				championData,
+				`./lol_scraper/data/champion_baseData/${championData.name}_data.json`
+			);
 		}
 	} catch (err) {
 		console.error(err);
