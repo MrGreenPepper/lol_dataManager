@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "nodemon dataManager.js",
+		"start": "nodemon dataManager.js --verbose",
 		"run": "node dataManager.js"
 	},
 	"author": "",

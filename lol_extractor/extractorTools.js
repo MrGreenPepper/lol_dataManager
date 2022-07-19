@@ -87,7 +87,7 @@ export function isItMath(sign) {
 	}
 }
 
-function cleanMath(cleanMathContent) {
+export function cleanMath(cleanMathContent) {
 	cleanMathContent = cleanMathContent.replace(/\//g, '');
 	cleanMathContent = cleanMathContent.replace(/:/g, '');
 
@@ -101,7 +101,7 @@ function cleanMath(cleanMathContent) {
 	return cleanMathContent;
 }
 
-function getActiveMarkers(currentMarker, text, type) {
+export function getActiveMarkers(currentMarker, text, type) {
 	let testIntervalls = [];
 	for (let n = 0; n < currentMarker.length; n++) {
 		let position = text.toLowerCase().indexOf(currentMarker[n]);
@@ -158,7 +158,7 @@ function getActiveMarkers(currentMarker, text, type) {
 	}
 }
 
-function markers_clean_skilltab(text) {
+export function markers_clean_skilltab(text) {
 	text = text.replace(/a/g, '');
 	text = text.replace(/b/g, '');
 	text = text.replace(/c/g, '');
@@ -189,7 +189,7 @@ function markers_clean_skilltab(text) {
 	text = text.replace(/ /g, '');
 	//text.replace(//g,'');
 }
-function firstClean(text) {
+export function firstClean(text) {
 	text = text.replace(/\«/g, '');
 	text = text.replace(/\»/g, '');
 	text = text.replace(/\(/g, '');
@@ -198,7 +198,7 @@ function firstClean(text) {
 	text = text.trim();
 	return text;
 }
-function cleanText(text) {
+export function cleanText(text) {
 	text = text.replace(/\«/g, '');
 	text = text.replace(/\»/g, '');
 	text = text.replace(/\(/g, '');
@@ -207,7 +207,7 @@ function cleanText(text) {
 	return text;
 }
 
-async function divideText() {
+export async function divideText() {
 	//1.1 get the data from db and  1.2 divide Text into meaningful parts
 	//1.1 get the data from db
 	//--> TODO: get it into the shape ... getting 1 Text part and divide this into markers and math

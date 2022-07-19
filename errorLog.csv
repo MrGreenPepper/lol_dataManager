@@ -181,3 +181,4 @@ scraping abilities failed,Aatrox,tools.mergeData is not a function
 scraping abilities failed,Ahri,tools.mergeData is not a function
 scraping abilities failed,Akali,tools.mergeData is not a function
 scraping abilities failed,Akshan,tools.mergeData is not a function
+failed scrapping inGameData,Sion,Navigation timeout of 30000 ms exceeded

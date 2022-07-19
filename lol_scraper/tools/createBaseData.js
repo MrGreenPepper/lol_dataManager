@@ -1,6 +1,8 @@
 import * as tools from '../../tools.js';
 
 export async function createBaseChampionDataPool() {
+	console.log('_______________________\n');
+	console.log('creating baseDataPool start\n');
 	const championList = await tools.loadJSONData('./lol_scraper/data/championList.json');
 	const baseData = await tools.loadJSONData('./lol_scraper/data/baseData.json');
 
@@ -52,7 +54,8 @@ export async function createBaseChampionDataPool() {
 		console.error(err);
 		tools.reportError('creating baseData', championData.name, err.message);
 	}
-	console.log('creating baseData pool done');
+	console.log('creating baseData pool done\n');
+	console.log('---------------------------\n');
 
 	return;
 }

@@ -1,24 +1,49 @@
 import * as extractorTools from './extractorTools.js';
+import * as tools from '../tools.js';
 
-function extractMetaData(championData) {
+const LOGSAVEPATH = './lol_extractor/data/champions/';
+const DATASAVEPATH = './data/champions/';
+
+export async function exMetaData() {
+	let championList = await tools.getChampionList();
+	for (let championName of championList) {
+		try {
+			//first load the data
+			let championData = await tools.loadJSONData(
+				`./data/champions/${championName}_data.json`
+			);
+
+			championData = await extractMetaData(championData);
+
+			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_metaData.json`);
+			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
+		} catch (err) {
+			console.log(err);
+			console.log('metaData extraction failed at champion: ', championName);
+		}
+	}
+}
+
+export function extractMetaData(championData) {
 	let metaDataKeys = [];
 	let abilityKeys;
+	let baseAbilityData = JSON.parse(JSON.stringify(championData.scraped_data.baseData.abilities));
 
-	abilityKeys = Object.keys(championData.abilities);
+	abilityKeys = Object.keys(baseAbilityData);
 	abilityKeys.forEach((abilityKey) => {
-		if ('metaData' in championData.abilities[abilityKey]) {
+		if ('metaData' in baseAbilityData[abilityKey]) {
 			metaDataKeys.push(abilityKey);
 		}
 	});
 
 	metaDataKeys.forEach((metaKey) => {
-		championData.abilities[metaKey].metaData = divideMetaData(
-			championData.abilities[metaKey].metaData
-		);
+		baseAbilityData[metaKey].metaData = divideMetaData(baseAbilityData[metaKey].metaData);
 	});
 
+	championData.extracted_data.baseData.abilities = baseAbilityData;
 	return championData;
 }
+
 function divideMetaData(rawMetaData) {
 	let marker;
 	let mathRaw;
@@ -26,7 +51,7 @@ function divideMetaData(rawMetaData) {
 	let metaData = {};
 
 	let seperatorPosition;
-	rawMetaDataKeys = Object.keys(rawMetaData);
+	let rawMetaDataKeys = Object.keys(rawMetaData);
 
 	//first seperate marker and math
 	for (let i = 0; i < rawMetaDataKeys.length; i++) {
@@ -83,7 +108,7 @@ function divideMath(originMath) {
 	flatPartRaw[0] = originMath.slice(0);
 
 	/**divide numbers from the flatPart*/
-	for (n in flatPartRaw) {
+	for (let n in flatPartRaw) {
 		let currentFlatContent = flatPartRaw[n];
 		lastPosition = 0;
 
@@ -121,7 +146,7 @@ function divideMath(originMath) {
 
 	/**test if there is any unrecognized rest by deleting every known out of the origin*/
 
-	for (fp of flatPart) {
+	for (let fp of flatPart) {
 		originMath = originMath.replace(fp, '');
 	}
 

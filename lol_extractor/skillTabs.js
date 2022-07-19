@@ -1,4 +1,28 @@
 import * as extractorTools from './extractorTools.js';
+import * as tools from '../tools.js';
+
+const LOGSAVEPATH = './lol_extractor/champions/';
+const DATASAVEPATH = './data/champions/';
+
+export async function exSkillTabs() {
+	let championList = await tools.getChampionList();
+	for (let championName of championList) {
+		try {
+			//first load the data
+			let championData = await tools.loadJSONData(
+				`./data/champions/${championName}_data.json`
+			);
+
+			championData = await extractSkillTabs(championData);
+
+			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
+			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
+		} catch (err) {
+			console.log(err);
+			console.log('skilltab extraction failed at champion: ', championName);
+		}
+	}
+}
 
 export async function extractSkillTabs(championData) {
 	/** Extracts all skillTabs from a Champion, nether the less how many there are and divide it into markers % mathData (--> divideSkillTabs())

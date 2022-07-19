@@ -7,6 +7,8 @@ export async function getInGameData() {
 	//
 	//
 
+	console.log('_________________________\n');
+	console.log('scraping inGameData start\n');
 	let championList = await tools.getChampionList();
 
 	for (let championName of championList) {
@@ -158,4 +160,7 @@ export async function getInGameData() {
 			console.error('\n', err.stack, '\n');
 		}
 	}
+
+	console.log('scraping inGameData end\n');
+	console.log('-----------------------\n');
 }

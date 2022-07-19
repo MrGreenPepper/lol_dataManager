@@ -3,6 +3,8 @@ import { startBrowser } from './tools/browserControl.js';
 import puppeteer from 'puppeteer';
 
 export async function getItemData() {
+	console.log('____________________\n');
+	console.log('scraping items start\n');
 	let itemLinkList = await tools.getItemList();
 	// let itemLinkList = [
 	// 	[, 'https://leagueoflegends.fandom.com/wiki/Plated_Steelcaps'],
@@ -38,6 +40,10 @@ export async function getItemData() {
 		}
 	}
 	await tools.saveJSONData(scrapedItemList, './lol_scraper/data/scrapedItemList.json');
+	await tools.saveJSONData(scrapedItemList, './lol_scraper/data/scrapedItemList.json');
+
+	console.log('scraping items end\n');
+	console.log('----------------------\n');
 }
 
 function timer() {

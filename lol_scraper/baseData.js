@@ -2,7 +2,9 @@ import { startBrowser } from './tools/browserControl.js';
 import Puppeteer from 'puppeteer';
 import * as tools from '../tools.js';
 
-export default async function getBaseData() {
+export async function getBaseData() {
+	console.log('_______________________\n');
+	console.log('scrapping baseData start');
 	let url_baseStats = 'https://leagueoflegends.fandom.com/wiki/List_of_champions/Base_statistics';
 
 	const browser = await startBrowser();
@@ -31,7 +33,8 @@ export default async function getBaseData() {
 	await tools.saveJSONData(championNames, './lol_scraper/data/championList.json');
 
 	await browser.close();
-	console.log('scrapping baseData done');
+	console.log('scrapping baseData done\n');
+	console.log('-----------------------\n');
 	return;
 }
 

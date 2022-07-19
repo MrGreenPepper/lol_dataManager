@@ -4,7 +4,8 @@ let url_baseStats = 'https://leagueoflegends.fandom.com/wiki/List_of_champions/B
 
 export async function getAbilitiesData() {
 	// old:	let links = await getChampionLinks();
-
+	console.log('___________________________\n');
+	console.log('abilityData scrapingn start\n');
 	let championList = await tools.getChampionList();
 
 	for (let i = 0; i < championList.length; i++) {
@@ -14,9 +15,11 @@ export async function getAbilitiesData() {
 
 		await scrapeAbilitiesData(championData);
 	}
+	console.log('abilityData scraping end\n');
+	console.log('-------------------------\n');
 }
 async function scrapeAbilitiesData(championData) {
-	console.info('currentChampion: \t', championData.name);
+	console.info('\ncurrentChampion: \t', championData.name);
 	let baseUrl = 'https://leagueoflegends.fandom.com/wiki/';
 	let championName = championData.name;
 	let url = `${baseUrl}${championName}/LoL`;
