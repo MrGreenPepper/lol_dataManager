@@ -7,7 +7,7 @@ import * as scraper from './lol_scraper/scraper.js';
 
 let procedure = [
 	[0, 0, 0, 0, 0, 0],
-	[1, 0, 0, 0],
+	[1, 1, 1, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0],
 ];
 
@@ -34,7 +34,7 @@ await (async function scrappingProcedure() {
 		console.log('\n----------------------');
 	}
 })();
-
+//extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells
 await (async function extractProcedure() {
 	/**divides the data into basic parts, like text and numbers
 	 * some	of this tasks are already done while scraping here happens the rest
@@ -48,15 +48,19 @@ await (async function extractProcedure() {
 	 * -->	masteries
 	 *
 	 */
-	if (procedure[1][0] == true) await extractor.exMetaData();
-	if (procedure[1][1] == true) await extractor.exSkillTabs();
-	if (procedure[1][2] == true) await extractor.exSkillOrder();
-	if (procedure[1][3] == true) await extractor.exMasteries();
+	//resets the data by copieng the scraped_data into extraced_data 1 by 1
+	if (procedure[1][0] == true) await extractor.resetData();
+	if (procedure[1][1] == true) await extractor.exMetaData();
+	//TODO: saves it in a way thus it cant be reruned, current workaround by reseting the data everytime
+	if (procedure[1][2] == true) await extractor.exSkillTabs();
+	if (procedure[1][3] == true) await extractor.exSkillOrder();
+	if (procedure[1][4] == true) await extractor.exMasteries();
 	//	await extractor.extractChampionData();
 	//	await extractor.getTheFormulaData();
 	console.log('extracting	done:\t\t', procedure[1]);
 })();
 
+//extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells
 await (async function analysePrecudure() {
 	/**loads the championData and controls the anlyse sequence
 	 * analyse sequence:

@@ -1,7 +1,7 @@
 import * as extractorTools from './extractorTools.js';
 import * as tools from '../tools.js';
 
-const LOGSAVEPATH = './lol_extractor/champions/';
+const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exSkillTabs() {
@@ -33,8 +33,8 @@ export async function extractSkillTabs(championData) {
 	 */
 	//get the abilitynumbers first
 	console.log('\x1b[31m', championData.name, '\x1b[0m');
-
-	let abilityKeys = Object.keys(championData.abilities);
+	let championAbilities = championData.extracted_data.baseData.abilities;
+	let abilityKeys = Object.keys(championAbilities);
 	let abilityNumbers = abilityKeys.reduce((acc, element) => {
 		if (/[0-9]/g.test(element)) acc++;
 		return acc;
@@ -42,17 +42,17 @@ export async function extractSkillTabs(championData) {
 
 	for (let abNum = 0; abNum < abilityNumbers; abNum++) {
 		//console.log('textContent SkillTabs:');
-		let textContentCount = Object.keys(championData.abilities[abNum].textContent);
+		let textContentCount = Object.keys(championAbilities[abNum].textContent);
 		for (let textNum = 0; textNum < textContentCount.length; textNum++) {
 			//empty != undefined
-			if (championData.abilities[abNum].textContent[textNum].skillTabs != undefined) {
+			if (championAbilities[abNum].textContent[textNum].skillTabs != undefined) {
 				let textContentSkillTabCount = Object.keys(
-					championData.abilities[abNum].textContent[textNum].skillTabs
+					championAbilities[abNum].textContent[textNum].skillTabs
 				);
 				for (let sTNum = 0; sTNum < textContentSkillTabCount.length; sTNum++) {
-					championData.abilities[abNum].textContent[textNum].skillTabs[sTNum] =
+					championAbilities[abNum].textContent[textNum].skillTabs[sTNum] =
 						await divideSkillTabs(
-							championData.abilities[abNum].textContent[textNum].skillTabs[sTNum]
+							championAbilities[abNum].textContent[textNum].skillTabs[sTNum]
 						);
 				}
 			}
@@ -272,6 +272,7 @@ async function getScalingPositions(originSkillTabMath) {
 	let scalingParts = 0;
 	let scalingBrackets = 0;
 	let scalingScale = [];
+	let lastPosition = 0;
 	for (let i = 0; i < originSkillTabMath.length; i++) {
 		if (originSkillTabMath[i] == '(' && scalingBrackets > 0) {
 			scalingScale.push(i);
@@ -313,8 +314,8 @@ async function divideScalingPart(rawScalingPart) {
 	rawScalingPart = rawScalingPart.trim();
 	// now the actual division of the scalingPart numbers
 	// --> slicing at every '/' and at the end + cleaning afterwards
-	lastPosition = 0;
-	scalingTextSwap = false;
+	let lastPosition = 0;
+	let scalingTextSwap = false;
 	for (let n = 0; n < rawScalingPart.length; n++) {
 		if (extractorTools.isItMath(rawScalingPart[n]) == true && scalingTextSwap == false) {
 			if (rawScalingPart[n] == '/') {
@@ -379,7 +380,7 @@ async function divideMathFromSkillTabs(originSkillTabMath) {
 	//first some special cleaning
 	originSkillTabMath = originSkillTabMath.replace(/\「/g, '');
 	originSkillTabMath = originSkillTabMath.replace(/\」/g, '');
-	scalingPartPositions = await getScalingPositions(originSkillTabMath);
+	let scalingPartPositions = await getScalingPositions(originSkillTabMath);
 	//test if there is a scaling part, if there are parts splice them out --> the rest is the flatPart
 	if (scalingPartPositions.length > 0) {
 		scaling = true;

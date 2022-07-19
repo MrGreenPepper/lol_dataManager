@@ -22,12 +22,13 @@ export async function exMetaData() {
 			console.log('metaData extraction failed at champion: ', championName);
 		}
 	}
+	return;
 }
 
 export function extractMetaData(championData) {
 	let metaDataKeys = [];
 	let abilityKeys;
-	let baseAbilityData = JSON.parse(JSON.stringify(championData.scraped_data.baseData.abilities));
+	let baseAbilityData = championData.extracted_data.baseData.abilities;
 
 	abilityKeys = Object.keys(baseAbilityData);
 	abilityKeys.forEach((abilityKey) => {
@@ -40,6 +41,7 @@ export function extractMetaData(championData) {
 		baseAbilityData[metaKey].metaData = divideMetaData(baseAbilityData[metaKey].metaData);
 	});
 
+	//I know this line isnt necessary, but for better reading I keep it
 	championData.extracted_data.baseData.abilities = baseAbilityData;
 	return championData;
 }
