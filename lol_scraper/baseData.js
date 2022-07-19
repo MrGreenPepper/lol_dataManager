@@ -1,6 +1,6 @@
 import { startBrowser } from './tools/browserControl.js';
 import Puppeteer from 'puppeteer';
-import * as scraperTools from '../tools.js';
+import * as tools from '../tools.js';
 
 export default async function getBaseData() {
 	let url_baseStats = 'https://leagueoflegends.fandom.com/wiki/List_of_champions/Base_statistics';
@@ -27,10 +27,11 @@ export default async function getBaseData() {
 	//sorting the right values to the right keys
 	let baseData = assignData(tableContent, tableHeader, championNames);
 
-	await scraperTools.saveJSONData(baseData, './lol_scraper/data/baseData.json');
-	await scraperTools.saveJSONData(championNames, './lol_scraper/data/championList.json');
+	await tools.saveJSONData(baseData, './lol_scraper/data/baseData.json');
+	await tools.saveJSONData(championNames, './lol_scraper/data/championList.json');
 
 	await browser.close();
+	console.log('scrapping baseData done');
 	return;
 }
 

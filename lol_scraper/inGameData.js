@@ -25,17 +25,17 @@ export async function getInGameData() {
 			let championRawData = await page.evaluate(() => {
 				let champion = {};
 				champion.abilities = {};
-				champion.abilities.skillsOrder = {};
+				champion.abilities.skillOrder = {};
 				champion.items = {};
 				champion.masteries = {};
 
 				//Skill-Order:
-				let skillsOrderRaw = document.querySelectorAll('td.skillCell');
-				let skillsOrder = [];
+				let skillOrderRaw = document.querySelectorAll('td.skillCell');
+				let skillOrder = [];
 				for (let i = 0; i < 72; i++) {
-					skillsOrder[i] = skillsOrderRaw[i].innerText;
+					skillOrder[i] = skillOrderRaw[i].innerText;
 				}
-				champion.abilities.skillsOrder = skillsOrder;
+				champion.abilities.skillOrder = skillOrder;
 
 				//Items:
 				let startItems = [];
@@ -129,22 +129,29 @@ export async function getInGameData() {
 			});
 
 			await browser.close();
-			let championData = await tools.loadJSONData(
-				`./lol_scraper/data/champion_baseData/${championName}_data.json`
-			);
-			championData.scraped_data.inGameData.items = championRawData.items;
 
-			championData.scraped_data.inGameData.masteries = championRawData.masteries;
-			championData.scraped_data.inGameData.skillsOrder =
-				championRawData.abilities.skillsOrder;
-			championData.scraped_data.inGameData.summonerSpells = championRawData.summonerSpells;
-			let path = './scraper/data/' + championName + '_inGameData.json';
+			let newData = {};
+			newData.scraped_data = {};
+			newData.scraped_data.inGameData = {};
+
+			newData.scraped_data.inGameData.items = championRawData.items;
+			newData.scraped_data.inGameData.masteries = championRawData.masteries;
+			newData.scraped_data.inGameData.skillOrder = championRawData.abilities.skillOrder;
+			newData.scraped_data.inGameData.summonerSpells = championRawData.summonerSpells;
 
 			await tools.saveJSONData(
-				championData,
-				`./lol_scraper/data/champion_inGameData/${championData.name}_data.json`
+				newData,
+				`./lol_scraper/data/champions/inGameData/${newData.name}_data.json`
 			);
-			console.log('championData saved: ', path);
+
+			let oldData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
+			oldData.scraped_data.inGameData.items = championRawData.items;
+
+			oldData.scraped_data.inGameData.masteries = championRawData.masteries;
+			oldData.scraped_data.inGameData.skillOrder = championRawData.abilities.skillOrder;
+			oldData.scraped_data.inGameData.summonerSpells = championRawData.summonerSpells;
+			await tools.saveJSONData(oldData, `./data/champions/${championName}_data.json`);
+			console.log('inGameData saved: ', championName);
 		} catch (err) {
 			tools.reportError('failed scrapping inGameData', championName, err.message);
 			console.error('\nfailed scraping inGameData: \t', err.message);

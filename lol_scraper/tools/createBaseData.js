@@ -1,8 +1,8 @@
-import * as scraperTools from '../../tools.js';
+import * as tools from '../../tools.js';
 
 export async function createBaseChampionDataPool() {
-	const championList = await scraperTools.loadJSONData('./lol_scraper/data/championList.json');
-	const baseData = await scraperTools.loadJSONData('./lol_scraper/data/baseData.json');
+	const championList = await tools.loadJSONData('./lol_scraper/data/championList.json');
+	const baseData = await tools.loadJSONData('./lol_scraper/data/baseData.json');
 
 	try {
 		for (let i = 0; i < championList.length; i++) {
@@ -16,7 +16,7 @@ export async function createBaseChampionDataPool() {
 			championData.scraped_data.baseData.abilities = {};
 			championData.scraped_data.inGameData = {};
 			championData.scraped_data.inGameData.items = {};
-			championData.scraped_data.inGameData.skillsOrder = {};
+			championData.scraped_data.inGameData.skillOrder = {};
 			championData.scraped_data.inGameData.masteries = {};
 
 			championData.extracted_data = {};
@@ -25,7 +25,7 @@ export async function createBaseChampionDataPool() {
 			championData.extracted_data.baseData.abilities = {};
 			championData.extracted_data.inGameData = {};
 			championData.extracted_data.inGameData.items = {};
-			championData.extracted_data.inGameData.skillsOrder = {};
+			championData.extracted_data.inGameData.skillOrder = {};
 			championData.extracted_data.inGameData.masteries = {};
 			championData.extracted_data.inGameData.summonerSpells = {};
 
@@ -39,15 +39,20 @@ export async function createBaseChampionDataPool() {
 					championData.calculated_data[level][abilityKey].dps = {};
 				}
 			}
-
-			saveJSONData(
+			//save	the	origin	data
+			tools.saveJSONData(
 				championData,
-				`./lol_scraper/data/champion_baseData/${championData.name}_data.json`
+				`./lol_scraper/data/champions/baseData/${championData.name}_data.json`
 			);
+
+			//save the data for later merge
+			tools.saveJSONData(championData, `./data/champions/${championData.name}_data.json`);
 		}
 	} catch (err) {
 		console.error(err);
-		scraperTools.reportError('creating baseData', championData.name, err.message);
+		tools.reportError('creating baseData', championData.name, err.message);
 	}
+	console.log('creating baseData pool done');
+
 	return;
 }

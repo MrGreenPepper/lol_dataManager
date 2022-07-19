@@ -4,9 +4,11 @@ import { getInGameData } from './lol_scraper/inGameData.js';
 import { getItemData } from './lol_scraper/itemData.js';
 import { createBaseChampionDataPool } from './lol_scraper/tools/createBaseData.js';
 import * as tools from './tools.js';
-
+import * as markerTools from './lol_analyser/marker/markerTools.js';
+import extractor from './lol_extractor/extractor.js';
 let procedure = [
 	[false, false, false, false, false],
+	[true, true, true, true],
 	[false, false, false, false, false, false, false],
 ];
 
@@ -26,7 +28,30 @@ await (async function scrappingProcedure() {
 	// everyItem independent from the champions, SCRAPPING + EXTRACT
 	if (procedure[0][4] == true) await getItemData();
 
-	console.log('scrapping done');
+	console.log('scrapping done:\t\t', procedure[0]);
+})();
+
+await (async function extractProcedure() {
+	/**divides the data into basic parts, like text and numbers
+	 * some	of this tasks are already done while scraping here happens the rest
+	 * +cleaning
+	 *
+	 * --baseData--
+	 * -->	abilities:	metaData+skillTabs
+	 *
+	 * --inGameData--
+	 * -->	skillOrder
+	 * -->	masteries
+	 *
+	 */
+
+	if (procedure[1][0] == true) await extractor.ex_metaData();
+	if (procedure[1][1] == true) await extractor.ex_skillTabs();
+	if (procedure[1][2] == true) await extractor.ex_skillOrder();
+	if (procedure[1][3] == true) await extractor.ex_masteries();
+	//	await extractor.extractChampionData();
+	//	await extractor.getTheFormulaData();
+	console.log('extracting	done:\t\t', procedure[1]);
 })();
 
 await (async function analysePrecudure() {
@@ -44,14 +69,14 @@ await (async function analysePrecudure() {
 	let championList = await tools.loadJSONData('./lol_scraper/data/championList.json');
 
 	for (let championName of championList) {
-		//i know the objects returns arent necessary but I like them for more clear structure
+		//i know the objects returns arent necessary but I like them for a cleaner structure
 		//1.
 		let championData = await tools.loadJSONData(
 			`./lol_scraper/data/champion_inGameData/${championName}_data.json`
 		);
 
 		//metaNumbers to float;
-		championData.scraped_data.baseData.abilities = await markerTools.metaNumbersToFloat(
+		championData.extracted_data.baseData.abilities = await markerTools.metaNumbersToFloat(
 			championData.scraped_data.baseData.abilities
 		);
 		//2.1
@@ -75,4 +100,6 @@ await (async function analysePrecudure() {
 		//7.
 		analyseTools.saveData(championData);
 	}
+
+	console.log('analysing done:\t\t', procedure[2]);
 })();
