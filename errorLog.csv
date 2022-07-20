@@ -2665,3 +2665,133 @@ show all markers,XinZhao,Cannot convert undefined or null to object,TypeError: C
     at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
     at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
     at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,AurelionSol,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,Dr.Mundo,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,JarvanIV,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,Kled&Skaarl,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,LeeSin,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,MasterYi,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,MegaGnar,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,MissFortune,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,Nunu&Willump,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,RenataGlasc,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,TahmKench,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,TwistedFate,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+cleanAbilities()	- mark&delete skillTabMarkers,XinZhao,Cannot read properties of undefined (reading 'textContent'),TypeError: Cannot read properties of undefined (reading 'textContent')
+    at Module.markToIgnoreSkillTabMarkers (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:42:52)
+    at Module.cleanAbilities (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/analyse_abilities.js:13:42)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:84:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,AurelionSol,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,Dr.Mundo,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,JarvanIV,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,Kled&Skaarl,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,LeeSin,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,MasterYi,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,MegaGnar,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,MissFortune,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,Nunu&Willump,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,RenataGlasc,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,TahmKench,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,TwistedFate,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1
+show all markers,XinZhao,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_analyser/marker/markerTools.js:12:29)
+    at async analyseProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:85:23)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:82:1

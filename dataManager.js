@@ -9,7 +9,7 @@ import * as analyser from './lol_analyser/analyser.js';
 let procedure = [
 	[0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0],
-	[1, 1, 1, 1, 0, 0, 1],
+	[1, 1, 1, 1],
 ];
 /**dataStorage:
  * every step saves the data twice ... once in the mainData folder and once in the minorData folder of the concerning program
