@@ -17,7 +17,7 @@ export async function resetData() {
 
 export async function createBackup() {
 	console.log('_____________________\n');
-	console.log('extractor backup start\n');
+	console.log('analyser backup start\n');
 	let championList = await tools.getChampionList();
 	for (let championName of championList) {
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
@@ -35,7 +35,7 @@ export async function createBackup() {
 			`./data/backup/lol_extractor/items/${itemName[0]}_data.json`
 		);
 	}
-	console.log('extractor backup end\n');
+	console.log('analyser backup end\n');
 	console.log('----------------------\n');
 	return;
 }
