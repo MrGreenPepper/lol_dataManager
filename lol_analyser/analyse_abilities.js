@@ -1,7 +1,7 @@
 import * as markerTools from './marker/markerTools.js';
 import * as tools from '../tools.js';
 
-export async function cleanAbilities() {
+export async function cleanSkillTabMarkers() {
 	let championList = await tools.getChampionList();
 	for (let championName of championList) {
 		console.log(championName);

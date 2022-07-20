@@ -81,7 +81,7 @@ await (async function extractProcedure() {
 //extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells, lösche bestimmte spells etc.
 await (async function analyseProcedure() {
 	if (procedure[2][0]) await analyser.resetData();
-	if (procedure[2][1]) await analyser.cleanAbilities();
+	if (procedure[2][1]) await analyser.cleanSkillTabMarkers();
 	if (procedure[2][2]) await analyser.showAllMarkerPositions();
 	if (procedure[2][3]) await analyser.createBackup();
 
