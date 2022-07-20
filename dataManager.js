@@ -4,10 +4,11 @@ import * as tools from './tools.js';
 import * as markerTools from './lol_analyzer/marker/markerTools.js';
 import * as extractor from './lol_extractor/extractor.js';
 import * as scraper from './lol_scraper/scraper.js';
+import * as analyser from './lol_analyzer/analyzer.js';
 
 let procedure = [
 	[0, 0, 0, 0, 0, 0],
-	[1, 1, 1, 0, 0],
+	[1, 1, 1, 1, 0, 1],
 	[0, 0, 0, 0, 0, 0, 0],
 ];
 
@@ -51,62 +52,32 @@ await (async function extractProcedure() {
 	//resets the data by copieng the scraped_data into extraced_data 1 by 1
 	if (procedure[1][0] == true) await extractor.resetData();
 	if (procedure[1][1] == true) await extractor.exMetaData();
-	//TODO: saves it in a way thus it cant be reruned, current workaround by reseting the data everytime
+	//TODO: saves it in a way thus it cant be reruned, current workaround by reseting the data everytime, maybe just do kind of error handling
 	if (procedure[1][2] == true) await extractor.exSkillTabs();
 	if (procedure[1][3] == true) await extractor.exSkillOrder();
+	//TODO: masteries
 	if (procedure[1][4] == true) await extractor.exMasteries();
+	if (procedure[1][5] == true) await extractor.createBackup();
+
 	//	await extractor.extractChampionData();
 	//	await extractor.getTheFormulaData();
-	console.log('extracting	done:\t\t', procedure[1]);
+	if (procedure[1].includes(1)) {
+		console.log('extracting done:\t\t', procedure[0]);
+		console.log('\n----------------------');
+	}
 })();
 
+//2.1
+if (procedure[2][2])
+	championData.abilities.skillTabs = await markerTools.createSkillTabArray(
+		championData.abilities
+	);
+//all mathStrings to Math;
+// championData.abilities = await markerTools.allStringsToMath(championData.abilities);
+//3.
+if (procedure[2][3])
+	championData.abilities = await analyseTools.cleanAbilities(championData.abilities);
 //extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells
 await (async function analysePrecudure() {
-	/**loads the championData and controls the anlyse sequence
-	 * analyse sequence:
-	 * 1. load the championDatat
-
-	 * 3. cleanUp the abilitiesData
-	 * 4. unify markers
-	 * 5. checks if there are any unknown markers
-	 * 6. summaries and the abilities and their markers
-	 * 7. saves the data
-	 */
-
-	let championList = await tools.loadJSONData('./lol_scraper/data/championList.json');
-
-	for (let championName of championList) {
-		//i know the objects returns arent necessary but I like them for a cleaner structure
-		//1.
-		let championData = await tools.loadJSONData(
-			`./lol_scraper/data/champions/inGameData/${championName}_data.json`
-		);
-
-		//metaNumbers to float;
-		championData.extracted_data.baseData.abilities = await markerTools.metaNumbersToFloat(
-			championData.scraped_data.baseData.abilities
-		);
-		//2.1
-		championData.abilities.skillTabs = await markerTools.createSkillTabArray(
-			championData.abilities
-		);
-		//all mathStrings to Math;
-		// championData.abilities = await markerTools.allStringsToMath(championData.abilities);
-		//3.
-		championData.abilities = await analyseTools.cleanAbilities(championData.abilities);
-		//4.
-		championData.abilities = await unifyMarkers.start(championData.abilities);
-
-		//5.
-		await checkMarkers.start(championData.abilities);
-
-		//5.2
-		await markerTools.showAllMarkerPositions(championData.abilities);
-		//6.
-		championData.abilities = await summariesAbilities.start(championData.abilities);
-		//7.
-		analyseTools.saveData(championData);
-	}
-
 	console.log('analysing done:\t\t', procedure[2]);
 })();

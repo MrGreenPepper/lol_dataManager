@@ -1,6 +1,6 @@
 import * as tools from '../tools.js';
 
-const LOGSAVEPATH = './lol_extractor/champions/';
+const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exSkillOrder() {
@@ -24,10 +24,11 @@ export async function exSkillOrder() {
 }
 
 async function extractSkillOrder(championData) {
-	let qOrder = championData.abilities.skillsOrder.slice(0, 18);
-	let wOrder = championData.abilities.skillsOrder.slice(18, 36);
-	let eOrder = championData.abilities.skillsOrder.slice(36, 54);
-	let rOrder = championData.abilities.skillsOrder.slice(54, 72);
+	let scrapedSkillOrder = [...championData.scraped_data.inGameData.skillOrder];
+	let qOrder = scrapedSkillOrder.slice(0, 18);
+	let wOrder = scrapedSkillOrder.slice(18, 36);
+	let eOrder = scrapedSkillOrder.slice(36, 54);
+	let rOrder = scrapedSkillOrder.slice(54, 72);
 	let skillOrder = [];
 	for (let i = 0; i < 18; i++) {
 		if (qOrder[i] != '') {
@@ -43,6 +44,6 @@ async function extractSkillOrder(championData) {
 			skillOrder.push('R');
 		}
 	}
-	championData.abilities.skillsOrder = skillOrder;
+	championData.extracted_data.inGameData.skillOrder = skillOrder;
 	return championData;
 }

@@ -1,5 +1,7 @@
 import * as extractorTools from './extractorTools.js';
 import * as tools from '../tools.js';
+import * as markerTools from './marker/markerTools.js';
+import * as cleaner from './cleaner.js';
 
 const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
@@ -13,7 +15,9 @@ export async function exSkillTabs() {
 				`./data/champions/${championName}_data.json`
 			);
 
+			/** TASKS */
 			championData = await extractSkillTabs(championData);
+			championData = await createSkillTabArrays(championData);
 
 			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
 			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
@@ -65,7 +69,8 @@ export async function extractSkillTabs(championData) {
 }
 
 async function divideSkillTabs(skillTab) {
-	if (skillTab == undefined || skillTab == '') {
+	//skillTab.content == undefined if already extracted
+	if (skillTab == undefined || skillTab == '' || skillTab.content == undefined) {
 		return skillTab;
 	}
 
@@ -107,6 +112,7 @@ async function divideSkillTabs(skillTab) {
 		'slow',
 		'stealth duration',
 	];
+	//TODO
 	let markers_bonusStats = ['reset', 'energy restored', 'mana refund'];
 	let markers = [];
 	markers.push(...markers_dmg, ...markers_def, ...markers_utility);
@@ -122,12 +128,12 @@ async function divideSkillTabs(skillTab) {
 	tab.push(skillTab.marker);
 	tab.push(skillTab.content);
 	skillTabContent.origin = tab;
-	skillTab.marker = extractorTools.cleanText(skillTab.marker);
+	skillTab.marker = cleaner.cleanText(skillTab.marker);
 
 	skillTab.content = skillTab.content.replace(/\:/g, '');
 	skillTab.content = await divideMathFromSkillTabs(skillTab.content);
 
-	skillTab.content = await cleanMathContent(skillTab.content);
+	skillTab.content = await cleaner.cleanMathContent(skillTab.content);
 
 	skillTabContent.marker = skillTab.marker;
 	skillTabContent.math = skillTab.content;
@@ -540,37 +546,113 @@ async function divideMathFromSkillTabs(originSkillTabMath) {
 	return skillTabMath;
 }
 
-async function cleanMathContent(skillTabMath) {
-	await loopToTheLast(skillTabMath, cleanString);
-	return skillTabMath;
+export async function createSkillTabArrays(championData) {
+	/**reads out all NOT-EMPTY skillTabs, assigns the concerning text and metaData to it */
+
+	let championAbilities = championData.extracted_data.baseData.abilities;
+	let skillTabArray = [];
+	championAbilities.skillTabs = [];
+	for (let i = 0; i < 5; i++) {
+		let currentAbility = championAbilities[i];
+		currentAbility = await cleaner.cleanEmptyTextContent(currentAbility);
+
+		skillTabArray.push(await allSkillTabsToArray(currentAbility));
+	}
+	championAbilities.skillTabs = skillTabArray;
+	return championData;
 }
 
-async function loopToTheLast(multiArray, targetFunction) {
-	if (typeof multiArray === 'object' && multiArray !== null) {
-		let objKeys = Object.keys(multiArray);
-		for (let o = 0; o < objKeys.length; o++) {
-			multiArray[objKeys[o]] = await loopToTheLast(multiArray[objKeys[o]], targetFunction);
+async function allSkillTabsToArray(currentAbility) {
+	/** - reshapes all skillTabs from one ability to an array,
+	 *  - skillTabs from one textContent stays together
+	 *  - COPIES BY VALUE NOT BY REFERENCE!*/
+	let skillTabArray = [];
+
+	let textContentKeys = Object.keys(currentAbility.textContent);
+
+	try {
+		for (let textKey of textContentKeys) {
+			let subSkillTabArray = [];
+			let skillTabKeys = Object.keys(currentAbility.textContent[textKey].skillTabs);
+			for (var sTK of skillTabKeys) {
+				let currentSkillTab = currentAbility.textContent[textKey].skillTabs[sTK];
+				let copyOfSkillTab = { ...currentSkillTab };
+				// let copyOfSkillTab = await tools.copyObjectByValue(currentSkillTab);
+				// copyOfSkillTab.marker = 'test';
+				copyOfSkillTab.concerningText = currentAbility.textContent[textKey].text;
+				copyOfSkillTab.concerningMeta = currentAbility.metaData;
+				copyOfSkillTab = await numbersToFloat(copyOfSkillTab);
+				subSkillTabArray.push(copyOfSkillTab);
+			}
+			if (subSkillTabArray.length > 0) {
+				skillTabArray.push(subSkillTabArray);
+			}
 		}
+	} catch (err) {
+		console.log(err);
+		console.log(currentAbility);
 	}
 
-	if (typeof multiArray === 'string' || multiArray instanceof String) {
-		return cleanString(multiArray);
-	} else {
-		return multiArray;
-	}
+	return skillTabArray;
 }
-function cleanString(math) {
-	return new Promise((resolve) => {
-		if (math.length > 0) {
-			math = math.trim();
-			math = math.replace(':', '');
-			math = math.replace('«', '');
-			math = math.replace('»', '');
 
-			return resolve(math);
-		} else {
-			return resolve(math);
+async function applyToAllSkillTabs(skillTabs, applyFunction) {
+	/** applies a function to every single skillTab
+	 *
+	 * @param {object} skillTabs - kind of array out of skillTabs in form of an object
+	 * @param {function} applyFunction - function which is applied to every single skillTab
+	 *
+	 * @returns {object} skillTabs - modified skillTabsArray
+	 */
+	let abilityKeys = Object.keys(skillTabs);
+	try {
+		for (var i of abilityKeys) {
+			let currentAbility = skillTabs[i];
+			for (let n = 0; n < currentAbility.length; n++) {
+				let currentContent = currentAbility[n];
+				for (let c = 0; c < currentContent.length; c++) {
+					skillTabs[i][n][c] = await applyFunction(currentContent[c]);
+				}
+			}
 		}
-	});
+	} catch (err) {
+		console.log(err);
+		console.log(skillTabs);
+	}
+	return skillTabs;
 }
-function checkTheUpComing() {}
+
+async function numbersToFloat(skillTab) {
+	/** transforms all numbers in strings to actual floatNumbers */
+	//first all flatValues
+	try {
+		skillTab.math.flatPart = skillTab.math.flatPart.map((currentNumber) => {
+			return parseFloat(currentNumber);
+		});
+	} catch (err) {
+		console.log('%cno flatPart for parseFloat', 'color: grey');
+	}
+	try {
+		//second all scalingValues
+
+		//check for multiScaling
+		for (let i = 0; i < skillTab.math.scalingPart.length; i++) {
+			let currentScalingPart = skillTab.math.scalingPart[i];
+
+			if (Array.isArray(currentScalingPart[1])) {
+				currentScalingPart = currentScalingPart.map((currentScalingPart) => {
+					currentScalingPart[0] = currentScalingPart[0].map((currentNumber) => {
+						return parseFloat(currentNumber);
+					});
+				});
+			} else {
+				currentScalingPart[0] = currentScalingPart[0].map((currentNumber) => {
+					return parseFloat(currentNumber);
+				});
+			}
+		}
+	} catch (err) {
+		console.log('%cno scalingPart for parseFloat', 'color: grey');
+	}
+	return skillTab;
+}

@@ -1,5 +1,7 @@
 import * as extractorTools from './extractorTools.js';
 import * as tools from '../tools.js';
+import * as markerTools from './marker/markerTools.js';
+import * as cleaner from './cleaner.js';
 
 const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
@@ -7,6 +9,7 @@ const DATASAVEPATH = './data/champions/';
 export async function exMetaData() {
 	let championList = await tools.getChampionList();
 	for (let championName of championList) {
+		console.log('\n\n ', championName);
 		try {
 			//first load the data
 			let championData = await tools.loadJSONData(
@@ -14,6 +17,7 @@ export async function exMetaData() {
 			);
 
 			championData = await extractMetaData(championData);
+			championData = await metaNumbersToFloat(championData);
 
 			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_metaData.json`);
 			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
@@ -61,8 +65,8 @@ function divideMetaData(rawMetaData) {
 		seperatorPosition = currentMetaDataString.indexOf(':');
 		marker = rawMetaData[rawMetaDataKeys[i]].slice(0, seperatorPosition);
 		mathRaw = rawMetaData[rawMetaDataKeys[i]].slice(seperatorPosition);
-		marker = extractorTools.firstClean(marker);
-		mathRaw = extractorTools.firstClean(mathRaw);
+		marker = cleaner.firstClean(marker);
+		mathRaw = cleaner.firstClean(mathRaw);
 		metaData[rawMetaDataKeys[i]] = {};
 		metaData[rawMetaDataKeys[i]].marker = marker;
 		metaData[rawMetaDataKeys[i]].math = mathRaw;
@@ -177,4 +181,24 @@ function divideMath(originMath) {
 	tabMath.undefindRest = undefinedRest;
 	//	console.log('undefined rest: ', undefinedRest);
 	return tabMath;
+}
+
+export async function metaNumbersToFloat(championData) {
+	let championAbilities = championData.extracted_data.baseData.abilities;
+	for (let i = 0; i < 5; i++) {
+		let currentAbility = championAbilities[i];
+
+		let metaKeys = Object.keys(currentAbility.metaData);
+
+		for (let currentMetaKey of metaKeys) {
+			let currentMetaData = currentAbility.metaData[currentMetaKey];
+			if (Array.isArray(currentMetaData.math.flatPart))
+				currentMetaData.math.flatPart = currentMetaData.math.flatPart.map(
+					(currentFlatPart) => {
+						return parseFloat(currentFlatPart);
+					}
+				);
+		}
+	}
+	return championData;
 }
