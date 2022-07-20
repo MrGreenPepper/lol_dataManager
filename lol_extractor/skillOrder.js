@@ -7,6 +7,7 @@ export async function exSkillOrder() {
 	let championList = await tools.getChampionList();
 	for (let championName of championList) {
 		try {
+			console.log('\n\t', championName);
 			//first load the data
 			let championData = await tools.loadJSONData(
 				`./data/champions/${championName}_data.json`
@@ -19,6 +20,7 @@ export async function exSkillOrder() {
 		} catch (err) {
 			console.log(err);
 			console.log('skillOrder extraction failed at champion: ', championName);
+			tools.reportError('skillOrder extraction failed', championName, err.message, err.stack);
 		}
 	}
 }

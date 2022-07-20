@@ -1,16 +1,23 @@
 //import getBaseData from './lol_scraper/baseData.js';
 
 import * as tools from './tools.js';
-import * as markerTools from './lol_analyzer/marker/markerTools.js';
+import * as markerTools from './lol_analyser/marker/markerTools.js';
 import * as extractor from './lol_extractor/extractor.js';
 import * as scraper from './lol_scraper/scraper.js';
-import * as analyser from './lol_analyzer/analyzer.js';
+import * as analyser from './lol_analyser/analyser.js';
 
 let procedure = [
 	[0, 0, 0, 0, 0, 0],
-	[1, 1, 1, 1, 0, 1],
 	[0, 0, 0, 0, 0, 0, 0],
+	[1, 1, 1, 1, 0, 0, 1],
 ];
+/**dataStorage:
+ * every step saves the data twice ... once in the mainData folder and once in the minorData folder of the concerning program
+ * every step opens the data from the mainData folder - the minor folder in every program is just kinda log
+ *
+ * the reset() functions:
+ * overides the data of the current program with the data from the last program
+ */
 
 await (async function scrappingProcedure() {
 	//list of champions and there baseStats for every single one
@@ -35,7 +42,8 @@ await (async function scrappingProcedure() {
 		console.log('\n----------------------');
 	}
 })();
-//extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells
+
+//extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells, lösche bestimmte spells etc.
 await (async function extractProcedure() {
 	/**divides the data into basic parts, like text and numbers
 	 * some	of this tasks are already done while scraping here happens the rest
@@ -57,7 +65,10 @@ await (async function extractProcedure() {
 	if (procedure[1][3] == true) await extractor.exSkillOrder();
 	//TODO: masteries
 	if (procedure[1][4] == true) await extractor.exMasteries();
-	if (procedure[1][5] == true) await extractor.createBackup();
+	//TODO: items
+	if (procedure[1][5] == true) await extractor.exItems();
+
+	if (procedure[1][6] == true) await extractor.createBackup();
 
 	//	await extractor.extractChampionData();
 	//	await extractor.getTheFormulaData();
@@ -67,17 +78,12 @@ await (async function extractProcedure() {
 	}
 })();
 
-//2.1
-if (procedure[2][2])
-	championData.abilities.skillTabs = await markerTools.createSkillTabArray(
-		championData.abilities
-	);
-//all mathStrings to Math;
-// championData.abilities = await markerTools.allStringsToMath(championData.abilities);
-//3.
-if (procedure[2][3])
-	championData.abilities = await analyseTools.cleanAbilities(championData.abilities);
-//extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells
-await (async function analysePrecudure() {
-	console.log('analysing done:\t\t', procedure[2]);
+//extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells, lösche bestimmte spells etc.
+await (async function analyseProcedure() {
+	if (procedure[2][0]) await analyser.resetData();
+	if (procedure[2][1]) await analyser.cleanAbilities();
+	if (procedure[2][2]) await analyser.showAllMarkerPositions();
+	if (procedure[2][3]) await analyser.createBackup();
+
+	if (procedure[2].includes(1)) console.log('analysing done:\t\t', procedure[2]);
 })();

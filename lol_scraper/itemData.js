@@ -30,6 +30,7 @@ export async function getItemData() {
 				itemRawData,
 				`./lol_scraper/data/itemData/${itemRawData.name}_data.json`
 			);
+			await tools.saveJSONData(itemRawData, `./data/items/${itemRawData.name}_data.json`);
 			scrapedItemList.push(itemRawData.name);
 			console.info('scraped item: \t', itemRawData.name);
 			console.info(itemNumber, '  of  ', itemLinkList.length, '  done');
@@ -39,7 +40,6 @@ export async function getItemData() {
 			console.log(itemLink);
 		}
 	}
-	await tools.saveJSONData(scrapedItemList, './lol_scraper/data/scrapedItemList.json');
 	await tools.saveJSONData(scrapedItemList, './lol_scraper/data/scrapedItemList.json');
 
 	console.log('scraping items end\n');

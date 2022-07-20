@@ -41,14 +41,14 @@ export async function getChampionList() {
 	return championList;
 }
 
-export async function reportError(category, championName, errorMessage) {
+export async function reportError(category, championName, errorMessage, errorStack) {
 	let errorLog = await loadCSVData('./errorLog.csv');
 	errorMessage = errorMessage.replaceAll('\n', 'N');
 	errorMessage = errorMessage.replaceAll(',', '.');
 
 	//check if error already has been logged
 	let alreadyLogged = false;
-	let currentErrorArray = [category, championName, errorMessage];
+	let currentErrorArray = [category, championName, errorMessage, errorStack];
 	errorLog.map((currentElement) => {
 		if (arraysEqual(currentElement, currentErrorArray)) alreadyLogged = true;
 	});
@@ -130,4 +130,31 @@ export async function getItemList() {
 	// console.log('bp');
 	await browser.close();
 	return rawData;
+}
+
+export async function applyToAllSkillTabs(skillTabs, applyFunction) {
+	/** applies a function to every single skillTab
+	 *
+	 * @param {object} skillTabs - kind of array out of skillTabs in form of an object
+	 * @param {function} applyFunction - function which is applied to every single skillTab
+	 *
+	 * @returns {object} skillTabs - modified skillTabsArray
+	 */
+	let abilityKeys = Object.keys(skillTabs);
+	try {
+		for (var i of abilityKeys) {
+			let currentAbility = skillTabs[i];
+			for (let n = 0; n < currentAbility.length; n++) {
+				let currentContent = currentAbility[n];
+				for (let c = 0; c < currentContent.length; c++) {
+					skillTabs[i][n][c] = await applyFunction(currentContent[c]);
+				}
+			}
+		}
+	} catch (err) {
+		console.log(err);
+		console.log(skillTabs);
+	}
+
+	return skillTabs;
 }

@@ -132,30 +132,27 @@ async function scrapeAbilitiesData(championData) {
 			}
 		});
 		await browser.close();
-		//save the new data on a seperate spot
-		let inGameData = {};
-		inGameData.scraped_data = {};
-		inGameData.scraped_data.baseData = {};
-		inGameData.scraped_data.baseData.abilities = {};
-		inGameData.scraped_data.baseData.baseStats = {};
-		inGameData.scraped_data.baseData.baseStats.windup = {};
 
-		inGameData.scraped_data.baseData.abilities = championRawData.abilities;
-		inGameData.scraped_data.baseData.baseStats.windup = championRawData.baseStats.windup;
+		championData.scraped_data.baseData.abilities = championRawData.abilities;
+		championData.scraped_data.baseData.baseStats.windup = championRawData.baseStats.windup;
+
+		//save the new data on a seperate spot
 		tools.saveJSONData(
-			inGameData,
+			championData,
 			`./lol_scraper/data/champions/baseData/${championData.name}_abilities.json`
 		);
 
-		//assign the data to the existing one
-		championData.scraped_data.baseData.abilities = championRawData.abilities;
-		championData.scraped_data.baseData.baseStats.windup = championRawData.baseStats.windup;
 		tools.saveJSONData(championData, `./data/champions/${championData.name}_data.json`);
 
 		//final message
 		console.log('abilitiesData saved: ', championData.name);
 	} catch (err) {
-		await tools.reportError(`scraping abilities failed`, championData.name, err.message);
+		await tools.reportError(
+			`scraping abilities failed`,
+			championData.name,
+			err.message,
+			err.stack
+		);
 
 		console.warn('champion failed: ', championData.name);
 		console.error(err);

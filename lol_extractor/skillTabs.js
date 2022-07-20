@@ -596,32 +596,6 @@ async function allSkillTabsToArray(currentAbility) {
 	return skillTabArray;
 }
 
-async function applyToAllSkillTabs(skillTabs, applyFunction) {
-	/** applies a function to every single skillTab
-	 *
-	 * @param {object} skillTabs - kind of array out of skillTabs in form of an object
-	 * @param {function} applyFunction - function which is applied to every single skillTab
-	 *
-	 * @returns {object} skillTabs - modified skillTabsArray
-	 */
-	let abilityKeys = Object.keys(skillTabs);
-	try {
-		for (var i of abilityKeys) {
-			let currentAbility = skillTabs[i];
-			for (let n = 0; n < currentAbility.length; n++) {
-				let currentContent = currentAbility[n];
-				for (let c = 0; c < currentContent.length; c++) {
-					skillTabs[i][n][c] = await applyFunction(currentContent[c]);
-				}
-			}
-		}
-	} catch (err) {
-		console.log(err);
-		console.log(skillTabs);
-	}
-	return skillTabs;
-}
-
 async function numbersToFloat(skillTab) {
 	/** transforms all numbers in strings to actual floatNumbers */
 	//first all flatValues

@@ -1,6 +1,5 @@
 import * as extractorTools from './extractorTools.js';
 import * as tools from '../tools.js';
-import * as markerTools from './marker/markerTools.js';
 import * as cleaner from './cleaner.js';
 
 const LOGSAVEPATH = './lol_extractor/data/champions/';

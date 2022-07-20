@@ -153,6 +153,10 @@ export async function getInGameData() {
 			oldData.scraped_data.inGameData.skillOrder = championRawData.abilities.skillOrder;
 			oldData.scraped_data.inGameData.summonerSpells = championRawData.summonerSpells;
 			await tools.saveJSONData(oldData, `./data/champions/${championName}_data.json`);
+			await tools.saveJSONData(
+				oldData,
+				`./lol_scraper/data/champions/inGameData/${championName}_data.json`
+			);
 			console.log('inGameData saved: ', championName);
 		} catch (err) {
 			tools.reportError('failed scrapping inGameData', championName, err.message);
