@@ -5,6 +5,7 @@ import puppeteer from 'puppeteer';
 export async function getItemData() {
 	console.log('____________________\n');
 	console.log('scraping items start\n');
+	let itemLinkList = await tools.getItemLinkList();
 	// let itemLinkList = [
 	// 	[, 'https://leagueoflegends.fandom.com/wiki/Plated_Steelcaps'],
 	// 	[, 'https://leagueoflegends.fandom.com/wiki/Prowler%27s_Claw'],
@@ -24,12 +25,12 @@ export async function getItemData() {
 
 		try {
 			itemRawData = await scrapeItemData(itemLink);
-
+			let saveName = tools.itemNameConverter(itemRawData.name);
 			await tools.saveJSONData(
 				itemRawData,
-				`./lol_scraper/data/itemData/${itemRawData.name}_data.json`
+				`./lol_scraper/data/itemData/${saveName}_data.json`
 			);
-			await tools.saveJSONData(itemRawData, `./data/items/${itemRawData.name}_data.json`);
+			await tools.saveJSONData(itemRawData, `./data/items/${saveName}_data.json`);
 			scrapedItemList.push(itemRawData.name);
 			console.info('scraped item: \t', itemRawData.name);
 			console.info(itemNumber, '  of  ', itemLinkList.length, '  done');

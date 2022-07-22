@@ -4,7 +4,8 @@ export async function unifyItems() {
 	let itemList = await tools.getItemList();
 	for (let itemName of itemList) {
 		try {
-			let itemData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
+			let loadName = tools.itemNameConverter(itemName);
+			let itemData = await tools.loadJSONData(`./data/items/${loadName}_data.json`);
 			try {
 				console.table(itemData.stats.values);
 				itemData.stats.values = await unifyMarkers(itemData.stats.values);
@@ -12,8 +13,8 @@ export async function unifyItems() {
 				console.log(error);
 			}
 
-			await tools.saveJSONData(itemData, `./data/items/${itemName}_data.json`);
-			await tools.saveJSONData(itemData, `./lol_analyser/data/items/${itemName}_data.json`);
+			await tools.saveJSONData(itemData, `./data/items/${loadName}_data.json`);
+			await tools.saveJSONData(itemData, `./lol_analyser/data/items/${loadName}_data.json`);
 		} catch (err) {
 			tools.reportError(
 				'lol_analyser - items.js: unify itemData failed',

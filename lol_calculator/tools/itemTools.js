@@ -1,6 +1,6 @@
 import fs from 'fs';
 import * as goldTools from './goldTools.js';
-
+import * as tools from '../../tools.js';
 const ITEMBASEPATH = './data/items/';
 export async function loadItems(itemNames) {
 	let itemData = {};
@@ -36,14 +36,15 @@ export async function loadItems(itemNames) {
 
 function loadItemData(itemName) {
 	return new Promise((resolve) => {
+		let loadName = tools.itemNameConverter(itemName);
 		try {
-			let loadPath = `${ITEMBASEPATH}${itemName}_data.json`;
-			//	let loadPath = `../lol_itemScraper/data/Blade of The ruined King_data.json`;
+			let loadPath = `${ITEMBASEPATH}${loadName}_data.json`;
+			//loadPath = `./data/items/BladeoftheRuinedKing_data.json`;
 			//console.log(loadPath);
 			let itemData = JSON.parse(fs.readFileSync(loadPath, 'utf8'));
 			resolve(itemData);
 		} catch (error) {
-			console.log('cant load item: \t', itemName, '\terror:\t', error);
+			console.error('\ncant load item: \t', itemName, error);
 		}
 	});
 }

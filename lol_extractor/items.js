@@ -18,8 +18,9 @@ export async function exItems() {
 	let itemList = await tools.getItemList();
 	for (let itemName of itemList) {
 		try {
+			let loadName = tools.itemNameConverter(itemName);
 			let rawData = await tools.loadJSONData(
-				`./lol_scraper/data/items/${itemName}_data.json`
+				`./lol_scraper/data/items/${loadName}_data.json`
 			);
 			let itemData = rawData;
 			try {
@@ -34,9 +35,10 @@ export async function exItems() {
 			} catch (error) {
 				console.log(error);
 			}
-			await tools.saveJSONData(itemData, `./data/items/${itemName}_data.json`);
-			await tools.saveJSONData(itemData, `./lol_extractor/data/items/${itemName}_data.json`);
+			await tools.saveJSONData(itemData, `./data/items/${loadName}_data.json`);
+			await tools.saveJSONData(itemData, `./lol_extractor/data/items/${loadName}_data.json`);
 		} catch (err) {
+			console.log(err);
 			tools.reportError('extracting itemData failed', itemName, err.message, err.stack);
 		}
 	}

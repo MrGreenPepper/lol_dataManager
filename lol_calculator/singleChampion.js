@@ -4,12 +4,18 @@ export async function singleChampion() {
 	let championList = await tools.getChampionList();
 	for (let championName of championList) {
 		try {
+			console.info('singleChampion.js:\t', championName);
 			let championA = await Champion.create(championName);
 			// await timer();
 			for (let i = 0; i < 18; i++) {
 				await championA.preCalculateFight(i);
 			}
 
+			tools.saveJSONData(championA, `./data/champions/${championName}_data.json`);
+			tools.saveJSONData(
+				championA,
+				`./lol_extractor/data/champions/${championName}_data.json`
+			);
 			await timer();
 		} catch (err) {
 			tools.reportError(

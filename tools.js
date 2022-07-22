@@ -1,8 +1,8 @@
 import fs from 'fs';
-import { startBrowser } from './lol_scraper/tools/browserControl.js';
+import puppeteer from 'puppeteer';
 
 export async function saveJSONData(data, url) {
-	await fs.writeFileSync(url, JSON.stringify(data));
+	await fs.writeFileSync(url, JSON.stringify(data), 'utf-8');
 	return;
 }
 
@@ -21,6 +21,7 @@ export async function saveCSVData(data, url) {
 }
 
 export async function loadJSONData(url) {
+	url = decodeURIComponent(url);
 	let data = await fs.readFileSync(url, 'utf-8');
 	return JSON.parse(data);
 }
@@ -45,7 +46,64 @@ export async function getItemList() {
 	let championList = await loadJSONData('./lol_scraper/data/scrapedItemList.json');
 	return championList;
 }
+export async function getItemLinkList() {
+	let url_itemList = 'https://leagueoflegends.fandom.com/wiki/List_of_items';
+	let itemLinkList = [];
+	let browser = await puppeteer.launch();
+	let page = await browser.newPage();
 
+	await page.goto(url_itemList);
+
+	itemLinkList = await page.evaluate(() => {
+		try {
+			let element = document.getElementById('stickyMenuWrapper');
+			let dtElements = element.querySelectorAll('dt');
+			console.log(dtElements);
+			console.log(element);
+			let listContainer = element.querySelectorAll('div#stickyMenuWrapper div.tlist a, dt');
+
+			console.log(listContainer);
+			let contentEnd = false;
+			// sort out all unecessary items
+			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
+				try {
+					if (currentElement.innerText.includes('Ornn')) contentEnd = true;
+				} catch (e) {}
+				return !contentEnd;
+			});
+			//sort out the markers, previously used for cutting unecessary items out
+
+			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
+				console.log(currentElement.localName);
+				if (currentElement.localName == 'dt') return false;
+				else return true;
+			});
+			console.log(listContainer);
+			let linkList = [];
+
+			for (element of listContainer) {
+				let itemName = element.querySelector('img');
+				itemName = itemName.getAttribute('alt');
+				itemName = itemName.replace('.png', '');
+				itemName = itemName.replace(/item/g, '');
+				itemName = itemName.replace(/Item/g, '');
+				itemName = itemName.replace(/\)/g, '');
+				itemName = itemName.replace(/\(/g, '');
+				itemName = itemName.trim();
+
+				// console.log(itemName);
+
+				linkList.push([itemName, element.href]);
+			}
+			return linkList;
+		} catch (err) {
+			console.log(err);
+		}
+	});
+	// console.log('bp');
+	await browser.close();
+	return itemLinkList;
+}
 export async function reportError(category, championName, errorMessage, errorStack) {
 	let errorLog = await loadCSVData('./errorLog.csv');
 	errorMessage = errorMessage.replaceAll('\n', 'N');
@@ -60,6 +118,11 @@ export async function reportError(category, championName, errorMessage, errorSta
 	if (!alreadyLogged) errorLog.push(currentErrorArray);
 	await saveCSVData(errorLog, './errorLog.csv');
 	return;
+}
+
+export function itemNameConverter(itemName) {
+	itemName = itemName.replaceAll(' ', '');
+	return itemName;
 }
 
 function arraysEqual(a, b) {
