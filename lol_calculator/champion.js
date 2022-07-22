@@ -72,14 +72,14 @@ class Champion {
 	async calculateBaseCombatStats() {
 		/** calculate the rotation and dpsjdamage of all levels */
 		let champLevel = this.championLevel;
-		let baseStats = this.analysed_data.baseData.baseStats;
+		let baseStats = this.calculated_data.baseData.baseStats;
 		this.soloCalc[`level${this.championLevel}`].myStats = {};
 		let myStats = {};
 		myStats.championLevel = this.championLevel;
 		myStats.ap = 0;
 		myStats.baseAD = baseStats.ad + baseStats.ad_plus * champLevel;
 		myStats.ad = baseStats.ad + baseStats.ad_plus * champLevel;
-		myStats.attackRange = baseStats.ar + baseStats.ar_plus * champLevel;
+		//TODO: ?--> myStats.attackRange = baseStats.ar + baseStats.ar_plus * champLevel;
 		myStats.attackSpeed = baseStats.as + baseStats.as_plus * champLevel;
 		myStats.hp = baseStats.hp + baseStats.hp_plus * champLevel;
 		myStats.hp5 = baseStats.hp5 + baseStats.hp5_plus * champLevel;
@@ -237,13 +237,7 @@ class Champion {
 						currentBaseStats[currentCategory] += summedItemStats[currentCategory];
 						break;
 
-					default:
-						console.log('cant add itemStat: ', currentCategory);
-				}
-			});
-			// add percentValues
-			statsCategories.forEach((currentCategory) => {
-				switch (currentCategory) {
+					// add percentValues
 					case 'hp5_percent':
 						currentBaseStats.hp5 +=
 							(summedItemStats[currentCategory] / 100) * currentBaseStats.hp5;
@@ -254,9 +248,10 @@ class Champion {
 							currentBaseStats.movementSpeed;
 						break;
 					default:
-					// console.log('cant add itemStat: ', currentCategory);
+						console.log('cant add itemStat: ', currentCategory);
 				}
 			});
+
 			//TODO: calculate fight stats (ABILITIES!!!, potions, masteries etc.)
 		} catch (err) {
 			console.log('cant get items: ', err);

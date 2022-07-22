@@ -35,39 +35,48 @@ export async function loadItems(itemNames) {
 }
 
 function loadItemData(itemName) {
-	return new Promise((resolve) => {
+	return new Promise((resolve, reject) => {
 		let loadName = tools.itemNameConverter(itemName);
+
 		try {
 			let loadPath = `${ITEMBASEPATH}${loadName}_data.json`;
 			//loadPath = `./data/items/BladeoftheRuinedKing_data.json`;
 			//console.log(loadPath);
-			let itemData = JSON.parse(fs.readFileSync(loadPath, 'utf8'));
+			let itemData = JSON.parse(fs.readFileSync(loadPath, { encoding: 'utf-8' }));
 			resolve(itemData);
 		} catch (error) {
-			console.error('\ncant load item: \t', itemName, error);
+			console.error('\ncant load item: \t', itemName, '\n', error);
+			reject(error);
 		}
 	});
 }
 
 async function getItemPrice(item) {
-	let recipe = item.recipe;
-	let recipeKeys = Object.keys(item.recipe);
-	let itemCosts = 0;
-	for (let key of recipeKeys) {
-		try {
-			for (let i = 0; i < recipe[key].length; i++) {
-				if (recipe[key][i].includes('Cost')) itemCosts = recipe[key][i][1];
-			}
-		} catch (err) {}
-	}
+	try {
+		let recipe = item.recipe;
+		let recipeKeys = Object.keys(item.recipe);
+		let itemCosts = 0;
+		for (let key of recipeKeys) {
+			try {
+				for (let i = 0; i < recipe[key].length; i++) {
+					if (recipe[key][i].includes('Cost')) itemCosts = recipe[key][i][1];
+				}
+			} catch (err) {}
+		}
 
-	if (itemCosts.includes('Special')) {
-		return 0;
-	} else {
-		itemCosts = itemCosts.trim();
-		itemCosts = parseInt(itemCosts);
+		if (itemCosts.includes('Special')) {
+			return 0;
+		} else {
+			itemCosts = itemCosts.trim();
+			itemCosts = parseInt(itemCosts);
 
-		return itemCosts;
+			return itemCosts;
+		}
+	} catch (err) {
+		console.log('cant get recipe:\t', item);
+		tools.reportError('cant get recipe', item, err.message, err.stack);
+		console.log(err);
+		//throw err;
 	}
 }
 
@@ -82,6 +91,7 @@ async function getPartedItems(itemList) {
 			itemList = [itemList];
 		}
 		//get all all containing items from the list
+		console.log(error);
 
 		//check which items have a buildingPath
 
@@ -204,6 +214,7 @@ async function checkBuyFullItem(boughtItems, item, goldAmount) {
 			return Promise.resolve([boughtItems, item, goldAmount - itemPrice]);
 		} else return Promise.reject([boughtItems, item, goldAmount]);
 	} catch (error) {
+		console.log('\n cant check fullbuy on item: \t', item);
 		console.log(error);
 		return Promise.reject([boughtItems, item, goldAmount]);
 	}

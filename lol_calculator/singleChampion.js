@@ -22,7 +22,7 @@ export async function singleChampion() {
 				'singleChampions.js: calculate singleChampion error',
 				championName,
 				err.message,
-				err.message
+				err.stack
 			);
 			console.warn('singleChampions.js: \tcalculate singleChampion error', championName);
 			console.log(err);

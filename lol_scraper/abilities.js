@@ -133,6 +133,10 @@ async function scrapeAbilitiesData(championData) {
 		});
 		await browser.close();
 
+		//quick convert of the windup
+		championRawData.baseStats.windup = championRawData.baseStats.windup.replaceAll('%', '');
+		championRawData.baseStats.windup = championRawData.baseStats.windup.replaceAll(' ', '');
+		championRawData.baseStats.windup = parseFloat(championRawData.baseStats.windup);
 		championData.scraped_data.baseData.abilities = championRawData.abilities;
 		championData.scraped_data.baseData.baseStats.windup = championRawData.baseStats.windup;
 

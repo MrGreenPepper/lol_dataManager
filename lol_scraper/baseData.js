@@ -16,6 +16,8 @@ export async function getBaseData() {
 	let tableHeader = await page.$eval('table thead', (tds) => tds.innerText);
 	tableHeader = tableHeader.split('\t');
 	tableHeader = tableHeader.map((currentElement) => currentElement.replaceAll('\n', ''));
+	tableHeader = tableHeader.map((currentElement) => currentElement.toLowerCase());
+	tableHeader = tableHeader.map((currentElement) => currentElement.replaceAll('+', '_plus'));
 
 	//tableContent
 	let tableContent = await page.$$eval('table tr td', (tds) => tds.map((td) => td.innerText));

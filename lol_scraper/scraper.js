@@ -19,10 +19,10 @@ export async function createBackup() {
 
 	let itemList = await tools.getItemList();
 	for (let itemName of itemList) {
-		let championData = await tools.loadJSONData(`./data/items/${itemName[0]}_data.json`);
+		let championData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
 		await tools.saveJSONData(
 			championData,
-			`./data/backup/lol_scraper/items/${itemName[0]}_data.json`
+			`./data/backup/lol_scraper/items/${itemName}_data.json`
 		);
 	}
 	console.log('scraper backup end\n');

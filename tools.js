@@ -43,8 +43,8 @@ export async function getChampionList() {
 }
 
 export async function getItemList() {
-	let championList = await loadJSONData('./lol_scraper/data/scrapedItemList.json');
-	return championList;
+	let itemList = await loadJSONData('./lol_scraper/data/scrapedItemList.json');
+	return itemList;
 }
 export async function getItemLinkList() {
 	let url_itemList = 'https://leagueoflegends.fandom.com/wiki/List_of_items';
@@ -121,7 +121,16 @@ export async function reportError(category, championName, errorMessage, errorSta
 }
 
 export function itemNameConverter(itemName) {
-	itemName = itemName.replaceAll(' ', '');
+	try {
+		//TODO:
+		if (itemName == 'Blade of The Ruined King') {
+			itemName = 'BladeoftheRuinedKing';
+		}
+		itemName = itemName.replaceAll(' ', '');
+	} catch (err) {
+		console.log(err);
+		reportError('cant modify itemName', itemName, err.message, err.stack);
+	}
 	return itemName;
 }
 
