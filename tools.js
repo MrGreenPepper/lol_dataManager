@@ -27,7 +27,7 @@ export async function loadJSONData(url) {
 
 export async function loadCSVData(url) {
 	let csvData = [];
-	let csvDataString = await fs.readFileSync(url, 'utf-8');
+	let csvDataString = fs.readFileSync(url, 'utf-8');
 	let rows = csvDataString.split('\n');
 	for (let i = 0; i < rows.length; i++) {
 		csvData.push(rows[i].split(','));
@@ -38,6 +38,11 @@ export async function loadCSVData(url) {
 
 export async function getChampionList() {
 	let championList = await loadJSONData('./lol_scraper/data/championList.json');
+	return championList;
+}
+
+export async function getItemList() {
+	let championList = await loadJSONData('./lol_scraper/data/scrapedItemList.json');
 	return championList;
 }
 
@@ -73,65 +78,6 @@ function arraysEqual(a, b) {
 	return true;
 }
 
-export async function getItemList() {
-	let url_itemList = 'https://leagueoflegends.fandom.com/wiki/List_of_items';
-	let itemLinkList = [];
-	let browser = await startBrowser();
-	let page = await browser.newPage();
-
-	await page.goto(url_itemList);
-
-	let rawData = await page.evaluate(() => {
-		try {
-			let element = document.getElementById('stickyMenuWrapper');
-			let dtElements = element.querySelectorAll('dt');
-			console.log(dtElements);
-			console.log(element);
-			let listContainer = element.querySelectorAll('div#stickyMenuWrapper div.tlist a, dt');
-
-			console.log(listContainer);
-			let contentEnd = false;
-			// sort out all unecessary items
-			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
-				try {
-					if (currentElement.innerText.includes('Ornn')) contentEnd = true;
-				} catch (e) {}
-				return !contentEnd;
-			});
-			//sort out the markers, previously used for cutting unecessary items out
-
-			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
-				console.log(currentElement.localName);
-				if (currentElement.localName == 'dt') return false;
-				else return true;
-			});
-			console.log(listContainer);
-			let linkList = [];
-
-			for (element of listContainer) {
-				let itemName = element.querySelector('img');
-				itemName = itemName.getAttribute('alt');
-				itemName = itemName.replace('.png', '');
-				itemName = itemName.replace(/item/g, '');
-				itemName = itemName.replace(/Item/g, '');
-				itemName = itemName.replace(/\)/g, '');
-				itemName = itemName.replace(/\(/g, '');
-				itemName = itemName.trim();
-
-				// console.log(itemName);
-
-				linkList.push([itemName, element.href]);
-			}
-			return linkList;
-		} catch (err) {
-			console.log(err);
-		}
-	});
-	// console.log('bp');
-	await browser.close();
-	return rawData;
-}
-
 export async function applyToAllSkillTabs(skillTabs, applyFunction) {
 	/** applies a function to every single skillTab
 	 *
@@ -157,4 +103,10 @@ export async function applyToAllSkillTabs(skillTabs, applyFunction) {
 	}
 
 	return skillTabs;
+}
+
+export function timer() {
+	return new Promise((resolve, reject) => {
+		setTimeout((res) => resolve(), 500);
+	});
 }

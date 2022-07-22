@@ -3,6 +3,7 @@ export * from './skillTabs.js';
 export * from './metaData.js';
 export * from './skillOrder.js';
 export * from './masteries.js';
+export * from './items.js';
 
 import * as tools from '../tools.js';
 export async function resetData() {

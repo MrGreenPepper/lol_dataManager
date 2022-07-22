@@ -2,7 +2,7 @@
 	"ignore": [
 		"lol_scraper/data/",
 		"lol_extractor/data/",
-		"lol_analyzer/data/",
+		"lol_analyser/data/",
 		"lol_calculator/data/",
 		"errorLog.csv",
 		"data/"

@@ -2,14 +2,15 @@
 
 import * as tools from './tools.js';
 import * as markerTools from './lol_analyser/marker/markerTools.js';
-import * as extractor from './lol_extractor/extractor.js';
 import * as scraper from './lol_scraper/scraper.js';
+import * as extractor from './lol_extractor/extractor.js';
 import * as analyser from './lol_analyser/analyser.js';
-
+import * as calculator from './lol_calculator/calculator.js';
 let procedure = [
 	[0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0],
-	[1, 1, 1, 1],
+	[0, 0, 0, 0, 0, 0],
+	[1, 1, 0, 0],
 ];
 /**dataStorage:
  * every step saves the data twice ... once in the mainData folder and once in the minorData folder of the concerning program
@@ -67,13 +68,10 @@ await (async function extractProcedure() {
 	if (procedure[1][4] == true) await extractor.exMasteries();
 	//TODO: items
 	if (procedure[1][5] == true) await extractor.exItems();
-
 	if (procedure[1][6] == true) await extractor.createBackup();
 
-	//	await extractor.extractChampionData();
-	//	await extractor.getTheFormulaData();
 	if (procedure[1].includes(1)) {
-		console.log('extracting done:\t\t', procedure[0]);
+		console.log('extracting done:\t\t', procedure[1]);
 		console.log('\n----------------------');
 	}
 })();
@@ -82,8 +80,19 @@ await (async function extractProcedure() {
 await (async function analyseProcedure() {
 	if (procedure[2][0]) await analyser.resetData();
 	if (procedure[2][1]) await analyser.cleanSkillTabMarkers();
-	if (procedure[2][2]) await analyser.showAllMarkerPositions();
-	if (procedure[2][3]) await analyser.createBackup();
+	if (procedure[2][2]) await analyser.simplifyAbilities();
+	if (procedure[2][3]) await analyser.unifyItems();
+	if (procedure[2][4]) await analyser.showAllMarkerPositions();
+	if (procedure[2][5]) await analyser.createBackup();
 
 	if (procedure[2].includes(1)) console.log('analysing done:\t\t', procedure[2]);
+})();
+
+await (async function calculatorProcedure() {
+	if (procedure[3][0]) await calculator.resetData();
+	if (procedure[3][1]) await calculator.singleChampion();
+	if (procedure[3][2]) await calculator.matchup();
+	if (procedure[3][3]) await calculator.createBackup();
+
+	if (procedure[3].includes(1)) console.log('calculating done:\t\t', procedure[3]);
 })();

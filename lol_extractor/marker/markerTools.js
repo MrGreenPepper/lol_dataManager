@@ -89,3 +89,15 @@ export function getActiveMarkers(currentMarker, text, type) {
 		return activeMarkers;
 	}
 }
+
+export function isItMath(sign) {
+	let mathSigns = '0123456789%+';
+	if (mathSigns.includes(sign)) return true;
+	else return false;
+}
+
+export function isItText(sign) {
+	let textSign = 'abcdefghijkmnopqrstuvwxyz';
+	if (textSign.includes(sign)) return true;
+	else return false;
+}

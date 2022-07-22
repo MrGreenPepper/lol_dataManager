@@ -5,7 +5,6 @@ import puppeteer from 'puppeteer';
 export async function getItemData() {
 	console.log('____________________\n');
 	console.log('scraping items start\n');
-	let itemLinkList = await tools.getItemList();
 	// let itemLinkList = [
 	// 	[, 'https://leagueoflegends.fandom.com/wiki/Plated_Steelcaps'],
 	// 	[, 'https://leagueoflegends.fandom.com/wiki/Prowler%27s_Claw'],
@@ -372,4 +371,63 @@ async function scrapeItemData(itemLink) {
 	itemData.link = itemLink[1];
 	await browser.close();
 	return itemData;
+}
+
+export async function getItemList() {
+	let url_itemList = 'https://leagueoflegends.fandom.com/wiki/List_of_items';
+	let itemLinkList = [];
+	let browser = await startBrowser();
+	let page = await browser.newPage();
+
+	await page.goto(url_itemList);
+
+	let rawData = await page.evaluate(() => {
+		try {
+			let element = document.getElementById('stickyMenuWrapper');
+			let dtElements = element.querySelectorAll('dt');
+			console.log(dtElements);
+			console.log(element);
+			let listContainer = element.querySelectorAll('div#stickyMenuWrapper div.tlist a, dt');
+
+			console.log(listContainer);
+			let contentEnd = false;
+			// sort out all unecessary items
+			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
+				try {
+					if (currentElement.innerText.includes('Ornn')) contentEnd = true;
+				} catch (e) {}
+				return !contentEnd;
+			});
+			//sort out the markers, previously used for cutting unecessary items out
+
+			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
+				console.log(currentElement.localName);
+				if (currentElement.localName == 'dt') return false;
+				else return true;
+			});
+			console.log(listContainer);
+			let linkList = [];
+
+			for (element of listContainer) {
+				let itemName = element.querySelector('img');
+				itemName = itemName.getAttribute('alt');
+				itemName = itemName.replace('.png', '');
+				itemName = itemName.replace(/item/g, '');
+				itemName = itemName.replace(/Item/g, '');
+				itemName = itemName.replace(/\)/g, '');
+				itemName = itemName.replace(/\(/g, '');
+				itemName = itemName.trim();
+
+				// console.log(itemName);
+
+				linkList.push([itemName, element.href]);
+			}
+			return linkList;
+		} catch (err) {
+			console.log(err);
+		}
+	});
+	// console.log('bp');
+	await browser.close();
+	return rawData;
 }
