@@ -34,27 +34,7 @@ export async function getBaseData() {
 	await tools.saveJSONData(baseData, './lol_scraper/data/baseData.json');
 	await tools.saveJSONData(championNames, './lol_scraper/data/championList.json');
 
-	//get the championLinks
-	let links = await page.evaluate(() => {
-		let linksRaw = document.querySelectorAll('table tr td a');
-		let links = [];
-		for (let i = 0; i < linksRaw.length; i++) {
-			links.push([linksRaw[i].innerText, linksRaw[i].getAttribute('href')]);
-		}
-		console.log(links);
-		//links = links.map((element) => element.getAttribute('href'));
-		return links;
-	});
-
-	links = links.filter((element) => typeof element[0] == 'string' && element[0] != '');
-	links = links.filter((element) => /(wiki).*(LoL)/.test(element[1]));
-	links.forEach((element, index) => {
-		element[1] = 'https://leagueoflegends.fandom.com' + element[1];
-		element.push(championNames[index]);
-	});
-
 	await browser.close();
-	tools.saveJSONData(links, './data/championLinks.json');
 
 	console.log('scrapping baseData done\n');
 	console.log('-----------------------\n');

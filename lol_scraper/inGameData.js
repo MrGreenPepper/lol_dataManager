@@ -9,17 +9,16 @@ export async function getInGameData() {
 
 	console.log('_________________________\n');
 	console.log('scraping inGameData start\n');
-	let championList = await tools.getChampionList();
+	let championList = await tools.getChampionLinkList();
 
-	for (let championName of championList) {
+	for (let champEntry of championList) {
+		let url = champEntry.inGameLink;
+		let championName = champEntry.championName;
 		try {
+			//let url = baseUrl + 'amumu';
+			console.log('scraping url: ', url);
 			const browser = await browserControl.startBrowser();
 			const page = await browser.newPage();
-			let baseUrl = 'https://www.leagueofgraphs.com/champions/builds/';
-
-			let url = baseUrl + championName.toLowerCase();
-			console.log('scraping url: ', url);
-
 			//connects to every ChampionSite and scrapes selected raw Data
 			await page.goto(url);
 			await page.waitForSelector('div#filters-menu');
@@ -33,8 +32,9 @@ export async function getInGameData() {
 
 				//Skill-Order:
 				let skillOrderRaw = document.querySelectorAll('td.skillCell');
+				console.log('skillOrder:', skillOrderRaw);
 				let skillOrder = [];
-				for (let i = 0; i < 72; i++) {
+				for (let i = 0; i < skillOrderRaw.length; i++) {
 					skillOrder[i] = skillOrderRaw[i].innerText;
 				}
 				champion.abilities.skillOrder = skillOrder;
@@ -49,9 +49,11 @@ export async function getInGameData() {
 				champion.items.start = {};
 				champion.items.start = startItems;
 
-				let boots = smallItems[1].querySelector('img').getAttribute('alt');
-				champion.items.boots = boots;
-
+				//here try only for cassio :_)
+				try {
+					let boots = smallItems[1].querySelector('img').getAttribute('alt');
+					champion.items.boots = boots;
+				} catch {}
 				let coreItems = [];
 				let bigItems = document.querySelectorAll('div.medium-13.columns');
 				let items_core = bigItems[0].querySelectorAll('div.championSpell');
@@ -73,7 +75,15 @@ export async function getInGameData() {
 				let masteries_container = document.querySelectorAll(
 					'div.box.box-padding-10.overviewBox'
 				);
-				masteries_container = masteries_container[7];
+
+				//choose the right container for masteries
+				for (let i = 0; i < masteries_container.length; i++) {
+					try {
+						testElement =
+							masteries_container[i].querySelector('h3.box-title').innerText;
+						if (testElement == 'Runes') masteries_container = masteries_container[i];
+					} catch {}
+				}
 
 				let masteries_mainRaw = masteries_container.querySelectorAll('th');
 				let masteries_main = [];
@@ -118,7 +128,16 @@ export async function getInGameData() {
 				let summonerSpells_container = document.querySelectorAll(
 					'div.box.box-padding-10.overviewBox'
 				);
-				summonerSpells_container = summonerSpells_container[6];
+
+				for (let i = 0; i < summonerSpells_container.length; i++) {
+					try {
+						testElement =
+							summonerSpells_container[i].querySelector('h3.box-title').innerText;
+						if (testElement == 'Summoner Spells')
+							summonerSpells_container = summonerSpells_container[i];
+					} catch {}
+				}
+
 				let summonerSpells = [];
 				let summonerSpellsRaw = summonerSpells_container.querySelectorAll('img');
 				summonerSpells[0] = summonerSpellsRaw[0].getAttribute('alt');
@@ -146,16 +165,21 @@ export async function getInGameData() {
 				`./lol_scraper/data/champions/inGameData/${newData.name}_data.json`
 			);
 
-			let oldData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
+			let oldData = await tools.loadJSONData(
+				`./data/champions/${champEntry.championSaveName}_data.json`
+			);
 			oldData.scraped_data.inGameData.items = championRawData.items;
 
 			oldData.scraped_data.inGameData.masteries = championRawData.masteries;
 			oldData.scraped_data.inGameData.skillOrder = championRawData.abilities.skillOrder;
 			oldData.scraped_data.inGameData.summonerSpells = championRawData.summonerSpells;
-			await tools.saveJSONData(oldData, `./data/champions/${championName}_data.json`);
 			await tools.saveJSONData(
 				oldData,
-				`./lol_scraper/data/champions/inGameData/${championName}_data.json`
+				`./data/champions/${champEntry.championSaveName}_data.json`
+			);
+			await tools.saveJSONData(
+				oldData,
+				`./lol_scraper/data/champions/inGameData/${champEntry.championSaveName}_data.json`
 			);
 			console.log('inGameData saved: ', championName);
 		} catch (err) {

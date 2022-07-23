@@ -3,6 +3,7 @@ export * from './abilities.js';
 export * from './inGameData.js';
 export * from './itemData.js';
 export * from './tools/createBaseData.js';
+export * from './links.js';
 
 import * as tools from '../tools.js';
 export async function createBackup() {

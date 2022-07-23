@@ -23,4 +23,6 @@ export async function exMasteries() {
 	}
 }
 
-async function extractMasteries() {}
+async function extractMasteries(championData) {
+	return championData;
+}
