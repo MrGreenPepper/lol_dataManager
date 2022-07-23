@@ -1,7 +1,6 @@
 //import getBaseData from './lol_scraper/baseData.js';
 
 import * as tools from './tools.js';
-import * as markerTools from './lol_analyser/marker/markerTools.js';
 import * as scraper from './lol_scraper/scraper.js';
 import * as extractor from './lol_extractor/extractor.js';
 import * as analyser from './lol_analyser/analyser.js';
@@ -9,32 +8,32 @@ import * as calculator from './lol_calculator/calculator.js';
 
 export let procedure = {
 	useTestData: 0,
-	champions: [],
+	champions: [1, 3],
 	scraper: {
-		getLinks: 0,
+		createLists: 1,
 		getBaseData: 0,
 		createBaseChampionPool: 0,
 		getAbilitiesData: 0,
 		getInGameData: 0,
 		getItemData: 0,
-		createBackup: 1,
+		createBackup: 0,
 	},
 	extractor: {
-		resetData: 1,
-		exMetaData: 1,
-		exSkillTabs: 1,
-		exSkillOrder: 1,
+		resetData: 0,
+		exMetaData: 0,
+		exSkillTabs: 0,
+		exSkillOrder: 0,
 		exMasteries: 0,
 		exItems: 0,
-		createBackup: 1,
+		createBackup: 0,
 	},
 	analyser: {
-		resetData: 1,
-		cleanSkillTabMarkers: 1,
-		simplifyAbilities: 1,
+		resetData: 0,
+		cleanSkillTabMarkers: 0,
+		simplifyAbilities: 0,
 		unifyItems: 0,
-		showAllMarkerPositions: 1,
-		createBackup: 1,
+		showAllMarkerPositions: 0,
+		createBackup: 0,
 	},
 	calculator: {
 		resetData: 1,
@@ -50,9 +49,8 @@ export let procedure = {
  * the reset() functions:
  * overides the data of the current program with the data from the last program
  */
-
 await (async function scrappingProcedure() {
-	if (procedure.scraper.getLinks) await scraper.getLinks();
+	if (procedure.scraper.createLists) await scraper.createLists();
 
 	//list of champions and there baseStats for every single one
 	if (procedure.scraper.getBaseData) await scraper.getBaseData();

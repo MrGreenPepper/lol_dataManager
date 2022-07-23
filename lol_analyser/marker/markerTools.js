@@ -2,8 +2,9 @@ import * as markerData from './markerData.js';
 import * as tools from '../../tools.js';
 
 export async function showAllMarkerPositions() {
-	let championList = await tools.getChampionList();
-	for (let championName of championList) {
+	let championList = await tools.getChampionLinkList();
+	for (let championEntry of championList) {
+		let championName = championEntry.championSaveName;
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 		let abilityData = championData.analysed_data.baseData.abilities;
 		let searchMarkers = markerData.searchMarkers;

@@ -6,9 +6,9 @@ import * as markerTools from './marker/markerTools.js';
 import * as tools from '../tools.js';
 
 export async function resetData() {
-	let championList = await tools.getChampionList();
-
-	for (let championName of championList) {
+	let championList = await tools.getChampionLinkList();
+	for (let championEntry of championList) {
+		let championName = championEntry.championSaveName;
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 
 		championData.analysed_data = championData.extracted_data;
@@ -20,8 +20,9 @@ export async function resetData() {
 export async function createBackup() {
 	console.log('_____________________\n');
 	console.log('analyser backup start\n');
-	let championList = await tools.getChampionList();
-	for (let championName of championList) {
+	let championList = await tools.getChampionLinkList();
+	for (let championEntry of championList) {
+		let championName = championEntry.championSaveName;
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 		await tools.saveJSONData(
 			championData,

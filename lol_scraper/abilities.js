@@ -1,9 +1,7 @@
 import * as tools from '../tools.js';
 import { startBrowser } from './tools/browserControl.js';
-let url_baseStats = 'https://leagueoflegends.fandom.com/wiki/List_of_champions/Base_statistics';
 
 export async function getAbilitiesData() {
-	// old:	let links = await getChampionLinks();
 	console.log('___________________________\n');
 	console.log('abilityData scrapingn start\n');
 	let championList = await tools.getChampionLinkList();

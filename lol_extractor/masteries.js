@@ -4,8 +4,10 @@ const LOGSAVEPATH = './lol_extractor/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exMasteries() {
-	let championList = await tools.getChampionList();
-	for (let championName of championList) {
+	let championList = await tools.getChampionLinkList();
+	for (let championEntry of championList) {
+		let championName = championEntry.championSaveName;
+
 		try {
 			//first load the data
 			let championData = await tools.loadJSONData(

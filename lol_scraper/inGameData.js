@@ -2,11 +2,6 @@ import * as tools from '../tools.js';
 import * as browserControl from './tools/browserControl.js';
 
 export async function getInGameData() {
-	//TODO: Cassiopeia has no boots, aphelios no R, khazix, viego, viktor and kaisa missing too
-	// duno if this are all failures --> test
-	//
-	//
-
 	console.log('_________________________\n');
 	console.log('scraping inGameData start\n');
 	let championList = await tools.getChampionLinkList();
@@ -15,10 +10,10 @@ export async function getInGameData() {
 		let url = champEntry.inGameLink;
 		let championName = champEntry.championName;
 		try {
-			//let url = baseUrl + 'amumu';
 			console.log('scraping url: ', url);
 			const browser = await browserControl.startBrowser();
 			const page = await browser.newPage();
+
 			//connects to every ChampionSite and scrapes selected raw Data
 			await page.goto(url);
 			await page.waitForSelector('div#filters-menu');

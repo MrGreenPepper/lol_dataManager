@@ -1,0 +1,3 @@
+{
+	"ignore": ["lol_scraper/data", "errorLog.csv", "data"]
+}

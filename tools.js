@@ -1,5 +1,6 @@
 import fs from 'fs';
 import puppeteer from 'puppeteer';
+import { procedure } from './dataManager.js';
 
 export async function saveJSONData(data, url) {
 	await fs.writeFileSync(url, JSON.stringify(data), 'utf-8');
@@ -39,11 +40,16 @@ export async function loadCSVData(url) {
 
 export async function getChampionList() {
 	let championList = await loadJSONData('./lol_scraper/data/championList.json');
+	championList = championList.filter((element, index) => {
+		if (procedure.champions[0] <= index && index <= procedure.champions[1]) return true;
+		else return false;
+	});
 	return championList;
 }
 
 export async function getChampionLinkList() {
 	let championList = await loadJSONData('./data/championLinks.json');
+
 	return championList;
 }
 
@@ -52,62 +58,8 @@ export async function getItemList() {
 	return itemList;
 }
 export async function getItemLinkList() {
-	let url_itemList = 'https://leagueoflegends.fandom.com/wiki/List_of_items';
-	let itemLinkList = [];
-	let browser = await puppeteer.launch();
-	let page = await browser.newPage();
-
-	await page.goto(url_itemList);
-
-	itemLinkList = await page.evaluate(() => {
-		try {
-			let element = document.getElementById('stickyMenuWrapper');
-			let dtElements = element.querySelectorAll('dt');
-			console.log(dtElements);
-			console.log(element);
-			let listContainer = element.querySelectorAll('div#stickyMenuWrapper div.tlist a, dt');
-
-			console.log(listContainer);
-			let contentEnd = false;
-			// sort out all unecessary items
-			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
-				try {
-					if (currentElement.innerText.includes('Ornn')) contentEnd = true;
-				} catch (e) {}
-				return !contentEnd;
-			});
-			//sort out the markers, previously used for cutting unecessary items out
-
-			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
-				console.log(currentElement.localName);
-				if (currentElement.localName == 'dt') return false;
-				else return true;
-			});
-			console.log(listContainer);
-			let linkList = [];
-
-			for (element of listContainer) {
-				let itemName = element.querySelector('img');
-				itemName = itemName.getAttribute('alt');
-				itemName = itemName.replace('.png', '');
-				itemName = itemName.replace(/item/g, '');
-				itemName = itemName.replace(/Item/g, '');
-				itemName = itemName.replace(/\)/g, '');
-				itemName = itemName.replace(/\(/g, '');
-				itemName = itemName.trim();
-
-				// console.log(itemName);
-
-				linkList.push([itemName, element.href]);
-			}
-			return linkList;
-		} catch (err) {
-			console.log(err);
-		}
-	});
-	// console.log('bp');
-	await browser.close();
-	return itemLinkList;
+	let linkList = await tools.loadJSONData('./data/itemLinkList.json');
+	return linkList;
 }
 export async function reportError(category, championName, errorMessage, errorStack) {
 	let errorLog = await loadCSVData('./errorLog.csv');
@@ -149,7 +101,7 @@ function arraysEqual(a, b) {
 	// Please note that calling sort on an array will modify that array.
 	// you might want to clone your array first.
 
-	for (var i = 0; i < a.length; ++i) {
+	for (let i = 0; i < a.length; ++i) {
 		if (a[i] !== b[i]) return false;
 	}
 	return true;
@@ -165,7 +117,7 @@ export async function applyToAllSkillTabs(skillTabs, applyFunction) {
 	 */
 	let abilityKeys = Object.keys(skillTabs);
 	try {
-		for (var i of abilityKeys) {
+		for (let i of abilityKeys) {
 			let currentAbility = skillTabs[i];
 			for (let n = 0; n < currentAbility.length; n++) {
 				let currentContent = currentAbility[n];

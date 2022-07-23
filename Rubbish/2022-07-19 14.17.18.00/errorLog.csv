@@ -1,0 +1,144 @@
+champion,category,errorMessage
+testNunu,testError,
+testIinput,,
+testIinput,,
+scraping abilities failed,AurelionSol,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,Dr.Mundo,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,JarvanIV,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,Kled&Skaarl,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,LeeSin,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,MasterYi,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,MegaGnar,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,MissFortune,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,Nunu&Willump,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,RenataGlasc,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,TahmKench,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,TwistedFate,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+scraping abilities failed,XinZhao,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:9:90
+failed scrapping inGameData,Aatrox,fs is not defined
+failed scrapping inGameData,Aatrox,Cannot set properties of undefined (setting 'items')
+failed scrapping inGameData,Aatrox,ENOENT: no such file or directory. open './lol_scraper/data/championData/Aatrox_data.json'
+failed scrapping inGameData,Ahri,ENOENT: no such file or directory. open './lol_scraper/data/championData/Ahri_data.json'
+failed scrapping inGameData,Akali,ENOENT: no such file or directory. open './lol_scraper/data/championData/Akali_data.json'
+failed scrapping inGameData,Akshan,ENOENT: no such file or directory. open './lol_scraper/data/championData/Akshan_data.json'
+failed scrapping inGameData,Alistar,ENOENT: no such file or directory. open './lol_scraper/data/championData/Alistar_data.json'
+failed scrapping inGameData,Amumu,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Aphelios,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,AurelionSol,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelectorAll')N    at pptr://__puppeteer_evaluation_script__:50:49
+failed scrapping inGameData,Bel'Veth,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,Cassiopeia,Evaluation failed: TypeError: Cannot read properties of null (reading 'getAttribute')N    at pptr://__puppeteer_evaluation_script__:26:51
+failed scrapping inGameData,Cho'Gath,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,Diana,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Dr.Mundo,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,Ekko,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Elise,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Evelynn,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Fiddlesticks,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Gragas,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Graves,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Hecarim,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Ivern,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,JarvanIV,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Kai'Sa,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,Karthus,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Kayn,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Kha'Zix,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,Kindred,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Kog'Maw,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,LeeSin,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Lillia,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,MasterYi,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,MegaGnar,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,Nidalee,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Nocturne,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Nunu&Willump,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Poppy,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Qiyana,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Rammus,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Rek'Sai,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,RenataGlasc,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,Rengar,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Sejuani,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Shaco,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Shyvana,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Skarner,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Taliyah,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Talon,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Trundle,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Udyr,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Vel'Koz,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,Vi,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Viego,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Viktor,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Volibear,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Warwick,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Wukong,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:41
+failed scrapping inGameData,XinZhao,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Zac,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Zed,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:52:46
+failed scrapping inGameData,Aatrox,currentRow.reduce is not a function
+failed scrapping inGameData,Ahri,currentRow.reduce is not a function
+failed scrapping inGameData,Akali,currentRow.reduce is not a function
+failed scrapping inGameData,Akshan,currentRow.reduce is not a function
+failed scrapping inGameData,Alistar,currentRow.reduce is not a function
+failed scrapping inGameData,Aatrox,Cannot read properties of undefined (reading 'inGameData')
+failed scrapping inGameData,Ahri,Cannot read properties of undefined (reading 'inGameData')
+failed scrapping inGameData,Amumu,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,AurelionSol,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelectorAll')N    at pptr://__puppeteer_evaluation_script__:52:49
+failed scrapping inGameData,Diana,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Ekko,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Elise,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Evelynn,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Fiddlesticks,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Gragas,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Graves,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Hecarim,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Ivern,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,JarvanIV,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Karthus,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Kayn,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Kindred,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,LeeSin,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Lillia,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,MasterYi,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Nidalee,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Nocturne,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Nunu&Willump,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Poppy,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Qiyana,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Rammus,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Rengar,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Sejuani,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Shaco,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Shyvana,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Skarner,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Taliyah,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Talon,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Trundle,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Udyr,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Vi,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Viego,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Viktor,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Volibear,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Warwick,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,XinZhao,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Zac,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+failed scrapping inGameData,Zed,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46
+scraping abilities failed,Aatrox,Cannot read properties of undefined (reading 'baseData')
+scraping abilities failed,Ahri,Cannot read properties of undefined (reading 'baseData')
+scraping abilities failed,Akali,Cannot read properties of undefined (reading 'baseData')
+scraping abilities failed,Akshan,Cannot read properties of undefined (reading 'baseData')
+scraping abilities failed,Alistar,Cannot read properties of undefined (reading 'baseData')
+scraping abilities failed,Aatrox,Cannot set properties of undefined (setting 'windup')
+scraping abilities failed,Ahri,Cannot set properties of undefined (setting 'windup')
+scraping abilities failed,Akali,Cannot set properties of undefined (setting 'windup')
+scraping abilities failed,Akshan,Cannot set properties of undefined (setting 'windup')
+scraping abilities failed,AurelionSol,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6
+scraping abilities failed,Dr.Mundo,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6
+scraping abilities failed,JarvanIV,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6
+scraping abilities failed,Kled&Skaarl,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6
+scraping abilities failed,LeeSin,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6
+scraping abilities failed,MasterYi,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6
+scraping abilities failed,MegaGnar,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6
+scraping abilities failed,MissFortune,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6
+scraping abilities failed,Nunu&Willump,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6

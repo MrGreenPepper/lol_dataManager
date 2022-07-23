@@ -1,7 +1,12 @@
 import * as tools from '../tools.js';
 import { startBrowser } from './tools/browserControl.js';
+import puppeteer from 'puppeteer';
 
-export async function getLinks() {
+export async function createLists() {
+	await createChampionList();
+	await createItemList();
+}
+export async function createChampionList() {
 	let linkList = [];
 	const url_baseStats =
 		'https://leagueoflegends.fandom.com/wiki/List_of_champions/Base_statistics';
@@ -89,8 +94,10 @@ export async function getLinks() {
 		linkSet.championSaveName = championNames[i];
 		linkSet.championName = abilityLinks[i][0];
 		linkSet.abilityLink = abilityLinks[i][1];
+		linkSet.indexNumber = i;
 		linkList.push(linkSet);
 	}
+
 	tools.saveJSONData(linkList, './data/championLinks.json');
 }
 
@@ -111,4 +118,63 @@ function cleanTable(rawDataTable) {
 	});
 
 	return rawDataTable;
+}
+
+async function createItemList() {
+	let url_itemList = 'https://leagueoflegends.fandom.com/wiki/List_of_items';
+	let itemLinkList = [];
+	let browser = await puppeteer.launch();
+	let page = await browser.newPage();
+
+	await page.goto(url_itemList);
+
+	itemLinkList = await page.evaluate(() => {
+		try {
+			let element = document.getElementById('stickyMenuWrapper');
+			let dtElements = element.querySelectorAll('dt');
+			console.log(dtElements);
+			console.log(element);
+			let listContainer = element.querySelectorAll('div#stickyMenuWrapper div.tlist a, dt');
+
+			console.log(listContainer);
+			let contentEnd = false;
+			// sort out all unecessary items
+			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
+				try {
+					if (currentElement.innerText.includes('Ornn')) contentEnd = true;
+				} catch (e) {}
+				return !contentEnd;
+			});
+			//sort out the markers, previously used for cutting unecessary items out
+
+			listContainer = Array.prototype.filter.call(listContainer, (currentElement) => {
+				console.log(currentElement.localName);
+				if (currentElement.localName == 'dt') return false;
+				else return true;
+			});
+			console.log(listContainer);
+			let linkList = [];
+
+			for (element of listContainer) {
+				let itemName = element.querySelector('img');
+				itemName = itemName.getAttribute('alt');
+				itemName = itemName.replace('.png', '');
+				itemName = itemName.replace(/item/g, '');
+				itemName = itemName.replace(/Item/g, '');
+				itemName = itemName.replace(/\)/g, '');
+				itemName = itemName.replace(/\(/g, '');
+				itemName = itemName.trim();
+
+				// console.log(itemName);
+
+				linkList.push([itemName, element.href]);
+			}
+			return linkList;
+		} catch (err) {
+			console.log(err);
+		}
+	});
+	// console.log('bp');
+	await browser.close();
+	await tools.saveJSONData(itemLinkList, './data/itemLinkList.json');
 }

@@ -1,0 +1,59 @@
+All fine!!! (outdated items for outdated specialmodes)
+
+
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+}
+(2) ['Anti-tower Socks', 'https: //leagueoflegends.fandom.com/wiki/Anti-Tower_Socks']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+    }
+(2) ['Gusto', 'https: //leagueoflegends.fandom.com/wiki/Gusto']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+        }
+(2) ['Overcharged', 'https: //leagueoflegends.fandom.com/wiki/Overcharged']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+            }
+(2) ['Phreakish Gusto', 'https: //leagueoflegends.fandom.com/wiki/Phreakish_Gusto']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                }
+(2) ['Super Mech Armor', 'https: //leagueoflegends.fandom.com/wiki/Super_Mech_Armor']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                    }
+(2) ['Super Mech Power Field', 'https: //leagueoflegends.fandom.com/wiki/Super_Mech_Power_Field']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                        }
+(2) ['Cloak of Stars', 'https: //leagueoflegends.fandom.com/wiki/Cloak_of_Stars']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                            }
+(2) ['Cosmic Shackle', 'https: //leagueoflegends.fandom.com/wiki/Cosmic_Shackle']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                                }
+(2) ['Dark Matter Scythe', 'https: //leagueoflegends.fandom.com/wiki/Dark_Matter_Scythe']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                                    }
+(2) ['Dark Star Sigil', 'https: //leagueoflegends.fandom.com/wiki/Dark_Star_Sigil']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScrip/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                                        }
+(2) ['Entropy Field', 'https: //leagueoflegends.fandom.com/wiki/Entropy_Field']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                                            }
+(2) ['Flash Zone', 'https: //leagueoflegends.fandom.com/wiki/Flash_Zone']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                                                }
+(2) ['Gravity Boots', 'https: //leagueoflegends.fandom.com/wiki/Gravity_Boots']
+TypeError: Cannot set property 'name' of undefined
+    at Object.getItemData (/home/nox/MEGAsync/GitHub/JavaScript/lol_itemScraper/tools.js: 278: 16) {stack: 'TypeError: Cannot set property 'name' of unde…b/JavaScript/lol_itemScraper/tools.js: 278: 16)', message: 'Cannot set property 'name' of undefined'
+                                                    }
+(2) ['Port Pad', 'https: //leagueoflegends.fandom.com/wiki/Port_Pad']t

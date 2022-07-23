@@ -6,7 +6,8 @@ const CHAMPIONSAVEPATH = './data/champions/';
 
 export async function cleanSkillTabMarkers() {
 	let championList = await tools.getChampionList();
-	for (let championName of championList) {
+	for (let championEntry of championList) {
+		let championName = championEntry.championSaveName;
 		console.log(championName);
 		let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
 		/** delete unnecessary Markers, rest of the markers are set to lower case and grouped to ability.skillTabs
@@ -86,8 +87,10 @@ async function deleteIgnores(skillTabArray) {
 }
 
 export async function simplifyAbilities() {
-	let championList = await tools.getChampionList();
-	for (let championName of championList) {
+	let championList = await tools.getChampionLinkList();
+	for (let championEntry of championList) {
+		let championName = championEntry.championSaveName;
+
 		console.log(`analyser_abilities.js - simplify abilities: ${championName}`);
 		try {
 			let championData = await tools.loadJSONData(
