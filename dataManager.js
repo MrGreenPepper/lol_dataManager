@@ -10,10 +10,10 @@ import * as calculator from './lol_calculator/calculator.js';
 export let procedure = {
 	useTestData: 0,
 	scraper: {
-		getBaseData: 0,
-		createBaseChampionPool: 0,
-		getAbilitiesData: 0,
-		getInGameData: 0,
+		getBaseData: 1,
+		createBaseChampionPool: 1,
+		getAbilitiesData: 1,
+		getInGameData: 1,
 		getItemData: 0,
 		createBackup: 0,
 	},

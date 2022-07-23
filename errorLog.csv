@@ -7904,3 +7904,35 @@ singleChampions.js: calculate singleChampion error,Zac,ENOENT: no such file or d
     at Champion._initialize (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:34:14)
     at Module.create (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:267:18)
     at Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:8:35)
+scraping abilities failed,AurelionSol,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')N    at pptr://__puppeteer_evaluation_script__:11:6,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'textContent')
+    at pptr://__puppeteer_evaluation_script__:11:6
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:35:25)
+    at async Module.getAbilitiesData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:16:3)
+    at async scrappingProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:60:42)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:52:1
+scraping abilities failed,Ahri,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:16:3)
+    at async scrappingProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:60:42)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:52:1
+scraping abilities failed,Ashe,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:30:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:16:3)
+    at async scrappingProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:60:42)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:52:1
+failed scrapping inGameData,Amumu,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:54:46,undefined
+failed scrapping inGameData,Aphelios,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'innerText')N    at pptr://__puppeteer_evaluation_script__:12:39,undefined

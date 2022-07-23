@@ -6,23 +6,20 @@ export async function getAbilitiesData() {
 	// old:	let links = await getChampionLinks();
 	console.log('___________________________\n');
 	console.log('abilityData scrapingn start\n');
-	let championList = await tools.getChampionList();
+	let championList = await tools.getChampionLinkList();
 
 	for (let i = 0; i < championList.length; i++) {
 		let championData = await tools.loadJSONData(
-			`./data/champions/${championList[i]}_data.json`
+			`./data/champions/${championList[i][2]}_data.json`
 		);
 
-		await scrapeAbilitiesData(championData);
+		await scrapeAbilitiesData(championData, championList[i][1]);
 	}
 	console.log('abilityData scraping end\n');
 	console.log('-------------------------\n');
 }
-async function scrapeAbilitiesData(championData) {
+async function scrapeAbilitiesData(championData, url) {
 	console.info('\ncurrentChampion: \t', championData.name);
-	let baseUrl = 'https://leagueoflegends.fandom.com/wiki/';
-	let championName = championData.name;
-	let url = `${baseUrl}${championName}/LoL`;
 
 	const browser = await startBrowser();
 	const page = await browser.newPage();

@@ -42,6 +42,11 @@ export async function getChampionList() {
 	return championList;
 }
 
+export async function getChampionLinkList() {
+	let championList = await loadJSONData('./data/championLinks.json');
+	return championList;
+}
+
 export async function getItemList() {
 	let itemList = await loadJSONData('./lol_scraper/data/scrapedItemList.json');
 	return itemList;
