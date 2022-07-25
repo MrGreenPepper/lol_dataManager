@@ -39,7 +39,7 @@ export async function loadCSVData(url) {
 }
 
 export async function getChampionList() {
-	let championList = await loadJSONData('./lol_scraper/data/championList.json');
+	let championList = await loadJSONData('./data/championLinks.json');
 	championList = championList.filter((element, index) => {
 		if (procedure.champions[0] <= index && index <= procedure.champions[1]) return true;
 		else return false;

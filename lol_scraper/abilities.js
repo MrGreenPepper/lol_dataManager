@@ -8,15 +8,16 @@ export async function getAbilitiesData() {
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
 
-	for (let i = 0; i < championList.length; i++) {
-		let championData = await tools.loadJSONData(
-			`./data/champions/${championName}_data.json`
-		);
+		for (let i = 0; i < championList.length; i++) {
+			let championData = await tools.loadJSONData(
+				`./data/champions/${championName}_data.json`
+			);
 
-		await scrapeAbilitiesData(championData, championEntry.abilityLink);
+			await scrapeAbilitiesData(championData, championEntry.abilityLink);
+		}
+		console.log('abilityData scraping end\n');
+		console.log('-------------------------\n');
 	}
-	console.log('abilityData scraping end\n');
-	console.log('-------------------------\n');
 }
 async function scrapeAbilitiesData(championData, url) {
 	console.info('\ncurrentChampion: \t', championData.name);

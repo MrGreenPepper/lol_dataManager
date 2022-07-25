@@ -9287,3 +9287,73 @@ singleChampions.js: calculate singleChampion error,Cassiopeia,ENOENT: no such fi
     at Champion._initialize (file:///C:/megasync/lol/dataManager/lol_calculator/champion.js:34:14)
     at Module.create (file:///C:/megasync/lol/dataManager/lol_calculator/champion.js:267:18)
     at Module.singleChampion (file:///C:/megasync/lol/dataManager/lol_calculator/singleChampion.js:10:35)
+singleChampions.js: calculate singleChampion error,Ahri,championLevel is not defined,ReferenceError: championLevel is not defined
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:39:18)
+    at Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:20)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:119:1
+singleChampions.js: calculate singleChampion error,Akali,championLevel is not defined,ReferenceError: championLevel is not defined
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:39:18)
+    at Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:20)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:119:1
+singleChampions.js: calculate singleChampion error,Akshan,championLevel is not defined,ReferenceError: championLevel is not defined
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:39:18)
+    at Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:20)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:119:1
+singleChampions.js: calculate singleChampion error,Ahri,championLevel is not defined,ReferenceError: championLevel is not defined
+    at Champion.addItemValuesAtThisLevel (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:160:48)
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:45:15)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:119:1
+singleChampions.js: calculate singleChampion error,Akali,championLevel is not defined,ReferenceError: championLevel is not defined
+    at Champion.addItemValuesAtThisLevel (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:160:48)
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:45:15)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:119:1
+singleChampions.js: calculate singleChampion error,Akshan,championLevel is not defined,ReferenceError: championLevel is not defined
+    at Champion.addItemValuesAtThisLevel (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:160:48)
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:45:15)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:119:1
+singleChampions.js: calculate singleChampion error,Ahri,CreateListFromArrayLike called on non-object,TypeError: CreateListFromArrayLike called on non-object
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:46:29)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:119:1
+singleChampions.js: calculate singleChampion error,Akali,CreateListFromArrayLike called on non-object,TypeError: CreateListFromArrayLike called on non-object
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:46:29)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:119:1
+singleChampions.js: calculate singleChampion error,Akshan,CreateListFromArrayLike called on non-object,TypeError: CreateListFromArrayLike called on non-object
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:46:29)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:119:1
+cant modify itemName,undefined,Cannot read properties of undefined (reading 'replaceAll'),TypeError: Cannot read properties of undefined (reading 'replaceAll')
+    at Module.itemNameConverter (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/tools.js:80:23)
+    at file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:39:24
+    at new Promise (<anonymous>)
+    at loadItemData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:38:9)
+    at Module.loadItems (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:13:25)
+    at Champion.loadItemData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:105:62)
+    at Champion._initialize (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:34:14)
+    at Module.create (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:268:18)
+    at Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:10:35)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:121:43)
+singleChampions.js: calculate singleChampion error,Cassiopeia,ENOENT: no such file or directory. open './data/items/undefined_data.json',Error: ENOENT: no such file or directory, open './data/items/undefined_data.json'
+    at Object.openSync (node:fs:586:3)
+    at Object.readFileSync (node:fs:454:35)
+    at file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:45:33
+    at new Promise (<anonymous>)
+    at loadItemData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:38:9)
+    at Module.loadItems (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:13:25)
+    at Champion.loadItemData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:105:62)
+    at Champion._initialize (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:34:14)
+    at Module.create (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:268:18)
+    at Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:10:35)

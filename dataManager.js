@@ -8,7 +8,7 @@ import * as calculator from './lol_calculator/calculator.js';
 
 export let procedure = {
 	useTestData: 0,
-	champions: [1, 3],
+	champions: [0, 162],
 	scraper: {
 		createLists: 1,
 		getBaseData: 0,

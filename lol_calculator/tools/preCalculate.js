@@ -1,119 +1,53 @@
 import * as calculateTools from './calculateTools.js';
 import * as tools from '../../tools.js';
 
-export async function start() {
+export async function start(championLevel) {
 	/** preCaciulates abilities: 1. combines ability Data with the concerning level
 	 *                           2. if the marker of a skillTab is relevant for actual pre fight calculations then calculate it
 	 *                               and add the stats to the preFightStats
 	 */
-	let currentAbilityLevel = -1;
 
 	//first copy the values
-	this.soloCalc[`level${this.championLevel}`].abilities = {};
+	this.soloCalc[`level${championLevel}`].abilities = {};
 	let abilities = this.calculated_data.baseData.abilities.simplified;
 
 	abilities = applyLevelsToAbilities(
 		abilities,
-		this.soloCalc[`level${this.championLevel}`].abilityLevels
+		this.soloCalc[`level${championLevel}`].abilityLevels,
+		championLevel
 	);
 
-	this.soloCalc[`level${this.championLevel}`].abilities = abilities;
+	this.soloCalc[`level${championLevel}`].abilities = abilities;
 	return;
 }
-async function applyLevelsToAbilities(abilities, abilityLevels) {
-	let leveledAbilities = JSON.parse(JSON.stringify(abilities));
+async function applyLevelsToAbilities(abilities, abilityLevels, championLevel) {
+	abilities = JSON.parse(JSON.stringify(abilities));
+	let leveledAbilities = {};
+
 	//now modify the copied data --> sort out the correct numbers concerning the abilityLevel
 	for (let abNumber = 0; abNumber < 5; abNumber++) {
-		let abilityParts = abilities.simplified[`ability${abNumber}`].skillTabs;
-		let currentAbilityLevel = -1;
-		if (abilityParts == undefined) abilityParts = [];
+		//first check if ability is actifve at the given level and check if there are skillTabs to apply a level
+		if (
+			abilityLevels[abNumber] == -1 ||
+			abilities[`ability${abNumber}`].skillTabs == undefined
+		) {
+			leveledAbilities[`ability${abNumber}`] = {};
+		} else {
+			//then get the abiliyParts and apply the level to them
+			leveledAbilities[`ability${abNumber}`] = {};
+			let abilityParts = abilities[`ability${abNumber}`].skillTabs;
 
-		if (abNumber == 0) {
-			currentAbilityLevel = await getPassiveLevel(
-				abilities.simplified[`ability${abNumber}`],
-				this.championLevel
-			);
-		} else
-			currentAbilityLevel =
-				this.soloCalc[`level${this.championLevel}`].abilityLevels[abNumber];
-
-		for (let abPartNumber = 0; abPartNumber < abilityParts.length; abPartNumber++) {
-			try {
+			for (let abPartNumber = 0; abPartNumber < abilityParts.length; abPartNumber++) {
 				let skillTabs = abilityParts[abPartNumber];
-				let leveledSkillTabs = await applyLevelToSkillTabs(skillTabs);
-			} catch (err) {
-				console.log(err.message);
-				console.log(err.stack);
-				console.log('\npreCalculate.js: \tcant apply level to the abilities');
-				console.log('currentAbility', abNumber);
-				console.log('current skillTab math', math);
-				tools.reportError(
-					'preCalculate.js: cant apply level to the abilities',
-					this.name,
-					err.message,
-					err.stack
-				);
+				leveledAbilities[`ability${abNumber}`][`part${abPartNumber}`] =
+					await applyLevelToSkillTabs(skillTabs, abilityLevels[abNumber]);
 			}
 		}
-
-		//afterwards sort out skillTabs that needs to be calculated later ... like missing health scalings
-		abilityParts = abilityParts.filter((currentAbilityPart) => {
-			for (let abilityPart = 0; abilityPart < currentAbilityPart.length; abilityPart++) {
-				let currentSkillTab = currentAbilityPart[abilityPart];
-				for (let sP = 0; sP < currentSkillTab.math.scalingPart.length; sP++) {
-					let currentScalingPart = currentSkillTab.math.scalingPart[sP];
-					//check for multiple scaling in one part
-					if (Array.isArray(currentScalingPart[1])) {
-						for (
-							let multiPart = 0;
-							multiPart < currentScalingPart.length;
-							multiPart++
-						) {
-							let currentMultiPart = currentScalingPart[multiPart];
-							if (calculateLastIdentifier.test(currentMultiPart[1])) {
-								this.soloCalc[
-									`level${this.championLevel}`
-								].abilities.simplified.calculateAtTheEnd[abNumber].push(
-									currentAbilityPart
-								);
-								return false;
-							}
-						}
-					} else {
-						if (calculateLastIdentifier.test(currentScalingPart[1])) {
-							this.soloCalc[
-								`level${this.championLevel}`
-							].abilities.simplified.calculateAtTheEnd[abNumber].push(
-								currentAbilityPart
-							);
-							return false;
-						}
-					}
-				}
-			}
-			return true;
-		});
-
-		this.soloCalc[`level${this.championLevel}`].abilities.simplified[
-			`ability${abNumber}`
-		].skillTabs = abilityParts;
 	}
 	return leveledAbilities;
 }
-async function getPassiveLevel(passiveAbility, championLevel) {
-	/** analyses the passive data to return the correct concerning passiveLevel */
-	// in general most passives levels depends on championLevels, but there are different scalings
-	// either it scales with each level or its scales every 5 (0/5/10/15)
 
-	//TODO: championlevel --ablevel ... now very simply abstraction
-	let passiveLevel = 0;
-	if (championLevel > 4) passiveLevel = 1;
-	if (championLevel > 9) passiveLevel = 2;
-	if (championLevel > 14) passiveLevel = 3;
-	return passiveLevel;
-}
-
-async function applyLevelToSkillTabs(skillTabs) {
+async function applyLevelToSkillTabs(skillTabs, currentAbilityLevel) {
 	for (let sk = 0; sk < skillTabs.length; sk++) {
 		let math = skillTabs[sk].math;
 
@@ -143,7 +77,7 @@ async function applyLevelToSkillTabs(skillTabs) {
 		skillTabs[sk].math = math;
 	}
 
-	return skillTab;
+	return skillTabs;
 }
 
 async function applyLevelToMathPart(mathArray, abilityLevel) {
@@ -152,3 +86,43 @@ async function applyLevelToMathPart(mathArray, abilityLevel) {
 	} else mathArray = mathArray[0];
 	return mathArray;
 }
+
+/** 
+ * 
+ * 
+ * //afterwards sort out skillTabs that needs to be calculated later ... like missing health scalings
+			abilityParts = abilityParts.filter((currentAbilityPart) => {
+				for (let abilityPart = 0; abilityPart < currentAbilityPart.length; abilityPart++) {
+					let currentSkillTab = currentAbilityPart[abilityPart];
+					for (let sP = 0; sP < currentSkillTab.math.scalingPart.length; sP++) {
+						let currentScalingPart = currentSkillTab.math.scalingPart[sP];
+						//check for multiple scaling in one part
+						if (Array.isArray(currentScalingPart[1])) {
+							for (
+								let multiPart = 0;
+								multiPart < currentScalingPart.length;
+								multiPart++
+							) {
+								let currentMultiPart = currentScalingPart[multiPart];
+								if (calculateLastIdentifier.test(currentMultiPart[1])) {
+									this.soloCalc[
+										`level${championLevel}`
+									].abilities.calculateAtTheEnd[abNumber].push(
+										currentAbilityPart
+									);
+									return false;
+								}
+							}
+						} else {
+							if (calculateLastIdentifier.test(currentScalingPart[1])) {
+								this.soloCalc[`level${championLevel}`].abilities.calculateAtTheEnd[
+									abNumber
+								].push(currentAbilityPart);
+								return false;
+							}
+						}
+					}
+				}
+				return true;
+			});
+ */

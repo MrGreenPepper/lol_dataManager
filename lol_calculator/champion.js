@@ -36,14 +36,14 @@ class Champion {
 	}
 	async preCalculateFight() {
 		for (let i = 0; i < 18; i++) {
-			championLevel = i;
+			let championLevel = i;
 			this.soloCalc[`level${championLevel}`] = {};
 
 			await this.setAbilityLevels(championLevel);
 			//creates this.preFightCalculations[level].myStats and calculates the base values
-			await this.calculateBaseCombatStats(championLevel);
-			await this.addItemValuesAtThisLevel(championLevel);
-			await preCalculate.start.apply(this);
+			await this.calculateBaseStats(championLevel);
+			await this.addItemBaseStats(championLevel);
+			await preCalculate.start.apply(this, [championLevel]);
 
 			//preCalculates abilities and optionally modify stats
 		}
@@ -71,7 +71,7 @@ class Champion {
 			this.calculateDamage(i);*/
 	}
 
-	async calculateBaseCombatStats(championLevel) {
+	async calculateBaseStats(championLevel) {
 		/** calculate the rotation and dpsjdamage of all levels */
 		let champLevel = championLevel;
 		let baseStats = this.calculated_data.baseData.baseStats;
@@ -121,33 +121,30 @@ class Champion {
 
 	async setAbilityLevels(championLevel) {
 		let abilityLevels = {};
+		abilityLevels['0'] = 0;
 		abilityLevels['1'] = -1;
 		abilityLevels['2'] = -1;
 		abilityLevels['3'] = -1;
 		abilityLevels['4'] = -1;
-		let skillOrder = this.analysed_data.inGameData.skillOrder;
 
+		if (championLevel > 4) abilityLevels['0'] = 1;
+		if (championLevel > 9) abilityLevels['0'] = 2;
+		if (championLevel > 14) abilityLevels['0'] = 3;
+
+		let skillOrder = this.calculated_data.inGameData.skillOrder;
 		for (let i = 0; i < championLevel + 1; i++) {
 			switch (skillOrder[i]) {
 				case 'Q':
 					abilityLevels['1']++;
-					return;
-
 					break;
 				case 'W':
 					abilityLevels['2']++;
-					return;
-
 					break;
 				case 'E':
 					abilityLevels['3']++;
-					return;
-
 					break;
 				case 'R':
 					abilityLevels['4']++;
-					return;
-
 					break;
 			}
 		}
@@ -155,7 +152,7 @@ class Champion {
 		return;
 	}
 
-	async addItemValuesAtThisLevel() {
+	async addItemBaseStats(championLevel) {
 		//generate fight stats to calculate with later
 		let currentBaseStats = this.soloCalc[`level${championLevel}`].myStats;
 		currentBaseStats.omniVamp = 0;

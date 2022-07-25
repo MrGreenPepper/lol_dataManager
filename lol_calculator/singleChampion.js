@@ -1,12 +1,12 @@
 import * as tools from '../tools.js';
 import * as Champion from './champion.js';
 export async function singleChampion() {
-	let championList = await tools.getChampionLinkList();
-	let index = 0;
+	let championList = await tools.getChampionList();
+
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
 		try {
-			console.info('singleChampion.js:\t', championName, '\t', index++);
+			console.info('singleChampion.js:\t', championName, '\t', championEntry.indexNumber);
 			let championA = await Champion.create(championName);
 			// await timer();
 
