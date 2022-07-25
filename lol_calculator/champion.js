@@ -34,23 +34,25 @@ class Champion {
 		await this.loadItemData();
 		return this;
 	}
-	async preCalculateFight(championLevel) {
-		this.championLevel = championLevel;
-		this.soloCalc[`level${this.championLevel}`] = {};
+	async preCalculateFight() {
+		for (let i = 0; i < 18; i++) {
+			championLevel = i;
+			this.soloCalc[`level${championLevel}`] = {};
 
-		await this.setAbilityLevels();
-		//creates this.preFightCalculations[level].myStats and calculates the base values
-		await this.calculateBaseCombatStats();
-		await this.addItemValuesAtThisLevel();
+			await this.setAbilityLevels(championLevel);
+			//creates this.preFightCalculations[level].myStats and calculates the base values
+			await this.calculateBaseCombatStats(championLevel);
+			await this.addItemValuesAtThisLevel(championLevel);
+			await preCalculate.start.apply(this);
 
-		//preCalculates abilities and optionally modify stats
-		await preCalculate.start.apply(this);
+			//preCalculates abilities and optionally modify stats
+		}
 
 		return;
 	}
 
-	async calculateRealCombatStats() {
-		this.calculated_data.matchup[`level${this.championLevel}`] = {};
+	async calculateRealCombatStats(championLevel) {
+		this.calculated_data.matchup[`level${championLevel}`] = {};
 		await realCalculate.start.apply(this);
 		// this.combatStats[`level${this.championLevel}`].specialValues.damagePerRotation =
 		// 	valueTools.damagePerRotation(this);
@@ -69,13 +71,12 @@ class Champion {
 			this.calculateDamage(i);*/
 	}
 
-	async calculateBaseCombatStats() {
+	async calculateBaseCombatStats(championLevel) {
 		/** calculate the rotation and dpsjdamage of all levels */
-		let champLevel = this.championLevel;
+		let champLevel = championLevel;
 		let baseStats = this.calculated_data.baseData.baseStats;
-		this.soloCalc[`level${this.championLevel}`].myStats = {};
+		this.soloCalc[`level${championLevel}`].myStats = {};
 		let myStats = {};
-		myStats.championLevel = this.championLevel;
 		myStats.ap = 0;
 		myStats.baseAD = baseStats.ad + baseStats.ad_plus * champLevel;
 		myStats.ad = baseStats.ad + baseStats.ad_plus * champLevel;
@@ -91,12 +92,12 @@ class Champion {
 		myStats.range = baseStats.range;
 		myStats.windup = baseStats.windup;
 
-		this.soloCalc[`level${this.championLevel}`].myStats = myStats;
+		this.soloCalc[`level${championLevel}`].myStats = myStats;
 		return;
 	}
 
 	async setGold() {
-		this.goldAmount = await goldTools.getGoldAmount(this.championLevel);
+		this.goldAmount = await goldTools.getGoldAmount(championLevel);
 	}
 
 	async loadItemData() {
@@ -118,42 +119,45 @@ class Champion {
 		this.calculated_data.inGameData.itemOrder = itemOrder;
 	}
 
-	async setAbilityLevels() {
-		return new Promise((resolve) => {
-			let abilityLevels = {};
-			abilityLevels['1'] = -1;
-			abilityLevels['2'] = -1;
-			abilityLevels['3'] = -1;
-			abilityLevels['4'] = -1;
-			let skillOrder = this.analysed_data.inGameData.skillOrder;
+	async setAbilityLevels(championLevel) {
+		let abilityLevels = {};
+		abilityLevels['1'] = -1;
+		abilityLevels['2'] = -1;
+		abilityLevels['3'] = -1;
+		abilityLevels['4'] = -1;
+		let skillOrder = this.analysed_data.inGameData.skillOrder;
 
-			for (let i = 0; i < this.championLevel + 1; i++) {
-				switch (skillOrder[i]) {
-					case 'Q':
-						abilityLevels['1']++;
-						resolve();
-						break;
-					case 'W':
-						abilityLevels['2']++;
-						resolve();
-						break;
-					case 'E':
-						abilityLevels['3']++;
-						resolve();
-						break;
-					case 'R':
-						abilityLevels['4']++;
-						resolve();
-						break;
-				}
+		for (let i = 0; i < championLevel + 1; i++) {
+			switch (skillOrder[i]) {
+				case 'Q':
+					abilityLevels['1']++;
+					return;
+
+					break;
+				case 'W':
+					abilityLevels['2']++;
+					return;
+
+					break;
+				case 'E':
+					abilityLevels['3']++;
+					return;
+
+					break;
+				case 'R':
+					abilityLevels['4']++;
+					return;
+
+					break;
 			}
-			this.soloCalc[`level${this.championLevel}`].abilityLevels = abilityLevels;
-		});
+		}
+		this.soloCalc[`level${championLevel}`].abilityLevels = abilityLevels;
+		return;
 	}
 
 	async addItemValuesAtThisLevel() {
 		//generate fight stats to calculate with later
-		let currentBaseStats = this.soloCalc[`level${this.championLevel}`].myStats;
+		let currentBaseStats = this.soloCalc[`level${championLevel}`].myStats;
 		currentBaseStats.omniVamp = 0;
 		currentBaseStats.lifeSteal = 0;
 		currentBaseStats.magicPenetration = 0;
@@ -164,7 +168,7 @@ class Champion {
 
 		//get the maximum available items at the current level
 		try {
-			let goldAmount = await goldTools.getGoldAmount(this.championLevel);
+			let goldAmount = await goldTools.getGoldAmount(championLevel);
 			let boughtItems = await itemTools.calculateItems(
 				this.calculated_data.inGameData.itemOrder,
 				goldAmount
@@ -196,7 +200,7 @@ class Champion {
 					case 'lethality':
 						currentBaseStats.armorPenetration +=
 							summedItemStats[currentCategory] *
-							(0.6 + (0.4 * (this.championLevel + 1)) / 18);
+							(0.6 + (0.4 * (championLevel + 1)) / 18);
 						break;
 					case 'lifeSteal_percent':
 						currentBaseStats.lifeSteal += summedItemStats[currentCategory] / 100;
@@ -257,7 +261,7 @@ class Champion {
 			console.log('cant get items: ', err);
 		}
 
-		this.soloCalc[`level${this.championLevel}`].myStats = currentBaseStats;
+		this.soloCalc[`level${championLevel}`].myStats = currentBaseStats;
 	}
 }
 

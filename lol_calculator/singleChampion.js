@@ -9,9 +9,8 @@ export async function singleChampion() {
 			console.info('singleChampion.js:\t', championName, '\t', index++);
 			let championA = await Champion.create(championName);
 			// await timer();
-			for (let i = 0; i < 18; i++) {
-				await championA.preCalculateFight(i);
-			}
+
+			await championA.preCalculateFight();
 
 			tools.saveJSONData(championA, `./data/champions/${championName}_data.json`);
 			tools.saveJSONData(
