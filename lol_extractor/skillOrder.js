@@ -4,15 +4,13 @@ const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exSkillOrder() {
-	let championList = await tools.getChampionLinkList();
+	let championList = await tools.getChampionList();
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
 		try {
 			console.log('\n\t', championName);
 			//first load the data
-			let championData = await tools.loadJSONData(
-				`./data/champions/${championName}_data.json`
-			);
+			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 
 			championData = await extractSkillOrder(championData);
 

@@ -26,13 +26,11 @@ export async function getBaseData() {
 	//get the championNames
 	let championNames = tableContent.filter((currentElement) => typeof currentElement == 'string');
 	championNames = championNames.filter((currentElement) => !currentElement.includes('·'));
-	let championCount = championNames.length;
 
 	//sorting the right values to the right keys
 	let baseData = assignData(tableContent, tableHeader, championNames);
 
 	await tools.saveJSONData(baseData, './lol_scraper/data/baseData.json');
-	await tools.saveJSONData(championNames, './lol_scraper/data/championList.json');
 
 	await browser.close();
 

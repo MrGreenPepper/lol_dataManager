@@ -1,8 +1,12 @@
 import * as markerData from './markerData.js';
 import * as tools from '../../tools.js';
-
+import * as analyser from '../analyser.js';
+export async function unifyMarkers() {
+	await analyser.cleanSkillTabMarkers();
+	await analyser.simplifyAbilities();
+}
 export async function showAllMarkerPositions() {
-	let championList = await tools.getChampionLinkList();
+	let championList = await tools.getChampionList();
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
@@ -17,15 +21,7 @@ export async function showAllMarkerPositions() {
 					for (var skillTab of content) {
 						searchMarkers.forEach((searchPattern) => {
 							let testResult = searchPattern.test(skillTab.marker);
-							if (testResult)
-								console.log(
-									'searchPattern\t',
-									searchPattern,
-									'\tfound in:\t',
-									championName,
-									'\t',
-									abilityData[abKey].name
-								);
+							if (testResult) console.log('searchPattern\t', searchPattern, '\tfound in:\t', championName, '\t', abilityData[abKey].name);
 						});
 					}
 				}
@@ -47,8 +43,7 @@ export async function markToIgnoreSkillTabMarkers(championAbilitiesData) {
 				let skillTabKeys = Object.keys(currentAbility.textContent[tK].skillTabs);
 
 				for (var sTK of skillTabKeys) {
-					let currentSkillTabMarker =
-						currentAbility.textContent[tK].skillTabs[sTK].marker;
+					let currentSkillTabMarker = currentAbility.textContent[tK].skillTabs[sTK].marker;
 
 					for (var toIgnore of markerData.ignoreMarkerWords) {
 						if (currentSkillTabMarker.indexOf(toIgnore) > -1) {

@@ -7,14 +7,14 @@ const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exSkillTabs() {
-	let championList = await tools.getChampionLinkList();
+	let championList = await tools.getChampionList();
 	for (let champEntry of championList) {
 		let championName = champEntry.championSaveName;
+		//	console.log('\x1b[31m', champEntry.championName, '\x1b[0m');
+		console.log(champEntry.championName, '\t', champEntry.index);
 		try {
 			//first load the data
-			let championData = await tools.loadJSONData(
-				`./data/champions/${championName}_data.json`
-			);
+			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 
 			/** TASKS */
 			championData = await extractSkillTabs(championData);
@@ -37,7 +37,7 @@ export async function extractSkillTabs(championData) {
 	 * @returns championData    the same as input but with extracted skilltabs into markers and mathData
 	 */
 	//get the abilitynumbers first
-	console.log('\x1b[31m', championData.name, '\x1b[0m');
+
 	let championAbilities = championData.extracted_data.baseData.abilities;
 	let abilityKeys = Object.keys(championAbilities);
 	let abilityNumbers = abilityKeys.reduce((acc, element) => {
@@ -51,14 +51,11 @@ export async function extractSkillTabs(championData) {
 		for (let textNum = 0; textNum < textContentCount.length; textNum++) {
 			//empty != undefined
 			if (championAbilities[abNum].textContent[textNum].skillTabs != undefined) {
-				let textContentSkillTabCount = Object.keys(
-					championAbilities[abNum].textContent[textNum].skillTabs
-				);
+				let textContentSkillTabCount = Object.keys(championAbilities[abNum].textContent[textNum].skillTabs);
 				for (let sTNum = 0; sTNum < textContentSkillTabCount.length; sTNum++) {
-					championAbilities[abNum].textContent[textNum].skillTabs[sTNum] =
-						await divideSkillTabs(
-							championAbilities[abNum].textContent[textNum].skillTabs[sTNum]
-						);
+					championAbilities[abNum].textContent[textNum].skillTabs[sTNum] = await divideSkillTabs(
+						championAbilities[abNum].textContent[textNum].skillTabs[sTNum]
+					);
 				}
 			}
 		}
@@ -81,15 +78,7 @@ async function divideSkillTabs(skillTab) {
 	let skillTabContent = {};
 
 	//TODO: some markers are the same but have multiple wordings --> simplify it later : 'bonus movement speed' & 'movement speed modifier'
-	let markers_modifier = [
-		'enhanced',
-		'sweetspot',
-		'maximum',
-		'total',
-		'empowered',
-		'minimum',
-		'per',
-	];
+	let markers_modifier = ['enhanced', 'sweetspot', 'maximum', 'total', 'empowered', 'minimum', 'per'];
 	let markers_dmg = [
 		'physical damage',
 		'magic damage',
@@ -398,10 +387,7 @@ async function divideMathFromSkillTabs(originSkillTabMath) {
 				let outerPart =
 					originSkillTabMath.slice(currentScalingPart[0], currentScalingPart[2][0]) +
 					originSkillTabMath.slice(currentScalingPart[2][1], currentScalingPart[1]);
-				let innerPart = originSkillTabMath.slice(
-					currentScalingPart[2][0],
-					currentScalingPart[2][1]
-				);
+				let innerPart = originSkillTabMath.slice(currentScalingPart[2][0], currentScalingPart[2][1]);
 				multipleScaling.push(outerPart, innerPart);
 				return multipleScaling;
 			} else {
@@ -431,10 +417,7 @@ async function divideMathFromSkillTabs(originSkillTabMath) {
 	//check if there are some extra flatParts between the scaling parts/
 	if (scalingPartPositions.length > 1) {
 		for (let i = 0; i < scalingPartPositions.length - 1; i++) {
-			let spaceBetween = originSkillTabMath.slice(
-				scalingPartPositions[i][1],
-				scalingPartPositions[i + 1][0]
-			);
+			let spaceBetween = originSkillTabMath.slice(scalingPartPositions[i][1], scalingPartPositions[i + 1][0]);
 			spaceBetween = spaceBetween.replace(/\(/g, '');
 			spaceBetween = spaceBetween.replace(/\)/g, '');
 			spaceBetween = spaceBetween.replace(/\+/g, '');

@@ -7,43 +7,25 @@ export async function createBaseChampionDataPool() {
 	const baseData = await tools.loadJSONData('./lol_scraper/data/baseData.json');
 
 	try {
-		for (let i = 0; i < championList.length; i++) {
+		for (let championEntry of championList) {
 			let championData = {};
-			championData.name = championList[i].championName;
-			//generate base structure
-			championData.scraped_data = {};
-			championData.scraped_data.baseData = {};
-			championData.scraped_data.baseData.baseStats = {};
-			championData.scraped_data.baseData.baseStats = baseData[championList[i]];
-			championData.scraped_data.baseData.abilities = {};
-			championData.scraped_data.inGameData = {};
-			championData.scraped_data.inGameData.items = {};
-			championData.scraped_data.inGameData.skillOrder = {};
-			championData.scraped_data.inGameData.masteries = {};
 
-			championData.extracted_data = {};
-			championData.extracted_data.baseData = {};
-			championData.extracted_data.baseData.baseStats = {};
-			championData.extracted_data.baseData.abilities = {};
-			championData.extracted_data.inGameData = {};
-			championData.extracted_data.inGameData.items = {};
-			championData.extracted_data.inGameData.skillOrder = {};
-			championData.extracted_data.inGameData.masteries = {};
-			championData.extracted_data.inGameData.summonerSpells = {};
-
-			championData.calculated_data = {};
+			try {
+				championData = await tools.loadJSONData(`./data/champions/${championEntry.championSaveName}_data.json`);
+			} catch {}
+			championData.name = championEntry.championName;
+			//generate base structure if not existing
+			if (!championData.hasOwnProperty('scraped_data')) {
+				championData.scraped_data = {};
+				championData.scraped_data.baseData = {};
+			}
+			championData.scraped_data.baseData.baseStats = baseData[championEntry.championSaveName];
 
 			//save	the	origin	data
-			tools.saveJSONData(
-				championData,
-				`./lol_scraper/data/champions/baseData/${championList[i].championSaveName}_data.json`
-			);
+			tools.saveJSONData(championData, `./lol_scraper/data/champions/baseData/${championEntry.championSaveName}_data.json`);
 
 			//save the data for later merge
-			tools.saveJSONData(
-				championData,
-				`./data/champions/${championList[i].championSaveName}_data.json`
-			);
+			tools.saveJSONData(championData, `./data/champions/${championEntry.championSaveName}_data.json`);
 		}
 	} catch (err) {
 		console.error(err);

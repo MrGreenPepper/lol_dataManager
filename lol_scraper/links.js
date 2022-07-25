@@ -7,23 +7,27 @@ export async function createLists() {
 	await createItemList();
 }
 export async function createChampionList() {
+	/**1. abilityLinks
+	 * 2. inGameLinks
+	 * 3. merge Data in oneList
+	 */
 	let linkList = [];
-	const url_baseStats =
-		'https://leagueoflegends.fandom.com/wiki/List_of_champions/Base_statistics';
+	const url_baseStats = 'https://leagueoflegends.fandom.com/wiki/List_of_champions/Base_statistics';
 	const url_INGAMELINKS = 'https://www.leagueofgraphs.com/champions/builds';
 	const browser = await startBrowser();
 	const page = await browser.newPage();
 	page.goto(url_baseStats);
 	await page.waitForNavigation();
 
+	/*ABILITIES*/
 	//tableContent
 	let tableContent = await page.$$eval('table tr td', (tds) => tds.map((td) => td.innerText));
 	tableContent = cleanTable(tableContent);
 
 	//get the championNames
-	let championNames = tableContent.filter((currentElement) => typeof currentElement == 'string');
-	championNames = championNames.filter((currentElement) => !currentElement.includes('·'));
-	let championCount = championNames.length;
+	let championNames_ab = tableContent.filter((currentElement) => typeof currentElement == 'string');
+	championNames_ab = championNames_ab.filter((currentElement) => !currentElement.includes('·'));
+
 	let abilityLinks = await page.evaluate(() => {
 		let linksRaw = document.querySelectorAll('table tr td a');
 		let links = [];
@@ -31,18 +35,17 @@ export async function createChampionList() {
 			links.push([linksRaw[i].innerText, linksRaw[i].getAttribute('href')]);
 		}
 		console.log(links);
-		//links = links.map((element) => element.getAttribute('href'));
 		return links;
 	});
 
-	abilityLinks = abilityLinks.filter(
-		(element) => typeof element[0] == 'string' && element[0] != ''
-	);
+	abilityLinks = abilityLinks.filter((element) => typeof element[0] == 'string' && element[0] != '');
 	abilityLinks = abilityLinks.filter((element) => /(wiki).*(LoL)/.test(element[1]));
 	abilityLinks.forEach((element, index) => {
 		element[1] = 'https://leagueoflegends.fandom.com' + element[1];
-		element.push(championNames[index]);
+		element.push(championNames_ab[index]);
 	});
+
+	/*INGAME*/
 
 	page.goto(url_INGAMELINKS);
 	await page.waitForNavigation();
@@ -70,14 +73,18 @@ export async function createChampionList() {
 	//double kled entry to match baseStats
 	//fix gnar/megaGnar
 	let inGameLinks = [];
-	inGameLinksRaw = inGameLinksRaw.map((element) => {
+	let indexOfGnar = -1;
+
+	inGameLinksRaw = inGameLinksRaw.map((element, index) => {
+		//save index of gnar for use at miss fortune (sort alphabetical g comes before m)
+		if (element[1] == 'Gnar') indexOfGnar = index;
 		switch (element[1]) {
 			case 'Kled':
 				inGameLinks.push(element);
 				inGameLinks.push(element);
 				break;
 			case 'Miss Fortune':
-				inGameLinks.push(inGameLinksRaw[36]);
+				inGameLinks.push(inGameLinksRaw[indexOfGnar]);
 				inGameLinks.push(element);
 				break;
 			default:
@@ -87,14 +94,15 @@ export async function createChampionList() {
 
 	await browser.close();
 
+	/*match the data*/
 	for (let i = 0; i < abilityLinks.length; i++) {
 		let linkSet = {};
 		linkSet.inGameLink = 'https://www.leagueofgraphs.com' + inGameLinks[i][0];
 
-		linkSet.championSaveName = championNames[i];
+		linkSet.championSaveName = championNames_ab[i];
 		linkSet.championName = abilityLinks[i][0];
 		linkSet.abilityLink = abilityLinks[i][1];
-		linkSet.indexNumber = i;
+		linkSet.index = i;
 		linkList.push(linkSet);
 	}
 

@@ -6,7 +6,7 @@ import * as markerTools from './marker/markerTools.js';
 import * as tools from '../tools.js';
 
 export async function resetData() {
-	let championList = await tools.getChampionLinkList();
+	let championList = await tools.getChampionList();
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
@@ -20,23 +20,17 @@ export async function resetData() {
 export async function createBackup() {
 	console.log('_____________________\n');
 	console.log('analyser backup start\n');
-	let championList = await tools.getChampionLinkList();
+	let championList = await tools.getChampionList();
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
-		await tools.saveJSONData(
-			championData,
-			`./data/backup/lol_analyser/champions/${championName}_data.json`
-		);
+		await tools.saveJSONData(championData, `./data/backup/lol_analyser/champions/${championName}_data.json`);
 	}
 
 	let itemList = await tools.getItemList();
 	for (let itemName of itemList) {
 		let championData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
-		await tools.saveJSONData(
-			championData,
-			`./data/backup/lol_analyser/items/${itemName}_data.json`
-		);
+		await tools.saveJSONData(championData, `./data/backup/lol_analyser/items/${itemName}_data.json`);
 	}
 	console.log('analyser backup end\n');
 	console.log('----------------------\n');

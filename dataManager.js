@@ -8,9 +8,9 @@ import * as calculator from './lol_calculator/calculator.js';
 
 export let procedure = {
 	useTestData: 0,
-	champions: [0, 162],
+	champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
 	scraper: {
-		createLists: 1,
+		createLists: 0,
 		getBaseData: 0,
 		createBaseChampionPool: 0,
 		getAbilitiesData: 0,
@@ -19,21 +19,21 @@ export let procedure = {
 		createBackup: 0,
 	},
 	extractor: {
-		resetData: 0,
+		resetData: 1,
 		exMetaData: 0,
-		exSkillTabs: 0,
-		exSkillOrder: 0,
-		exMasteries: 0,
-		exItems: 0,
-		createBackup: 0,
+		exSkillTabs: 1,
+		exSkillOrder: 1,
+		exMasteries: 1,
+		exItems: 1,
+		createBackup: 1,
 	},
 	analyser: {
-		resetData: 0,
-		cleanSkillTabMarkers: 0,
-		simplifyAbilities: 0,
-		unifyItems: 0,
-		showAllMarkerPositions: 0,
-		createBackup: 0,
+		resetData: 1,
+		cleanSkillTabMarkers: 1,
+		simplifyAbilities: 1,
+		unifyItems: 1,
+		showAllMarkerPositions: 1,
+		createBackup: 1,
 	},
 	calculator: {
 		resetData: 1,
@@ -107,8 +107,10 @@ await (async function extractProcedure() {
 //extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells, lösche bestimmte spells etc.
 await (async function analyseProcedure() {
 	if (procedure.analyser.resetData) await analyser.resetData();
-	if (procedure.analyser.cleanSkillTabMarkers) await analyser.cleanSkillTabMarkers();
-	if (procedure.analyser.simplifyAbilities) await analyser.simplifyAbilities();
+	//delete unessessary markers (minion damage etc, not maximum)
+
+	if (procedure.analyser.unifyMarkers) await analyser.unifyMarkers();
+
 	if (procedure.analyser.unifyItems) await analyser.unifyItems();
 	if (procedure.analyser.showAllMarkerPositions) await analyser.showAllMarkerPositions();
 	if (procedure.analyser.createBackup) await analyser.createBackup();

@@ -36,14 +36,14 @@ class Champion {
 	}
 	async preCalculateFight() {
 		for (let i = 0; i < 18; i++) {
-			let championLevel = i;
-			this.soloCalc[`level${championLevel}`] = {};
+			this.championLevel = i;
+			this.soloCalc[`level${this.championLevel}`] = {};
 
-			await this.setAbilityLevels(championLevel);
+			await this.setAbilityLevels(this.championLevel);
 			//creates this.preFightCalculations[level].myStats and calculates the base values
-			await this.calculateBaseStats(championLevel);
-			await this.addItemBaseStats(championLevel);
-			await preCalculate.start.apply(this, [championLevel]);
+			await this.calculateBaseStats(this.championLevel);
+			await this.addItemBaseStats(this.championLevel);
+			await preCalculate.start.apply(this);
 
 			//preCalculates abilities and optionally modify stats
 		}
