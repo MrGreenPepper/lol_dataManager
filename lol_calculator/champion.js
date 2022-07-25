@@ -112,9 +112,9 @@ class Champion {
 		itemOrder.push(itemData.boots);
 		itemOrder.push(itemData.coreItems[1]);
 		itemOrder.push(itemData.coreItems[2]);
-		itemOrder.push(itemData.endItems[0]);
-		itemOrder.push(itemData.endItems[1]);
-		itemOrder.push(itemData.endItems[2]);
+		for (let i = 0; i < Object.keys(itemData.endItems).length; i++) {
+			itemOrder.push(itemData.endItems[i]);
+		}
 		this.calculated_data.inGameData.itemOrder = itemOrder;
 	}
 
@@ -243,7 +243,7 @@ class Champion {
 							(summedItemStats[currentCategory] / 100) * currentBaseStats.hp5;
 						break;
 					case 'ms_percent':
-						currentBaseStats[currentCategory].movementSpeed +=
+						currentBaseStats.movementSpeed +=
 							(summedItemStats[currentCategory] / 100) *
 							currentBaseStats.movementSpeed;
 						break;

@@ -4,14 +4,16 @@ import { startBrowser } from './tools/browserControl.js';
 export async function getAbilitiesData() {
 	console.log('___________________________\n');
 	console.log('abilityData scrapingn start\n');
-	let championList = await tools.getChampionLinkList();
+	let championList = await tools.getChampionList();
+	for (let championEntry of championList) {
+		let championName = championEntry.championSaveName;
 
 	for (let i = 0; i < championList.length; i++) {
 		let championData = await tools.loadJSONData(
-			`./data/champions/${championList[i][2]}_data.json`
+			`./data/champions/${championName}_data.json`
 		);
 
-		await scrapeAbilitiesData(championData, championList[i][1]);
+		await scrapeAbilitiesData(championData, championEntry.abilityLink);
 	}
 	console.log('abilityData scraping end\n');
 	console.log('-------------------------\n');

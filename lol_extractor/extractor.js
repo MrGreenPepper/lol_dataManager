@@ -6,10 +6,10 @@ export * from './masteries.js';
 export * from './items.js';
 
 import * as tools from '../tools.js';
-export async function resetData() {
-	let championList = await tools.getChampionLinkList();
-	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
+let championList = await tools.getChampionList();
+for (let champEntry of championList) {
+	let championName = champEntry.championSaveName;
+		
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 
 		championData.extracted_data = championData.scraped_data;
@@ -21,7 +21,7 @@ export async function resetData() {
 export async function createBackup() {
 	console.log('_____________________\n');
 	console.log('extractor backup start\n');
-	let championList = await tools.getChampionLinkList();
+	let championList = await tools.getChampionList();
 	for (let champEntry of championList) {
 		let championName = champEntry.championSaveName;
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);

@@ -4,7 +4,7 @@ import * as browserControl from './tools/browserControl.js';
 export async function getInGameData() {
 	console.log('_________________________\n');
 	console.log('scraping inGameData start\n');
-	let championList = await tools.getChampionLinkList();
+	let championList = await tools.getChampionList();
 
 	for (let champEntry of championList) {
 		let url = champEntry.inGameLink;

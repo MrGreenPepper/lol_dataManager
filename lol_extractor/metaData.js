@@ -6,7 +6,7 @@ const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exMetaData() {
-	let championList = await tools.getChampionLinkList();
+	let championList = await tools.getChampionList();
 	for (let champEntry of championList) {
 		let championName = champEntry.championSaveName;
 		console.log('\n\n ', championName);

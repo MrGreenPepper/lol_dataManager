@@ -52,10 +52,10 @@ function loadItemData(itemName) {
 }
 
 async function getItemPrice(item) {
+	let itemCosts = 0;
 	try {
 		let recipe = item.recipe;
 		let recipeKeys = Object.keys(item.recipe);
-		let itemCosts = 0;
 		for (let key of recipeKeys) {
 			try {
 				for (let i = 0; i < recipe[key].length; i++) {
@@ -76,6 +76,7 @@ async function getItemPrice(item) {
 		console.log('cant get recipe:\t', item);
 		tools.reportError('cant get recipe', item, err.message, err.stack);
 		console.log(err);
+
 		//throw err;
 	}
 }

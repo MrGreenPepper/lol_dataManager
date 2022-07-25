@@ -3,7 +3,7 @@ import * as tools from '../../tools.js';
 export async function createBaseChampionDataPool() {
 	console.log('_______________________\n');
 	console.log('creating baseDataPool start\n');
-	const championList = await tools.getChampionLinkList();
+	const championList = await tools.getChampionList();
 	const baseData = await tools.loadJSONData('./lol_scraper/data/baseData.json');
 
 	try {
