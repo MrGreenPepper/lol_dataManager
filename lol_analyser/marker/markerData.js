@@ -2,18 +2,18 @@ export let searchMarkers = [/mixed magic damage/i, /(mixed).*?(damage)/i];
 
 export let cleaningList = ['champion', 'non-minion'];
 export let ignoreMarkerWords = [
-	'mana',
-	'minimum',
-	'reduced',
-	'energy',
-	// 'per', 			per tick needs to be included
-	'non-champion',
-	' minion',
-	'minion ',
-	'monster',
-	'trap',
-	'width',
-	'gold',
+	/(mana)/,
+	/(minimum)/,
+	/(reduced)/,
+	/(energy)/,
+	/(per)/,
+	/(non-champion)/,
+	/( minion)/,
+	/(minion )/,
+	/(monster)/,
+	/(trap)/,
+	/(width)/,
+	/(gold)/,
 ];
 
 //let hardCCMarkers = ['knockup', 'stun'];
@@ -59,12 +59,7 @@ export let skillTabMarkers = {
 		},
 
 		45: {
-			markers: [
-				'total single-target damage',
-				'total single target damage',
-				'maximum single-target damage',
-				'maximum single target damage',
-			],
+			markers: ['total single-target damage', 'total single target damage', 'maximum single-target damage', 'maximum single target damage'],
 			unifiedMarker: 'single maximum damage',
 		},
 
@@ -500,17 +495,7 @@ export let unifyWords = {
 	heal: ['healing'],
 };
 
-export let baseWords = [
-	'damage',
-	'physical',
-	'magic',
-	'shield',
-	'heal',
-	'attack speed',
-	'armor',
-	'mixed',
-	'ad',
-];
+export let baseWords = ['damage', 'physical', 'magic', 'shield', 'heal', 'attack speed', 'armor', 'mixed', 'ad'];
 
 export let baseCCWords = ['knock up', 'root', 'slow', 'stun', 'knockback', 'disable'];
 

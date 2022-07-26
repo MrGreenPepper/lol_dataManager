@@ -247,13 +247,13 @@ async function divideIntoMarkerAndMath(skillTabOrigin) {
 		console.log('origin skillTab: \t', skillTab);
 		console.log('missing part:\t\t', testContent);
 		console.log('content before correction: \t');
-		console.table(skillTabContentRaw);
+		//console.table(skillTabContentRaw);
 		//change last entry
 
 		let lastEntryIndex = skillTabContentRaw.length - 1;
 		skillTabContentRaw[lastEntryIndex][1] = skillTabOrigin.slice(seperatorPosition);
-		console.table('content after correction: \t');
-		console.table(skillTabContentRaw);
+		//console.table('content after correction: \t');
+		//console.table(skillTabContentRaw);
 	}
 
 	// now clean the content after its valuation

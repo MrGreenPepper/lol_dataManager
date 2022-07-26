@@ -4,7 +4,7 @@ import * as abilityTools from './abilityTools.js';
 
 const CHAMPIONSAVEPATH = './data/champions/';
 
-export async function cleanSkillTabMarkers() {
+export async function deleteAndCleanMarkers() {
 	let championList = await tools.getChampionList();
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
@@ -16,24 +16,14 @@ export async function cleanSkillTabMarkers() {
 		try {
 			championAbilities = await markerTools.markToIgnoreSkillTabMarkers(championAbilities);
 
-			championAbilities.skillTabs = await tools.applyToAllSkillTabs(
-				championAbilities.skillTabs,
-				deleteIgnores
-			);
+			championAbilities.skillTabs = await tools.applyToAllSkillTabs(championAbilities.skillTabs, deleteIgnores);
 		} catch (err) {
 			console.log('\ncleanAbilities()	- mark&delete skillTabMarkers \t', championName);
-			tools.reportError(
-				'cleanAbilities()	- mark&delete skillTabMarkers',
-				championName,
-				err.message,
-				err.stack
-			);
+			tools.reportError('cleanAbilities()	- mark&delete skillTabMarkers', championName, err.message, err.stack);
 		}
 
 		try {
-			championAbilities.skillTabs = await markerTools.cleanMarkers(
-				championAbilities.skillTabs
-			);
+			championAbilities.skillTabs = await markerTools.cleanMarkers(championAbilities.skillTabs);
 		} catch (err) {
 			con;
 		}
@@ -42,10 +32,7 @@ export async function cleanSkillTabMarkers() {
 		//   markerTools.numbersToFloat
 		// );
 		await tools.saveJSONData(championData, `./data/champions/${championName}_data.json`);
-		await tools.saveJSONData(
-			championData,
-			`./lol_analyser/data/champions/${championName}_data.json`
-		);
+		await tools.saveJSONData(championData, `./lol_analyser/data/champions/${championName}_data.json`);
 	}
 }
 
@@ -93,9 +80,7 @@ export async function simplifyAbilities() {
 
 		console.log(`analyser_abilities.js - simplify abilities: ${championName}`);
 		try {
-			let championData = await tools.loadJSONData(
-				`${CHAMPIONSAVEPATH}${championName}_data.json`
-			);
+			let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
 
 			let abilityData = championData.analysed_data.baseData.abilities;
 			let abilityKeys = Object.keys(abilityData.skillTabs);
@@ -119,12 +104,7 @@ export async function simplifyAbilities() {
 		} catch (err) {
 			console.log(err.message);
 			console.log(err.stack);
-			tools.reportError(
-				`analyser_abilities.js:  cant simplify abilities`,
-				championName,
-				err.message,
-				err.stack
-			);
+			tools.reportError(`analyser_abilities.js:  cant simplify abilities`, championName, err.message, err.stack);
 		}
 	}
 }
@@ -197,12 +177,9 @@ async function extractDamageSplit(textContent) {
 	// }
 	//search the textContent for damage type words(like physical, ...)
 	let damageTypes = [];
-	if (textContent.includes('magic damage'))
-		damageTypes.push(['magic', textContent.indexOf('magic damage')]);
-	if (textContent.includes('physical damage'))
-		damageTypes.push(['physical', textContent.indexOf('physical damage')]);
-	if (textContent.includes('true damage'))
-		damageTypes.push(['true', textContent.indexOf('true damage')]);
+	if (textContent.includes('magic damage')) damageTypes.push(['magic', textContent.indexOf('magic damage')]);
+	if (textContent.includes('physical damage')) damageTypes.push(['physical', textContent.indexOf('physical damage')]);
+	if (textContent.includes('true damage')) damageTypes.push(['true', textContent.indexOf('true damage')]);
 	//sort the damageTypes by there appearance ... % split is given in the same order
 	damageTypes = damageTypes.sort((a, b) => {
 		return a[1] - b[1];
@@ -277,8 +254,7 @@ async function sortOutMaximum(skillTabArray) {
 		}, 0);
 		//check if the last skillTab is an combination of the first ones,
 		//if push only the last skillTab, otherwise push all back to the origin skillTab
-		if (flatSum / 2 == similarSkillTabs[similarSkillTabs.length - 1].math.flatPart[0])
-			skillTabArray.push([similarSkillTabs[similarSkillTabs.length - 1]]);
+		if (flatSum / 2 == similarSkillTabs[similarSkillTabs.length - 1].math.flatPart[0]) skillTabArray.push([similarSkillTabs[similarSkillTabs.length - 1]]);
 		else skillTabArray.push([...similarSkillTabs]);
 	}
 
@@ -288,8 +264,7 @@ async function sortOutMaximum(skillTabArray) {
 		if (skillTabArray[t].length > 0) tempArray.push(skillTabArray[t]);
 	}
 	skillTabArray = tempArray;
-	if (skillTabArray.length > 0)
-		skillTabArray = await replaceMarkers(skillTabArray, 'maximum', '');
+	if (skillTabArray.length > 0) skillTabArray = await replaceMarkers(skillTabArray, 'maximum', '');
 	return skillTabArray;
 }
 

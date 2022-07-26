@@ -2,7 +2,6 @@ import * as markerData from './markerData.js';
 import * as tools from '../../tools.js';
 import * as analyser from '../analyser.js';
 export async function unifyMarkers() {
-	await analyser.cleanSkillTabMarkers();
 	await analyser.simplifyAbilities();
 }
 export async function showAllMarkerPositions() {
@@ -46,7 +45,7 @@ export async function markToIgnoreSkillTabMarkers(championAbilitiesData) {
 					let currentSkillTabMarker = currentAbility.textContent[tK].skillTabs[sTK].marker;
 
 					for (var toIgnore of markerData.ignoreMarkerWords) {
-						if (currentSkillTabMarker.indexOf(toIgnore) > -1) {
+						if (toIgnore.test(currentSkillTabMarker)) {
 							currentSkillTabMarker = 'IGNORE THIS';
 						}
 					}
@@ -98,3 +97,21 @@ export async function cleanMarkers(skillTabArray) {
 
 	return skillTabArray;
 }
+
+/**
+
+
+async function unifyMarkers(itemDataStats) {
+	//TODO: vereinheitlichen von allen unify methods
+	itemDataStats = itemDataStats.map((currentStat) => {
+		switch (true) {
+			case currentStat[1].includes('Lethality'):
+				return [currentStat[0], 'lethality'];
+
+			default:
+				return currentStat;
+		}
+	});
+	return itemDataStats;
+}
+*/

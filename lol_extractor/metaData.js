@@ -12,9 +12,7 @@ export async function exMetaData() {
 		console.log('\n\n ', championName);
 		try {
 			//first load the data
-			let championData = await tools.loadJSONData(
-				`./data/champions/${championName}_data.json`
-			);
+			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 
 			championData = await extractMetaData(championData);
 			championData = await metaNumbersToFloat(championData);
@@ -80,9 +78,9 @@ function divideMetaData(rawMetaData) {
 		for (let i = 0; i < rawMetaDataKeys.length; i++) {
 			metaData[rawMetaDataKeys[i]].math = divideMath(metaData[rawMetaDataKeys[i]].math);
 
-			console.table(metaData[rawMetaDataKeys[i]].math);
+			//	console.table(metaData[rawMetaDataKeys[i]].math);
 		}
-		console.table(metaData);
+		//console.table(metaData);
 		return metaData;
 	} else {
 		return metaData;
@@ -193,11 +191,9 @@ export async function metaNumbersToFloat(championData) {
 		for (let currentMetaKey of metaKeys) {
 			let currentMetaData = currentAbility.metaData[currentMetaKey];
 			if (Array.isArray(currentMetaData.math.flatPart))
-				currentMetaData.math.flatPart = currentMetaData.math.flatPart.map(
-					(currentFlatPart) => {
-						return parseFloat(currentFlatPart);
-					}
-				);
+				currentMetaData.math.flatPart = currentMetaData.math.flatPart.map((currentFlatPart) => {
+					return parseFloat(currentFlatPart);
+				});
 		}
 	}
 	return championData;

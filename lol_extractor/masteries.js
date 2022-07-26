@@ -1,6 +1,6 @@
 import * as tools from '../tools.js';
 
-const LOGSAVEPATH = './lol_extractor/champions/';
+const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exMasteries() {
@@ -10,9 +10,7 @@ export async function exMasteries() {
 
 		try {
 			//first load the data
-			let championData = await tools.loadJSONData(
-				`./data/champions/${championName}_data.json`
-			);
+			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 
 			championData = await extractMasteries(championData);
 

@@ -19,19 +19,22 @@ export async function exItems() {
 	for (let itemName of itemList) {
 		try {
 			let loadName = tools.itemNameConverter(itemName);
-			let rawData = await tools.loadJSONData(
-				`./lol_scraper/data/items/${loadName}_data.json`
-			);
+			let rawData = await tools.loadJSONData(`./lol_scraper/data/items/${loadName}_data.json`);
 			let itemData = rawData;
 			try {
-				console.table(rawData.stats.values);
-				itemData = await extractStats(rawData);
-				console.table(itemData.stats.values);
-			} catch (error) {
-				console.log(error);
-			}
-			try {
-				itemData = await extractRecipe(itemData);
+				if (Object.keys(itemData.stats).length > 0) {
+					itemData = await extractStats(rawData);
+					//		console.table(itemData.stats.values);
+				} else {
+					itemData.stats = {};
+				}
+
+				if (Object.keys(itemData.recipe).length > 0) {
+					itemData = await extractRecipe(rawData);
+					//		console.table(itemData.stats.values);
+				} else {
+					itemData.recipe = {};
+				}
 			} catch (error) {
 				console.log(error);
 			}
@@ -44,20 +47,6 @@ export async function exItems() {
 	}
 
 	//return itemData;
-}
-
-async function unifyMarkers(itemDataStats) {
-	//TODO: vereinheitlichen von allen unify methods
-	itemDataStats = itemDataStats.map((currentStat) => {
-		switch (true) {
-			case currentStat[1].includes('Lethality'):
-				return [currentStat[0], 'lethality'];
-
-			default:
-				return currentStat;
-		}
-	});
-	return itemDataStats;
 }
 
 async function extractStats(rawData) {

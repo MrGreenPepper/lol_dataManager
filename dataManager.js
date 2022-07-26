@@ -106,9 +106,10 @@ await (async function extractProcedure() {
 
 //extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells, lösche bestimmte spells etc.
 await (async function analyseProcedure() {
+	/**reduces the abilities to the necessary math */
 	if (procedure.analyser.resetData) await analyser.resetData();
 	//delete unessessary markers (minion damage etc, not maximum)
-
+	if (procedure.analyser.cleanSkillTabMarkers) await analyser.deleteAndCleanMarkers();
 	if (procedure.analyser.unifyMarkers) await analyser.unifyMarkers();
 
 	if (procedure.analyser.unifyItems) await analyser.unifyItems();
