@@ -20,7 +20,7 @@ export let procedure = {
 	},
 	extractor: {
 		resetData: 1,
-		exMetaData: 0,
+		exMetaData: 1,
 		exSkillTabs: 1,
 		exSkillOrder: 1,
 		exMasteries: 1,

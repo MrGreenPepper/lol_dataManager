@@ -14,7 +14,7 @@ export async function exMetaData() {
 			//first load the data
 			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 
-			championData = await extractMetaData(championData);
+			championData.extracted_data.baseData.abilities = await extractMetaData(championData);
 			championData = await metaNumbersToFloat(championData);
 
 			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_metaData.json`);
@@ -43,9 +43,7 @@ export function extractMetaData(championData) {
 		baseAbilityData[metaKey].metaData = divideMetaData(baseAbilityData[metaKey].metaData);
 	});
 
-	//I know this line isnt necessary, but for better reading I keep it
-	championData.extracted_data.baseData.abilities = baseAbilityData;
-	return championData;
+	return baseAbilityData;
 }
 
 function divideMetaData(rawMetaData) {

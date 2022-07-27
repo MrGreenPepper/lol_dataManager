@@ -31,46 +31,41 @@ export async function showAllMarkerPositions() {
 	}
 }
 
-export async function markToIgnoreSkillTabMarkers(championAbilitiesData) {
-	for (let i = 0; i < 5; i++) {
-		let currentAbility = championAbilitiesData[i];
+export async function deleteUnnecessaryMarkers(championAbilitiesData) {
+	let toIgnoreMarkers = markerData.ignoreMarkerWords;
+	try {
+		for (let i = 0; i < 5; i++) {
+			let currentAbility = championAbilitiesData[i];
 
-		let textContentKeys = Object.keys(currentAbility.textContent);
+			for (let abilityPart = 0; abilityPart < currentAbility.length; abilityPart++) {
+				let currentAbilityPart = currentAbility[abilityPart];
 
-		try {
-			for (var tK of textContentKeys) {
-				let skillTabKeys = Object.keys(currentAbility.textContent[tK].skillTabs);
-
-				for (var sTK of skillTabKeys) {
-					let currentSkillTabMarker = currentAbility.textContent[tK].skillTabs[sTK].marker;
-
-					for (var toIgnore of markerData.ignoreMarkerWords) {
-						if (toIgnore.test(currentSkillTabMarker)) {
-							currentSkillTabMarker = 'IGNORE THIS';
-						}
+				currentAbilityPart = currentAbilityPart.filter((skillTab) => {
+					// test if you can find the marker in the ignores and return true if ... if the loop doesnt break it return false
+					for (let toIgnore of toIgnoreMarkers) {
+						if (toIgnore.test(skillTab.marker)) return false;
 					}
-					currentAbility.textContent[tK].skillTabs[sTK].marker = currentSkillTabMarker;
-				}
+					return true;
+				});
+
+				championAbilitiesData[i][abilityPart] = currentAbilityPart;
 			}
-		} catch (err) {
-			console.log(err);
-			console.log(currentAbility);
 		}
-
-		championAbilitiesData[i] = currentAbility;
+	} catch (err) {
+		console.log(err);
+		console.log(currentAbility);
 	}
-
 	return championAbilitiesData;
 }
 
-export async function cleanMarkers(skillTabArray) {
+export async function cleanMarkers(abilityArray) {
 	/** all markers to lower case and delete unnecessary words like "champion" */
 	let cleaningList = markerData.cleaningList;
 	try {
-		skillTabArray.forEach((abilityArrays) => {
-			if (abilityArrays.length > 0) {
-				abilityArrays.forEach((textContent) => {
-					textContent.forEach((skillTab) => {
+		abilityArray.forEach((abilityPart) => {
+			if (abilityPart.length > 0) {
+				abilityPart.forEach((currentAbilityPart) => {
+					currentAbilityPart.forEach((skillTab) => {
 						let marker = skillTab.marker;
 						marker = marker.toLowerCase();
 
@@ -95,7 +90,7 @@ export async function cleanMarkers(skillTabArray) {
 		console.log(err);
 	}
 
-	return skillTabArray;
+	return abilityArray;
 }
 
 /**

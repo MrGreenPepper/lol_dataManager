@@ -23,13 +23,13 @@ async function sumSkillTabs(rawAbilities) {
 	/**divides the skillTabs into damage/dev and utility and sums them */
 	for (let i = 0; i < 5; i++) {
 		let flatStats = {};
-		if (Object.keys(rawAbilities[`ability${i}`]).length == 0) {
+		if (Object.keys(rawAbilities[i]).length == 0) {
 			flatStats = {};
 		} else {
-			let currentAbility = JSON.parse(JSON.stringify(rawAbilities[`ability${i}`]));
+			let currentAbility = JSON.parse(JSON.stringify(rawAbilities[i]));
 			let sumAbility = {};
 			for (let abilityPart = 0; abilityPart < Object.keys(currentAbility).length; abilityPart++) {
-				let currentPart = currentAbility[`part${abilityPart}`];
+				let currentPart = currentAbility[abilityPart];
 				for (let skillTabNumber = 0; skillTabNumber < currentPart.length; skillTabNumber++) {
 					let currentSkillTab = currentPart[skillTabNumber];
 
@@ -51,7 +51,7 @@ async function sumSkillTabs(rawAbilities) {
 							break;
 					}
 
-					rawAbilities[`ability${i}`].flatStats = flatStats;
+					rawAbilities[i].flatStats = flatStats;
 				}
 			}
 		}
@@ -62,6 +62,7 @@ async function sumSkillTabs(rawAbilities) {
 async function calculateDamage(rawSkillTab) {
 	return;
 }
+
 async function calculateUtility(rawSkillTab) {}
 function analyseMarker(rawSkillTab) {
 	let marker = rawSkillTab.marker;
@@ -86,26 +87,26 @@ function analyseMarker(rawSkillTab) {
 	if (/(bonus)/i.test(marker)) return 'enhancer';
 	if (/(disable)/i.test(marker)) return 'utility';
 	if (/(stun)/i.test(marker)) return 'utility';
-	console.log('unknown marker:', marker);
+	console.log('analyseMarker(): unknown marker:', marker);
 	return 'unknown';
 }
 
 async function applyLevelsToAbilities(abilities, abilityLevels, championLevel) {
-	let leveledAbilities = {};
+	let leveledAbilities = [];
 
 	//now modify the copied data --> sort out the correct numbers concerning the abilityLevel
 	for (let abNumber = 0; abNumber < 5; abNumber++) {
 		//first check if ability is actifve at the given level and check if there are skillTabs to apply a level
-		if (abilityLevels[abNumber] == -1 || abilities[`ability${abNumber}`].skillTabs == undefined) {
-			leveledAbilities[`ability${abNumber}`] = {};
+		if (abilityLevels[abNumber] == -1 || abilities[abNumber] == undefined) {
+			leveledAbilities.push([]);
 		} else {
 			//then get the abiliyParts and apply the level to them
-			leveledAbilities[`ability${abNumber}`] = {};
-			let abilityParts = abilities[`ability${abNumber}`].skillTabs;
+			leveledAbilities[`${abNumber}`] = {};
+			let abilityParts = abilities[abNumber];
 
 			for (let abPartNumber = 0; abPartNumber < abilityParts.length; abPartNumber++) {
 				let skillTabs = abilityParts[abPartNumber];
-				leveledAbilities[`ability${abNumber}`][`part${abPartNumber}`] = await applyLevelToSkillTabs(skillTabs, abilityLevels[abNumber]);
+				leveledAbilities[abNumber][abPartNumber] = await applyLevelToSkillTabs(skillTabs, abilityLevels[abNumber]);
 			}
 		}
 	}

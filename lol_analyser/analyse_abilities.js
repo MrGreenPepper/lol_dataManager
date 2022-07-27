@@ -14,18 +14,18 @@ export async function deleteAndCleanMarkers() {
 		 * and cleaned from unnecessary words like "champion"*/
 		let championAbilities = championData.analysed_data.baseData.abilities;
 		try {
-			championAbilities = await markerTools.markToIgnoreSkillTabMarkers(championAbilities);
-
-			championAbilities.skillTabs = await tools.applyToAllSkillTabs(championAbilities.skillTabs, deleteIgnores);
+			championAbilities = await markerTools.deleteUnnecessaryMarkers(championAbilities);
 		} catch (err) {
 			console.log('\ncleanAbilities()	- mark&delete skillTabMarkers \t', championName);
+			console.log(err);
 			tools.reportError('cleanAbilities()	- mark&delete skillTabMarkers', championName, err.message, err.stack);
 		}
 
 		try {
-			championAbilities.skillTabs = await markerTools.cleanMarkers(championAbilities.skillTabs);
+			championAbilities = await markerTools.cleanMarkers(championAbilities);
 		} catch (err) {
-			con;
+			console.log(err);
+			tools.reportError('analyse - deleteAndCleanMarkers', championName, err.message, err.stack);
 		}
 		// championAbilities.skillTabs = await markerTools.applyToAllSkillTabs(
 		//   championAbilities.skillTabs,
@@ -34,43 +34,6 @@ export async function deleteAndCleanMarkers() {
 		await tools.saveJSONData(championData, `./data/champions/${championName}_data.json`);
 		await tools.saveJSONData(championData, `./lol_analyser/data/champions/${championName}_data.json`);
 	}
-}
-
-async function deleteIgnores(skillTabArray) {
-	for (let i = 0; i < skillTabArray.length; i++) {
-		let currentArray = skillTabArray[i];
-		currentArray = currentArray.filter((currentSkillTab) => {
-			async function applyToAllSkillTabs(skillTabs, applyFunction) {
-				/** applies a function to every single skillTab
-				 *
-				 * @param {object} skillTabs - kind of array out of skillTabs in form of an object
-				 * @param {function} applyFunction - function which is applied to every single skillTab
-				 *
-				 * @returns {object} skillTabs - modified skillTabsArray
-				 */
-				let abilityKeys = Object.keys(skillTabs);
-				try {
-					for (var i of abilityKeys) {
-						let currentAbility = skillTabs[i];
-						for (let n = 0; n < currentAbility.length; n++) {
-							let currentContent = currentAbility[n];
-							for (let c = 0; c < currentContent.length; c++) {
-								skillTabs[i][n][c] = await applyFunction(currentContent[c]);
-							}
-						}
-					}
-				} catch (err) {
-					console.log(err);
-					console.log(skillTabs);
-				}
-				return skillTabs;
-			}
-			let testValue = /ignore this/gi.test(currentSkillTab.marker);
-			return !testValue;
-		});
-		skillTabArray[i] = currentArray;
-	}
-	return skillTabArray;
 }
 
 export async function simplifyAbilities() {

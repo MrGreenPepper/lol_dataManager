@@ -18,7 +18,7 @@ export async function exSkillTabs() {
 
 			/** TASKS */
 			championData = await extractSkillTabs(championData);
-			championData = await createSkillTabArrays(championData);
+			championData.extracted_data.baseData.abilities = await createSkillTabArrays(championData);
 
 			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
 			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
@@ -535,15 +535,15 @@ export async function createSkillTabArrays(championData) {
 
 	let championAbilities = championData.extracted_data.baseData.abilities;
 	let skillTabArray = [];
-	championAbilities.skillTabs = [];
+
 	for (let i = 0; i < 5; i++) {
 		let currentAbility = championAbilities[i];
 		currentAbility = await cleaner.cleanEmptyTextContent(currentAbility);
 
 		skillTabArray.push(await allSkillTabsToArray(currentAbility));
 	}
-	championAbilities.skillTabs = skillTabArray;
-	return championData;
+
+	return skillTabArray;
 }
 
 async function allSkillTabsToArray(currentAbility) {
