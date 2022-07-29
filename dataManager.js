@@ -8,7 +8,8 @@ import * as calculator from './lol_calculator/calculator.js';
 
 export let procedure = {
 	useTestData: 0,
-	champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
+	//champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
+	champions: [0, 162],
 	scraper: {
 		createLists: 0,
 		getBaseData: 0,
@@ -19,21 +20,22 @@ export let procedure = {
 		createBackup: 0,
 	},
 	extractor: {
-		resetData: 1,
-		exMetaData: 1,
-		exSkillTabs: 1,
-		exSkillOrder: 1,
-		exMasteries: 1,
-		exItems: 1,
-		createBackup: 1,
+		resetData: 0,
+		exMetaData: 0,
+		exSkillTabs: 0,
+		exSkillOrder: 0,
+		exMasteries: 0,
+		exItems: 0,
+		createBackup: 0,
 	},
 	analyser: {
-		resetData: 1,
-		cleanSkillTabMarkers: 1,
-		simplifyAbilities: 1,
-		unifyItems: 1,
-		showAllMarkerPositions: 1,
-		createBackup: 1,
+		resetData: 0,
+		cleanSkillTabMarkers: 0,
+		unifyAbilityMarkers: 0,
+		categorizeMarkers: 0,
+		unifyItems: 0,
+		showAllMarkerPositions: 0,
+		createBackup: 0,
 	},
 	calculator: {
 		resetData: 1,
@@ -110,7 +112,8 @@ await (async function analyseProcedure() {
 	if (procedure.analyser.resetData) await analyser.resetData();
 	//delete unessessary markers (minion damage etc, not maximum)
 	if (procedure.analyser.cleanSkillTabMarkers) await analyser.deleteAndCleanMarkers();
-	if (procedure.analyser.unifyMarkers) await analyser.unifyMarkers();
+	if (procedure.analyser.unifyAbilityMarkers) await analyser.unifyAbilityMarkers();
+	if (procedure.analyser.categorizeMarkers) await analyser.categorizeMarkers();
 
 	if (procedure.analyser.unifyItems) await analyser.unifyItems();
 	if (procedure.analyser.showAllMarkerPositions) await analyser.showAllMarkerPositions();

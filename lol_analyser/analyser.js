@@ -1,8 +1,8 @@
-export * from './marker/markerTools.js';
 export * from './analyse_abilities.js';
 export * from './items.js';
+export * from './unifyMarkers.js';
+export * from './cleaner.js';
 
-import * as markerTools from './marker/markerTools.js';
 import * as tools from '../tools.js';
 
 export async function resetData() {

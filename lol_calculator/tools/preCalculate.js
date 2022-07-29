@@ -21,33 +21,38 @@ export async function start() {
 
 async function sumSkillTabs(rawAbilities) {
 	/**divides the skillTabs into damage/dev and utility and sums them */
+	let summedAbilities;
 	for (let i = 0; i < 5; i++) {
 		let flatStats = {};
 		if (Object.keys(rawAbilities[i]).length == 0) {
 			flatStats = {};
 		} else {
 			let currentAbility = JSON.parse(JSON.stringify(rawAbilities[i]));
-			let sumAbility = {};
 			for (let abilityPart = 0; abilityPart < Object.keys(currentAbility).length; abilityPart++) {
 				let currentPart = currentAbility[abilityPart];
 				for (let skillTabNumber = 0; skillTabNumber < currentPart.length; skillTabNumber++) {
 					let currentSkillTab = currentPart[skillTabNumber];
 
 					//filter the abiliies by markers
-					switch (analyseMarker(currentSkillTab)) {
-						case 'ad damage':
+					switch (currentSkillTab.category) {
+						case 'damage':
 							flatStats.damage = flatStats.damage = await calculateDamage(currentSkillTab);
 							break;
 						case 'defensive':
-							flatStats.damage = flatStats.damage = await calculateDef(currentSkillTab);
+							flatStats.defensive = flatStats.damage = await calculateDef(currentSkillTab);
 							break;
-
 						case 'utility':
-							flatStats.specials = await calculateUtility(currentSkillTab);
+							flatStats.utility = await calculateUtility(currentSkillTab);
 							break;
-
+						//TODO: caclulate enhancer first
 						case 'enhancer':
-							flatStats.specials = await calculateUtility(currentSkillTab);
+							flatStats.enhancer = await calculateEnhancer(currentSkillTab);
+							break;
+						case 'softCC':
+							flatStats.softCC = await calculateSoftCC(currentSkillTab);
+							break;
+						case 'hardCC':
+							flatStats.hardCC = await calculateHardCC(currentSkillTab);
 							break;
 					}
 
@@ -60,33 +65,56 @@ async function sumSkillTabs(rawAbilities) {
 }
 
 async function calculateDamage(rawSkillTab) {
+	let marker = rawSkillTab.marker;
+	switch (true) {
+		case /.*(physical)/i.test(marker):
+			return 'ad damage';
+		case /(magic)/i.test(marker):
+			return 'magic damage';
+		case /(mixed)/i.test(marker):
+			return 'mixed damage';
+		case /\true/i:
+			return 'true damage';
+		case /(damage)/.test(marker):
+			//console.log('default ad', marker);
+			return 'ad damage';
+	}
 	return;
 }
 
+async function calculateDef() {}
+
 async function calculateUtility(rawSkillTab) {}
+
+async function calculateEnhancer() {}
+let damageMarker = [/(damage)/i];
+let enhancerMarker = [/(bonus)/i, /(attack speed)/i];
+
 function analyseMarker(rawSkillTab) {
 	let marker = rawSkillTab.marker;
-	if (/(damage)/.test(marker)) {
-		switch (true) {
-			case /.*(physical)/i.test(marker):
-				return 'ad damage';
-			case /(magic)/i.test(marker):
-				return 'magic damage';
-			case /(mixed)/i.test(marker):
-				return 'mixed damage';
-			case /\true/i:
-				return 'true damage';
-			case /(damage)/.test(marker):
-				//console.log('default ad', marker);
-				return 'ad damage';
-		}
+	for (let i = 0; i < damageMarker.length; i++) {
+		let currentRegex = damageMarker[i];
+		if (currentRegex.test(marker)) return 'damage';
 	}
-	if (/(heal)/i.test(marker)) return 'heal';
-	if (/(movement)/i.test(marker)) return 'utility';
+	if (/(damage)/i.test(marker)) return 'damage';
+
 	//bonus damage wouldnt count since damager marker are sort out above
 	if (/(bonus)/i.test(marker)) return 'enhancer';
-	if (/(disable)/i.test(marker)) return 'utility';
-	if (/(stun)/i.test(marker)) return 'utility';
+	if (/(attack speed)/i.test(marker)) return 'enhancer';
+	if (/(reduction)/i.test(marker)) return 'enhancer';
+	if (/(penetration)/i.test(marker)) return 'enhancer';
+	if (/(buff)/i.test(marker)) return 'enhancer';
+
+	if (/(heal)/i.test(marker)) return 'defensive';
+	if (/(shield)/.test(marker)) return 'defensive';
+
+	if (/(movement)/.test(marker)) return 'utility';
+	if (/(movespeed)/i.test(marker)) return 'utility';
+
+	if (/(disable)/.test(marker)) return 'utility';
+	if (/(stun)/.test(marker)) return 'utility';
+	if (/(slow)/.test(marker)) return 'utility';
+	if (/(root)/.test(marker)) return 'utility';
 	console.log('analyseMarker(): unknown marker:', marker);
 	return 'unknown';
 }
@@ -113,9 +141,9 @@ async function applyLevelsToAbilities(abilities, abilityLevels, championLevel) {
 	return leveledAbilities;
 }
 
-async function applyLevelToSkillTabs(skillTabs, currentAbilityLevel) {
-	for (let sk = 0; sk < skillTabs.length; sk++) {
-		let math = skillTabs[sk].math;
+async function applyLevelToSkillTabs(abilityPart, currentAbilityLevel) {
+	for (let sk = 0; sk < abilityPart.length; sk++) {
+		let math = abilityPart[sk].math;
 
 		math.flatPart = await applyLevelToMathPart(math.flatPart, currentAbilityLevel);
 		//1. combine ability Data with the concerning level
@@ -134,10 +162,19 @@ async function applyLevelToSkillTabs(skillTabs, currentAbilityLevel) {
 				currentScaling[0] = await applyLevelToMathPart(currentScaling[0], currentAbilityLevel);
 			}
 		}
-		skillTabs[sk].math = math;
+		abilityPart[sk].math = math;
+
+		//apply level to the metaData too
+		let metaKeys = Object.keys(abilityPart[sk].concerningMeta);
+		for (let currentKey of metaKeys) {
+			let currentMetaData = abilityPart[sk].concerningMeta[currentKey];
+			if (Array.isArray(currentMetaData.math.flatPart)) {
+				currentMetaData.math.flatPart = await applyLevelToMathPart(currentMetaData.math.flatPart, currentAbilityLevel);
+			}
+		}
 	}
 
-	return skillTabs;
+	return abilityPart;
 }
 
 async function applyLevelToMathPart(mathArray, abilityLevel) {

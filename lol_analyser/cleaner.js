@@ -1,37 +1,40 @@
 import * as markerData from './markerData.js';
-import * as tools from '../../tools.js';
-import * as analyser from '../analyser.js';
-export async function unifyMarkers() {
-	await analyser.simplifyAbilities();
-}
-export async function showAllMarkerPositions() {
+import * as tools from '../tools.js';
+
+const CHAMPIONSAVEPATH = './data/champions/';
+export async function deleteAndCleanMarkers() {
 	let championList = await tools.getChampionList();
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
-		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
-		let abilityData = championData.analysed_data.baseData.abilities;
-		let searchMarkers = markerData.searchMarkers;
+		console.log(championName);
+		let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
+		/** delete unnecessary Markers, rest of the markers are set to lower case and grouped to ability.skillTabs
+		 * and cleaned from unnecessary words like "champion"*/
+		let championAbilities = championData.analysed_data.baseData.abilities;
+		try {
+			championAbilities = await deleteUnnecessaryMarkers(championAbilities);
+		} catch (err) {
+			console.log('\ncleanAbilities()	- mark&delete skillTabMarkers \t', championName);
+			console.log(err);
+			tools.reportError('cleanAbilities()	- mark&delete skillTabMarkers', championName, err.message, err.stack);
+		}
 
 		try {
-			let abilityKeys = Object.keys(abilityData.skillTabs);
-			for (var abKey of abilityKeys) {
-				let currentAbility = abilityData.skillTabs[abKey];
-				for (var content of currentAbility) {
-					for (var skillTab of content) {
-						searchMarkers.forEach((searchPattern) => {
-							let testResult = searchPattern.test(skillTab.marker);
-							if (testResult) console.log('searchPattern\t', searchPattern, '\tfound in:\t', championName, '\t', abilityData[abKey].name);
-						});
-					}
-				}
-			}
+			championAbilities = await cleanMarkers(championAbilities);
 		} catch (err) {
-			tools.reportError('show all markers', championName, err.message, err.stack);
+			console.log(err);
+			tools.reportError('analyse - deleteAndCleanMarkers', championName, err.message, err.stack);
 		}
+		// championAbilities.skillTabs = await markerTools.applyToAllSkillTabs(
+		//   championAbilities.skillTabs,
+		//   markerTools.numbersToFloat
+		// );
+		await tools.saveJSONData(championData, `./data/champions/${championName}_data.json`);
+		await tools.saveJSONData(championData, `./lol_analyser/data/champions/${championName}_data.json`);
 	}
 }
 
-export async function deleteUnnecessaryMarkers(championAbilitiesData) {
+async function deleteUnnecessaryMarkers(championAbilitiesData) {
 	let toIgnoreMarkers = markerData.ignoreMarkerWords;
 	try {
 		for (let i = 0; i < 5; i++) {
@@ -58,7 +61,7 @@ export async function deleteUnnecessaryMarkers(championAbilitiesData) {
 	return championAbilitiesData;
 }
 
-export async function cleanMarkers(abilityArray) {
+async function cleanMarkers(abilityArray) {
 	/** all markers to lower case and delete unnecessary words like "champion" */
 	let cleaningList = markerData.cleaningList;
 	try {
@@ -92,21 +95,3 @@ export async function cleanMarkers(abilityArray) {
 
 	return abilityArray;
 }
-
-/**
-
-
-async function unifyMarkers(itemDataStats) {
-	//TODO: vereinheitlichen von allen unify methods
-	itemDataStats = itemDataStats.map((currentStat) => {
-		switch (true) {
-			case currentStat[1].includes('Lethality'):
-				return [currentStat[0], 'lethality'];
-
-			default:
-				return currentStat;
-		}
-	});
-	return itemDataStats;
-}
-*/

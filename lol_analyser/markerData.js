@@ -8,8 +8,7 @@ export let ignoreMarkerWords = [
 	/(energy)/,
 	/(per)/,
 	/(non-champion)/,
-	/( minion)/,
-	/(minion )/,
+	/(minion)/,
 	/(monster)/,
 	/(trap)/,
 	/(width)/,
@@ -490,9 +489,10 @@ export let skillTabMarkers = {
 	combinationMarkers: ['life steal', 'healing cap', 'enhanced healing cap'],
 };
 
-export let unifyWords = {
+export let unifyWording = {
 	maximum: ['increased', 'total', 'enhanced', 'empowered', 'capped', 'sweetspot'],
 	heal: ['healing'],
+	knockup: ['knock up'],
 };
 
 export let baseWords = ['damage', 'physical', 'magic', 'shield', 'heal', 'attack speed', 'armor', 'mixed', 'ad'];

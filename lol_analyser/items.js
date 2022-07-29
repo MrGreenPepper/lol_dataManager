@@ -7,7 +7,7 @@ export async function unifyItems() {
 			let loadName = tools.itemNameConverter(itemName);
 			let itemData = await tools.loadJSONData(`./data/items/${loadName}_data.json`);
 			try {
-				if (Object.keys(itemData.stats).length > 0) itemData.stats.values = await unifyMarkers(itemData.stats.values);
+				if (Object.keys(itemData.stats).length > 0) itemData.stats.values = await unifyItemMarker(itemData.stats.values);
 			} catch (error) {
 				console.log(error);
 			}
@@ -25,8 +25,7 @@ export async function unifyItems() {
 
 	//return itemData;
 }
-
-export async function unifyMarkers(itemDataStats) {
+async function unifyItemMarker(itemDataStats) {
 	//TODO: vereinheitlichen von allen unify methods
 	itemDataStats = itemDataStats.map((currentStat) => {
 		switch (true) {

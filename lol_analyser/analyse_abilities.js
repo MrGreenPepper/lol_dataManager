@@ -1,76 +1,8 @@
-import * as markerTools from './marker/markerTools.js';
+import * as markerTools from './unifyMarkers.js';
 import * as tools from '../tools.js';
 import * as abilityTools from './abilityTools.js';
 
 const CHAMPIONSAVEPATH = './data/champions/';
-
-export async function deleteAndCleanMarkers() {
-	let championList = await tools.getChampionList();
-	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
-		console.log(championName);
-		let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
-		/** delete unnecessary Markers, rest of the markers are set to lower case and grouped to ability.skillTabs
-		 * and cleaned from unnecessary words like "champion"*/
-		let championAbilities = championData.analysed_data.baseData.abilities;
-		try {
-			championAbilities = await markerTools.deleteUnnecessaryMarkers(championAbilities);
-		} catch (err) {
-			console.log('\ncleanAbilities()	- mark&delete skillTabMarkers \t', championName);
-			console.log(err);
-			tools.reportError('cleanAbilities()	- mark&delete skillTabMarkers', championName, err.message, err.stack);
-		}
-
-		try {
-			championAbilities = await markerTools.cleanMarkers(championAbilities);
-		} catch (err) {
-			console.log(err);
-			tools.reportError('analyse - deleteAndCleanMarkers', championName, err.message, err.stack);
-		}
-		// championAbilities.skillTabs = await markerTools.applyToAllSkillTabs(
-		//   championAbilities.skillTabs,
-		//   markerTools.numbersToFloat
-		// );
-		await tools.saveJSONData(championData, `./data/champions/${championName}_data.json`);
-		await tools.saveJSONData(championData, `./lol_analyser/data/champions/${championName}_data.json`);
-	}
-}
-
-export async function simplifyAbilities() {
-	let championList = await tools.getChampionLinkList();
-	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
-
-		console.log(`analyser_abilities.js - simplify abilities: ${championName}`);
-		try {
-			let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
-
-			let abilityData = championData.analysed_data.baseData.abilities;
-			let abilityKeys = Object.keys(abilityData.skillTabs);
-			abilityData.simplified = {};
-			for (var abKey of abilityKeys) {
-				let skillTabArray = abilityData.skillTabs[abKey];
-				abilityData.simplified['ability' + abKey] = {};
-				if (skillTabArray.length > 0) {
-					let simplifiedData = await summariesSkillTabs(skillTabArray);
-					abilityData.simplified['ability' + abKey].skillTabs = [...simplifiedData];
-
-					abilityData.simplified['ability' + abKey].metaData = {};
-					abilityData.simplified['ability' + abKey].metaData = await simplifyMetaData(
-						abilityData.simplified['ability' + abKey].skillTabs[0][0].concerningMeta
-					);
-				}
-			}
-
-			championData.analysed_data.baseData.abilities = abilityData;
-			await tools.saveJSONData(championData, `${CHAMPIONSAVEPATH}${championName}_data.json`);
-		} catch (err) {
-			console.log(err.message);
-			console.log(err.stack);
-			tools.reportError(`analyser_abilities.js:  cant simplify abilities`, championName, err.message, err.stack);
-		}
-	}
-}
 
 async function simplifyMetaData(metaData) {
 	let cmetaData = await abilityTools.copyObjectByValue(metaData);
