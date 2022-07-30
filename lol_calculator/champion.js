@@ -13,9 +13,7 @@ class Champion {
 	constructor(championName) {
 		this.championName = championName;
 
-		let tempData = JSON.parse(
-			fs.readFileSync(`${DATAPATH}${this.championName}_data.json`, 'utf8')
-		);
+		let tempData = JSON.parse(fs.readFileSync(`${DATAPATH}${this.championName}_data.json`, 'utf8'));
 		let dataKeys = Object.keys(tempData);
 		// copies the data, per key, from the loaded one
 		for (let key of dataKeys) {
@@ -84,6 +82,9 @@ class Champion {
 		myStats.attackSpeed = baseStats.as + baseStats.as_plus * champLevel;
 		myStats.hp = baseStats.hp + baseStats.hp_plus * champLevel;
 		myStats.hp5 = baseStats.hp5 + baseStats.hp5_plus * champLevel;
+		myStats.mp = baseStats.mp + baseStats.mp_plus * champLevel;
+
+		myStats.mp5 = baseStats.mp5 + baseStats.mp5_plus * champLevel;
 		myStats.magicPenetration = baseStats.mp + baseStats.mp_plus * champLevel;
 		myStats.magicResist = baseStats.mr + baseStats.mr_plus * champLevel;
 		myStats.armor = baseStats.ar + baseStats.ar_plus * champLevel;
@@ -102,9 +103,7 @@ class Champion {
 
 	async loadItemData() {
 		this.calculated_data.inGameData.itemData = {};
-		this.calculated_data.inGameData.itemData = await itemTools.loadItems(
-			this.analysed_data.inGameData.items
-		);
+		this.calculated_data.inGameData.itemData = await itemTools.loadItems(this.analysed_data.inGameData.items);
 		let itemOrder = [];
 		let itemData = this.calculated_data.inGameData.itemData;
 		//TODO: hard coded itemOrder
@@ -154,7 +153,21 @@ class Champion {
 
 	async addItemBaseStats(championLevel) {
 		//generate fight stats to calculate with later
-		let currentBaseStats = this.soloCalc[`level${championLevel}`].myStats;
+		this.soloCalc[`level${championLevel}`].itemStats = {};
+		let currentBaseStats = {};
+		currentBaseStats.ap = 0;
+		currentBaseStats.ad = 0;
+		currentBaseStats.attackSpeed = 0;
+		currentBaseStats.hp = 0;
+		currentBaseStats.hp5 = 0;
+		currentBaseStats.mp = 0;
+		currentBaseStats.mp5 = 0;
+		currentBaseStats.magicPenetration = 0;
+		currentBaseStats.magicResist = 0;
+		currentBaseStats.armor = 0;
+		currentBaseStats.movementSpeed = 0;
+		currentBaseStats.cd = 0;
+
 		currentBaseStats.omniVamp = 0;
 		currentBaseStats.lifeSteal = 0;
 		currentBaseStats.magicPenetration = 0;
@@ -166,10 +179,7 @@ class Champion {
 		//get the maximum available items at the current level
 		try {
 			let goldAmount = await goldTools.getGoldAmount(championLevel);
-			let boughtItems = await itemTools.calculateItems(
-				this.calculated_data.inGameData.itemOrder,
-				goldAmount
-			);
+			let boughtItems = await itemTools.calculateItems(this.calculated_data.inGameData.itemOrder, goldAmount);
 			let summedItemStats = await itemTools.sumItemStats(boughtItems);
 
 			let statsCategories = Object.keys(summedItemStats);
@@ -185,9 +195,7 @@ class Champion {
 						break;
 					case 'attackSpeed_percent':
 						//TODO: control attack speed calculation
-						currentBaseStats.attackSpeed +=
-							(summedItemStats[currentCategory] / 100 + 1) *
-							currentBaseStats.attackSpeed;
+						currentBaseStats.attackSpeed += (summedItemStats[currentCategory] / 100 + 1) * currentBaseStats.attackSpeed;
 						break;
 					case 'armorPenetration':
 						currentBaseStats[currentCategory] += summedItemStats[currentCategory];
@@ -195,9 +203,7 @@ class Champion {
 					case 'armorPenetration_percent':
 						currentBaseStats[currentCategory] += summedItemStats[currentCategory];
 					case 'lethality':
-						currentBaseStats.armorPenetration +=
-							summedItemStats[currentCategory] *
-							(0.6 + (0.4 * (championLevel + 1)) / 18);
+						currentBaseStats.armorPenetration += summedItemStats[currentCategory] * (0.6 + (0.4 * (championLevel + 1)) / 18);
 						break;
 					case 'lifeSteal_percent':
 						currentBaseStats.lifeSteal += summedItemStats[currentCategory] / 100;
@@ -240,13 +246,10 @@ class Champion {
 
 					// add percentValues
 					case 'hp5_percent':
-						currentBaseStats.hp5 +=
-							(summedItemStats[currentCategory] / 100) * currentBaseStats.hp5;
+						currentBaseStats.hp5 += (summedItemStats[currentCategory] / 100) * currentBaseStats.hp5;
 						break;
 					case 'ms_percent':
-						currentBaseStats.movementSpeed +=
-							(summedItemStats[currentCategory] / 100) *
-							currentBaseStats.movementSpeed;
+						currentBaseStats.movementSpeed += (summedItemStats[currentCategory] / 100) * currentBaseStats.movementSpeed;
 						break;
 					default:
 						console.log('cant add itemStat: ', currentCategory);
@@ -258,7 +261,7 @@ class Champion {
 			console.log('cant get items: ', err);
 		}
 
-		this.soloCalc[`level${championLevel}`].myStats = currentBaseStats;
+		this.soloCalc[`level${championLevel}`].itemStats = currentBaseStats;
 	}
 }
 

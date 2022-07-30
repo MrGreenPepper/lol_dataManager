@@ -376,8 +376,9 @@ async function divideMathFromSkillTabs(originSkillTabMath) {
 	//first some special cleaning
 	originSkillTabMath = originSkillTabMath.replace(/\「/g, '');
 	originSkillTabMath = originSkillTabMath.replace(/\」/g, '');
-	let scalingPartPositions = await getScalingPositions(originSkillTabMath);
+
 	//test if there is a scaling part, if there are parts splice them out --> the rest is the flatPart
+	let scalingPartPositions = await getScalingPositions(originSkillTabMath);
 	if (scalingPartPositions.length > 0) {
 		scaling = true;
 		scalingPartRaw = scalingPartPositions.map((currentScalingPart) => {

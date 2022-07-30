@@ -233,7 +233,8 @@ export async function categorizeMarkers() {
 						let currentSkillTab = currentPart[skillTabNumber];
 
 						//assign the category
-						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].category = getMarkerCategory(currentSkillTab);
+						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].majorCategory = getMajorCategory(currentSkillTab);
+						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].majorCategory = getMinorCategory(currentSkillTab);
 					}
 				}
 			}
@@ -243,31 +244,33 @@ export async function categorizeMarkers() {
 
 	return;
 }
-
+/**major marker */
 let damageMarker = [/(damage)/i];
 let enhancerMarker = [/(bonus)/i, /(attack speed)/i, /(reduction)/i, /(penetration)/i, /(buff)/i];
-let defensiveMarker = [/(heal)/i, /(shield)/i, /(armor)/i, /(regeneration)/i];
+let defensiveMarker = [/(heal)/i, /(shield)/i, /(armor)/i, /(regeneration)/i, /(damage reduction)/i];
 let utilityMarker = [/(movement)/i, /(movespeed)/i, /(shroud)/i, /(invisibility)/i, /(cooldown refund)/i, /(stealth)/i, /(invulnerability)/i];
 let softCCMarker = [/(silence)/i, /(slow)/i, /(blind)/i];
 let hardCCMarker = [/(disable)/i, /(stun)/i, /(root)/i, /(knockup)/i, /(charm)/i, /(fear)/i, /(sleep)/i, /(knockback)/i, /(taunt)/i];
-
-function getMarkerCategory(skillTab) {
+/**minor marker */
+function getMajorCategory(skillTab) {
 	//TODO: analyse 'duration'-marker with the complete abilityPart to connect it with an other marker
 	let marker = skillTab.marker;
+	for (let i = 0; i < defensiveMarker.length; i++) {
+		let currentRegex = defensiveMarker[i];
+		if (currentRegex.test(marker)) return 'defensive';
+	}
+
 	for (let i = 0; i < damageMarker.length; i++) {
 		let currentRegex = damageMarker[i];
-		if (currentRegex.test(marker)) return 'damage';
+		if (currentRegex.test(marker)) {
+			return 'damage';
+		}
 	}
 
 	//bonus damage wouldnt count since damager marker are sort out above
 	for (let i = 0; i < enhancerMarker.length; i++) {
 		let currentRegex = enhancerMarker[i];
 		if (currentRegex.test(marker)) return 'enhancer';
-	}
-
-	for (let i = 0; i < defensiveMarker.length; i++) {
-		let currentRegex = defensiveMarker[i];
-		if (currentRegex.test(marker)) return 'defensive';
 	}
 
 	for (let i = 0; i < utilityMarker.length; i++) {
@@ -286,5 +289,47 @@ function getMarkerCategory(skillTab) {
 	}
 
 	console.log('analyseMarker(): unknown marker:', marker);
+	return 'unknown';
+}
+
+function getMinorCategory(skillTab) {
+	let majorCategory = skillTab.majorCategory;
+	let marker = skillTab.marker;
+	if (majorCategory == 'damage') {
+		let major = 'damage';
+		if (/(magic)/i.test(marker)) return major + ' magic';
+		if (/(true)/i.test(marker)) return major + ' true';
+		if (/(physical)/i.test(marker)) return major + ' ad';
+		else return major + ' ad';
+	}
+	if (majorCategory == 'softCC') {
+		let minorCategories = softCCMarker;
+		for (let i = 0; i < minorCategories.length; i++) {
+			if (minorCategories[i].test(marker)) {
+				let regexString = minorCategories[i].toString();
+				regexString = regexString.slice(0, regexString.length - 1);
+				regexString = regexString.replaceAll('/', '');
+				regexString = regexString.replaceAll('(', '');
+				regexString = regexString.replaceAll(')', '');
+				return regexString;
+			}
+		}
+	}
+
+	if (majorCategory == 'hardCC') {
+		let minorCategories = hardCCMarker;
+		for (let i = 0; i < minorCategories.length; i++) {
+			if (minorCategories[i].test(marker)) {
+				let regexString = minorCategories[i].toString();
+				regexString = regexString.slice(0, regexString.length - 1);
+				regexString = regexString.replaceAll('/', '');
+				regexString = regexString.replaceAll('(', '');
+				regexString = regexString.replaceAll(')', '');
+				return regexString;
+			}
+		}
+	}
+
+	console.log('analyseMarker(): unknown minor category:', marker);
 	return 'unknown';
 }
