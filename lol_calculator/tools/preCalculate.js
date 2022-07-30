@@ -61,12 +61,12 @@ async function sumSkillTabs(rawAbilities) {
 
 					summedAbilities[i][abilityPart][skillTabNumber].flatStats = flatStats;
 				}
-				summedAbilities[i][abilityPart].flatStats = summItUp(summedAbilities[i][abilityPart]);
+				summedAbilities[i][abilityPart].summedFlatStats = summItUp(summedAbilities[i][abilityPart]);
 			}
-			summedAbilities[i].flatStats = summItUp(summedAbilities[i]);
+			summedAbilities[i].summedFlatStats = summItUp(summedAbilities[i]);
 		}
 	}
-	summedAbilities.flatStats = summItUp(summedAbilities);
+	summedAbilities.summedFlatStats = summItUp(summedAbilities);
 	return rawAbilities;
 }
 
