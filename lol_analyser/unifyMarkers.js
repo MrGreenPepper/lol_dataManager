@@ -234,7 +234,7 @@ export async function categorizeMarkers() {
 
 						//assign the category
 						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].majorCategory = getMajorCategory(currentSkillTab);
-						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].majorCategory = getMinorCategory(currentSkillTab);
+						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].minorCategory = getMinorCategory(currentSkillTab);
 					}
 				}
 			}

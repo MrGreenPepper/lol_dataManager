@@ -4,6 +4,7 @@ import * as championTools from './tools/championTools.js';
 import * as itemTools from './tools/itemTools.js';
 import * as goldTools from './tools/goldTools.js';
 import * as preCalculate from './tools/preCalculate.js';
+import * as summarizeAbilities from './tools/summarizeAbilities.js';
 import * as realCalculate from './tools/realCalculate.js';
 import * as tools from '../tools.js';
 
@@ -42,6 +43,7 @@ class Champion {
 			await this.calculateBaseStats(this.championLevel);
 			await this.addItemBaseStats(this.championLevel);
 			await preCalculate.start.apply(this);
+			await summarizeAbilities.start.apply(this);
 
 			//preCalculates abilities and optionally modify stats
 		}

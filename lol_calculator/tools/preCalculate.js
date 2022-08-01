@@ -5,6 +5,7 @@ export async function start() {
 	/** preCaciulates abilities: 1. combines ability Data with the concerning level
 	 *                           2. if the marker of a skillTab is relevant for actual pre fight calculations then calculate it
 	 *                               and add the stats to the preFightStats
+	 *
 	 */
 
 	let championLevel = this.championLevel;
@@ -21,58 +22,58 @@ export async function start() {
 
 async function sumSkillTabs(rawAbilities) {
 	/**divides the skillTabs into damage/dev and utility and sums them */
-	let summedAbilities = {};
+	let calculatedAbilities = {};
 	for (let i = 0; i < 5; i++) {
 		if (!Object.keys(rawAbilities[i]).length == 0) {
-			let currentAbility = JSON.parse(JSON.stringify(rawAbilities[i]));
-			summedAbilities[i] = {};
+			let currentAbility = structuredClone(rawAbilities[i]);
+			calculatedAbilities[`ability${i}`] = {};
 
 			for (let abilityPart = 0; abilityPart < Object.keys(currentAbility).length; abilityPart++) {
-				summedAbilities[i][abilityPart] = {};
+				calculatedAbilities[`ability${i}`][`abilityPart${abilityPart}`] = {};
 				let currentAbilityPart = currentAbility[abilityPart];
 
 				for (let skillTabNumber = 0; skillTabNumber < currentAbilityPart.length; skillTabNumber++) {
-					let currentSkillTab = currentAbilityPart[skillTabNumber];
-					summedAbilities[i][abilityPart][skillTabNumber] = {};
-					let flatStats = {};
-					//TODO: summ SkillTabs and then the abilityParts
-					//filter the abiliies by markers
-					switch (currentSkillTab.category) {
-						case 'damage':
-							flatStats = await calculateDamage.apply(this, [currentSkillTab]);
-							break;
-						case 'defensive':
-							flatStats = await calculateDef(currentSkillTab);
-							break;
-						case 'utility':
-							flatStats = await calculateUtility(currentSkillTab);
-							break;
-						//TODO: caclulate enhancer first
-						case 'enhancer':
-							flatStats = await calculateEnhancer(currentSkillTab);
-							break;
-						case 'softCC':
-							flatStats = await calculateSoftCC(currentSkillTab);
-							break;
-						case 'hardCC':
-							flatStats = await calculateHardCC(currentSkillTab);
-							break;
+					try {
+						let currentSkillTab = currentAbilityPart[skillTabNumber];
+						calculatedAbilities[`ability${i}`][`abilityPart${abilityPart}`][`st_flatStats${skillTabNumber}`] = {};
+						let flatStats = {};
+						//TODO: summ SkillTabs and then the abilityParts
+						//filter the abiliies by markers
+						switch (currentSkillTab.majorCategory) {
+							case 'damage':
+								flatStats = await calculateDamage.apply(this, [currentSkillTab]);
+								break;
+							case 'defensive':
+								flatStats = await calculateDef(currentSkillTab);
+								break;
+							case 'utility':
+								flatStats = await calculateUtility(currentSkillTab);
+								break;
+							//TODO: caclulate enhancer first
+							case 'enhancer':
+								flatStats = await calculateEnhancer(currentSkillTab);
+								break;
+							case 'softCC':
+								flatStats = await calculateSoftCC(currentSkillTab);
+								break;
+							case 'hardCC':
+								flatStats = await calculateHardCC(currentSkillTab);
+								break;
+						}
+						flatStats.majorCategory = currentSkillTab.majorCategory;
+						flatStats.minorCategory = currentSkillTab.minorCategory;
+						flatStats.marker = currentSkillTab.marker;
+						calculatedAbilities[`ability${i}`][`abilityPart${abilityPart}`][`st_flatStats${skillTabNumber}`] = flatStats;
+					} catch (err) {
+						console.log(err);
+						console.log(`ability ${i}\t part ${abilityPart} \t sk ${skillTabNumber}`);
 					}
-
-					summedAbilities[i][abilityPart][skillTabNumber].flatStats = flatStats;
 				}
-				summedAbilities[i][abilityPart].summedFlatStats = summItUp(summedAbilities[i][abilityPart]);
 			}
-			summedAbilities[i].summedFlatStats = summItUp(summedAbilities[i]);
 		}
 	}
-	summedAbilities.summedFlatStats = summItUp(summedAbilities);
-	return rawAbilities;
-}
 
-function summItUp(flatStats) {
-	if (flatStats == undefined) return {};
-	return flatStats;
+	return calculatedAbilities;
 }
 
 async function calculateDamage(rawSkillTab) {
@@ -149,25 +150,33 @@ async function calculateDamage(rawSkillTab) {
 		}
 	}
 
-	summedStats.damage = Math.round(flatDamage + scalingDamage);
+	summedStats.value = Math.round(flatDamage + scalingDamage);
 	summedStats.casttime = casttime;
 	summedStats.cooldown = cooldown;
-	summedStats.category = rawSkillTab.category;
-	summedStats.marker = rawSkillTab.marker;
 
 	return summedStats;
 }
 
-async function calculateDef() {}
+async function calculateDef(rawSkillTab) {
+	return rawSkillTab;
+}
 
-async function calculateUtility(rawSkillTab) {}
+async function calculateUtility(rawSkillTab) {
+	return rawSkillTab;
+}
 
-async function calculateEnhancer() {}
+async function calculateEnhancer(rawSkillTab) {
+	return rawSkillTab;
+}
 let damageMarker = [/(damage)/i];
 let enhancerMarker = [/(bonus)/i, /(attack speed)/i];
 
-async function calculateSoftCC() {}
-async function calculateHardCC() {}
+async function calculateSoftCC(rawSkillTab) {
+	return rawSkillTab;
+}
+async function calculateHardCC(rawSkillTab) {
+	return rawSkillTab;
+}
 /*
 function analyseMarker(rawSkillTab) {
 	let marker = rawSkillTab.marker;
