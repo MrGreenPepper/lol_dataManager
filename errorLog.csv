@@ -13563,3 +13563,49 @@ singleChampions.js: calculate singleChampion error,Akali,Cannot read properties 
     at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
     at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:127:43)
     at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:125:1
+singleChampions.js: calculate singleChampion error,Aatrox,Cannot set properties of undefined (setting 'summedParts'),TypeError: Cannot set properties of undefined (setting 'summedParts')
+    at Champion.start (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:9:35)
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:46:35)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:127:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:125:1
+singleChampions.js: calculate singleChampion error,Aatrox,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at summItUp (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:32:23)
+    at Champion.start (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:18:62)
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:46:35)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:127:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:125:1
+singleChampions.js: calculate singleChampion error,Aatrox,Cannot read properties of undefined (reading 'majorCategory'),TypeError: Cannot read properties of undefined (reading 'majorCategory')
+    at tryAddTwoSkillProperties (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:65:33)
+    at summItUp (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:41:36)
+    at Champion.start (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:11:25)
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:46:35)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:127:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:125:1
+singleChampions.js: calculate singleChampion error,Ahri,Cannot read properties of undefined (reading 'majorCategory'),TypeError: Cannot read properties of undefined (reading 'majorCategory')
+    at tryAddTwoSkillProperties (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:65:33)
+    at summItUp (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:41:36)
+    at Champion.start (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:11:25)
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:46:35)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:127:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:125:1
+singleChampions.js: calculate singleChampion error,Akali,Cannot read properties of undefined (reading 'majorCategory'),TypeError: Cannot read properties of undefined (reading 'majorCategory')
+    at tryAddTwoSkillProperties (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:65:33)
+    at summItUp (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:41:36)
+    at Champion.start (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:11:25)
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:46:35)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:127:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:125:1
+singleChampions.js: calculate singleChampion error,Aatrox,origin is not defined,ReferenceError: origin is not defined
+    at tryAddTwoSkillProperties (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:83:34)
+    at summItUp (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:44:28)
+    at Champion.start (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/summarizeAbilities.js:11:25)
+    at Champion.preCalculateFight (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:46:35)
+    at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:127:43)
+    at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:125:1
