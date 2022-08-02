@@ -13609,3 +13609,25 @@ singleChampions.js: calculate singleChampion error,Aatrox,origin is not defined,
     at async Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
     at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:127:43)
     at async file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:125:1
+cant modify itemName,undefined,Cannot read properties of undefined (reading 'replaceAll'),TypeError: Cannot read properties of undefined (reading 'replaceAll')
+    at Module.itemNameConverter (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/tools.js:88:23)
+    at file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:39:24
+    at new Promise (<anonymous>)
+    at loadItemData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:38:9)
+    at Module.loadItems (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:13:25)
+    at Champion.loadItemData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:108:62)
+    at Champion._initialize (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:33:14)
+    at Module.create (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:273:18)
+    at Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:10:35)
+    at async calculatorProcedure (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/dataManager.js:127:43)
+singleChampions.js: calculate singleChampion error,Cassiopeia,ENOENT: no such file or directory. open './data/items/undefined_data.json',Error: ENOENT: no such file or directory, open './data/items/undefined_data.json'
+    at Object.openSync (node:fs:586:3)
+    at Object.readFileSync (node:fs:454:35)
+    at file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:45:33
+    at new Promise (<anonymous>)
+    at loadItemData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:38:9)
+    at Module.loadItems (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:13:25)
+    at Champion.loadItemData (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:108:62)
+    at Champion._initialize (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:33:14)
+    at Module.create (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:273:18)
+    at Module.singleChampion (file:///home/nox/MEGAsync/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:10:35)

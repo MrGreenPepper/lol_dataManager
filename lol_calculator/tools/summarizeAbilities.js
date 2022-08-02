@@ -22,7 +22,7 @@ export async function start() {
 			summedAbilities[i] = {};
 		}
 	}
-	summedAbilities = summItUp(summedAbilities);
+
 	this.soloCalc[`level${this.championLevel}`].summedAbilities = summedAbilities;
 }
 
@@ -90,7 +90,10 @@ function tryAddTwoSkillProperties(propertyOne, propertyTwo) {
 
 		for (let currentKey of propertyKeys) {
 			if (!isNaN(propertyOne[currentKey]) && !/(cooldown)/i.test(currentKey)) {
-				summedProperty[currentKey] = propertyOne[currentKey] + propertyTwo[currentKey];
+				let value = propertyOne[currentKey] + propertyTwo[currentKey];
+				//round to 1 digit
+				value = value.toFixed(1);
+				summedProperty[currentKey] = Number(value);
 			} else {
 				summedProperty[currentKey] = propertyOne[currentKey];
 			}
