@@ -13697,3 +13697,719 @@ singleChampions.js: calculate singleChampion error,Cassiopeia,ENOENT: no such fi
     at Champion._initialize (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:33:14)
     at Module.create (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:273:18)
     at Module.singleChampion (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:10:35)
+cant modify itemName,undefined,Cannot read properties of undefined (reading 'replaceAll'),TypeError: Cannot read properties of undefined (reading 'replaceAll')
+    at Module.itemNameConverter (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/tools.js:88:23)
+    at file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:39:24
+    at new Promise (<anonymous>)
+    at loadItemData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:38:9)
+    at Module.loadItems (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:13:25)
+    at Champion.loadItemData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:108:62)
+    at Champion._initialize (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:33:14)
+    at Module.create (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:273:18)
+    at Module.singleChampion (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:10:35)
+    at async calculatorProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:129:43)
+singleChampions.js: calculate singleChampion error,Cassiopeia,ENOENT: no such file or directory. open './data/items/undefined_data.json',Error: ENOENT: no such file or directory, open './data/items/undefined_data.json'
+    at Object.openSync (node:fs:586:3)
+    at Object.readFileSync (node:fs:454:35)
+    at file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:45:33
+    at new Promise (<anonymous>)
+    at loadItemData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:38:9)
+    at Module.loadItems (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/itemTools.js:13:25)
+    at Champion.loadItemData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:108:62)
+    at Champion._initialize (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:33:14)
+    at Module.create (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:273:18)
+    at Module.singleChampion (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:10:35)
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ahri,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ahri,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akali,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akali,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akshan,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Alistar,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akshan,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Amumu,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Anivia,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aatrox,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Annie,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ahri,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akali,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aphelios,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akshan,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ashe,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Alistar,Protocol error (Page.navigate): Session closed. Most likely the page has been closed.,Error: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.
+    at CDPSession.send (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Connection.js:261:35)
+    at navigate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:185:47)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:168:13)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aurelion Sol,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Amumu,net::ERR_ABORTED at https://leagueoflegends.fandom.com/wiki/Amumu/LoL,Error: net::ERR_ABORTED at https://leagueoflegends.fandom.com/wiki/Amumu/LoL
+    at navigate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:191:23)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:167:21)
+    at async Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:16)
+    at async Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:3)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Azir,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Anivia,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Bard,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Annie,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aphelios,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ashe,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aurelion Sol,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Bel'Veth,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Blitzcrank,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Brand,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Azir,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Bard,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Braum,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Caitlyn,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Camille,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ahri,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akali,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akshan,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Alistar,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Amumu,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Anivia,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Annie,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aphelios,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ashe,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aurelion Sol,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Azir,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Bard,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Bel'Veth,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:31:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Blitzcrank,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Brand,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Braum,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ahri,Evaluation failed: TypeError: metaData[m].querySelector is not a functionN    at pptr://__puppeteer_evaluation_script__:29:40,Error: Evaluation failed: TypeError: metaData[m].querySelector is not a function
+    at pptr://__puppeteer_evaluation_script__:29:40
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akali,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akshan,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:30:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:30:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')N    at pptr://__puppeteer_evaluation_script__:28:55,Error: Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')
+    at pptr://__puppeteer_evaluation_script__:28:55
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ahri,Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')N    at pptr://__puppeteer_evaluation_script__:28:55,Error: Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')
+    at pptr://__puppeteer_evaluation_script__:28:55
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akali,Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')N    at pptr://__puppeteer_evaluation_script__:28:55,Error: Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')
+    at pptr://__puppeteer_evaluation_script__:28:55
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Akshan,Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')N    at pptr://__puppeteer_evaluation_script__:28:55,Error: Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')
+    at pptr://__puppeteer_evaluation_script__:28:55
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Alistar,Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')N    at pptr://__puppeteer_evaluation_script__:28:55,Error: Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')
+    at pptr://__puppeteer_evaluation_script__:28:55
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Amumu,Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')N    at pptr://__puppeteer_evaluation_script__:28:55,Error: Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')
+    at pptr://__puppeteer_evaluation_script__:28:55
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Anivia,Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')N    at pptr://__puppeteer_evaluation_script__:28:55,Error: Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')
+    at pptr://__puppeteer_evaluation_script__:28:55
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Annie,Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')N    at pptr://__puppeteer_evaluation_script__:28:55,Error: Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')
+    at pptr://__puppeteer_evaluation_script__:28:55
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aphelios,Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')N    at pptr://__puppeteer_evaluation_script__:28:55,Error: Evaluation failed: TypeError: Cannot set properties of undefined (setting 'text')
+    at pptr://__puppeteer_evaluation_script__:28:55
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:33:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:33:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Ahri,Evaluation failed: TypeError: Cannot read properties of null (reading 'length')N    at pptr://__puppeteer_evaluation_script__:33:26,Error: Evaluation failed: TypeError: Cannot read properties of null (reading 'length')
+    at pptr://__puppeteer_evaluation_script__:33:26
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Annie,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:32:14)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1
+scraping abilities failed,Aphelios,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:32:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:66:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:56:1

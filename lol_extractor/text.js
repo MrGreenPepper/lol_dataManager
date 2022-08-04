@@ -15,7 +15,7 @@ export async function exText() {
 			/** TASKS */
 			let abilities = championData.extracted_data.baseData.abilities;
 			abilities = applyToAllAbilityParts(abilities, markPassiveAndInnate);
-			abilities = applyToAllAbilityParts(abilities, extractSkillTabs);
+			abilities = applyToAllAbilityParts(abilities, textToSkillTab);
 			abilities = applyToAllAbilityParts(abilities, extractText);
 
 			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
@@ -35,7 +35,7 @@ function markPassiveAndInnate(abilityPart) {
 	} else {
 		abilityPart.innate = false;
 	}
-	if (/(passive)/i.test(abilityPart.html)) {
+	if (regexPassive.test(abilityPart.html)) {
 		abilityPart.passive = true;
 	} else {
 		abilityPart.passive = false;
@@ -47,7 +47,9 @@ function extractText(abilityPart) {
 	return abilityPart;
 }
 
-function extractSkillTabs(abilityPart) {
+function textToSkillTab(abilityPart) {
+	let onHitRegex;
+	let baseOnLevelRegex;
 	return abilityPart;
 }
 

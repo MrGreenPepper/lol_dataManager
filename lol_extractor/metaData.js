@@ -58,15 +58,18 @@ function divideMetaData(rawMetaData) {
 	//first seperate marker and math
 	for (let i = 0; i < rawMetaDataKeys.length; i++) {
 		let currentMetaDataString = rawMetaData[rawMetaDataKeys[i]];
-		seperatorPosition = currentMetaDataString.indexOf(':');
-		marker = rawMetaData[rawMetaDataKeys[i]].slice(0, seperatorPosition);
-		mathRaw = rawMetaData[rawMetaDataKeys[i]].slice(seperatorPosition);
+		seperatorPosition = currentMetaDataString.text.indexOf(':');
+		marker = rawMetaData[rawMetaDataKeys[i]].text.slice(0, seperatorPosition);
+		mathRaw = rawMetaData[rawMetaDataKeys[i]].text.slice(seperatorPosition);
 		marker = cleaner.firstClean(marker);
 		mathRaw = cleaner.firstClean(mathRaw);
 		metaData[rawMetaDataKeys[i]] = {};
 		metaData[rawMetaDataKeys[i]].marker = marker;
 		metaData[rawMetaDataKeys[i]].math = mathRaw;
 		metaData[rawMetaDataKeys[i]].origin = rawMetaData[rawMetaDataKeys[i]];
+		try {
+			metaData[rawMetaDataKeys[i]].specialScaling = rawMetaData[rawMetaDataKeys[i]].specialScaling;
+		} catch {}
 	}
 
 	//console.table(metaData);

@@ -22,6 +22,7 @@ export async function getAbilitiesData() {
 	console.log('abilityData scraping end\n');
 	console.log('-------------------------\n');
 }
+
 async function scrapeAbilitiesData(championData, url) {
 	const browser = await startBrowser();
 	const page = await browser.newPage();
@@ -54,9 +55,53 @@ async function scrapeAbilitiesData(championData, url) {
 					//seperate the meta data
 					champion.abilities[i].metaData = {};
 					let metaData = abilities[i].querySelectorAll('div.pi-item.pi-data.pi-item-spacing.pi-border-color');
-					//console.log('m:', metaData);
-					for (m in metaData) {
-						champion.abilities[i].metaData[m] = metaData[m].innerText;
+					//			console.log('metaData List:', metaData);
+					for (let metaNumber = 0; metaNumber < metaData.length; metaNumber++) {
+						//			console.log('currentMeta:', metaData[metaNumber]);
+						champion.abilities[i].metaData[metaNumber] = {};
+						champion.abilities[i].metaData[metaNumber].text = metaData[metaNumber].innerText;
+						//test if there is a specieal Leveling like per level
+
+						try {
+							let specialScaling = metaData[metaNumber].querySelectorAll('span.pp-tooltip.tooltips-init-complete');
+							if (specialScaling.length > 0) {
+								champion.abilities[i].metaData[metaNumber].specialScaling = {};
+								for (let specialNumber = 0; specialNumber < specialScaling.length; specialNumber++) {
+									let currentSpecialPart = specialScaling[specialNumber];
+									let botValues;
+									let botLabel;
+									let topValues;
+									let topLabel;
+									let text = currentSpecialPart.innerText;
+									try {
+										botValues = currentSpecialPart.getAttribute('data-bot_values');
+										console.log(botValues);
+									} catch {
+										//				console.log('no botV');
+									}
+									try {
+										botLabel = currentSpecialPart.getAttribute('data-bot_label');
+									} catch {
+										//					console.log('no botL');
+									}
+									try {
+										topValues = currentSpecialPart.getAttribute('data-top_values');
+									} catch {}
+									try {
+										topLabel = currentSpecialPart.getAttribute('data-top_label');
+									} catch {}
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber] = {};
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].text = text;
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].botLabel = botLabel;
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].botValues = botValues;
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].topValues = topValues;
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].topLabel = topLabel;
+									console.log(champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber]);
+								}
+							}
+						} catch (err) {
+							console.error('special scaling error:', err);
+						}
 					}
 					//	console.log('full metaData: ', champion.abilities[i].metaData);
 
@@ -74,7 +119,7 @@ async function scrapeAbilitiesData(championData, url) {
 					let textContainer = abilities[i].querySelectorAll(
 						'div[style="grid-column-end: span 2;"], div[style="grid-column-end: span 2; display:contents"]'
 					);
-					// console.log('textContainer: \t', textContainer);
+					//	console.log('textContainer: \t', textContainer);
 					//first table is the headline text is in the second table --> all rows from there
 					champion.abilities[i].textContent = {};
 
@@ -84,12 +129,53 @@ async function scrapeAbilitiesData(championData, url) {
 						//   console.log('currentRow: \t', textContainer[textPart]);
 						champion.abilities[i].textContent[textPart] = {};
 
+						//console.log('textContainer: ', textContainer[textPart]);
 						let text = textContainer[textPart].querySelector('div[style="vertical-align:top; padding: 0 0 0 7px;"]');
-						console.log('textPart:\t', textPart, 'content: ', text);
-						console.log('textPart:\t', textPart, 'content: ', text.innerHTML);
+						//console.log('textPart:\t', textPart, 'content: ', text);
+						//console.log('textPart:\t', textPart, 'content: ', text.innerHTML);
 						champion.abilities[i].textContent[textPart].text = text.textContent;
 						champion.abilities[i].textContent[textPart].html = text.innerHTML;
 
+						try {
+							let specialScaling = text.querySelectorAll('span.pp-tooltip.tooltips-init-complete');
+							if (specialScaling.length > 0) {
+								champion.abilities[i].textContent[textPart].specialScaling = {};
+								for (let specialNumber = 0; specialNumber < specialScaling.length; specialNumber++) {
+									let currentSpecialPart = specialScaling[specialNumber];
+									let botValues;
+									let botLabel;
+									let topValues;
+									let topLabel;
+									let text = currentSpecialPart.innerText;
+									try {
+										botValues = currentSpecialPart.getAttribute('data-bot_values');
+										console.log(botValues);
+									} catch {
+										//			console.log('no botV');
+									}
+									try {
+										botLabel = currentSpecialPart.getAttribute('data-bot_label');
+									} catch {
+										//			console.log('no botL');
+									}
+									try {
+										topValues = currentSpecialPart.getAttribute('data-top_values');
+									} catch {}
+									try {
+										topLabel = currentSpecialPart.getAttribute('data-top_label');
+									} catch {}
+									champion.abilities[i].textContent[textPart].specialScaling[specialNumber] = {};
+									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].text = text;
+									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].botLabel = botLabel;
+									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].botValues = botValues;
+									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].topValues = topValues;
+									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].topLabel = topLabel;
+									console.log(champion.abilities[i].textContent[textPart].specialScaling[specialNumber]);
+								}
+							}
+						} catch (err) {
+							console.error('special scaling error:', err);
+						}
 						//console.log(champion.abilities[i].textContent[tableRow].text);
 
 						//request all skillTabs to this part of the text (= in this tableRow)

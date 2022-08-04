@@ -21,13 +21,14 @@ export let procedure = {
 	},
 	extractor: {
 		resetData: 1,
-		exMetaData: 0,
+		exMetaData: 1,
+		exSkillTabs: 1,
 		exText: 1,
-		exSkillTabs: 0,
-		exSkillOrder: 0,
-		exMasteries: 0,
-		exItems: 0,
-		createBackup: 0,
+		skillTabsToArray: 1,
+		exSkillOrder: 1,
+		exMasteries: 1,
+		exItems: 1,
+		createBackup: 1,
 	},
 	analyser: {
 		resetData: 0,
@@ -95,8 +96,9 @@ await (async function extractProcedure() {
 	if (procedure.extractor.resetData) await extractor.resetData();
 	if (procedure.extractor.exMetaData) await extractor.exMetaData();
 	//TODO: saves it in a way thus it cant be reruned, current workaround by reseting the data everytime, maybe just do kind of error handling
-	if (procedure.extractor.exText) await extractor.exText();
 	if (procedure.extractor.exSkillTabs) await extractor.exSkillTabs();
+	if (procedure.extractor.exText) await extractor.exText();
+	if (procedure.extractor.exText) await extractor.skillTabsToArray();
 	if (procedure.extractor.exSkillOrder) await extractor.exSkillOrder();
 	//TODO: masteries
 	if (procedure.extractor.exMasteries) await extractor.exMasteries();
