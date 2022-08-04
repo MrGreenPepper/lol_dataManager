@@ -77,6 +77,7 @@ async function scrapeAbilitiesData(championData, url) {
 					// console.log('textContainer: \t', textContainer);
 					//first table is the headline text is in the second table --> all rows from there
 					champion.abilities[i].textContent = {};
+
 					//		console.log(textRowContainer);
 					for (let textPart = 0; textPart < textContainer.length; textPart++) {
 						//console.log('tableRow: ', tableRow);
@@ -84,8 +85,11 @@ async function scrapeAbilitiesData(championData, url) {
 						champion.abilities[i].textContent[textPart] = {};
 
 						let text = textContainer[textPart].querySelector('div[style="vertical-align:top; padding: 0 0 0 7px;"]');
-						//   console.log(text);
+						console.log('textPart:\t', textPart, 'content: ', text);
+						console.log('textPart:\t', textPart, 'content: ', text.innerHTML);
 						champion.abilities[i].textContent[textPart].text = text.textContent;
+						champion.abilities[i].textContent[textPart].html = text.innerHTML;
+
 						//console.log(champion.abilities[i].textContent[tableRow].text);
 
 						//request all skillTabs to this part of the text (= in this tableRow)

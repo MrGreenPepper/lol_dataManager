@@ -4,6 +4,7 @@ export * from './metaData.js';
 export * from './skillOrder.js';
 export * from './masteries.js';
 export * from './items.js';
+export * from './text.js';
 
 import * as tools from '../tools.js';
 export async function resetData() {
@@ -26,19 +27,13 @@ export async function createBackup() {
 	for (let champEntry of championList) {
 		let championName = champEntry.championSaveName;
 		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
-		await tools.saveJSONData(
-			championData,
-			`./data/backup/lol_extractor/champions/${championName}_data.json`
-		);
+		await tools.saveJSONData(championData, `./data/backup/lol_extractor/champions/${championName}_data.json`);
 	}
 
 	let itemList = await tools.getItemList();
 	for (let itemName of itemList) {
 		let championData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
-		await tools.saveJSONData(
-			championData,
-			`./data/backup/lol_extractor/items/${itemName}_data.json`
-		);
+		await tools.saveJSONData(championData, `./data/backup/lol_extractor/items/${itemName}_data.json`);
 	}
 	console.log('extractor backup end\n');
 	console.log('----------------------\n');
