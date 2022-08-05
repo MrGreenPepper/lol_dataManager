@@ -136,12 +136,14 @@ async function scrapeAbilitiesData(championData, url) {
 						champion.abilities[i].textContent[textPart].text = text.textContent;
 						champion.abilities[i].textContent[textPart].html = text.innerHTML;
 
+						//get the special scalings from the text
 						try {
 							let specialScaling = text.querySelectorAll('span.pp-tooltip.tooltips-init-complete');
 							if (specialScaling.length > 0) {
 								champion.abilities[i].textContent[textPart].specialScaling = {};
 								for (let specialNumber = 0; specialNumber < specialScaling.length; specialNumber++) {
 									let currentSpecialPart = specialScaling[specialNumber];
+									console.log(currentSpecialPart);
 									let botValues;
 									let botLabel;
 									let topValues;
@@ -170,7 +172,7 @@ async function scrapeAbilitiesData(championData, url) {
 									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].botValues = botValues;
 									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].topValues = topValues;
 									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].topLabel = topLabel;
-									console.log(champion.abilities[i].textContent[textPart].specialScaling[specialNumber]);
+									//	console.log(champion.abilities[i].textContent[textPart].specialScaling[specialNumber]);
 								}
 							}
 						} catch (err) {
