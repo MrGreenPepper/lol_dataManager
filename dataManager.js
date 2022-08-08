@@ -14,7 +14,7 @@ export let procedure = {
 		createLists: 0,
 		getBaseData: 0,
 		createBaseChampionPool: 0,
-		getAbilitiesData: 0,
+		getAbilitiesData: 1,
 		getInGameData: 0,
 		getItemData: 0,
 		createBackup: 0,
