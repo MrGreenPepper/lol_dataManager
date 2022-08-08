@@ -14,8 +14,8 @@ export async function exSpecialScaling() {
 			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 
 			/** TASKS */
-			championData.extracted_data.baseData.abilities = await specialScalingOnMeta(championData);
-			//championData.extracted_data.baseData.abilities = await specialScalingOnChampionsPassive(championData);
+			championData = await specialScalingOnMeta(championData);
+			championData = await specialScalingOnChampionsPassive(championData);
 			//		championData.extracted_data.baseData.abilities = await specialScalingOnActives(championData);
 
 			//		await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
@@ -67,26 +67,82 @@ function specialScalingOnMeta(championData) {
 
 function specialScalingOnChampionsPassive(championData) {
 	let specialTabs = [];
+	let championPassive = championData.extracted_data.baseData.abilities[0];
 
-	let scalingKeys = Object.keys(specialScalings);
-	for (let key of scalingKeys) {
-		let specialSkillTab;
-		let flatPart;
-		let empowers;
-		let levelLimiterValues;
-		let levelLimiterType;
-		let scalingPart = specialScalings[key];
-		let scalings = []; //[[scalingPart, scalingPartType]]
+	//get the abilityNames to get the skillTabs at the right part
+	let abilityNames = [];
+	for (let i = 0; i < 5; i++) {
+		abilityNames.push(championData.extracted_data.baseData.abilities[i].name.replaceAll('_', ' ').toLowerCase());
+	}
+	//transfer the names to regex
+	abilityNames = abilityNames.map((abilityname) => {
+		let regexArray = abilityname.split(' ');
+		let regexExpr = '';
+		for (let i = 0; i < regexArray.length; i++) {
+			regexExpr += '(' + regexArray[i] + ').?';
+		}
 
-		//get the flatPart
-		flatPart = scalingPart.botValues.split(';');
-		//	flatPartType = scalingPart.text.slice(scalingPart.text.indexOf('('), scalingPart.text.indexOf(')'))
-		if (scalingPart.topLabel.length > 0) {
-			let scalingPartType = scalingPart.topLabel;
-			let scalingValues = scalingPart.topValues;
-			scalings;
+		regexExpr = new RegExp(regexExpr, 'i');
+		return regexExpr;
+	});
+
+	let text = {
+		0: {
+			text: 'some text',
+			specialData: {
+				0: 'some special Data',
+				1: 'another special Data',
+			},
+		},
+	};
+
+	let passiveTextContent = championPassive.textContent;
+	let contentKeys = Object.keys(passiveTextContent);
+	let currentTextContent;
+	for (let key of contentKeys) {
+		currentTextContent = passiveTextContent[key];
+
+		if (currentTextContent.hasOwnProperty('specialScaling')) {
+			let scalingKeys = Object.keys(currentTextContent.specialScaling);
+			for (let sKey of scalingKeys) {
+				let specialScalingData = currentTextContent.specialScaling[sKey];
+				let specialSkillTab = {};
+
+				let levelLimiterValues;
+				let levelLimiterType;
+
+				let scalings = []; //[[scalingPart, scalingPartType]]
+
+				//get the flatPart
+				let flatPart = specialScalingData.botValues.split(';').map((value) => Number(value));
+				let flatPartType = specialScalingData.text.slice(specialScalingData.text.indexOf('(') + 1, specialScalingData.text.indexOf(')')).toLowerCase();
+				//	flatPartType = scalingPart.text.slice(scalingPart.text.indexOf('('), scalingPart.text.indexOf(')'))
+				if (specialScalingData.topLabel != null) {
+					let scalingPartType = specialScalingData.topLabel;
+					let scalingValues = specialScalingData.topValues;
+				}
+
+				specialSkillTab.flatPart = flatPart;
+				specialSkillTab.flatPartType = flatPartType;
+				specialSkillTab.levelLimiterValues = levelLimiterValues;
+				specialSkillTab.levelLimiterType = levelLimiterType;
+				specialSkillTab.concerningMeta = championPassive.metaData;
+				//test if it empowers a ability
+				specialScalingData.empowers = analyseTextForEmpowerments();
+				newCurrentTextContent = specialScalingData;
+
+				currentTextContent.specialScaling[scalingKeys[sKey]] = specialSkillTab;
+			}
 		}
 	}
+	//TODO: check if the special scaling is already  in the skillTab
+	return championData;
+}
 
-	return skillTab;
+function analyseTextForEmpowerments(toAnalyseText, abilityNames) {
+	/** analyses the text for keywords and sets a connection to the concerning specialScalings-skillTabs
+	 *
+	 * @param {Object} toAnalyseText the  text to be analysed
+	 * @param {Array} abiilityNames the names where to search for in the text for to get the empowerements
+	 */
 }
