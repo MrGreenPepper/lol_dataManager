@@ -68,6 +68,7 @@ function specialScalingOnMeta(championData) {
 function specialScalingOnChampionsPassive(championData) {
 	let specialTabs = [];
 	let championPassive = championData.extracted_data.baseData.abilities[0];
+	let newCurrentTextContent;
 
 	//get the abilityNames to get the skillTabs at the right part
 	let abilityNames = [];
@@ -75,7 +76,7 @@ function specialScalingOnChampionsPassive(championData) {
 		abilityNames.push(championData.extracted_data.baseData.abilities[i].name.replaceAll('_', ' ').toLowerCase());
 	}
 	//transfer the names to regex
-	abilityNames = abilityNames.map((abilityname) => {
+	let RegExAbilityNames = abilityNames.map((abilityname) => {
 		let regexArray = abilityname.split(' ');
 		let regexExpr = '';
 		for (let i = 0; i < regexArray.length; i++) {
@@ -86,16 +87,6 @@ function specialScalingOnChampionsPassive(championData) {
 		return regexExpr;
 	});
 
-	let text = {
-		0: {
-			text: 'some text',
-			specialData: {
-				0: 'some special Data',
-				1: 'another special Data',
-			},
-		},
-	};
-
 	let passiveTextContent = championPassive.textContent;
 	let contentKeys = Object.keys(passiveTextContent);
 	let currentTextContent;
@@ -103,46 +94,193 @@ function specialScalingOnChampionsPassive(championData) {
 		currentTextContent = passiveTextContent[key];
 
 		if (currentTextContent.hasOwnProperty('specialScaling')) {
-			let scalingKeys = Object.keys(currentTextContent.specialScaling);
-			for (let sKey of scalingKeys) {
-				let specialScalingData = currentTextContent.specialScaling[sKey];
-				let specialSkillTab = {};
-
-				let levelLimiterValues;
-				let levelLimiterType;
-
-				let scalings = []; //[[scalingPart, scalingPartType]]
-
-				//get the flatPart
-				let flatPart = specialScalingData.botValues.split(';').map((value) => Number(value));
-				let flatPartType = specialScalingData.text.slice(specialScalingData.text.indexOf('(') + 1, specialScalingData.text.indexOf(')')).toLowerCase();
-				//	flatPartType = scalingPart.text.slice(scalingPart.text.indexOf('('), scalingPart.text.indexOf(')'))
-				if (specialScalingData.topLabel != null) {
-					let scalingPartType = specialScalingData.topLabel;
-					let scalingValues = specialScalingData.topValues;
-				}
-
-				specialSkillTab.flatPart = flatPart;
-				specialSkillTab.flatPartType = flatPartType;
-				specialSkillTab.levelLimiterValues = levelLimiterValues;
-				specialSkillTab.levelLimiterType = levelLimiterType;
-				specialSkillTab.concerningMeta = championPassive.metaData;
-				//test if it empowers a ability
-				specialScalingData.empowers = analyseTextForEmpowerments();
-				newCurrentTextContent = specialScalingData;
-
-				currentTextContent.specialScaling[scalingKeys[sKey]] = specialSkillTab;
-			}
+			let text = currentTextContent.text;
+			/**reads out the different parts and there positions (in the normal text not the html one!!), based on there appearance
+			 * the specialSkillTabs are sort to the concerning matter (trigger or emporement)
+			 */
+			let specialScalingTabs = getSpecialScalingTabs(currentTextContent.specialScaling, text, championPassive.metaData);
+			let trigger = getTrigger(currentTextContent.specialScaling);
+			let triggerRange = getTriggerRange(currentTextContent.specialScaling);
+			let emporements = getEmporements(currentTextContent.specialScaling);
 		}
 	}
 	//TODO: check if the special scaling is already  in the skillTab
 	return championData;
 }
 
-function analyseTextForEmpowerments(toAnalyseText, abilityNames) {
+function getSpecialScalingTabs(specialScalingContent, text, concerningMeta) {
+	/**extracts the data from the specialDataContent and forms some kind of a 'usual' skillTab
+	 *
+	 * # - # (flatpart) base on (flatPartScaling) 'of the' (flatPartType)
+	 *
+	 * @return {Array} specialTabs - holding every skillTab with the position of it appearance
+	 * 								[[skillTab], [startPosition, endPosition]]
+	 */
+	let specialTabs = [];
+
+	let scalingKeys = Object.keys(specialScalingContent);
+	for (let sKey of scalingKeys) {
+		/*first get the extract the skillTab data*/
+		let specialScalingData = specialScalingContent[sKey];
+		let specialSkillTab = {};
+
+		let scalingLimiter = []; //[[scalingPart, scalingPartType]]
+
+		//get the flatPart
+		let specialValues = specialScalingData.botValues.split(';').map((value) => Number(value));
+		let limiterType = specialScalingData.text.slice(specialScalingData.text.indexOf('(') + 1, specialScalingData.text.indexOf(')')).toLowerCase();
+		let limiterValues;
+
+		//look if the Limiter is defined especially
+		if (specialScalingData.topLabel != null) {
+			//TODO: check this one ... aurelion sol for example (skipped)
+			limiterType = specialScalingData.topLabel;
+		}
+
+		if (specialScalingData.topValues != '') {
+			limiterValues = specialScalingData.topValues.split(';').map((value) => Number(value));
+		}
+
+		specialSkillTab.specialValues = specialValues;
+		specialSkillTab.limiterType = limiterType;
+		specialSkillTab.limiterValues = limiterValues;
+
+		//	specialSkillTab.concerningMeta = concerningMeta;
+		if (/(level)/i.test(limiterType) && limiterValues == undefined) {
+			switch (specialValues.length) {
+				case 18:
+					limiterValues = [...Array(18).keys()];
+					break;
+				case 9: //only for renata
+					limiterValues = [...Array(9).keys()];
+					break;
+				case 15: //only for ivern
+					limiterValues = [...Array(15).keys()];
+					break;
+				default:
+					console.log(specialSkillTab);
+			}
+		}
+
+		/*get the textPosition*/
+		//first form the regex
+		/* 
+		let regexArray = flatPartType.split(' ');
+		let regexExpr = '(' + flatPart[0] + ').{0,6}(' + flatPart[flatPart.length - 1] + ')';
+
+		for (let i = 0; i < regexArray.length; i++) {
+			regexExpr += '.{0,4}(' + regexArray[i] + ')';
+		}
+		regexExpr = new RegExp(regexExpr, 'i');
+		let regexResult = regexExpr.exec(text);
+		let startPosition = Number(regexResult.index);
+		let endPosition = Number(startPosition + regexResult[0].length);
+		specialTabs.push([specialSkillTab, [startPosition, endPosition]]);
+
+		//TODO: handle the 'of the' part
+		let theFollowingPart = text.slice(endPosition, endPosition + 70);
+		console.log(theFollowingPart);
+
+		//TODO: test for 'of the' scaling-partType 'as' empowering type, 'for' when the text is in front */
+
+		//TODO: + other scalings (+ special seen renate glasc f.e. '2% per 100 ap')
+	}
+
+	//
+
+	return specialTabs;
+}
+
+function getTrigger(text) {
+	/**
+	 * @param {string} text 	text to be analysed for trigger wwords
+	 *
+	 * @return {array} triggerArray [[trigger, triggerPosition]]
+	 */
+}
+
+function getTriggerRange(text) {
+	/**
+	 * @param {string} text 	text to be analysed for trigger wwords
+	 *
+	 * @return {string} triggerRange
+	 */
+}
+
+function getEmporements(text) {
+	/**
+	 * @param {string} text 	text to be analysed for trigger wwords
+	 *
+	 * @return {array} empoweredArray [empoweredTyp, empoweredName, empoweredPosition]
+	 */
+}
+
+function connectSpecialData() {
+	/** connects the specialScalings by there appearance in the text
+	 * first search what is nearest to  each other, dont start with a specific category
+	 */
+}
+
+function analyseTextForEmpowerments(toAnalyseHTML, toAnalyseText, abilityNamesRegex) {
 	/** analyses the text for keywords and sets a connection to the concerning specialScalings-skillTabs
 	 *
-	 * @param {Object} toAnalyseText the  text to be analysed
-	 * @param {Array} abiilityNames the names where to search for in the text for to get the empowerements
+	 * @param {String} toAnalyseText the text to be analysed - the html version
+	 * @param {Array} abilityNamesRegex the ablityNames in regex to search for in the current text for to get the empowerements
+	 *
+	 * @return {Object} foundEmpowers - {trigger: 		[]
+	 * 									triggerRange:	next/always/
+	 * 									empoweredType:	all, one, #number
+	 * 									empowerments:	[empoweredTyp, empoweredName, (empoweredPosition)]}
 	 */
+	let foundEmpowers = [];
+	let triggerRegex = [/(stack)/i, /(resurrection)/i, /(takedown)/i, /(kills)/i, /(hits an enemy with an ability)/i, /(while below)/i];
+	let triggerRange;
+	let empoweredType;
+
+	//test for triggerRange
+	switch (true) {
+		case /(next)/i:
+			triggerRange = 'one';
+			break;
+		case /(permanent)/i:
+			triggerRange = 'always';
+	}
+
+	//check if multiple abilityNames appears
+	abilityNamesRegex.forEach((abilityName, index) => {
+		if (abilityName.test(toAnalyseHTML)) foundEmpowers.push(['ability', abilityName, index]);
+	});
+
+	let empoweredBasicRegex = [
+		/(basic).*?(attack)/i,
+		/(heal).*?(herself)/i,
+		/(heal).*?(himself)/i,
+		/(heals).*?(for)/i,
+		/(regenerate)/i,
+		/(bonus).*?(movement).*?(speed)/i,
+		/(bonus).*?(armor)/i,
+		/(bonus).*?(magic).*?(resistance)/i,
+		/(bonus).*?(attack).*?(speed)/i,
+	];
+	empoweredBasicRegex.forEach((keyRegex, index) => {
+		if (keyRegex.test(toAnalyseHTML)) foundEmpowers.push(['basics', keyRegex, index]);
+	});
+	//TODO: test for 'or' and 'and' between the empoweredParts
+	if (foundEmpowers.length == 0) {
+		console.log('no concerning empowerement found');
+	}
+	if (foundEmpowers.length > 1) {
+		switch (true) {
+			case /(and)/i.test(toAnalyseHTML):
+				empoweredType = 'all';
+				break;
+			case / (or) /i.test(toAnalyseHTML):
+				empoweredType = 'one';
+				break;
+		}
+		if (empoweredType == undefined) {
+			console.log('more than one concerning empowerement found and no typeConnecter found');
+		}
+	}
+	return foundEmpowers;
 }

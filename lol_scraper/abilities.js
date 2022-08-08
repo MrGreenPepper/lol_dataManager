@@ -143,7 +143,7 @@ async function scrapeAbilitiesData(championData, url) {
 								champion.abilities[i].textContent[textPart].specialScaling = {};
 								for (let specialNumber = 0; specialNumber < specialScaling.length; specialNumber++) {
 									let currentSpecialPart = specialScaling[specialNumber];
-									console.log(currentSpecialPart);
+									//		console.log(currentSpecialPart);
 									let botValues;
 									let botLabel;
 									let topValues;
@@ -191,6 +191,15 @@ async function scrapeAbilitiesData(championData, url) {
 							champion.abilities[i].textContent[textPart].skillTabs[skillTabNumber] = {};
 							champion.abilities[i].textContent[textPart].skillTabs[skillTabNumber].marker = skillTabMarker[skillTabNumber].innerText;
 							champion.abilities[i].textContent[textPart].skillTabs[skillTabNumber].content = skillTabContent[skillTabNumber].innerText;
+						}
+						/**get the marked passages(everything in color) */
+						champion.abilities[i].textContent[textPart].markedPassages = [];
+						let markedPassages = textContainer[textPart].querySelectorAll('span[style], a');
+						console.log(markedPassages);
+						for (let mPNumber = 0; mPNumber < markedPassages.length; mPNumber++) {
+							let html = markedPassages[mPNumber].innerHTML;
+							let text = markedPassages[mPNumber].innerText;
+							champion.abilities[i].textContent[textPart].markedPassages.push([html, text]);
 						}
 					}
 					// console.log(champion.abilities[i].textContent);
