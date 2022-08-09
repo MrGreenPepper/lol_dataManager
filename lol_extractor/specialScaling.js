@@ -132,18 +132,16 @@ function getSpecialScalingTabs(specialScalingContent, text, concerningMeta) {
 		let limiterValues;
 
 		//look if the Limiter is defined especially
-		if (specialScalingData.topLabel != null) {
-			//TODO: check this one ... aurelion sol for example (skipped)
+		if (specialScalingData.topLabel != null && limiterType == '') {
 			limiterType = specialScalingData.topLabel;
+			limiterType = limiterType.slice(limiterType.indexOf(']'), limiterType.length);
+			limiterType = limiterType.replaceAll(']', '');
+			limiterType = limiterType.trim();
 		}
 
 		if (specialScalingData.topValues != '') {
 			limiterValues = specialScalingData.topValues.split(';').map((value) => Number(value));
 		}
-
-		specialSkillTab.specialValues = specialValues;
-		specialSkillTab.limiterType = limiterType;
-		specialSkillTab.limiterValues = limiterValues;
 
 		//	specialSkillTab.concerningMeta = concerningMeta;
 		if (/(level)/i.test(limiterType) && limiterValues == undefined) {
@@ -162,28 +160,37 @@ function getSpecialScalingTabs(specialScalingContent, text, concerningMeta) {
 			}
 		}
 
-		/*get the textPosition*/
-		//first form the regex
-		/* 
-		let regexArray = flatPartType.split(' ');
-		let regexExpr = '(' + flatPart[0] + ').{0,6}(' + flatPart[flatPart.length - 1] + ')';
+		try {
+			/*get the textPosition*/
+			//first form the regex
+			let regexArray = limiterType.split(' ');
+			let regexExpr = '(' + specialValues[0] + ')[^a-zA-z]*?(' + specialValues[specialValues.length - 1] + ')';
 
-		for (let i = 0; i < regexArray.length; i++) {
-			regexExpr += '.{0,4}(' + regexArray[i] + ')';
+			for (let i = 0; i < regexArray.length; i++) {
+				regexExpr += '.{0,4}(' + regexArray[i] + ')';
+			}
+
+			regexExpr = new RegExp(regexExpr, 'i');
+			//		console.log(regexExpr);
+			let regexResult = regexExpr.exec(text);
+			let startPosition = Number(regexResult.index);
+			let endPosition = Number(startPosition + regexResult[0].length);
+
+			specialSkillTab.specialValues = specialValues;
+			specialSkillTab.limiterType = limiterType;
+			specialSkillTab.limiterValues = limiterValues;
+			specialSkillTab.position = [startPosition, endPosition];
+
+			specialTabs.push(specialSkillTab);
+
+			//TODO: handle the 'of the' part
+
+			//TODO: test for 'of the' scaling-partType 'as' empowering type, 'for' when the text is in front
+
+			//TODO: + other scalings (+ special seen renate glasc f.e. '2% per 100 ap')
+		} catch (err) {
+			console.log(err);
 		}
-		regexExpr = new RegExp(regexExpr, 'i');
-		let regexResult = regexExpr.exec(text);
-		let startPosition = Number(regexResult.index);
-		let endPosition = Number(startPosition + regexResult[0].length);
-		specialTabs.push([specialSkillTab, [startPosition, endPosition]]);
-
-		//TODO: handle the 'of the' part
-		let theFollowingPart = text.slice(endPosition, endPosition + 70);
-		console.log(theFollowingPart);
-
-		//TODO: test for 'of the' scaling-partType 'as' empowering type, 'for' when the text is in front */
-
-		//TODO: + other scalings (+ special seen renate glasc f.e. '2% per 100 ap')
 	}
 
 	//

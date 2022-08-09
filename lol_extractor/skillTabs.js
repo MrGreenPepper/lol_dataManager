@@ -55,6 +55,8 @@ export async function extractSkillTabs(championData) {
 					championAbilities[abNum].textContent[textNum].skillTabs[sTNum] = await divideSkillTabs(
 						championAbilities[abNum].textContent[textNum].skillTabs[sTNum]
 					);
+					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningMeta = championAbilities[abNum].metaData;
+					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningText = championAbilities[abNum].textContent[textNum].text;
 				}
 			}
 		}
@@ -64,6 +66,33 @@ export async function extractSkillTabs(championData) {
 
 	return championData;
 }
+//TODO: some markers are the same but have multiple wordings --> simplify it later : 'bonus movement speed' & 'movement speed modifier'
+let markers_modifier = ['enhanced', 'sweetspot', 'maximum', 'total', 'empowered', 'minimum', 'per'];
+let markers_dmg = [
+	'physical damage',
+	'magic damage',
+	'armor reduction',
+	'magic penetration',
+	'bonus attack speed',
+	"of target's  health",
+	"of target's  th",
+	'of his missing th',
+	"of the target's current th",
+];
+let markers_def = ['heal', 'shield', 'bonus armor'];
+let markers_utility = [
+	'stun duration',
+	'knock up duration',
+	'charm duration',
+	'root duration',
+	'blind duration',
+	'bonus movement speed',
+	'movement speed modifier',
+	'slow',
+	'stealth duration',
+];
+//TODO
+let markers_bonusStats = ['reset', 'energy restored', 'mana refund'];
 
 async function divideSkillTabs(skillTab) {
 	//skillTab.content == undefined if already extracted
@@ -76,33 +105,6 @@ async function divideSkillTabs(skillTab) {
 	let skillTabContentRaw = [];
 	let skillTabContent = {};
 
-	//TODO: some markers are the same but have multiple wordings --> simplify it later : 'bonus movement speed' & 'movement speed modifier'
-	let markers_modifier = ['enhanced', 'sweetspot', 'maximum', 'total', 'empowered', 'minimum', 'per'];
-	let markers_dmg = [
-		'physical damage',
-		'magic damage',
-		'armor reduction',
-		'magic penetration',
-		'bonus attack speed',
-		"of target's  health",
-		"of target's  th",
-		'of his missing th',
-		"of the target's current th",
-	];
-	let markers_def = ['heal', 'shield', 'bonus armor'];
-	let markers_utility = [
-		'stun duration',
-		'knock up duration',
-		'charm duration',
-		'root duration',
-		'blind duration',
-		'bonus movement speed',
-		'movement speed modifier',
-		'slow',
-		'stealth duration',
-	];
-	//TODO
-	let markers_bonusStats = ['reset', 'energy restored', 'mana refund'];
 	let markers = [];
 	markers.push(...markers_dmg, ...markers_def, ...markers_utility);
 
@@ -317,7 +319,7 @@ async function divideScalingPart(rawScalingPart) {
 				let temp = rawScalingPart.slice(lastPosition, n);
 				temp = temp.replace(/\//g, '');
 				//next 2 lines seems like the same but the first space is copied out and some kind of different from the last space
-				temp = temp.replace(/ /g, '');
+				temp = temp.replace(/ /g, '');
 				temp = temp.replace(/ /g, '');
 				temp = temp.trim();
 				subScaArray.push(parseFloat(temp));
@@ -327,7 +329,7 @@ async function divideScalingPart(rawScalingPart) {
 				let temp = rawScalingPart.slice(lastPosition, n + 1);
 				temp = temp.replace(/\//g, '');
 				//next 2 lines seems like the same but the first space is copied out and some kind of different from the last space
-				temp = temp.replace(/ /g, '');
+				temp = temp.replace(/ /g, '');
 				temp = temp.replace(/ /g, '');
 				temp = temp.trim();
 				subScaArray.push(parseFloat(temp));
@@ -338,7 +340,7 @@ async function divideScalingPart(rawScalingPart) {
 			let temp = rawScalingPart.slice(lastPosition, n);
 			temp = temp.replace(/\//g, '');
 			//next 2 lines seems like the same but the first space is copied out and some kind of different from the last space
-			temp = temp.replace(/ /g, '');
+			temp = temp.replace(/ /g, '');
 			temp = temp.replace(/ /g, '');
 			subScaArray.push(parseFloat(temp));
 			scalingTextSwap = true;
@@ -508,8 +510,10 @@ async function divideMathFromSkillTabs(originSkillTabMath) {
 	originSkillTabMath = originSkillTabMath.replace(/\+/g, '');
 	undefinedRest = originSkillTabMath;
 	//next 2 lines seems like the same but the first space is copied direct out of the terminal and some kind of different from the last space
-	originSkillTabMath = originSkillTabMath.replace(/ /g, '');
 	originSkillTabMath = originSkillTabMath.replace(/ /g, '');
+	originSkillTabMath = originSkillTabMath.replace(/ /g, '');
+	originSkillTabMath = originSkillTabMath.trim();
+
 	if (originSkillTabMath.length == 0) {
 		undefinedRest = 'clean';
 		//console.log('\x1b[34mclean skillTab number export\x1b[0m');
@@ -529,4 +533,58 @@ async function divideMathFromSkillTabs(originSkillTabMath) {
 	skillTabMath.undefindRest = undefinedRest;
 	//console.log('undefined rest: ', undefinedRest);
 	return skillTabMath;
+}
+
+//TODO: include update
+function divideFlatPartintoNumbers(flatPartRaw) {
+	let flatPart = [];
+
+	let scalingRegex = /[a-zA-Z]*/i;
+	let flatPartType = scalingRegex.exec(flatPartRaw);
+
+	if (flatPartType.length > 1) console.log('more than one flatPartTyppe');
+	else flatPartType = flatPartType[0];
+
+	let flatRegex = /[^a-zA-Z]*/i;
+	flatPartRaw = flatRegex.exec(flatPartRaw);
+
+	for (let n = 0; n < flatPartRaw.length; n++) {
+		let currentFlatContent = flatPartRaw[n];
+		currentFlatContent = currentFlatContent.split('/').map((value) => Number(value));
+		flatPart.push(currentFlatContent);
+		if (n > 0) console.log('more than one flatPart!');
+		/* 
+		for (let i = 0; i < currentFlatContent.length; i++) {
+			if (currentFlatContent[i] == '/') {
+				let temp = currentFlatContent.slice(lastPosition, i);
+				temp = temp.replace(/\//g, '');
+				temp = temp.replace(/ /g, '');
+				flatPart.push(temp);
+				lastPosition = i;
+			}
+			if (!extractorTools.isItMath(currentFlatContent[i]) && flatScaling == false) {
+				let temp = currentFlatContent.slice(lastPosition, i);
+				temp = temp.replace(/\//g, '');
+				temp = temp.replace(/ /g, '');
+				flatPart.push(temp);
+				flatScaling = true;
+				lastPosition = i;
+			}
+
+			if (i + 1 == currentFlatContent.length && flatScaling == false) {
+				let temp = currentFlatContent.slice(lastPosition, i + 1);
+				temp = temp.replace(/\//g, '');
+				temp = temp.replace(/ /g, '');
+				flatPart.push(temp);
+			}
+
+			if (i + 1 == currentFlatContent.length && flatScaling == true) {
+				let temp = currentFlatContent.slice(lastPosition, i + 1);
+				temp = temp.replace(/\//g, '');
+				flatPartType.push(temp);
+			} 
+		}*/
+	}
+
+	return [...flatPart, flatPartType];
 }
