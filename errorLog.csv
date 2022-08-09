@@ -17917,3 +17917,21 @@ analyser_abilities.js:  cant simplify abilities,Rengar,abilityData.entries is no
     at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:15:60)
     at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:121:46)
     at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+cant get damageSplit	- no name onlySkillTab,[object Object],Cannot read properties of undefined (reading 'includes'),TypeError: Cannot read properties of undefined (reading 'includes')
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:161:19)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:133:36)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:19:32)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:121:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+cant get damageSplit	- no name onlySkillTab,[object Object],Cannot read properties of undefined (reading 'includes'),TypeError: Cannot read properties of undefined (reading 'includes')
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:161:19)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:135:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:19:26)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:121:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+cant get damageSplit	- no name onlySkillTab,[object Object],Cannot read properties of undefined (reading 'includes'),TypeError: Cannot read properties of undefined (reading 'includes')
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:161:19)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:133:36)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:19:32)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:121:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1

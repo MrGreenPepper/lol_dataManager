@@ -518,6 +518,7 @@ async function divideMathFromSkillTabs(originSkillTabMath) {
 		undefinedRest = 'clean';
 		//console.log('\x1b[34mclean skillTab number export\x1b[0m');
 	} else {
+		undefinedRest = undefinedRest.trim();
 		console.log('\x1b[31munclean skillTab number export, rest:', undefinedRest, '\x1b[0m');
 	}
 

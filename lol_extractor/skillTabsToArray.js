@@ -59,9 +59,6 @@ async function allSkillTabsToArray(currentAbility) {
 				let copyOfSkillTab = { ...currentSkillTab };
 				// let copyOfSkillTab = await tools.copyObjectByValue(currentSkillTab);
 				// copyOfSkillTab.marker = 'test';
-				copyOfSkillTab.concerningText = currentAbility.textContent[textKey].text;
-				copyOfSkillTab.concerningMeta = currentAbility.metaData;
-				copyOfSkillTab = await numbersToFloat(copyOfSkillTab);
 				subSkillTabArray.push(copyOfSkillTab);
 			}
 			if (subSkillTabArray.length > 0) {
@@ -75,9 +72,9 @@ async function allSkillTabsToArray(currentAbility) {
 
 	return skillTabArray;
 }
-
+/* 
 async function numbersToFloat(skillTab) {
-	/** transforms all numbers in strings to actual floatNumbers */
+	//transforms all numbers in strings to actual floatNumbers 
 	//first all flatValues
 	try {
 		skillTab.math.flatPart = skillTab.math.flatPart.map((currentNumber) => {
@@ -110,3 +107,4 @@ async function numbersToFloat(skillTab) {
 	}
 	return skillTab;
 }
+ */
