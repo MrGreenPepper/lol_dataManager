@@ -1,6 +1,5 @@
 import * as tools from '../tools.js';
 import { startBrowser } from './tools/browserControl.js';
-import puppeteer from 'puppeteer';
 
 export async function getItemData() {
 	console.log('____________________\n');
@@ -26,10 +25,7 @@ export async function getItemData() {
 		try {
 			itemRawData = await scrapeItemData(itemLink);
 			let saveName = tools.itemNameConverter(itemRawData.name);
-			await tools.saveJSONData(
-				itemRawData,
-				`./lol_scraper/data/itemData/${saveName}_data.json`
-			);
+			await tools.saveJSONData(itemRawData, `./lol_scraper/data/items/${saveName}_data.json`);
 			await tools.saveJSONData(itemRawData, `./data/items/${saveName}_data.json`);
 			scrapedItemList.push(itemRawData.name);
 			console.info('scraped item: \t', itemRawData.name);
@@ -184,8 +180,7 @@ async function scrapeItemData(itemLink) {
 							_tempContainerArray = [];
 							containerCategory = 'recipe';
 							break;
-						case _currentText.includes('available') ||
-							_currentText.includes('availability'):
+						case _currentText.includes('available') || _currentText.includes('availability'):
 							if (_tempContainerArray.length > 0) {
 								container[containerCategory] = {};
 								container[containerCategory].dom = {};
@@ -238,9 +233,7 @@ async function scrapeItemData(itemLink) {
 						case 'stats':
 							//get the tables first
 							let values = [];
-							let statsArray = _currentTab.querySelectorAll(
-								'div.pi-data-value.pi-font'
-							);
+							let statsArray = _currentTab.querySelectorAll('div.pi-data-value.pi-font');
 							for (let s = 0; s < statsArray.length; s++) {
 								values.push(statsArray[s].innerText);
 							}
@@ -285,16 +278,11 @@ async function scrapeItemData(itemLink) {
 										let preItems = [];
 
 										for (let i = 0; i < tableHead.length; i++) {
-											recipeContent.push([
-												tableHead[i].innerText,
-												tableContent[i].innerText,
-											]);
+											recipeContent.push([tableHead[i].innerText, tableContent[i].innerText]);
 										}
 
 										for (let i = 0; i < tableContent.length; i++) {
-											preItems.push(
-												tableContent[i].getAttribute('data-item')
-											);
+											preItems.push(tableContent[i].getAttribute('data-item'));
 										}
 
 										console.log(tableContent);
@@ -305,18 +293,12 @@ async function scrapeItemData(itemLink) {
 									} else {
 										console.log('creating build path: ', _currentTab);
 										let buildPath = [];
-										let neededItems = _currentTab.querySelectorAll(
-											'span.inline-image.item-icon.tooltips-init-complete'
-										);
-										let goldCosts = _currentTab.querySelector(
-											'span.inline-image.label-after'
-										);
+										let neededItems = _currentTab.querySelectorAll('span.inline-image.item-icon.tooltips-init-complete');
+										let goldCosts = _currentTab.querySelector('span.inline-image.label-after');
 										goldCosts = goldCosts.innerText;
 										for (let ic = 0; ic < neededItems.length; ic++) {
 											console.log('bp: \t', neededItems[ic]);
-											buildPath.push(
-												neededItems[ic].getAttribute('data-item')
-											);
+											buildPath.push(neededItems[ic].getAttribute('data-item'));
 										}
 										console.log('BUILDPATH:', buildPath);
 										item.recipe.buildPath = buildPath;
@@ -332,14 +314,8 @@ async function scrapeItemData(itemLink) {
 									console.log(tableContent);
 									let recipeContent = [];
 									for (let i = 0; i < tableHead.length; i++) {
-										console.log(
-											tableHead[i].innerText,
-											tableContent[i].innerText
-										);
-										recipeContent.push([
-											tableHead[i].innerText,
-											tableContent[i].innerText,
-										]);
+										console.log(tableHead[i].innerText, tableContent[i].innerText);
+										recipeContent.push([tableHead[i].innerText, tableContent[i].innerText]);
 									}
 									console.log(recipeContent);
 									item.recipe[n] = {};

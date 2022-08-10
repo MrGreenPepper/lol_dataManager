@@ -16,8 +16,9 @@ export async function createBackup() {
 		await tools.saveJSONData(championData, `./data/backup/lol_scraper/champions/${championName}_data.json`);
 	}
 
-	let itemList = await tools.getItemList();
-	for (let itemName of itemList) {
+	let itemList = await tools.getItemLinkList();
+	for (let itemEntry of itemList) {
+		let itemName = itemEntry[0];
 		let championData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
 		await tools.saveJSONData(championData, `./data/backup/lol_scraper/items/${itemName}_data.json`);
 	}

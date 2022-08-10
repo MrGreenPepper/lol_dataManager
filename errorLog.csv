@@ -17935,3 +17935,33 @@ cant get damageSplit	- no name onlySkillTab,[object Object],Cannot read properti
     at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:19:32)
     at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:121:46)
     at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+skillOrder extraction failed,Ryze,Unexpected token h in JSON at position 133331,SyntaxError: Unexpected token h in JSON at position 133331
+    at JSON.parse (<anonymous>)
+    at Module.loadJSONData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/tools.js:27:14)
+    at async Module.exSkillOrder (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_extractor/skillOrder.js:13:23)
+    at async extractProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:104:40)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:83:1
+failed to scrap item,Cull,https://leagueoflegends.fandom.com/wiki/Cull,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Cull_data.json',undefined
+failed to scrap item,Cull,https://leagueoflegends.fandom.com/wiki/Cull,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Cull_data.json',undefined
+failed to scrap item,Dark Seal,https://leagueoflegends.fandom.com/wiki/Dark_Seal,ENOENT: no such file or directory. open './lol_scraper/data/itemData/DarkSeal_data.json',undefined
+failed to scrap item,Doran's Blade,https://leagueoflegends.fandom.com/wiki/Doran%27s_Blade,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Doran'sBlade_data.json',undefined
+failed to scrap item,Dark Seal,https://leagueoflegends.fandom.com/wiki/Dark_Seal,ENOENT: no such file or directory. open './lol_scraper/data/itemData/DarkSeal_data.json',undefined
+failed to scrap item,Doran's Ring,https://leagueoflegends.fandom.com/wiki/Doran%27s_Ring,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Doran'sRing_data.json',undefined
+failed to scrap item,Doran's Blade,https://leagueoflegends.fandom.com/wiki/Doran%27s_Blade,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Doran'sBlade_data.json',undefined
+failed to scrap item,Doran's Shield,https://leagueoflegends.fandom.com/wiki/Doran%27s_Shield,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Doran'sShield_data.json',undefined
+failed to scrap item,Doran's Ring,https://leagueoflegends.fandom.com/wiki/Doran%27s_Ring,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Doran'sRing_data.json',undefined
+failed to scrap item,Emberknife,https://leagueoflegends.fandom.com/wiki/Emberknife,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Emberknife_data.json',undefined
+failed to scrap item,Doran's Shield,https://leagueoflegends.fandom.com/wiki/Doran%27s_Shield,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Doran'sShield_data.json',undefined
+failed to scrap item,Emberknife,https://leagueoflegends.fandom.com/wiki/Emberknife,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Emberknife_data.json',undefined
+failed to scrap item,Guardian's Blade,https://leagueoflegends.fandom.com/wiki/Guardian%27s_Blade,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Guardian'sBlade_data.json',undefined
+failed to scrap item,Guardian's Hammer,https://leagueoflegends.fandom.com/wiki/Guardian%27s_Hammer,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Guardian'sHammer_data.json',undefined
+failed to scrap item,Guardian's Horn,https://leagueoflegends.fandom.com/wiki/Guardian%27s_Horn,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Guardian'sHorn_data.json',undefined
+failed to scrap item,Guardian's Orb,https://leagueoflegends.fandom.com/wiki/Guardian%27s_Orb,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Guardian'sOrb_data.json',undefined
+failed to scrap item,Hailblade,https://leagueoflegends.fandom.com/wiki/Hailblade,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Hailblade_data.json',undefined
+failed to scrap item,Obsidian Edge,https://leagueoflegends.fandom.com/wiki/Obsidian_Edge,ENOENT: no such file or directory. open './lol_scraper/data/itemData/ObsidianEdge_data.json',undefined
+failed to scrap item,Relic Shield,https://leagueoflegends.fandom.com/wiki/Relic_Shield,ENOENT: no such file or directory. open './lol_scraper/data/itemData/RelicShield_data.json',undefined
+failed to scrap item,Spectral Sickle,https://leagueoflegends.fandom.com/wiki/Spectral_Sickle,ENOENT: no such file or directory. open './lol_scraper/data/itemData/SpectralSickle_data.json',undefined
+failed to scrap item,Spellthief's Edge,https://leagueoflegends.fandom.com/wiki/Spellthief%27s_Edge,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Spellthief'sEdge_data.json',undefined
+failed to scrap item,Cull,https://leagueoflegends.fandom.com/wiki/Cull,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Cull_data.json',undefined
+failed to scrap item,Dark Seal,https://leagueoflegends.fandom.com/wiki/Dark_Seal,ENOENT: no such file or directory. open './lol_scraper/data/itemData/DarkSeal_data.json',undefined
+failed to scrap item,Doran's Blade,https://leagueoflegends.fandom.com/wiki/Doran%27s_Blade,ENOENT: no such file or directory. open './lol_scraper/data/itemData/Doran'sBlade_data.json',undefined

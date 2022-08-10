@@ -4,7 +4,7 @@ export async function startBrowser() {
 	let browser;
 
 	browser = await Puppeteer.launch({
-		headless: false,
+		headless: true,
 		devtools: true,
 		defaultViewport: null,
 		args: [

@@ -9,7 +9,7 @@ import * as calculator from './lol_calculator/calculator.js';
 export let procedure = {
 	useTestData: 0,
 	//champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
-	champions: [0, 162],
+	champions: [61, 162],
 	scraper: {
 		createLists: 0,
 		getBaseData: 0,
@@ -21,28 +21,28 @@ export let procedure = {
 	},
 	extractor: {
 		resetData: 1,
-		exMetaData: 1,
-		exSkillTabs: 1,
+		exMetaData: 0,
 		exText: 1,
-		exSpecialScaling: 1,
-		skillTabsToArray: 1,
-		exSkillOrder: 1,
-		exMasteries: 1,
-		exItems: 1,
-		createBackup: 1,
+		exSkillTabs: 1,
+		exSpecialScaling: 0,
+		skillTabsToArray: 0,
+		exSkillOrder: 0,
+		exMasteries: 0,
+		exItems: 0,
+		createBackup: 0,
 	},
 	analyser: {
-		resetData: 1,
-		cleanSkillTabMarkers: 1,
-		unifyAbilityMarkers: 1,
-		categorizeMarkers: 1,
-		unifyItems: 1,
-		showAllMarkerPositions: 1,
-		createBackup: 1,
+		resetData: 0,
+		cleanSkillTabMarkers: 0,
+		unifyAbilityMarkers: 0,
+		categorizeMarkers: 0,
+		unifyItems: 0,
+		showAllMarkerPositions: 0,
+		createBackup: 0,
 	},
 	calculator: {
-		resetData: 1,
-		singleChampion: 1,
+		resetData: 0,
+		singleChampion: 0,
 		matchup: 0,
 		createBackup: 0,
 	},
@@ -97,8 +97,8 @@ await (async function extractProcedure() {
 	if (procedure.extractor.resetData) await extractor.resetData();
 	if (procedure.extractor.exMetaData) await extractor.exMetaData();
 	//TODO: saves it in a way thus it cant be reruned, current workaround by reseting the data everytime, maybe just do kind of error handling
-	if (procedure.extractor.exSkillTabs) await extractor.exSkillTabs();
 	if (procedure.extractor.exText) await extractor.exText();
+	if (procedure.extractor.exSkillTabs) await extractor.exSkillTabs();
 	if (procedure.extractor.exSpecialScaling) await extractor.exSpecialScaling();
 	if (procedure.extractor.skillTabsToArray) await extractor.skillTabsToArray();
 	if (procedure.extractor.exSkillOrder) await extractor.exSkillOrder();

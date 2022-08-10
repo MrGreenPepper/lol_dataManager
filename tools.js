@@ -55,12 +55,8 @@ export async function getChampionList() {
 	return championList;
 }
 
-export async function getItemList() {
-	let itemList = await loadJSONData('./lol_scraper/data/scrapedItemList.json');
-	return itemList;
-}
 export async function getItemLinkList() {
-	let linkList = await tools.loadJSONData('./data/itemLinkList.json');
+	let linkList = await loadJSONData('./data/itemLinkList.json');
 	return linkList;
 }
 export async function reportError(category, championName, errorMessage, errorStack) {

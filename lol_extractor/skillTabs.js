@@ -122,7 +122,7 @@ async function divideSkillTabs(skillTab) {
 	skillTab.marker = cleaner.cleanText(skillTab.marker);
 
 	skillTab.content = skillTab.content.replace(/\:/g, '');
-	skillTab.content = await divideMathFromSkillTabs(skillTab.content);
+	skillTab.content = await skillTabTextIntoMath(skillTab.content);
 
 	skillTab.content = await cleaner.cleanMathContent(skillTab.content);
 
@@ -360,180 +360,167 @@ async function divideScalingPart(rawScalingPart) {
 
 	// go threw both concerning parts of skillTabMathRaw and divide the numbers
 }
-async function divideMathFromSkillTabs(originSkillTabMath) {
+async function skillTabTextIntoMath(originSkillTabMath) {
 	/**first divide into flat and scaling part, then divide them */
-	let scaling = false;
-	let flatPartRaw = [];
-	let flatPart = [];
-	let flatPartType = [];
-	let flatScaling = false;
-	let scalingPartRaw = [];
-	let scalingPart = [];
-	let lastPosition = 0;
+	let flatPart;
+	let flatPartType;
 	let skillTabMath = {};
-	let scalingType = [];
-	let undefinedRest;
+	let textRegex = /[a-zA-Z]*/i;
 
-	//first some special cleaning
-	originSkillTabMath = originSkillTabMath.replace(/\「/g, '');
-	originSkillTabMath = originSkillTabMath.replace(/\」/g, '');
+	let [scalings, scalingPartsRaw] = getScalingPart(originSkillTabMath);
 
-	//test if there is a scaling part, if there are parts splice them out --> the rest is the flatPart
-	let scalingPartPositions = await getScalingPositions(originSkillTabMath);
-	if (scalingPartPositions.length > 0) {
-		scaling = true;
-		scalingPartRaw = scalingPartPositions.map((currentScalingPart) => {
-			//check if there is a multipleScaling in one part
-			if (currentScalingPart.length > 2) {
-				let multipleScaling = [];
-				let outerPart =
-					originSkillTabMath.slice(currentScalingPart[0], currentScalingPart[2][0]) +
-					originSkillTabMath.slice(currentScalingPart[2][1], currentScalingPart[1]);
-				let innerPart = originSkillTabMath.slice(currentScalingPart[2][0], currentScalingPart[2][1]);
-				multipleScaling.push(outerPart, innerPart);
-				return multipleScaling;
-			} else {
-				return originSkillTabMath.slice(currentScalingPart[0], currentScalingPart[1]);
-			}
-		});
-	}
-	if (scalingPartPositions.length > 0) {
-		//the first flatPart is between 0 and the first scaling part
-		flatPartRaw[0] = originSkillTabMath.slice(0, scalingPartPositions[0][0]);
-
-		//check if there if there is an extra flatPart at the end
-		if (scalingPartPositions[scalingPartPositions.length - 1][1] != originSkillTabMath.length) {
-			let endOfScaling = scalingPartPositions[scalingPartPositions.length - 1][1];
-			let lastPossibleFlatElement = originSkillTabMath.slice(endOfScaling);
-			lastPossibleFlatElement = lastPossibleFlatElement.replace(/\)/g, '');
-			lastPossibleFlatElement = lastPossibleFlatElement.trim();
-			if (lastPossibleFlatElement.length > 0) {
-				flatPartRaw.push(lastPossibleFlatElement);
-			}
-		}
-	} else {
-		//otherwise the flatPart is the full Tab
-		flatPartRaw[0] = originSkillTabMath.slice(0);
-	}
-
-	//check if there are some extra flatParts between the scaling parts/
-	if (scalingPartPositions.length > 1) {
-		for (let i = 0; i < scalingPartPositions.length - 1; i++) {
-			let spaceBetween = originSkillTabMath.slice(scalingPartPositions[i][1], scalingPartPositions[i + 1][0]);
-			spaceBetween = spaceBetween.replace(/\(/g, '');
-			spaceBetween = spaceBetween.replace(/\)/g, '');
-			spaceBetween = spaceBetween.replace(/\+/g, '');
-			spaceBetween = spaceBetween.trim();
-
-			if (spaceBetween.length > 1) {
-				flatPartRaw.push(spaceBetween);
-			}
-		}
-	}
-
-	/**if there is a scaling part handle it and divide the numbers */
-	//first export the numbers, the remaining rest should be the scalingTypeText
-	if (scaling == true) {
-		for (let i = 0; i < scalingPartRaw.length; i++) {
-			let currentScalingPart = scalingPartRaw[i];
-			//check for multiple scaling
-			if (Array.isArray(currentScalingPart)) {
-				let outerPart = await divideScalingPart(currentScalingPart[0]);
-				let innerPart = await divideScalingPart(currentScalingPart[1]);
-				scalingPart[i] = [outerPart, innerPart];
-			} else {
-				scalingPart[i] = await divideScalingPart(currentScalingPart);
-			}
-		}
-	}
-
-	/**divide numbers from the flatPart*/
-	for (let n in flatPartRaw) {
-		let currentFlatContent = flatPartRaw[n];
-		lastPosition = 0;
-
-		for (let i = 0; i < currentFlatContent.length; i++) {
-			if (currentFlatContent[i] == '/') {
-				let temp = currentFlatContent.slice(lastPosition, i);
-				temp = temp.replace(/\//g, '');
-				temp = temp.replace(/ /g, '');
-				flatPart.push(temp);
-				lastPosition = i;
-			}
-			if (!extractorTools.isItMath(currentFlatContent[i]) && flatScaling == false) {
-				let temp = currentFlatContent.slice(lastPosition, i);
-				temp = temp.replace(/\//g, '');
-				temp = temp.replace(/ /g, '');
-				flatPart.push(temp);
-				flatScaling = true;
-				lastPosition = i;
-			}
-
-			if (i + 1 == currentFlatContent.length && flatScaling == false) {
-				let temp = currentFlatContent.slice(lastPosition, i + 1);
-				temp = temp.replace(/\//g, '');
-				temp = temp.replace(/ /g, '');
-				flatPart.push(temp);
-			}
-
-			if (i + 1 == currentFlatContent.length && flatScaling == true) {
-				let temp = currentFlatContent.slice(lastPosition, i + 1);
-				temp = temp.replace(/\//g, '');
-				flatPartType.push(temp);
-			}
-		}
-	}
+	[flatPart, flatPartType] = getFlatPart(originSkillTabMath, scalingPartsRaw);
 
 	/**test if there is any unrecognized rest by deleting every known out of the origin*/
 
+	skillTabMath.flatPart = flatPart;
+	//console.log('flatPart: ', flatPart);
+	skillTabMath.flatPartType = flatPartType;
+	//console.log('flatPartType: ', flatPartType);
+	skillTabMath.scalingPart = scalings;
+	//console.log('scalingPart: ', scalingPart);
+	let undefinedRest = testForUnnoticedParts(skillTabMath, originSkillTabMath);
+
+	skillTabMath.undefindRest = undefinedRest;
+	//console.log('undefined rest: ', undefinedRest);
+	return skillTabMath;
+}
+function getScalingPart(originSkillTabMathText) {
+	let scalings = [];
+
+	let scalingValues;
+	let scalingType;
+
+	let scalingPartsRaw = '';
+
+	let scalingPartPositions = getMatchingParenthesis(originSkillTabMathText);
+	//extracte the scaling pars
+	scalingPartsRaw = scalingPartPositions.map(([startPoint, endPoint]) => {
+		return originSkillTabMathText.slice(startPoint + 1, endPoint);
+	});
+
+	//now divide the scalingPart into numbers and type
+	//let scalingValueRegex = /[0-9]{0,3}/gim;
+	let scalingValueRegex = /[\d,\.]{1,7}/gim;
+
+	for (let i = 0; i < scalingPartsRaw.length; i++) {
+		let currentScaling = scalingPartsRaw[i];
+		switch (true) {
+			case currentScaling.includes('based'):
+				scalings.push(currentScaling, 'specialScaling');
+				break;
+			case /\(.*?\)/gim.test(currentScaling):
+				//multiscaslingcase
+				let multiScaling = {};
+				let multiScalingPartPosition = getMatchingParenthesis(currentScaling);
+				break;
+			default:
+				//TODO: round to 2 digits
+				scalingValues = [...currentScaling.matchAll(scalingValueRegex)].map((element) => Number(element[0]));
+
+				let scalingTypeRegex = /%\s*?[a-zA-Z].*/gim;
+
+				//let scalingTypeRegex2 = /%\s*?[a-zA-Z].*/im;
+				//	let execValue2 = scalingTypeRegex.exec(currentScaling2);
+				//	let matchAllValue2 = [...currentScaling.matchAll(scalingTypeRegex2)];
+				scalingType = [...currentScaling.matchAll(scalingTypeRegex)];
+				//get sure of none scalingType part
+				if (scalingType.length == 0) scalingType = 'none';
+				else scalingType = scalingType[0][0];
+				try {
+					scalings.push([scalingValues, scalingType]);
+				} catch (err) {
+					console.log(err);
+				}
+		}
+	}
+	return [scalings, scalingPartsRaw];
+}
+
+function getScaling(scalingText) {
+	return [scalingValue, scalingType];
+}
+function getFlatPart(originSkillTabMathText, scalingPartRaw) {
+	let flatPartValue;
+	let flatPartType;
+	let flatPartRaw = originSkillTabMathText;
+	//first delete the scalings from the origin text
+	scalingPartRaw.forEach((currentScaling) => {
+		flatPartRaw = flatPartRaw.replaceAll(currentScaling, '');
+	});
+	flatPartRaw = flatPartRaw.replaceAll('(', '');
+	flatPartRaw = flatPartRaw.replaceAll(')', '');
+	//second test for flatparttype and delete it also
+	try {
+		flatPartType = /[^0-9,^\/,^\/,^\s,^.].*/gim.exec(flatPartRaw);
+		flatPartType = flatPartType[0];
+		flatPartRaw = flatPartRaw.replaceAll(flatPartType, '');
+		flatPartRaw = flatPartRaw.trim();
+	} catch {}
+
+	//divide the flatPart into numbers
+	flatPartRaw = flatPartRaw.split('/');
+	try {
+		flatPartValue = flatPartRaw.map((value) => Number(value));
+	} catch (err) {
+		console.log(err);
+		console.log('cant divide flatPart into numbers');
+	}
+
+	return [flatPartValue, flatPartType];
+}
+function testForUnnoticedParts(skillTab, originSkillTabMath) {
+	let undefinedRest = originSkillTabMath;
+	let flatPart = skillTab.flatPart;
+	let scalingPart = skillTab.scalingPart;
+
+	if (skillTab.flatPartType) {
+		let flatPartTypeArray = skillTab.flatPartType.split(' ');
+		flatPartTypeArray.forEach((element) => {
+			undefinedRest = undefinedRest.replace(element, '');
+		});
+	}
+
 	for (let fp of flatPart) {
-		originSkillTabMath = originSkillTabMath.replace(fp, '');
+		undefinedRest = undefinedRest.replace(fp, '');
 	}
 
 	for (let scPart of scalingPart) {
 		for (let sc of scPart) {
 			if (Array.isArray(sc))
 				sc.map((currentSC) => {
-					originSkillTabMath = originSkillTabMath.replace(currentSC, '');
+					undefinedRest = undefinedRest.replace(currentSC, '');
 				});
-			else originSkillTabMath = originSkillTabMath.replace(sc, '');
+			else undefinedRest = undefinedRest.replace(sc, '');
 		}
 	}
-	for (let st of scalingType) {
-		originSkillTabMath = originSkillTabMath.replace(st, '');
+	for (let st of scalingPart) {
+		undefinedRest = undefinedRest.replace(st[1], '');
 	}
-	originSkillTabMath = originSkillTabMath.replace(flatPartType, '');
-	originSkillTabMath = originSkillTabMath.replace(/\//g, '');
-	originSkillTabMath = originSkillTabMath.replace(/\(/g, '');
-	originSkillTabMath = originSkillTabMath.replace(/\)/g, '');
-	originSkillTabMath = originSkillTabMath.replace(/%/g, '');
-	originSkillTabMath = originSkillTabMath.replace(/\+/g, '');
-	undefinedRest = originSkillTabMath;
+	//undefinedRest = undefinedRest.replace(flatPartType, '');
+	undefinedRest = undefinedRest.replace(/\//g, '');
+	undefinedRest = undefinedRest.replace(/\(/g, '');
+	undefinedRest = undefinedRest.replace(/\)/g, '');
+	undefinedRest = undefinedRest.replace(/%/g, '');
+	undefinedRest = undefinedRest.replace(/\+/g, '');
+	undefinedRest = undefinedRest;
 	//next 2 lines seems like the same but the first space is copied direct out of the terminal and some kind of different from the last space
-	originSkillTabMath = originSkillTabMath.replace(/ /g, '');
-	originSkillTabMath = originSkillTabMath.replace(/ /g, '');
-	originSkillTabMath = originSkillTabMath.trim();
+	undefinedRest = undefinedRest.replace(/ /g, '');
+	undefinedRest = undefinedRest.replace(/ /g, '');
+	undefinedRest = undefinedRest.trim();
 
-	if (originSkillTabMath.length == 0) {
+	if (undefinedRest.length == 0) {
 		undefinedRest = 'clean';
 		//console.log('\x1b[34mclean skillTab number export\x1b[0m');
 	} else {
 		undefinedRest = undefinedRest.trim();
+		//TODO: fix kindrer e(?)
 		console.log('\x1b[31munclean skillTab number export, rest:', undefinedRest, '\x1b[0m');
 	}
 
 	flatPart = flatPart.map((element) => Number(element));
-	skillTabMath.flatPart = flatPart;
-	//console.log('flatPart: ', flatPart);
-	skillTabMath.flatPartType = flatPartType;
-	//console.log('flatPartType: ', flatPartType);
-	skillTabMath.scalingPart = scalingPart;
-	//console.log('scalingPart: ', scalingPart);
-	// skillTabMath.scalingPartType = scalingType;
-	//console.log('scalingType: ', scalingType);
-	skillTabMath.undefindRest = undefinedRest;
-	//console.log('undefined rest: ', undefinedRest);
-	return skillTabMath;
+
+	return undefinedRest;
 }
 
 //TODO: include update
@@ -588,4 +575,43 @@ function divideFlatPartintoNumbers(flatPartRaw) {
 	}
 
 	return [...flatPart, flatPartType];
+}
+function getMatchingParenthesis(originSkillTabMath) {
+	/**extract raw scalingPart for later dividing */
+	// get the scaling parts positions in the brackets
+	let scalingPartPositions = [];
+	let scalingParts = 0;
+	let scalingBrackets = 0;
+	let scalingScale = [];
+	let lastPosition = 0;
+	for (let i = 0; i < originSkillTabMath.length; i++) {
+		if (originSkillTabMath[i] == '(' && scalingBrackets > 0) {
+			scalingScale.push(i);
+			scalingBrackets++;
+			scalingParts++;
+		}
+		if (originSkillTabMath[i] == '(' && scalingBrackets == 0) {
+			lastPosition = i;
+			scalingBrackets++;
+		}
+		if (originSkillTabMath[i] == ')' && scalingBrackets == 1) {
+			scalingPartPositions.push([lastPosition, i]);
+			//check if extra scaling (in most cases max life scaling with extra % for stacks/ap/ad)
+			if (scalingScale.length > 1) {
+				scalingPartPositions[scalingPartPositions.length - 1].push(scalingScale);
+			}
+			scalingParts++;
+			scalingBrackets--;
+		}
+		if (originSkillTabMath[i] == ')' && scalingBrackets > 1) {
+			scalingScale.push(i);
+			scalingParts++;
+			scalingBrackets--;
+		}
+		if (i + 1 == originSkillTabMath.length && scalingBrackets > 0) {
+			scalingPartPositions.push([lastPosition, i + 1]);
+			scalingParts++;
+		}
+	}
+	return scalingPartPositions;
 }
