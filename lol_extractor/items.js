@@ -15,8 +15,9 @@ async function extractData() {
 }
 
 export async function exItems() {
-	let itemList = await tools.getItemList();
-	for (let itemName of itemList) {
+	let itemList = await tools.getItemLinkList();
+	for (let itemEntry of itemList) {
+		let itemName = itemEntry[0];
 		try {
 			let loadName = tools.itemNameConverter(itemName);
 			let rawData = await tools.loadJSONData(`./lol_scraper/data/items/${loadName}_data.json`);

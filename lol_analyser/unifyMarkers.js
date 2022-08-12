@@ -7,7 +7,7 @@ export async function unifyAbilityMarkers() {
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
 
-		console.log(`analyser_abilities.js - simplify abilities: ${championName}`);
+		console.log(`simplify abilities: ${championName} \t ${championEntry.index}`);
 		try {
 			let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
 
@@ -171,8 +171,8 @@ async function extractDamageSplit(skillTab) {
 
 		return [firstSplit, secondeSplit];
 	} catch (err) {
-		console.log(err);
-		tools.reportError('cant get damageSplit	- no name onlySkillTab', skillTab, err.message, err.stack);
+		console.log('\n', err);
+		tools.reportError('\n', 'cant get damageSplit	- no name onlySkillTab', skillTab, err.message, err.stack);
 		return skillTab;
 	}
 }
@@ -181,8 +181,11 @@ function generateSplitSkillTab(originSkillTab, percentage, newTyp) {
 	let newSkillTab = JSON.parse(JSON.stringify(originSkillTab));
 
 	newSkillTab.marker = newSkillTab.marker.replace('mixed damage', newTyp);
-	newSkillTab.math.flatPart = newSkillTab.math.flatPart.map((element) => element / 2);
-	let scalingParts = newSkillTab.math.scalingPart;
+	newSkillTab.math.flatPart = newSkillTab.math.flats.map((currentFlatPart) => {
+		currentFlatPart[0] = currentFlatPart[0].map((element) => element / 2);
+		return currentFlatPart;
+	});
+	let scalingParts = newSkillTab.math.scalings;
 	for (let i = 0; i < scalingParts.length; i++) {
 		let currentScalingPart = scalingParts[i];
 		currentScalingPart[0] = currentScalingPart[0].map((element) => element / 2);
@@ -306,11 +309,7 @@ function getMinorCategory(skillTab) {
 		let minorCategories = softCCMarker;
 		for (let i = 0; i < minorCategories.length; i++) {
 			if (minorCategories[i].test(marker)) {
-				let regexString = minorCategories[i].toString();
-				regexString = regexString.slice(0, regexString.length - 1);
-				regexString = regexString.replaceAll('/', '');
-				regexString = regexString.replaceAll('(', '');
-				regexString = regexString.replaceAll(')', '');
+				let regexString = regexToString(minorCategories[i]);
 				return regexString;
 			}
 		}
@@ -320,11 +319,7 @@ function getMinorCategory(skillTab) {
 		let minorCategories = hardCCMarker;
 		for (let i = 0; i < minorCategories.length; i++) {
 			if (minorCategories[i].test(marker)) {
-				let regexString = minorCategories[i].toString();
-				regexString = regexString.slice(0, regexString.length - 1);
-				regexString = regexString.replaceAll('/', '');
-				regexString = regexString.replaceAll('(', '');
-				regexString = regexString.replaceAll(')', '');
+				let regexString = regexToString(minorCategories[i]);
 				return regexString;
 			}
 		}
@@ -332,4 +327,14 @@ function getMinorCategory(skillTab) {
 
 	console.log('analyseMarker(): unknown minor category:', marker);
 	return 'unknown';
+}
+
+function regexToString(regex) {
+	let regexString = regex.toString();
+	regexString = regexString.slice(0, regexString.length - 1);
+	regexString = regexString.replaceAll('/', '');
+	regexString = regexString.replaceAll('(', '');
+	regexString = regexString.replaceAll(')', '');
+
+	return regexString;
 }

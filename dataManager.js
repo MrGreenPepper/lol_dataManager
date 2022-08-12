@@ -9,7 +9,7 @@ import * as calculator from './lol_calculator/calculator.js';
 export let procedure = {
 	useTestData: 0,
 	//champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
-	champions: [61, 162],
+	champions: [18, 162],
 	scraper: {
 		createLists: 0,
 		getBaseData: 0,
@@ -20,10 +20,10 @@ export let procedure = {
 		createBackup: 0,
 	},
 	extractor: {
-		resetData: 1,
+		resetData: 0,
 		exMetaData: 0,
-		exText: 1,
-		exSkillTabs: 1,
+		exText: 0,
+		exSkillTabs: 0,
 		exSpecialScaling: 0,
 		skillTabsToArray: 0,
 		exSkillOrder: 0,
@@ -41,10 +41,10 @@ export let procedure = {
 		createBackup: 0,
 	},
 	calculator: {
-		resetData: 0,
-		singleChampion: 0,
-		matchup: 0,
-		createBackup: 0,
+		resetData: 1,
+		singleChampion: 1,
+		matchup: 1,
+		createBackup: 1,
 	},
 };
 /**dataStorage:

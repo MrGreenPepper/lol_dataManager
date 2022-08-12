@@ -1,8 +1,9 @@
 import * as tools from '../tools.js';
 
 export async function unifyItems() {
-	let itemList = await tools.getItemList();
-	for (let itemName of itemList) {
+	let itemList = await tools.getItemLinkList();
+	for (let itemEntry of itemList) {
+		let itemName = itemEntry[0];
 		try {
 			let loadName = tools.itemNameConverter(itemName);
 			let itemData = await tools.loadJSONData(`./data/items/${loadName}_data.json`);
