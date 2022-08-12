@@ -101,8 +101,8 @@ async function calculateDamage(rawSkillTab) {
 	//if its health scaling its need to be calculated later
 	if (/(health)/i.test(math.flatPartType)) return rawSkillTab;
 
-	for (let i = 0; i < math.scalingPart.length; i++) {
-		let currentScalingPart = math.scalingPart[i];
+	for (let i = 0; i < math.scalings.length; i++) {
+		let currentScalingPart = math.scalings[i];
 		let percentageScaling;
 		try {
 			let percentageScaling = currentScalingPart[1].includes('%');
@@ -219,57 +219,67 @@ async function applyLevelsToAbilities(abilities, abilityLevels, championLevel) {
 			//then get the abiliyParts and apply the level to them
 			leveledAbilities[`${abNumber}`] = {};
 			let abilityParts = abilities[abNumber];
+			leveledAbilities[abNumber] = [];
 
 			for (let abPartNumber = 0; abPartNumber < abilityParts.length; abPartNumber++) {
 				let skillTabs = abilityParts[abPartNumber];
-				leveledAbilities[abNumber][abPartNumber] = await applyLevelToSkillTabs(skillTabs, abilityLevels[abNumber]);
+				leveledAbilities[abNumber][abPartNumber] = [];
+
+				for (let sk = 0; sk < skillTabs.length; sk++) {
+					let currentSkillTab = skillTabs[sk];
+					leveledAbilities[abNumber][abPartNumber][sk] = await applyLevelToSkillTabs(currentSkillTab, abilityLevels[abNumber]);
+				}
 			}
 		}
 	}
 	return leveledAbilities;
 }
 
-async function applyLevelToSkillTabs(abilityPart, currentAbilityLevel) {
-	for (let sk = 0; sk < abilityPart.length; sk++) {
-		let math = abilityPart[sk].math;
+async function applyLevelToSkillTabs(skillTab, currentAbilityLevel) {
+	let math = skillTab.math;
 
-		math.flatPart = await applyLevelToMathPart(math.flatPart, currentAbilityLevel);
-		//1. combine ability Data with the concerning level
-		//first get the right flatPart numbers
+	for (let [index, flatPart] of math.flats.entries()) {
+		if (Array.isArray(flatPart[0])) flatPart[0] = await applyLevelToMathPart(flatPart[0], currentAbilityLevel);
+		math.flats[index] = flatPart;
+	}
+	//1. combine ability Data with the concerning level
+	//first get the right flatPart numbers
 
-		//second get the scaling value, scaling values are in an array,
-		//if the second value of the array is a string its the
-		//type of the scaling otherwise its a multiple scaling array
-		for (let n = 0; n < math.scalingPart.length; n++) {
-			let currentScaling = math.scalingPart[n];
-			if (Array.isArray(currentScaling[1])) {
-				for (let multiPart = 0; multiPart < currentScaling.length; multiPart++) {
-					currentScaling[multiPart][0] = await applyLevelToMathPart(currentScaling[multiPart][0], currentAbilityLevel);
-				}
-			} else {
-				currentScaling[0] = await applyLevelToMathPart(currentScaling[0], currentAbilityLevel);
-			}
+	//second get the scaling value, scaling values are in an array,
+	//if the second value of the array is a string its the
+	//type of the scaling otherwise its a multiple scaling array
+	for (let [index, scalingPart] of math.scalings.entries()) {
+		//test for multiScaling
+		if (scalingPart.hasOwnProperty('flats')) {
+			scalingPart = await applyLevelToSkillTabs(scalingPart, currentAbilityLevel);
+		} else {
+			if (Array.isArray(scalingPart[0])) scalingPart[0] = await applyLevelToMathPart(scalingPart[0], currentAbilityLevel);
 		}
-		abilityPart[sk].math = math;
-
-		//apply level to the metaData too
-		let metaKeys = Object.keys(abilityPart[sk].concerningMeta);
-		for (let currentKey of metaKeys) {
-			let currentMetaData = abilityPart[sk].concerningMeta[currentKey];
-			if (Array.isArray(currentMetaData.math.flatPart)) {
-				currentMetaData.math.flatPart = await applyLevelToMathPart(currentMetaData.math.flatPart, currentAbilityLevel);
-			}
-		}
+		math.scalings[index] = scalingPart;
 	}
 
-	return abilityPart;
+	//apply level to the metaData too
+	let metaKeys = Object.keys(skillTab.concerningMeta);
+	for (let currentKey of metaKeys) {
+		let currentMetaData = skillTab.concerningMeta[currentKey];
+		if (Array.isArray(currentMetaData.math.flatPart)) {
+			currentMetaData.math.flatPart = await applyLevelToMathPart(currentMetaData.math.flatPart, currentAbilityLevel);
+		}
+	}
+	skillTab.math = math;
+
+	return skillTab;
 }
 
 async function applyLevelToMathPart(mathArray, abilityLevel) {
-	if (mathArray.length > 1) {
-		mathArray = mathArray[abilityLevel];
-	} else mathArray = mathArray[0];
-	return mathArray;
+	try {
+		if (mathArray.length > 1) {
+			mathArray = mathArray[abilityLevel];
+		} else mathArray = mathArray[0];
+		return mathArray;
+	} catch (err) {
+		console.log(err);
+	}
 }
 
 /** 

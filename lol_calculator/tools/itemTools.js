@@ -45,7 +45,7 @@ function loadItemData(itemName) {
 			let itemData = JSON.parse(fs.readFileSync(loadPath, { encoding: 'utf-8' }));
 			resolve(itemData);
 		} catch (error) {
-			console.error('\ncant load item: \t', itemName, '\n', error);
+			console.error('\ncant load item: \t', loadName, '\n', error);
 			reject(error);
 		}
 	});
@@ -97,9 +97,7 @@ async function getPartedItems(itemList) {
 		//check which items have a buildingPath
 
 		higherItems = itemList.filter((currentItem) => {
-			return (
-				currentItem.recipe.buildPath != undefined && currentItem.recipe.buildPath.length > 0
-			);
+			return currentItem.recipe.buildPath != undefined && currentItem.recipe.buildPath.length > 0;
 		});
 
 		let buildPathItemNamesTemp = higherItems.map((item) => {
@@ -120,9 +118,7 @@ async function getPartedItems(itemList) {
 		partedItems.push(buildPathItems);
 		//test if there are still "higher class items in the list" --> y --> repeat
 		higherItems = buildPathItems.filter((currentItem) => {
-			return (
-				currentItem.recipe.buildPath != undefined && currentItem.recipe.buildPath.length > 0
-			);
+			return currentItem.recipe.buildPath != undefined && currentItem.recipe.buildPath.length > 0;
 		});
 		if (higherItems.length > 0) {
 			let moreItems = await getPartedItems(higherItems);
@@ -204,20 +200,21 @@ export async function calculateItems(itemOrder, goldAmount) {
 
 async function checkBuyFullItem(boughtItems, item, goldAmount) {
 	//t2 boots already bought check otherwise buy them like a normal item
-	try {
-		let test1 = await getBoots(boughtItems);
-		let test2 = await getBoots([item]);
-		if (test1 != undefined && test2 != undefined)
-			return Promise.resolve([boughtItems, item, goldAmount]);
-		let itemPrice = await getItemPrice(item);
-		if (itemPrice <= goldAmount) {
-			boughtItems.push(item);
-			return Promise.resolve([boughtItems, item, goldAmount - itemPrice]);
-		} else return Promise.reject([boughtItems, item, goldAmount]);
-	} catch (error) {
-		console.log('\n cant check fullbuy on item: \t', item);
-		console.log(error);
-		return Promise.reject([boughtItems, item, goldAmount]);
+	if (item != undefined) {
+		try {
+			let test1 = await getBoots(boughtItems);
+			let test2 = await getBoots([item]);
+			if (test1 != undefined && test2 != undefined) return Promise.resolve([boughtItems, item, goldAmount]);
+			let itemPrice = await getItemPrice(item);
+			if (itemPrice <= goldAmount) {
+				boughtItems.push(item);
+				return Promise.resolve([boughtItems, item, goldAmount - itemPrice]);
+			} else return Promise.reject([boughtItems, item, goldAmount]);
+		} catch (error) {
+			console.log('\n cant check fullbuy on item: \t', item);
+			console.log(error);
+			return Promise.reject([boughtItems, item, goldAmount]);
+		}
 	}
 }
 
@@ -430,11 +427,7 @@ function statsToObject(summedStatsArray) {
 				statsObj.armorPenetration_percent = currentStat[0];
 				break;
 			default:
-				console.log(
-					'%cERROR - statsToObject: didnt found statMarker --> gonna drop it:\t',
-					'color: red',
-					currentStat
-				);
+				console.log('%cERROR - statsToObject: didnt found statMarker --> gonna drop it:\t', 'color: red', currentStat);
 		}
 	}
 	return statsObj;

@@ -48,6 +48,7 @@ export async function getInGameData() {
 				try {
 					let boots = smallItems[1].querySelector('img').getAttribute('alt');
 					champion.items.boots = boots;
+					console.log('boots: \t', boots);
 				} catch {}
 				let coreItems = [];
 				let bigItems = document.querySelectorAll('div.medium-13.columns');

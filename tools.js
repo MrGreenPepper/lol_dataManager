@@ -78,10 +78,11 @@ export async function reportError(category, championName, errorMessage, errorSta
 export function itemNameConverter(itemName) {
 	try {
 		//TODO:
-		if (itemName == 'Blade of The Ruined King') {
+
+		itemName = itemName.replaceAll(' ', '');
+		if (itemName == 'BladeofTheRuinedKing') {
 			itemName = 'BladeoftheRuinedKing';
 		}
-		itemName = itemName.replaceAll(' ', '');
 	} catch (err) {
 		console.log(err);
 		reportError('cant modify itemName', itemName, err.message, err.stack);
