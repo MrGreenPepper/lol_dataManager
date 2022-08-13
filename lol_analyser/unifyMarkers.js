@@ -172,7 +172,7 @@ async function extractDamageSplit(skillTab) {
 		return [firstSplit, secondeSplit];
 	} catch (err) {
 		console.log('\n', err);
-		tools.reportError('\n', 'cant get damageSplit	- no name onlySkillTab', skillTab, err.message, err.stack);
+		tools.reportError('\n cant get damageSplit	- no name onlySkillTab', textContent, err.message, err.stack);
 		return skillTab;
 	}
 }

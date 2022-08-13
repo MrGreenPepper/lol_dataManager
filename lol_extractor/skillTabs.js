@@ -223,6 +223,14 @@ function getFlatPart(originSkillTabMathText) {
 	let flatsRaw = divideIntoFlatPartsRaw(originSkillTabMathText);
 	let flats = [];
 
+	//delete innerScaling parts ... need to double loop in case of multiple multiscalings and the next or former index isnt the 'big part'
+	for (let i = 0; i < flatsRaw.length; i++) {
+		let currentFlatPart = flatsRaw[i];
+		flatsRaw = flatsRaw.filter((element) => {
+			if (currentFlatPart[0] < element[0] && element[1] < currentFlatPart[1]) return false;
+			else return true;
+		});
+	}
 	for (let i = 0; i < flatsRaw.length; i++) {
 		let flatPartRaw = flatsRaw[i];
 		//second test for flatparttype and delete it also
