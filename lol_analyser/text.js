@@ -9,7 +9,7 @@ export async function textToSkillTab() {
 
 		let championAbilities = championData.analysed_data.baseData.abilities;
 		try {
-			championAbilities = await identifyInterestingParts(championAbilities);
+			championAbilities = await identifyStructure(championAbilities);
 		} catch (err) {
 			console.log(err);
 		}
@@ -26,4 +26,4 @@ export async function textToSkillTab() {
 	}
 }
 
-function identifyInterestingParts(championAbilities) {}
+function identifyStructure(championAbilities) {}
