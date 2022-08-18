@@ -138,3 +138,40 @@ export function timer() {
 		setTimeout((res) => resolve(), 500);
 	});
 }
+export function basicStringClean(rawString) {
+	rawString = rawString.toLowerCase();
+	rawString = rawString.replaceAll('−', '-');
+	rawString = rawString.replaceAll('」', ' ');
+	rawString = rawString.replaceAll('「', ' ');
+	rawString = rawString.replaceAll(/\n/gim, ' ');
+	rawString = rawString.replaceAll('  ', ' '); //doubleSpace
+	rawString = rawString.replaceAll('	', ' '); //tab
+	rawString = rawString.replaceAll('_', ' '); //tab
+	rawString = rawString.trim();
+
+	return rawString;
+}
+export function toBasicRegex(wordComb) {
+	/**tests if the input as an array or a single string --> everything to regex --> returns array or string */
+	if (Array.isArray(wordComb)) {
+		let regexExpr = [];
+		for (let currentWord of wordComb) {
+			let regexArray = currentWord.split(' ');
+			let regExString = '';
+			for (let i = 0; i < regexArray.length; i++) {
+				regExString += '(' + regexArray[i] + ').*?';
+			}
+
+			regexExpr.push(new RegExp(regExString, 'gim'));
+		}
+	} else {
+		let regexArray = wordComb.split(' ');
+		let regexExpr = '';
+		for (let i = 0; i < regexArray.length; i++) {
+			regexExpr += '(' + regexArray[i] + ').*?';
+		}
+
+		regexExpr = new RegExp(regexExpr, 'gim');
+	}
+	return regexExpr;
+}

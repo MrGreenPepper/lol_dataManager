@@ -82,11 +82,12 @@ async function calculateDamage(rawSkillTab) {
 	let math = rawSkillTab.math;
 	let metaData = rawSkillTab.concerningMeta;
 	let scalingDamage = 0;
-	let flatDamage = math.flatPart;
+	let flatDamage = 0;
 	let summedStats = {};
 	let casttime = 0;
 	let cooldown = 0;
 
+	math.flats.forEach((flatPart) => (flatDamage += flatPart[0]));
 	//try gettintg casttime and cooldown
 	let metaKeys = Object.keys(metaData);
 
@@ -237,37 +238,38 @@ async function applyLevelsToAbilities(abilities, abilityLevels, championLevel) {
 
 async function applyLevelToSkillTabs(skillTab, currentAbilityLevel) {
 	let math = skillTab.math;
-
-	for (let [index, flatPart] of math.flats.entries()) {
-		if (Array.isArray(flatPart[0])) flatPart[0] = await applyLevelToMathPart(flatPart[0], currentAbilityLevel);
-		math.flats[index] = flatPart;
-	}
-	//1. combine ability Data with the concerning level
-	//first get the right flatPart numbers
-
-	//second get the scaling value, scaling values are in an array,
-	//if the second value of the array is a string its the
-	//type of the scaling otherwise its a multiple scaling array
-	for (let [index, scalingPart] of math.scalings.entries()) {
-		//test for multiScaling
-		if (scalingPart.hasOwnProperty('flats')) {
-			scalingPart = await applyLevelToSkillTabs(scalingPart, currentAbilityLevel);
-		} else {
-			if (Array.isArray(scalingPart[0])) scalingPart[0] = await applyLevelToMathPart(scalingPart[0], currentAbilityLevel);
+	if (math != undefined) {
+		for (let [index, flatPart] of math.flats.entries()) {
+			if (Array.isArray(flatPart[0])) flatPart[0] = await applyLevelToMathPart(flatPart[0], currentAbilityLevel);
+			math.flats[index] = flatPart;
 		}
-		math.scalings[index] = scalingPart;
-	}
 
-	//apply level to the metaData too
-	let metaKeys = Object.keys(skillTab.concerningMeta);
-	for (let currentKey of metaKeys) {
-		let currentMetaData = skillTab.concerningMeta[currentKey];
-		if (Array.isArray(currentMetaData.math.flatPart)) {
-			currentMetaData.math.flatPart = await applyLevelToMathPart(currentMetaData.math.flatPart, currentAbilityLevel);
+		//1. combine ability Data with the concerning level
+		//first get the right flatPart numbers
+
+		//second get the scaling value, scaling values are in an array,
+		//if the second value of the array is a string its the
+		//type of the scaling otherwise its a multiple scaling array
+		for (let [index, scalingPart] of math.scalings.entries()) {
+			//test for multiScaling
+			if (scalingPart.hasOwnProperty('flats')) {
+				scalingPart = await applyLevelToSkillTabs(scalingPart, currentAbilityLevel);
+			} else {
+				if (Array.isArray(scalingPart[0])) scalingPart[0] = await applyLevelToMathPart(scalingPart[0], currentAbilityLevel);
+			}
+			math.scalings[index] = scalingPart;
 		}
-	}
-	skillTab.math = math;
 
+		//apply level to the metaData too
+		let metaKeys = Object.keys(skillTab.concerningMeta);
+		for (let currentKey of metaKeys) {
+			let currentMetaData = skillTab.concerningMeta[currentKey];
+			if (Array.isArray(currentMetaData.math.flatPart)) {
+				currentMetaData.math.flatPart = await applyLevelToMathPart(currentMetaData.math.flatPart, currentAbilityLevel);
+			}
+		}
+		skillTab.math = math;
+	}
 	return skillTab;
 }
 

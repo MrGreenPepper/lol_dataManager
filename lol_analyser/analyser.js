@@ -2,6 +2,8 @@ export * from './analyse_abilities.js';
 export * from './items.js';
 export * from './unifyMarkers.js';
 export * from './cleaner.js';
+export * from './specialScalingToSkillTabs.js';
+export * from './text.js';
 
 import * as tools from '../tools.js';
 

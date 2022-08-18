@@ -18,7 +18,7 @@ export async function exSpecialScaling() {
 			championData = await specialScalingOnChampionsPassive(championData);
 			//		championData.extracted_data.baseData.abilities = await specialScalingOnActives(championData);
 
-			//		await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
+			//	await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_specialScaling.json`);
 			//		await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
 		} catch (err) {
 			console.log(err);
@@ -45,14 +45,14 @@ function specialScalingOnMeta(championData) {
 				for (let sKey of specialKeys) {
 				let specialData = metaData.specialScaling[sKey];*/
 				let specialData = metaData.specialScaling[0];
-				let flatValues = specialData.botValues.split(';').map((value) => Number(value));
+				let specialValues = specialData.botValues.split(';').map((value) => Number(value));
 				let scalingType = specialData.text.slice(specialData.text.indexOf('(') + 1, specialData.text.indexOf(')')).toLowerCase();
 				let scalingValue;
 				if (specialData.hasOwnProperty('topValues')) {
 					scalingValue = specialData.topValues.split(';').map((value) => Number(value));
 					specialTab.scalingValue = scalingValue;
 				}
-				specialTab.flatValues = flatValues;
+				specialTab.specialValues = specialValues;
 				specialTab.scalingType = scalingType;
 				metaData.specialScaling = true;
 				metaData.specialTab = specialTab;
@@ -98,16 +98,56 @@ function specialScalingOnChampionsPassive(championData) {
 			/**reads out the different parts and there positions (in the normal text not the html one!!), based on there appearance
 			 * the specialSkillTabs are sort to the concerning matter (trigger or emporement)
 			 */
-			let specialScalingTabs = getSpecialScalingTabs(currentTextContent.specialScaling, text, championPassive.metaData);
-			let trigger = getTrigger(currentTextContent.specialScaling);
-			let triggerRange = getTriggerRange(currentTextContent.specialScaling);
-			let emporements = getEmporements(currentTextContent.specialScaling);
+			currentTextContent.specialScalingContent = {};
+			currentTextContent.specialScalingContent.tabs = getSpecialScalingTabs(
+				currentTextContent.specialScaling,
+				text,
+				championPassive.metaData
+			);
+			delete currentTextContent.specialScaling;
+			currentTextContent.specialScalingContent = mergeWithMarkedPassages(currentTextContent, RegExAbilityNames);
 		}
 	}
 	//TODO: check if the special scaling is already  in the skillTab
 	return championData;
 }
+function mergeWithMarkedPassages(currentTextContent, RegExAbilityNames) {
+	let specialContentPosition = getSpecialContentPosition(currentTextContent);
 
+	currentTextContent.specialScalingContent.trigger = getSpecialTriggers(currentTextContent, specialContentPosition, RegExAbilityNames);
+	currentTextContent.specialScalingContent.triggerRange = getTriggerRange(currentTextContent);
+	currentTextContent.specialScalingContent.empowerments = getEmporements(currentTextContent);
+
+	return currentTextContent;
+}
+
+function getSpecialContentPosition(currentTextContent) {
+	/**gets the position of all concerning marked passage of the specialScalingContent */
+	let markedPositions = [];
+	let limiterTypes = [];
+
+	for (let specialTab of currentTextContent.specialScalingContent.tabs) {
+		limiterTypes.push(specialTab.limiterType);
+	}
+
+	limiterTypes.forEach((limiterType) => {
+		let position = -1;
+		let limiterArray = limiterType.split(' ');
+		let limiterRegex = limiterArray.reduce((regex, word) => {
+			return (regex += '(' + word + ').*?');
+		}, '');
+		limiterRegex = new RegExp(limiterRegex, 'gim');
+
+		currentTextContent.markedPassages.forEach((passage, index) => {
+			if (limiterRegex.test(passage[0])) position = index;
+		});
+		if (position != -1) markedPositions.push([position, limiterType]);
+		else {
+			console.log('cant find position of \t', limiterType);
+		}
+	});
+	return markedPositions;
+}
 function getSpecialScalingTabs(specialScalingContent, text, concerningMeta) {
 	/**extracts the data from the specialDataContent and forms some kind of a 'usual' skillTab
 	 *
@@ -128,7 +168,9 @@ function getSpecialScalingTabs(specialScalingContent, text, concerningMeta) {
 
 		//get the flatPart
 		let specialValues = specialScalingData.botValues.split(';').map((value) => Number(value));
-		let limiterType = specialScalingData.text.slice(specialScalingData.text.indexOf('(') + 1, specialScalingData.text.indexOf(')')).toLowerCase();
+		let limiterType = specialScalingData.text
+			.slice(specialScalingData.text.indexOf('(') + 1, specialScalingData.text.indexOf(')'))
+			.toLowerCase();
 		let limiterValues;
 
 		//look if the Limiter is defined especially
@@ -197,13 +239,68 @@ function getSpecialScalingTabs(specialScalingContent, text, concerningMeta) {
 
 	return specialTabs;
 }
-
-function getTrigger(text) {
-	/**
-	 * @param {string} text 	text to be analysed for trigger wwords
+function getSpecialTriggers(currentTextContent, specialContentPositions, RegExAbilityNames) {
+	/** searches in front of the specialScalingContent for a trigger word in the markedPassages
+	 * @param {object} currentTextContent
+	 * @param {array} specialContentPosition
+	 * @param {array with regexExpr} RegExAbilityNames
 	 *
 	 * @return {array} triggerArray [[trigger, triggerPosition]]
 	 */
+	let markedPassages = currentTextContent.markedPassages;
+	let triggerOrigins = ['basic attack', 'kill', 'champion takedown', 'damage an champion'];
+	let triggerArray = [];
+	let foundTriggers = [];
+	let triggerRange = ['abilities stack', 'basic attack stack'];
+	//generete regex from triggerArray
+	triggerArray = triggerOrigins.map((wordComb) => {
+		let triggerWordArray = wordComb.split(' ');
+		triggerWordArray = triggerWordArray.reduce((regex, word) => {
+			return (regex += '(' + word + ').*?');
+		}, '');
+		let regex = new RegExp(triggerWordArray, 'gim');
+		return regex;
+	});
+
+	//search in the markedPassages for the right trigger
+	for (let specialPosition of specialContentPositions) {
+		for (let i = specialPosition[0] - 1; i >= 0; i--) {
+			let markedPassagsPhrase = markedPassages[i][0];
+			let triggerBool = false;
+			triggerArray.forEach((trigger) => {
+				if (trigger.test(markedPassagsPhrase) && triggerBool == false) {
+					foundTriggers.push(trigger);
+					triggerBool = true;
+				}
+			});
+		}
+	}
+
+	//if not all triggers found yet, search the text for it
+	if (foundTriggers.length != specialContentPositions.length) {
+		for (let specialPosition of specialContentPositions) {
+			let conceringMarkedPassages = markedPassages[specialPosition[0]];
+			let triggerText = currentTextContent.text.slice(0, conceringMarkedPassages[1]);
+			let possibleMatches = [];
+			triggerArray.forEach((trigger) => {
+				if (trigger.test(triggerText)) possibleMatches.push(trigger);
+			});
+			if (possibleMatches.length == 1) foundTriggers.push(possibleMatches[0]);
+			if (possibleMatches.length > 1) {
+				//search for the trigger which is next to the specialScaling
+				console.log('multiple possible triggers found');
+			}
+		}
+	}
+
+	if (foundTriggers.length != specialContentPositions.length) {
+		console.log('not all triggers found');
+		console.log(specialContentPositions);
+		console.log(markedPassages);
+		console.log(triggerArray);
+		//TODO: akali 'swinging Kama'
+	}
+	return triggerArray;
 }
 
 function getTriggerRange(text) {

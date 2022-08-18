@@ -21,9 +21,6 @@ class Champion {
 			this[key] = tempData[key];
 		}
 
-		this.calculatedData = {};
-		this.calculatedData.perSecond = {};
-		this.calculatedData.oneRotation = {};
 		this.soloCalc = {};
 		this.realFightCalculation = {};
 		//TODO: do warnings for like crits or any special abilities

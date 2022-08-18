@@ -37107,3 +37107,877 @@ singleChampions.js: calculate singleChampion error,Zac,Cannot read properties of
     at async Module.singleChampion (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
     at async calculatorProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:133:43)
     at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:131:1
+analyser_abilities.js:  cant simplify abilities,Camille,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:175:71)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:135:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:19:26)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:121:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+analyser_abilities.js:  cant simplify abilities,Gangplank,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:175:71)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:135:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:19:26)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:121:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+analyser_abilities.js:  cant simplify abilities,Zoe,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:175:71)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:135:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:19:26)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:121:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Aatrox,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Ahri,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Akali,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Akshan,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Alistar,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Amumu,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Anivia,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Annie,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Aphelios,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Ashe,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,AurelionSol,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Azir,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Bard,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Bel'Veth,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Blitzcrank,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Brand,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Braum,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Caitlyn,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Camille,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Cassiopeia,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Cho'Gath,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Corki,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Darius,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Diana,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Dr.Mundo,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Draven,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Ekko,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Elise,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Evelynn,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Ezreal,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Fiddlesticks,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Fiora,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Fizz,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Galio,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Gangplank,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Garen,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Gnar,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Gragas,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Graves,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Gwen,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Hecarim,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Heimerdinger,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Illaoi,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Irelia,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Ivern,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Janna,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,JarvanIV,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Jax,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Jayce,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Jhin,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Jinx,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kai'Sa,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kalista,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Karma,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Karthus,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kassadin,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Katarina,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kayle,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kayn,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kennen,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kha'Zix,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kindred,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kled,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kled&Skaarl,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Kog'Maw,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,LeBlanc,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,LeeSin,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Leona,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Lillia,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Lissandra,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Lucian,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Lulu,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Lux,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Malphite,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Malzahar,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Maokai,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,MasterYi,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,MegaGnar,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,MissFortune,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Mordekaiser,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Morgana,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Nami,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Nasus,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Nautilus,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Neeko,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Nidalee,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Nilah,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Nocturne,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Nunu&Willump,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Olaf,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Orianna,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Ornn,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Pantheon,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Poppy,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Pyke,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Qiyana,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Quinn,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Rakan,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Rammus,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Rek'Sai,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Rell,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,RenataGlasc,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Renekton,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Rengar,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Riven,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Rumble,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Ryze,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Samira,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Sejuani,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Senna,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Seraphine,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Sett,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Shaco,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Shen,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Shyvana,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Singed,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Sion,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Sivir,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Skarner,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Sona,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Soraka,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Swain,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Sylas,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Syndra,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,TahmKench,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Taliyah,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Talon,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Taric,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Teemo,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Thresh,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Tristana,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Trundle,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Tryndamere,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,TwistedFate,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Twitch,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Udyr,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Urgot,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Varus,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Vayne,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Veigar,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Vel'Koz,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Vex,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Vi,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Viego,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Viktor,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Vladimir,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Volibear,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Warwick,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Wukong,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Xayah,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Xerath,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,XinZhao,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Yasuo,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Yone,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Yorick,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Yuumi,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Zac,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Zed,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Zeri,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Ziggs,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Zilean,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Zoe,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+show all markers,Zyra,Cannot convert undefined or null to object,TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Module.showAllMarkerPositions (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:205:29)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:125:49)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:116:1
+singleChampions.js: calculate singleChampion error,Akshan,Cannot read properties of undefined (reading 'flats'),TypeError: Cannot read properties of undefined (reading 'flats')
+    at applyLevelToSkillTabs (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/preCalculate.js:240:11)
+    at applyLevelToSkillTabs (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/preCalculate.js:255:24)
+    at async applyLevelsToAbilities (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/preCalculate.js:230:53)
+    at async Champion.start (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/tools/preCalculate.js:15:14)
+    at async Champion.preCalculateFight (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/champion.js:45:4)
+    at async Module.singleChampion (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_calculator/singleChampion.js:13:4)
+    at async calculatorProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:133:43)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:131:1
+scraping abilities failed,Amumu,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:32:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:68:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:58:1
+scraping abilities failed,Anivia,Navigation failed because browser has disconnected!,Error: Navigation failed because browser has disconnected!
+    at new LifecycleWatcher (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/LifecycleWatcher.js:89:193)
+    at FrameManager.navigateFrame (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:166:25)
+    at Frame.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/FrameManager.js:579:41)
+    at Page.goto (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/Page.js:1086:88)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:32:14)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:68:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:58:1
+scraping abilities failed,Aatrox,abilities is not defined,ReferenceError: abilities is not defined
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:248:3)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Ahri,abilities is not defined,ReferenceError: abilities is not defined
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:248:3)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1

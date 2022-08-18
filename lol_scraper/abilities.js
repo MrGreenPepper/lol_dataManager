@@ -39,7 +39,9 @@ async function scrapeAbilitiesData(championData, url) {
 				champion.baseStats = {};
 				champion.abilities = {};
 
-				champion.baseStats.windup = document.querySelectorAll('div[data-source="windup"]')[0].textContent.replace('Attack windup', '');
+				champion.baseStats.windup = document
+					.querySelectorAll('div[data-source="windup"]')[0]
+					.textContent.replace('Attack windup', '');
 
 				let abilities = document.querySelectorAll('div.ability-info-container');
 
@@ -189,8 +191,10 @@ async function scrapeAbilitiesData(championData, url) {
 							// console.log(skillTabMarker[skillTabNumber].innerText);
 							// console.log(skillTabContent[skillTabNumber].innerText);
 							champion.abilities[i].textContent[textPart].skillTabs[skillTabNumber] = {};
-							champion.abilities[i].textContent[textPart].skillTabs[skillTabNumber].marker = skillTabMarker[skillTabNumber].innerText;
-							champion.abilities[i].textContent[textPart].skillTabs[skillTabNumber].content = skillTabContent[skillTabNumber].innerText;
+							champion.abilities[i].textContent[textPart].skillTabs[skillTabNumber].marker =
+								skillTabMarker[skillTabNumber].innerText;
+							champion.abilities[i].textContent[textPart].skillTabs[skillTabNumber].content =
+								skillTabContent[skillTabNumber].innerText;
 						}
 						/**get the marked passages(everything in color) */
 						champion.abilities[i].textContent[textPart].markedPassages = [];
@@ -200,6 +204,15 @@ async function scrapeAbilitiesData(championData, url) {
 							let html = markedPassages[mPNumber].innerHTML;
 							let text = markedPassages[mPNumber].innerText;
 							champion.abilities[i].textContent[textPart].markedPassages.push([html, text]);
+						}
+						/**get possible concerning abilities or names of empowerments */
+						champion.abilities[i].textContent[textPart].possibleConcerningAbilities = [];
+						let possibleAbilities = textContainer[textPart].querySelectorAll('i');
+						console.log(possibleAbilities);
+
+						for (let mPNumber = 0; mPNumber < possibleAbilities.length; mPNumber++) {
+							let text = possibleAbilities[mPNumber].innerText;
+							champion.abilities[i].textContent[textPart].possibleConcerningAbilities.push(text);
 						}
 					}
 					// console.log(champion.abilities[i].textContent);
@@ -223,6 +236,14 @@ async function scrapeAbilitiesData(championData, url) {
 		championRawData.baseStats.windup = parseFloat(championRawData.baseStats.windup);
 		championData.scraped_data.baseData.abilities = championRawData.abilities;
 		championData.scraped_data.baseData.baseStats.windup = championRawData.baseStats.windup;
+
+		let abilityNames = [];
+		for (let i = 0; i < 5; i++) {
+			let currentName = tools.basicStringClean(championRawData.abilities[i].name);
+			abilityNames.push(currentName);
+		}
+		championData.scraped_data.baseData.abilities.borderData = {};
+		championData.scraped_data.baseData.abilities.borderData.abilityNames = abilityNames;
 	} catch (err) {
 		await tools.reportError(`scraping abilities failed`, championData.name, err.message, err.stack);
 

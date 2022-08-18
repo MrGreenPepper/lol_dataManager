@@ -15,10 +15,11 @@ export async function exText() {
 			/** TASKS */
 			let abilities = championData.extracted_data.baseData.abilities;
 
-			abilities = applyToAllAbilityParts(abilities, sortMarkedPassages);
+			abilities = applyToAllAbilityParts(abilities, filterMarkedPassagas);
 			abilities = applyToAllAbilityParts(abilities, markPassiveAndInnate);
 			abilities = applyToAllAbilityParts(abilities, textToSkillTab);
 			abilities = applyToAllAbilityParts(abilities, extractText);
+			abilities = handlePossibleConcerningAbilities(abilities);
 
 			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
 			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
@@ -27,6 +28,51 @@ export async function exText() {
 			console.log('skilltab extraction failed at champion: ', championName);
 		}
 	}
+}
+
+function handlePossibleConcerningAbilities(abilities) {
+	let abilityRegex = abilities.borderData.abilityRegexs;
+
+	for (let abilityNumber = 0; abilityNumber < 5; abilityNumber++) {
+		let textContentKeys = Object.keys(abilities[abilityNumber].textContent);
+		for (let contentKey of textContentKeys) {
+			let currentTextContent = abilities[abilityNumber].textContent[contentKey];
+			currentTextContent.concerningSkills = [];
+			//decide if its an basic ability or a new championState
+			for (let skNumber = 0; skNumber < currentTextContent.possibleConcerningAbilities.length; skNumber++) {
+				let possibleSkillName = tools.basicStringClean(currentTextContent.possibleConcerningAbilities[skNumber]);
+				let concerningSkill = {};
+				concerningSkill.skillName = possibleSkillName;
+
+				// test if there is a concerning baseAbility
+				let foundMatchingAbility = false;
+				abilityRegex.forEach((currentAbName, index) => {
+					if (!foundMatchingAbility) {
+						let nameTest = currentAbName.test(possibleSkillName);
+						let sameAbilityTest = abilityNumber == index;
+						if (nameTest && !sameAbilityTest) {
+							foundMatchingAbility = true;
+							concerningSkill.concerningAbility = index;
+							concerningSkill.selfAbilityConcern = false;
+						}
+						if (nameTest && sameAbilityTest) {
+							foundMatchingAbility = true;
+							concerningSkill.concerningAbility = index;
+							concerningSkill.selfAbilityConcern = true;
+						}
+					}
+				});
+				//if nothing matching found interpret it as uniqui champiion condition
+				if (!foundMatchingAbility) {
+					concerningSkill.skillType = 'unique extra character condition';
+				}
+
+				abilities[abilityNumber].textContent[contentKey].concerningSkills.push(structuredClone(concerningSkill));
+			}
+		}
+		//	delete currentTextContent.possibleConcerningAbilities;
+	}
+	return abilities;
 }
 
 function markPassiveAndInnate(abilityPart) {
@@ -49,7 +95,7 @@ function extractText(abilityPart) {
 	return abilityPart;
 }
 
-function sortMarkedPassages(abilityPart) {
+function filterMarkedPassagas(abilityPart) {
 	/** the marked passages are from a queryselector for 'span' and 'a' sometimes a span included another span,
 	 * thus we can delete the unnecessary part,
 	 * in this concern we always delete the smaller parts cause we want to keep the information which parts concern together
@@ -63,7 +109,40 @@ function sortMarkedPassages(abilityPart) {
 		if (element[1] != '') return true;
 		else return false;
 	});
-	//chech if the text part is already in inFront or behind, if so take the biggest one and drop the others
+
+	//get position and cleanup text a bit
+	markedPassages = markedPassages.map((textPassages) => {
+		textPassages = textPassages[1].trim();
+		let startPosition = abilityPart.text.indexOf(textPassages);
+		let endPosition = startPosition + textPassages.length;
+		return [textPassages, startPosition, endPosition];
+	});
+
+	//check by the position if the text part is already included
+	for (let i = 0; i < markedPassages.length; i++) {
+		let included = false;
+		for (let n = 0; n < markedPassages.length; n++) {
+			let positionCheck = markedPassages[n][1] <= markedPassages[i][1] && markedPassages[i][2] <= markedPassages[n][2];
+			// to prevent doubles filter each other and are completly deleted, not both borders can be the same
+			let doubleCheck = markedPassages[n][1] == markedPassages[i][1] && markedPassages[i][2] == markedPassages[n][2];
+			if (positionCheck && !doubleCheck && i != n) included = true;
+		}
+		if (!included) sortedArray.push(markedPassages[i]);
+	}
+	//now sortout doubles
+	markedPassages = sortedArray;
+	sortedArray = [];
+	for (let i = 0; i < markedPassages.length; i++) {
+		let included = false;
+		for (let n = i + 1; n < markedPassages.length; n++) {
+			let doubleCheck = markedPassages[n][1] == markedPassages[i][1] && markedPassages[i][2] == markedPassages[n][2];
+			if (doubleCheck) included = true;
+		}
+		if (!included) sortedArray.push(markedPassages[i]);
+	}
+
+	/*old version
+	//check if the text part is already in inFront or behind, if so take the biggest one and drop the others
 	for (let i = 0; i < markedPassages.length; i++) {
 		let alreadyIncluded = false;
 		let currentText = markedPassages[i][1];
@@ -78,7 +157,7 @@ function sortMarkedPassages(abilityPart) {
 		pastText = pastText.trim();
 		futureText = futureText.trim();
 		// one of this length comparisons needs to be <= cause when the length is  equal i still just want to keep one
-		// the length comparison is unnecessary cause if it shorter i cant include the longer one but keep it for better reading
+		// the length comparison is unnecessary cause if it shorter it cant include the longer one but keep it for better reading
 		if (pastText.includes(currentText) && currentText.length < pastText.length) {
 			alreadyIncluded = true;
 		}
@@ -95,7 +174,7 @@ function sortMarkedPassages(abilityPart) {
 		let startPosition = abilityPart.text.indexOf(textPassages);
 		let endPosition = startPosition + textPassages.length;
 		return [textPassages, startPosition, endPosition];
-	});
+	});*/
 	abilityPart.markedPassages = sortedArray;
 	return abilityPart;
 }
