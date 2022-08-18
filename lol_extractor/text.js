@@ -31,7 +31,7 @@ export async function exText() {
 }
 
 function handlePossibleConcerningAbilities(abilities) {
-	let abilityRegex = abilities.borderData.abilityRegexs;
+	let abilityRegex = tools.toBasicRegex(abilities.borderData.abilityNames);
 
 	for (let abilityNumber = 0; abilityNumber < 5; abilityNumber++) {
 		let textContentKeys = Object.keys(abilities[abilityNumber].textContent);

@@ -153,8 +153,9 @@ export function basicStringClean(rawString) {
 }
 export function toBasicRegex(wordComb) {
 	/**tests if the input as an array or a single string --> everything to regex --> returns array or string */
+	let regexExpr;
 	if (Array.isArray(wordComb)) {
-		let regexExpr = [];
+		regexExpr = [];
 		for (let currentWord of wordComb) {
 			let regexArray = currentWord.split(' ');
 			let regExString = '';
@@ -166,7 +167,7 @@ export function toBasicRegex(wordComb) {
 		}
 	} else {
 		let regexArray = wordComb.split(' ');
-		let regexExpr = '';
+		regexExpr = '';
 		for (let i = 0; i < regexArray.length; i++) {
 			regexExpr += '(' + regexArray[i] + ').*?';
 		}

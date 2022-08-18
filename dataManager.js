@@ -11,25 +11,25 @@ export let procedure = {
 	//champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
 	champions: [0, 162],
 	scraper: {
-		createLists: 1,
-		getBaseData: 1,
-		createBaseChampionPool: 1,
-		getAbilitiesData: 1,
-		getInGameData: 1,
-		getItemData: 1,
-		createBackup: 1,
+		createLists: 0,
+		getBaseData: 0,
+		createBaseChampionPool: 0,
+		getAbilitiesData: 0,
+		getInGameData: 0,
+		getItemData: 0,
+		createBackup: 0,
 	},
 	extractor: {
-		resetData: 1,
-		exMetaData: 1,
-		exText: 1,
-		exSkillTabs: 1,
-		exSpecialScaling: 1,
-		skillTabsToArray: 1,
-		exSkillOrder: 1,
-		exMasteries: 1,
-		exItems: 1,
-		createBackup: 1,
+		resetData: 0,
+		exMetaData: 0,
+		exText: 0,
+		exSkillTabs: 0,
+		exSpecialScaling: 0,
+		skillTabsToArray: 0,
+		exSkillOrder: 0,
+		exMasteries: 0,
+		exItems: 0,
+		createBackup: 0,
 	},
 	analyser: {
 		resetData: 1,
@@ -121,7 +121,7 @@ await (async function analyseProcedure() {
 	//delete unessessary markers (minion damage etc, not maximum)
 	if (procedure.analyser.specialScalingToSkillTabs) await analyser.specialScalingToSkillTabs();
 	//TODO: analyse concerning Skills (is a concerning skill a trigger or is it empowered) and or markedPassages
-	if (procedure.analyser.textToSkillTabs) await analyser.textToSkillTabs();
+	if (procedure.analyser.textToSkillTabs) await analyser.textToSkillTab();
 	if (procedure.analyser.cleanSkillTabMarkers) await analyser.deleteAndCleanMarkers();
 	if (procedure.analyser.unifyAbilityMarkers) await analyser.unifyAbilityMarkers();
 	if (procedure.analyser.categorizeMarkers) await analyser.categorizeMarkers();
