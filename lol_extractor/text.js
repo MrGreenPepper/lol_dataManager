@@ -14,12 +14,14 @@ export async function exText() {
 
 			/** TASKS */
 			let abilities = championData.extracted_data.baseData.abilities;
+			let abilityNames = championData.extracted_data.baseData.abilitiesBorderData.abilityNames;
 
 			abilities = applyToAllAbilityParts(abilities, filterMarkedPassagas);
 			abilities = applyToAllAbilityParts(abilities, markPassiveAndInnate);
 			abilities = applyToAllAbilityParts(abilities, textToSkillTab);
 			abilities = applyToAllAbilityParts(abilities, extractText);
-			abilities = handlePossibleConcerningAbilities(abilities);
+			//TODO: move to analysis
+			abilities = handlePossibleConcerningAbilities(abilities, abilityNames);
 
 			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
 			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
@@ -30,8 +32,8 @@ export async function exText() {
 	}
 }
 
-function handlePossibleConcerningAbilities(abilities) {
-	let abilityRegex = tools.toBasicRegex(abilities.borderData.abilityNames);
+function handlePossibleConcerningAbilities(abilities, abilityNames) {
+	let abilityRegex = tools.toBasicRegex(abilityNames);
 
 	for (let abilityNumber = 0; abilityNumber < 5; abilityNumber++) {
 		let textContentKeys = Object.keys(abilities[abilityNumber].textContent);

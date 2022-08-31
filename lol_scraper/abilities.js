@@ -242,8 +242,8 @@ async function scrapeAbilitiesData(championData, url) {
 			let currentName = tools.basicStringClean(championRawData.abilities[i].name);
 			abilityNames.push(currentName);
 		}
-		championData.scraped_data.baseData.abilities.borderData = {};
-		championData.scraped_data.baseData.abilities.borderData.abilityNames = abilityNames;
+		championData.scraped_data.baseData.abilitiesBorderData = {};
+		championData.scraped_data.baseData.abilitiesBorderData.abilityNames = abilityNames;
 	} catch (err) {
 		await tools.reportError(`scraping abilities failed`, championData.name, err.message, err.stack);
 

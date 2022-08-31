@@ -5,8 +5,8 @@ export * from './skillOrder.js';
 export * from './masteries.js';
 export * from './items.js';
 export * from './text.js';
-export * from './skillTabsToArray.js';
 export * from './specialScaling.js';
+export * from './objectsToArrays.js';
 
 import * as tools from '../tools.js';
 export async function resetData() {

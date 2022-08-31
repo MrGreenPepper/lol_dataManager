@@ -3,7 +3,8 @@ export * from './items.js';
 export * from './unifyMarkers.js';
 export * from './cleaner.js';
 export * from './specialScalingToSkillTabs.js';
-export * from './text.js';
+export * from './text/text.js';
+export * from './skillTabsToArray.js';
 
 import * as tools from '../tools.js';
 

@@ -2,6 +2,7 @@ import * as markerData from './markerData.js';
 import * as tools from '../tools.js';
 
 const CHAMPIONSAVEPATH = './data/champions/';
+
 export async function unifyAbilityMarkers() {
 	let championList = await tools.getChampionList();
 	for (let championEntry of championList) {
@@ -12,14 +13,20 @@ export async function unifyAbilityMarkers() {
 			let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
 
 			let abilityData = championData.analysed_data.baseData.abilities;
-			for (let [abilityNumber, currentAbility] of abilityData.entries()) {
-				for (let [abPartNumber, abilityPart] of currentAbility.entries()) {
-					let summedAbilityPart = await unifyWording(abilityPart);
-					summedAbilityPart = await sortOutMaximum(abilityPart);
-					summedAbilityPart = await splitMixDamage(summedAbilityPart);
+			let abilityDataKeys = Object.keys(abilityData);
+			for (let abilityNumber of abilityDataKeys) {
+				let currentAbility = abilityData[abilityNumber];
+				let textContentKeys = Object.keys(currentAbility.textContent);
+				for (let abPartNumber of textContentKeys) {
+					let abilityPart = currentAbility.textContent[abPartNumber];
 
-					abilityData[abilityNumber][abPartNumber] = summedAbilityPart;
+					let summedAbilityPart = await unifyWording(abilityPart);
+					abilityData[abilityNumber].textContent[abPartNumber] = summedAbilityPart;
 				}
+
+				let summedAbility = await sortOutMaximum(currentAbility);
+				summedAbility = await splitMixDamage(summedAbility);
+				abilityData[abilityNumber] = summedAbility;
 			}
 			championData.analysed_data.baseData.abilities = abilityData;
 			await tools.saveJSONData(championData, `${CHAMPIONSAVEPATH}${championName}_data.json`);
@@ -32,12 +39,15 @@ export async function unifyAbilityMarkers() {
 	return;
 }
 
-async function unifyWording(skillTabArray) {
+async function unifyWording(abilityPart) {
 	/**
 	 * seperates the words from each other and checks if they can be replaced by a unified version
 	 * (f.e.: enhanced, increased etc. --> maximum)
 	 */
-	for (let [skTabIndex, skillTab] of skillTabArray.entries()) {
+	let skillTabsKeys = Object.keys(abilityPart.skillTabs);
+	for (let skillTabNumber of skillTabsKeys) {
+		let skillTab = abilityPart.textContent[skillTabNumber];
+		let markerData = skillTab.markerData;
 		let toUnifyMarkerData = markerData.unifyWording;
 		let masterWords = Object.keys(toUnifyMarkerData);
 		let currentMarker = skillTab.marker;
@@ -54,7 +64,7 @@ async function unifyWording(skillTabArray) {
 		}
 	}
 
-	return skillTabArray;
+	return abilityPart;
 }
 
 async function wordSeperator(tempSkillTabMarker) {
@@ -63,7 +73,7 @@ async function wordSeperator(tempSkillTabMarker) {
 	return wordsArray;
 }
 
-async function sortOutMaximum(skillTabArray) {
+async function sortOutMaximum(abilityData) {
 	let maximumSkillTabs = skillTabArray.filter((currentSkillTab) => {
 		if (currentSkillTab.marker.indexOf('maximum') > -1) return true;
 		else return false;
@@ -92,7 +102,8 @@ async function sortOutMaximum(skillTabArray) {
 					testerArray.push(notMaxWordArray.indexOf(boundries[i]));
 				}
 			}
-			if (testerArray.length == boundries.length && testCorrectOrder(testerArray)) similarSkillTabs.push(notMaximumSkillTabs[notMaxSkillTabNumber]);
+			if (testerArray.length == boundries.length && testCorrectOrder(testerArray))
+				similarSkillTabs.push(notMaximumSkillTabs[notMaxSkillTabNumber]);
 		}
 	});
 
@@ -209,7 +220,8 @@ export async function showAllMarkerPositions() {
 					for (var skillTab of content) {
 						searchMarkers.forEach((searchPattern) => {
 							let testResult = searchPattern.test(skillTab.marker);
-							if (testResult) console.log('searchPattern\t', searchPattern, '\tfound in:\t', championName, '\t', abilityData[abKey].name);
+							if (testResult)
+								console.log('searchPattern\t', searchPattern, '\tfound in:\t', championName, '\t', abilityData[abKey].name);
 						});
 					}
 				}
@@ -236,8 +248,10 @@ export async function categorizeMarkers() {
 						let currentSkillTab = currentPart[skillTabNumber];
 
 						//assign the category
-						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].majorCategory = getMajorCategory(currentSkillTab);
-						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].minorCategory = getMinorCategory(currentSkillTab);
+						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].majorCategory =
+							getMajorCategory(currentSkillTab);
+						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].minorCategory =
+							getMinorCategory(currentSkillTab);
 					}
 				}
 			}
@@ -251,7 +265,15 @@ export async function categorizeMarkers() {
 let damageMarker = [/(damage)/i];
 let enhancerMarker = [/(bonus)/i, /(attack speed)/i, /(reduction)/i, /(penetration)/i, /(buff)/i];
 let defensiveMarker = [/(heal)/i, /(shield)/i, /(armor)/i, /(regeneration)/i, /(damage reduction)/i];
-let utilityMarker = [/(movement)/i, /(movespeed)/i, /(shroud)/i, /(invisibility)/i, /(cooldown refund)/i, /(stealth)/i, /(invulnerability)/i];
+let utilityMarker = [
+	/(movement)/i,
+	/(movespeed)/i,
+	/(shroud)/i,
+	/(invisibility)/i,
+	/(cooldown refund)/i,
+	/(stealth)/i,
+	/(invulnerability)/i,
+];
 let softCCMarker = [/(silence)/i, /(slow)/i, /(blind)/i];
 let hardCCMarker = [/(disable)/i, /(stun)/i, /(root)/i, /(knockup)/i, /(charm)/i, /(fear)/i, /(sleep)/i, /(knockback)/i, /(taunt)/i];
 /**minor marker */
@@ -338,3 +360,34 @@ function regexToString(regex) {
 
 	return regexString;
 }
+
+//TODO: some markers are the same but have multiple wordings --> simplify it later : 'bonus movement speed' & 'movement speed modifier'
+
+let markers_modifier = ['enhanced', 'sweetspot', 'maximum', 'total', 'empowered', 'minimum', 'per'];
+let markers_dmg = [
+	'physical damage',
+	'magic damage',
+	'armor reduction',
+	'magic penetration',
+	'bonus attack speed',
+	"of target's  health",
+	"of target's  th",
+	'of his missing th',
+	"of the target's current th",
+];
+let markers_def = ['heal', 'shield', 'bonus armor'];
+let markers_utility = [
+	'stun duration',
+	'knock up duration',
+	'charm duration',
+	'root duration',
+	'blind duration',
+	'bonus movement speed',
+	'movement speed modifier',
+	'slow',
+	'stealth duration',
+];
+//TODO
+let markers_bonusStats = ['reset', 'energy restored', 'mana refund'];
+let markers = [];
+markers.push(...markers_dmg, ...markers_def, ...markers_utility);

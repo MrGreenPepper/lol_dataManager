@@ -138,18 +138,35 @@ export function timer() {
 		setTimeout((res) => resolve(), 500);
 	});
 }
-export function basicStringClean(rawString) {
-	rawString = rawString.toLowerCase();
-	rawString = rawString.replaceAll('−', '-');
-	rawString = rawString.replaceAll('」', ' ');
-	rawString = rawString.replaceAll('「', ' ');
-	rawString = rawString.replaceAll(/\n/gim, ' ');
-	rawString = rawString.replaceAll('  ', ' '); //doubleSpace
-	rawString = rawString.replaceAll('	', ' '); //tab
-	rawString = rawString.replaceAll('_', ' '); //tab
-	rawString = rawString.trim();
-
-	return rawString;
+export function basicStringClean(toCleanUp) {
+	let cleanedString;
+	if (Array.isArray(toCleanUp)) {
+		cleanedString = [];
+		for (let rawString of toCleanUp) {
+			rawString = rawString.toLowerCase();
+			rawString = rawString.replaceAll('−', '-');
+			rawString = rawString.replaceAll('」', ' ');
+			rawString = rawString.replaceAll('「', ' ');
+			rawString = rawString.replaceAll(/\n/gim, ' ');
+			rawString = rawString.replaceAll('  ', ' '); //doubleSpace
+			rawString = rawString.replaceAll('	', ' '); //tab
+			rawString = rawString.replaceAll('_', ' '); //tab
+			rawString = rawString.trim();
+			cleanedString.push(rawString);
+		}
+	} else {
+		toCleanUp = toCleanUp.toLowerCase();
+		toCleanUp = toCleanUp.replaceAll('−', '-');
+		toCleanUp = toCleanUp.replaceAll('」', ' ');
+		toCleanUp = toCleanUp.replaceAll('「', ' ');
+		toCleanUp = toCleanUp.replaceAll(/\n/gim, ' ');
+		toCleanUp = toCleanUp.replaceAll('  ', ' '); //doubleSpace
+		toCleanUp = toCleanUp.replaceAll('	', ' '); //tab
+		toCleanUp = toCleanUp.replaceAll('_', ' '); //tab
+		toCleanUp = toCleanUp.trim();
+		cleanedString = toCleanUp;
+	}
+	return cleanedString;
 }
 export function toBasicRegex(wordComb) {
 	/**tests if the input as an array or a single string --> everything to regex --> returns array or string */

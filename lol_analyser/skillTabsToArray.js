@@ -5,6 +5,7 @@ const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function skillTabsToArray() {
+	//TODO: moved from extractor to analyser ... control if everything is still fine
 	let championList = await tools.getChampionList();
 	for (let champEntry of championList) {
 		let championName = champEntry.championSaveName;

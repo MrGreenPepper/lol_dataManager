@@ -20,23 +20,24 @@ export let procedure = {
 		createBackup: 0,
 	},
 	extractor: {
-		resetData: 0,
-		exMetaData: 0,
-		exText: 0,
-		exSkillTabs: 0,
-		exSpecialScaling: 0,
-		skillTabsToArray: 0,
-		exSkillOrder: 0,
-		exMasteries: 0,
-		exItems: 0,
-		createBackup: 0,
+		resetData: 1,
+		exMetaData: 1,
+		exText: 1,
+		exSkillTabs: 1,
+		exSpecialScaling: 1,
+		exSkillOrder: 1,
+		exMasteries: 1,
+		objectsToArrays: 1,
+		exItems: 1,
+		createBackup: 1,
 	},
 	analyser: {
 		resetData: 1,
+		unifyAbilityMarkers: 1,
 		specialScalingToSkillTabs: 1,
 		textToSkillTabs: 1,
+		skillTabsToArray: 0,
 		cleanSkillTabMarkers: 0,
-		unifyAbilityMarkers: 0,
 		categorizeMarkers: 0,
 		unifyItems: 0,
 		showAllMarkerPositions: 0,
@@ -102,10 +103,10 @@ await (async function extractProcedure() {
 	if (procedure.extractor.exText) await extractor.exText();
 	if (procedure.extractor.exSkillTabs) await extractor.exSkillTabs();
 	if (procedure.extractor.exSpecialScaling) await extractor.exSpecialScaling();
-	if (procedure.extractor.skillTabsToArray) await extractor.skillTabsToArray();
 	if (procedure.extractor.exSkillOrder) await extractor.exSkillOrder();
 	//TODO: masteries
 	if (procedure.extractor.exMasteries) await extractor.exMasteries();
+	if (procedure.extractor.objectsToArrays) await extractor.objectsToArrays();
 	//TODO: items
 	if (procedure.extractor.exItems) await extractor.exItems();
 	if (procedure.extractor.createBackup) await extractor.createBackup();
@@ -119,11 +120,12 @@ await (async function analyseProcedure() {
 	/**reduces the abilities to the necessary math */
 	if (procedure.analyser.resetData) await analyser.resetData();
 	//delete unessessary markers (minion damage etc, not maximum)
+	if (procedure.analyser.unifyAbilityMarkers) await analyser.unifyAbilityMarkers();
 	if (procedure.analyser.specialScalingToSkillTabs) await analyser.specialScalingToSkillTabs();
 	//TODO: analyse concerning Skills (is a concerning skill a trigger or is it empowered) and or markedPassages
 	if (procedure.analyser.textToSkillTabs) await analyser.textToSkillTab();
+	if (procedure.analyser.skillTabsToArray) await analyser.skillTabsToArray();
 	if (procedure.analyser.cleanSkillTabMarkers) await analyser.deleteAndCleanMarkers();
-	if (procedure.analyser.unifyAbilityMarkers) await analyser.unifyAbilityMarkers();
 	if (procedure.analyser.categorizeMarkers) await analyser.categorizeMarkers();
 
 	if (procedure.analyser.unifyItems) await analyser.unifyItems();

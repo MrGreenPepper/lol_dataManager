@@ -52,11 +52,12 @@ export async function extractSkillTabs(championData) {
 			if (championAbilities[abNum].textContent[textNum].skillTabs != undefined) {
 				let textContentSkillTabCount = Object.keys(championAbilities[abNum].textContent[textNum].skillTabs);
 				for (let sTNum = 0; sTNum < textContentSkillTabCount.length; sTNum++) {
-					championAbilities[abNum].textContent[textNum].skillTabs[sTNum] = await divideSkillTabs(
+					championAbilities[abNum].textContent[textNum].skillTabs[sTNum] = await stringIntoFormula(
 						championAbilities[abNum].textContent[textNum].skillTabs[sTNum]
 					);
 					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningMeta = championAbilities[abNum].metaData;
-					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningText = championAbilities[abNum].textContent[textNum].text;
+					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningText =
+						championAbilities[abNum].textContent[textNum].text;
 				}
 			}
 		}
@@ -66,35 +67,8 @@ export async function extractSkillTabs(championData) {
 
 	return championData;
 }
-//TODO: some markers are the same but have multiple wordings --> simplify it later : 'bonus movement speed' & 'movement speed modifier'
-let markers_modifier = ['enhanced', 'sweetspot', 'maximum', 'total', 'empowered', 'minimum', 'per'];
-let markers_dmg = [
-	'physical damage',
-	'magic damage',
-	'armor reduction',
-	'magic penetration',
-	'bonus attack speed',
-	"of target's  health",
-	"of target's  th",
-	'of his missing th',
-	"of the target's current th",
-];
-let markers_def = ['heal', 'shield', 'bonus armor'];
-let markers_utility = [
-	'stun duration',
-	'knock up duration',
-	'charm duration',
-	'root duration',
-	'blind duration',
-	'bonus movement speed',
-	'movement speed modifier',
-	'slow',
-	'stealth duration',
-];
-//TODO
-let markers_bonusStats = ['reset', 'energy restored', 'mana refund'];
 
-async function divideSkillTabs(skillTab) {
+async function stringIntoFormula(skillTab) {
 	let skillTabContent = {};
 
 	//skillTab.content == undefined if already extracted
@@ -128,10 +102,7 @@ function cleanSkillTab(skillTab) {
 	skillTab.content = skillTab.content.replaceAll(/\n/gim, '');
 	skillTab.marker = skillTab.marker.toLowerCase();
 
-	let markers = [];
-	markers.push(...markers_dmg, ...markers_def, ...markers_utility);
-
-	// divide into markers and math -- old not needed anymore with the new sracer
+	// divide into markers and math -- old not needed anymore with the new scraper
 	//   skillTabContentRaw = await divideIntoMarkerAndMath(skillTab);
 
 	//cleanup text & math ... extract single math numbers from text
