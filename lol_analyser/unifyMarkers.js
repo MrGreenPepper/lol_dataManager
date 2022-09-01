@@ -16,10 +16,8 @@ export async function unifyAbilityMarkers() {
 			let abilityDataKeys = Object.keys(abilityData);
 			for (let abilityNumber of abilityDataKeys) {
 				let currentAbility = abilityData[abilityNumber];
-				let textContentKeys = Object.keys(currentAbility.textContent);
-				for (let abPartNumber of textContentKeys) {
-					let abilityPart = currentAbility.textContent[abPartNumber];
 
+				for (let abilityPart of currentAbility.textContent) {
 					let summedAbilityPart = await unifyWording(abilityPart);
 					abilityData[abilityNumber].textContent[abPartNumber] = summedAbilityPart;
 				}
@@ -44,9 +42,7 @@ async function unifyWording(abilityPart) {
 	 * seperates the words from each other and checks if they can be replaced by a unified version
 	 * (f.e.: enhanced, increased etc. --> maximum)
 	 */
-	let skillTabsKeys = Object.keys(abilityPart.skillTabs);
-	for (let skillTabNumber of skillTabsKeys) {
-		let skillTab = abilityPart.textContent[skillTabNumber];
+	for (let skillTab of abilityPart.skillTabs) {
 		let markerData = skillTab.markerData;
 		let toUnifyMarkerData = markerData.unifyWording;
 		let masterWords = Object.keys(toUnifyMarkerData);

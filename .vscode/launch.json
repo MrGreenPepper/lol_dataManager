@@ -1,0 +1,30 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"console": "internalConsole",
+			"internalConsoleOptions": "neverOpen",
+			"name": "nodemon",
+			"program": "${workspaceFolder}/dataManager.js",
+			"request": "launch",
+			"restart": true,
+			"runtimeExecutable": "nodemon debug main",
+			"skipFiles": ["<node_internals>/**"],
+			"type": "node"
+		}
+		/*	{
+			"type": "pwa-node",
+			"request": "launch",
+			"name": "Launch Program",
+			"skipFiles": ["<node_internals>/**"],
+			"program": "${workspaceFolder}/dataManager.js"
+		},
+		{
+			"type": "node-terminal",
+			"name": "main start debug",
+			"request": "launch",
+			"command": "npm run start",
+			"cwd": "${workspaceFolder}"
+		}*/
+	]
+}

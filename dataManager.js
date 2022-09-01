@@ -20,16 +20,16 @@ export let procedure = {
 		createBackup: 0,
 	},
 	extractor: {
-		resetData: 1,
-		exMetaData: 1,
-		exText: 1,
-		exSkillTabs: 1,
-		exSpecialScaling: 1,
-		exSkillOrder: 1,
-		exMasteries: 1,
-		objectsToArrays: 1,
-		exItems: 1,
-		createBackup: 1,
+		resetData: 0,
+		exMetaData: 0,
+		exText: 0,
+		exSkillTabs: 0,
+		exSpecialScaling: 0,
+		exSkillOrder: 0,
+		exMasteries: 0,
+		objectsToArrays: 0,
+		exItems: 0,
+		createBackup: 0,
 	},
 	analyser: {
 		resetData: 1,
@@ -84,6 +84,10 @@ await (async function scrappingProcedure() {
 
 //extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells, lösche bestimmte spells etc.
 await (async function extractProcedure() {
+	/**extractor only adds information by categorization
+	 * analyser also modifies data!?!
+	 */
+
 	/**divides the data into basic parts, like text and numbers
 	 * some	of this tasks are already done while scraping here happens the rest
 	 * +cleaning
