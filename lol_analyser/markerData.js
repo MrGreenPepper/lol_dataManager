@@ -58,7 +58,12 @@ export let skillTabMarkers = {
 		},
 
 		45: {
-			markers: ['total single-target damage', 'total single target damage', 'maximum single-target damage', 'maximum single target damage'],
+			markers: [
+				'total single-target damage',
+				'total single target damage',
+				'maximum single-target damage',
+				'maximum single target damage',
+			],
 			unifiedMarker: 'single maximum damage',
 		},
 
@@ -80,7 +85,7 @@ export let skillTabMarkers = {
 				'total physical damage',
 				'maximum single-target physical damage',
 				'total damage per flurry',
-				'macimum non-minion damage',
+				'maximum non-minion damage',
 				'blade physical damage',
 				'enhanced physical damage', // renekton
 			],

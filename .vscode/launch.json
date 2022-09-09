@@ -8,7 +8,6 @@
 			"program": "${workspaceFolder}/dataManager.js",
 			"request": "launch",
 			"restart": true,
-			"runtimeExecutable": "nodemon debug main",
 			"skipFiles": ["<node_internals>/**"],
 			"type": "node"
 		}

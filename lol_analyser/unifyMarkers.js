@@ -17,7 +17,8 @@ export async function unifyAbilityMarkers() {
 			for (let abilityNumber of abilityDataKeys) {
 				let currentAbility = abilityData[abilityNumber];
 
-				for (let abilityPart of currentAbility.textContent) {
+				for (let [abPartNumber, abilityPart] of currentAbility.textContent.entries()) {
+					console.table({ abilityNumber: Number(abilityNumber), partNumber: abPartNumber });
 					let summedAbilityPart = await unifyWording(abilityPart);
 					abilityData[abilityNumber].textContent[abPartNumber] = summedAbilityPart;
 				}
@@ -42,19 +43,21 @@ async function unifyWording(abilityPart) {
 	 * seperates the words from each other and checks if they can be replaced by a unified version
 	 * (f.e.: enhanced, increased etc. --> maximum)
 	 */
+	let unknownMarkerTest = true;
 	for (let skillTab of abilityPart.skillTabs) {
-		let markerData = skillTab.markerData;
-		let toUnifyMarkerData = markerData.unifyWording;
-		let masterWords = Object.keys(toUnifyMarkerData);
+		unknownMarkerTest = true;
+
+		let toUnifyMarkerData = markerData.skillTabMarkers.toUnifyMarkers;
+		let masterWordsKeys = Object.keys(toUnifyMarkerData);
 		let currentMarker = skillTab.marker;
 
-		for (let i = 0; i < masterWords.length; i++) {
-			let currentMasterWord = masterWords[i];
-			let currentMasterArray = toUnifyMarkerData[currentMasterWord];
+		for (let unifyKey of masterWordsKeys) {
+			let currentMasterArray = toUnifyMarkerData[unifyKey].markers;
+			let currentMasterUnifiedMarker = toUnifyMarkerData[unifyKey].unifiedMarker;
 
 			currentMasterArray.forEach((toExchangeWord) => {
-				if (currentMarker.indexOf(toExchangeWord) > -1) {
-					skillTabArray[skTabIndex].marker = currentMarker.replace(toExchangeWord, currentMasterWord);
+				if (currentMarker.includes(toExchangeWord)) {
+					skillTab.marker = currentMarker.replace(toExchangeWord, currentMasterUnifiedMarker);
 				}
 			});
 		}
@@ -70,6 +73,10 @@ async function wordSeperator(tempSkillTabMarker) {
 }
 
 async function sortOutMaximum(abilityData) {
+	let skillTabArray = [];
+	abilityData.textContent.forEach((currentTextContent) => {
+		if (currentTextContent.skillTabs.length > 0) return skillTabArray.push([...currentTextContent.skillTabs]);
+	});
 	let maximumSkillTabs = skillTabArray.filter((currentSkillTab) => {
 		if (currentSkillTab.marker.indexOf('maximum') > -1) return true;
 		else return false;
