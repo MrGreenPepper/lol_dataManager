@@ -8,30 +8,22 @@ export async function unifyAbilityMarkers() {
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
 
-		console.log(
-			`simplify abilities: ${championName} \t ${championEntry.index}`
-		);
+		console.log(`simplify abilities: ${championName} \t ${championEntry.index}`);
 		try {
-			let championData = await tools.loadJSONData(
-				`${CHAMPIONSAVEPATH}${championName}_data.json`
-			);
+			let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
 
 			let abilityData = championData.analysed_data.baseData.abilities;
 			let abilityDataKeys = Object.keys(abilityData);
 			for (let abilityNumber of abilityDataKeys) {
 				let currentAbility = abilityData[abilityNumber];
 
-				for (let [
-					abPartNumber,
-					abilityPart,
-				] of currentAbility.textContent.entries()) {
+				for (let [abPartNumber, abilityPart] of currentAbility.textContent.entries()) {
 					console.table({
 						abilityNumber: Number(abilityNumber),
 						partNumber: abPartNumber,
 					});
 					let summedAbilityPart = await unifyWording(abilityPart);
-					abilityData[abilityNumber].textContent[abPartNumber] =
-						summedAbilityPart;
+					abilityData[abilityNumber].textContent[abPartNumber] = summedAbilityPart;
 				}
 
 				let summedAbility = await sortOutMaximum(currentAbility);
@@ -39,19 +31,11 @@ export async function unifyAbilityMarkers() {
 				abilityData[abilityNumber] = summedAbility;
 			}
 			championData.analysed_data.baseData.abilities = abilityData;
-			await tools.saveJSONData(
-				championData,
-				`${CHAMPIONSAVEPATH}${championName}_data.json`
-			);
+			await tools.saveJSONData(championData, `${CHAMPIONSAVEPATH}${championName}_data.json`);
 		} catch (err) {
 			console.log(err.message);
 			console.log(err.stack);
-			tools.reportError(
-				`analyser_abilities.js:  cant simplify abilities`,
-				championName,
-				err.message,
-				err.stack
-			);
+			tools.reportError(`analyser_abilities.js:  cant simplify abilities`, championName, err.message, err.stack);
 		}
 	}
 	return;
@@ -72,15 +56,11 @@ async function unifyWording(abilityPart) {
 
 		for (let unifyKey of masterWordsKeys) {
 			let currentMasterArray = toUnifyMarkerData[unifyKey].markers;
-			let currentMasterUnifiedMarker =
-				toUnifyMarkerData[unifyKey].unifiedMarker;
+			let currentMasterUnifiedMarker = toUnifyMarkerData[unifyKey].unifiedMarker;
 
 			currentMasterArray.forEach((toExchangeWord) => {
 				if (currentMarker.includes(toExchangeWord)) {
-					skillTab.marker = currentMarker.replace(
-						toExchangeWord,
-						currentMasterUnifiedMarker
-					);
+					skillTab.marker = currentMarker.replace(toExchangeWord, currentMasterUnifiedMarker);
 				}
 			});
 		}
@@ -96,80 +76,65 @@ async function wordSeperator(tempSkillTabMarker) {
 }
 
 async function sortOutMaximum(abilityData) {
-	/** 
+	/** sorts outs the most maximum skillTabs and drops the minor ones, keeps all unique skillTabs
 	 1. check for maxima in every separated text part
 	 2. check if there is an overall maximum skillTab,
 	 2.1 by assuming one part as the overallMaxima, 
 	 2.2 then checking for other skillTabs with the same mathTypes
 	 2.3 sum the other skillTabs with the same mathTypes
-	 */
+
+	 @param 	{object}	abilityData 		all data from one ability
+
+	 @return 	{array}		allSkillTabArrays	the filtered abilityData and put into an array
+	*/
+
 	let allSkillTabArrays = [];
 	let addedFlatParts = [];
 	let addedScalingParts = [];
 
 	let maximumSkillTabs = [];
 	let notMaximumSkillTabs = [];
-	let similarSkillTabs = [];
+	let minorSkillTabs = [];
 
 	// 1. check for maxima in every separated text part
-
 	abilityData.textContent.forEach((currentTextContent) => {
 		if (currentTextContent.skillTabs.length > 0) {
-			let currentSkillTabs = currentTextContent.skillTabs;
+			let allCurrentSkillTabs = currentTextContent.skillTabs;
 
-			similarSkillTabs = [];
+			minorSkillTabs = [];
 			maximumSkillTabs = [];
 			notMaximumSkillTabs = [];
 
-			//sort skillTabs in maximum and not maximum skillTabs
-			currentSkillTabs.forEach((currentSkillTab) => {
-				if (currentSkillTab.marker.indexOf('maximum') > -1)
-					return maximumSkillTabs.push(currentSkillTab);
+			//divide skillTabs in maximum and not maximum skillTabs
+			allCurrentSkillTabs.forEach((currentSkillTab) => {
+				if (currentSkillTab.marker.indexOf('maximum') > -1) maximumSkillTabs.push(currentSkillTab);
 				else notMaximumSkillTabs.push(currentSkillTab);
 			});
 
+			//search for minor skillTabs to the maximum skillTabs
 			maximumSkillTabs.forEach((currentMaxSkillTab) => {
-				let rawMaxMarker = currentMaxSkillTab.marker;
-				let maximumBoundries = rawMaxMarker.split('maximum');
-				maximumBoundries = maximumBoundries.map((word) => word.trim());
-
-				//search for similarSkillTabs by searching for the singleWords in the correct order
-
-				for (
-					let notMaxSkillTabNumber = 0;
-					notMaxSkillTabNumber < notMaximumSkillTabs.length;
-					notMaxSkillTabNumber++
-				) {
-					let notMaxWordArray =
-						notMaximumSkillTabs[notMaxSkillTabNumber].marker.split(
-							' '
-						);
-					let tester = false;
-					let testerArray = [];
-
-					for (let i = 0; i < maximumBoundries.length; i++) {
-						if (notMaxWordArray.includes(maximumBoundries[i])) {
-							testerArray.push(
-								notMaxWordArray.indexOf(maximumBoundries[i])
-							);
-						}
-					}
-					if (
-						testerArray.length == maximumBoundries.length &&
-						testCorrectOrder(testerArray)
-					)
-						similarSkillTabs.push(
-							notMaximumSkillTabs[notMaxSkillTabNumber]
-						);
-				}
+				minorSkillTabs.push(...searchForMinorSkillTabsByMarker(currentMaxSkillTab, notMaximumSkillTabs));
 			});
 
-			//filter original array from similar arrays
-			currentSkillTabs = currentSkillTabs.filter((currentSkilltab) => {
-				if (similarSkillTabs.includes(currentSkilltab)) return false;
+			if (minorSkillTabs.length > 0 && minorSkillTabs == 0) {
+				console.warn('maximum SkillTab found but no concerning minor found');
+				console.log('gonna try to find similar Tabs by math template');
+
+				maximumSkillTabs.forEach((currentMaxSkillTab) => {
+					minorSkillTabs.push(
+						...searchForMinorSkillTabsByMathTemplate(currentMaxSkillTab, notMaximumSkillTabs)
+					);
+				});
+				if (minorSkillTabs.length > 0 && minorSkillTabs == 0)
+					console.warn('maximum SkillTab found but STILL no concerning minor found');
+			}
+
+			//filter original array from minor arrays
+			let notMinorSkillTabs = allCurrentSkillTabs.filter((currentSkilltab) => {
+				if (minorSkillTabs.includes(currentSkilltab)) return false;
 				else return true;
 			});
-			allSkillTabArrays.push(...currentSkillTabs);
+			allSkillTabArrays.push(...notMinorSkillTabs);
 		}
 	});
 	//2. check if there is an overall maximum skillTab
@@ -180,35 +145,54 @@ async function sortOutMaximum(abilityData) {
 		addedFlatParts = [];
 		addedScalingParts = [];
 		let overallMaximumPrototype = allSkillTabArrays[i];
-		similarSkillTabs = filterForSimilarSkillTabs(
-			overallMaximumPrototype,
-			allSkillTabArrays
-		);
+		minorSkillTabs = searchForMinorSkillTabsByMathTemplate(overallMaximumPrototype, allSkillTabArrays);
 
 		for (let n = 0; n < allSkillTabArrays.length; n++) {
 			if (n != i) {
 				//if its the first run through and added*Parts are empty just push the first part, afterwards sum with every new part
-				if (addedFlatParts.length == 0)
-					addedFlatParts.push(allSkillTabArrays[n].math.flats);
-				else
-					addedFlatParts = sumMathPart(
-						addedFlatParts,
-						allSkillTabArrays[n].math.flats
-					);
-				if (addedScalingParts.length == 0)
-					addedScalingParts.push(allSkillTabArrays[n].math.scalings);
-				else
-					addedScalingParts = sumMathPart(
-						addedScalingParts,
-						allSkillTabArrays[n].math.scalings
-					);
+				if (addedFlatParts.length == 0) addedFlatParts.push(allSkillTabArrays[n].math.flats);
+				else addedFlatParts = sumMathPart(addedFlatParts, allSkillTabArrays[n].math.flats);
+				if (addedScalingParts.length == 0) addedScalingParts.push(allSkillTabArrays[n].math.scalings);
+				else addedScalingParts = sumMathPart(addedScalingParts, allSkillTabArrays[n].math.scalings);
 			}
 		}
 	}
+
+	//TODO: some abilities have multiple hits which sum up to the maximum damage, test this
 	return allSkillTabArrays;
 }
 
-function filterForSimilarSkillTabs(mainSkillTab, possibleSkillTabs) {
+function searchForMinorSkillTabsByMarker(maximumSkillTab, otherSkillTabs) {
+	/**analyses the marker words count and order to find similar skilltabs to the maximum skillTab */
+	let similarSkillTabs = [];
+	let rawMaxMarker = maximumSkillTab.marker;
+	let boundriesFromMaximum = rawMaxMarker.split('maximum');
+	boundriesFromMaximum = boundriesFromMaximum.map((phrase) => phrase.trim());
+
+	//search for similarSkillTabs by searching for the singleWords in the correct order
+	//TODO: ?clean markers in extraction?
+	for (let notMaxSkillTabNumber = 0; notMaxSkillTabNumber < otherSkillTabs.length; notMaxSkillTabNumber++) {
+		let currentNotMaxWordArray = otherSkillTabs[notMaxSkillTabNumber].marker.split(' ');
+		let orderTest = false;
+		let orderArray = [];
+
+		//check where the words/phrases appears in the maximum SkillTab marker and check if the order is correct
+		for (let i = 0; i < boundriesFromMaximum.length; i++) {
+			if (currentNotMaxWordArray.includes(boundriesFromMaximum[i])) {
+				orderArray.push(currentNotMaxWordArray.indexOf(boundriesFromMaximum[i]));
+			}
+		}
+		orderTest = testCorrectOrder(orderArray);
+
+		//if all words/phrases found and in correct order, we assume its an similar skillTab to the maximum SkillTab
+		if (orderArray.length == boundriesFromMaximum.length && orderTest)
+			similarSkillTabs.push(otherSkillTabs[notMaxSkillTabNumber]);
+	}
+
+	return similarSkillTabs;
+}
+
+function searchForMinorSkillTabsByMathTemplate(mainSkillTab, possibleSkillTabs) {
 	/**filters all skillTabs by the mathType of the mainSkillTab for possible related other skillTabs
 	 * @param {object} 	mainSkillTab					the template to search for in the other skillTabs
 	 * @param {array of objects} possibleSkillTabs		array holding all skillTab-objects including the main/template-SkillTab
@@ -241,17 +225,14 @@ function filterForSimilarSkillTabs(mainSkillTab, possibleSkillTabs) {
 
 		if (lengthTest) {
 			for (let i = 0; i < currentFlats.length; i++) {
-				if (!isTheMathPartSimilar(currentFlats[i], mainFlats[i]))
-					similarPartsTest = false;
+				if (!isTheMathPartSimilar(currentFlats[i], mainFlats[i])) similarPartsTest = false;
 			}
 			for (let i = 0; i < currentScalings.length; i++) {
-				if (!isTheMathPartSimilar(currentScalings[i], mainScalings[i]))
-					similarPartsTest = false;
+				if (!isTheMathPartSimilar(currentScalings[i], mainScalings[i])) similarPartsTest = false;
 			}
 		}
 
-		if (lengthTest && typeTest && similarPartsTest)
-			similarSkillTabs.push(currentTestSkillTab);
+		if (lengthTest && typeTest && similarPartsTest) similarSkillTabs.push(currentTestSkillTab);
 	}
 	return similarSkillTabs;
 }
@@ -272,12 +253,10 @@ function sumMathPart(mathPartOne, mathPartTwo) {
 				let currentFirstPart = mathPartOne[i][0];
 				let currentSecondPart = mathPartTwo[i][0];
 
-				mathPartOne[i][0] = currentFirstPart.map(
-					(currentNumber, index) => {
-						let sum = currentNumber + currentSecondPart[index];
-						return sum;
-					}
-				);
+				mathPartOne[i][0] = currentFirstPart.map((currentNumber, index) => {
+					let sum = currentNumber + currentSecondPart[index];
+					return sum;
+				});
 			} else typeControl = false;
 		}
 	}
@@ -341,9 +320,7 @@ async function splitMixDamage(originSkillTabArray) {
 		let currentSkillTab = mixedSkillTabs[i];
 
 		try {
-			damageSplitArray.push(
-				...(await extractDamageSplit(currentSkillTab))
-			);
+			damageSplitArray.push(...(await extractDamageSplit(currentSkillTab)));
 		} catch {
 			damageSplitArray.push(await extractDamageSplit(currentSkillTab));
 		}
@@ -371,46 +348,22 @@ async function extractDamageSplit(skillTab) {
 		}
 		//search the textContent for damage type words(like physical, ...)
 		let damageTypes = [];
-		if (textContent.includes('magic'))
-			damageTypes.push([
-				'magic damage',
-				textContent.indexOf('magic damage'),
-			]);
+		if (textContent.includes('magic')) damageTypes.push(['magic damage', textContent.indexOf('magic damage')]);
 		if (textContent.includes('physical'))
-			damageTypes.push([
-				'physical damage',
-				textContent.indexOf('physical damage'),
-			]);
-		if (textContent.includes('true'))
-			damageTypes.push([
-				'true damage',
-				textContent.indexOf('true damage'),
-			]);
+			damageTypes.push(['physical damage', textContent.indexOf('physical damage')]);
+		if (textContent.includes('true')) damageTypes.push(['true damage', textContent.indexOf('true damage')]);
 		//sort the damageTypes by there appearance ... % split is given in the same order
 		damageTypes = damageTypes.sort((a, b) => {
 			return a[1] - b[1];
 		});
 
-		let firstSplit = generateSplitSkillTab(
-			skillTab,
-			damageSplit.split1,
-			damageTypes[0][0]
-		);
-		let secondeSplit = generateSplitSkillTab(
-			skillTab,
-			damageSplit.split2,
-			damageTypes[1][0]
-		);
+		let firstSplit = generateSplitSkillTab(skillTab, damageSplit.split1, damageTypes[0][0]);
+		let secondeSplit = generateSplitSkillTab(skillTab, damageSplit.split2, damageTypes[1][0]);
 
 		return [firstSplit, secondeSplit];
 	} catch (err) {
 		console.log('\n', err);
-		tools.reportError(
-			'\n cant get damageSplit	- no name onlySkillTab',
-			textContent,
-			err.message,
-			err.stack
-		);
+		tools.reportError('\n cant get damageSplit	- no name onlySkillTab', textContent, err.message, err.stack);
 		return skillTab;
 	}
 }
@@ -419,20 +372,14 @@ function generateSplitSkillTab(originSkillTab, percentage, newTyp) {
 	let newSkillTab = JSON.parse(JSON.stringify(originSkillTab));
 
 	newSkillTab.marker = newSkillTab.marker.replace('mixed damage', newTyp);
-	newSkillTab.math.flatPart = newSkillTab.math.flats.map(
-		(currentFlatPart) => {
-			currentFlatPart[0] = currentFlatPart[0].map(
-				(element) => element / 2
-			);
-			return currentFlatPart;
-		}
-	);
+	newSkillTab.math.flatPart = newSkillTab.math.flats.map((currentFlatPart) => {
+		currentFlatPart[0] = currentFlatPart[0].map((element) => element / 2);
+		return currentFlatPart;
+	});
 	let scalingParts = newSkillTab.math.scalings;
 	for (let i = 0; i < scalingParts.length; i++) {
 		let currentScalingPart = scalingParts[i];
-		currentScalingPart[0] = currentScalingPart[0].map(
-			(element) => element / 2
-		);
+		currentScalingPart[0] = currentScalingPart[0].map((element) => element / 2);
 	}
 
 	return newSkillTab;
@@ -441,9 +388,7 @@ export async function showAllMarkerPositions() {
 	let championList = await tools.getChampionList();
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
-		let championData = await tools.loadJSONData(
-			`./data/champions/${championName}_data.json`
-		);
+		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
 		let abilityData = championData.analysed_data.baseData.abilities;
 		let searchMarkers = markerData.searchMarkers;
 
@@ -454,9 +399,7 @@ export async function showAllMarkerPositions() {
 				for (var content of currentAbility) {
 					for (var skillTab of content) {
 						searchMarkers.forEach((searchPattern) => {
-							let testResult = searchPattern.test(
-								skillTab.marker
-							);
+							let testResult = searchPattern.test(skillTab.marker);
 							if (testResult)
 								console.log(
 									'searchPattern\t',
@@ -471,12 +414,7 @@ export async function showAllMarkerPositions() {
 				}
 			}
 		} catch (err) {
-			tools.reportError(
-				'show all markers',
-				championName,
-				err.message,
-				err.stack
-			);
+			tools.reportError('show all markers', championName, err.message, err.stack);
 		}
 	}
 }
@@ -484,65 +422,36 @@ export async function showAllMarkerPositions() {
 export async function categorizeMarkers() {
 	let championList = await tools.getChampionList();
 	for (let champEntry of championList) {
-		let championData = await tools.loadJSONData(
-			`./data/champions/${champEntry.championSaveName}_data.json`
-		);
+		let championData = await tools.loadJSONData(`./data/champions/${champEntry.championSaveName}_data.json`);
 
 		let abilities = championData.analysed_data.baseData.abilities;
 		for (let i = 0; i < 5; i++) {
 			if (!abilities[i].length == 0) {
 				let currentAbility = abilities[i];
 
-				for (
-					let abilityPart = 0;
-					abilityPart < currentAbility.length;
-					abilityPart++
-				) {
+				for (let abilityPart = 0; abilityPart < currentAbility.length; abilityPart++) {
 					let currentPart = currentAbility[abilityPart];
-					for (
-						let skillTabNumber = 0;
-						skillTabNumber < currentPart.length;
-						skillTabNumber++
-					) {
+					for (let skillTabNumber = 0; skillTabNumber < currentPart.length; skillTabNumber++) {
 						let currentSkillTab = currentPart[skillTabNumber];
 
 						//assign the category
-						championData.analysed_data.baseData.abilities[i][
-							abilityPart
-						][skillTabNumber].majorCategory =
+						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].majorCategory =
 							getMajorCategory(currentSkillTab);
-						championData.analysed_data.baseData.abilities[i][
-							abilityPart
-						][skillTabNumber].minorCategory =
+						championData.analysed_data.baseData.abilities[i][abilityPart][skillTabNumber].minorCategory =
 							getMinorCategory(currentSkillTab);
 					}
 				}
 			}
 		}
-		await tools.saveJSONData(
-			championData,
-			`./data/champions/${champEntry.championSaveName}_data.json`
-		);
+		await tools.saveJSONData(championData, `./data/champions/${champEntry.championSaveName}_data.json`);
 	}
 
 	return;
 }
 /**major marker */
 let damageMarker = [/(damage)/i];
-let enhancerMarker = [
-	/(bonus)/i,
-	/(attack speed)/i,
-	/(reduction)/i,
-	/(penetration)/i,
-	/(buff)/i,
-];
-let defensiveMarker = [
-	/(heal)/i,
-	/(shield)/i,
-	/(armor)/i,
-	/(regeneration)/i,
-	/(damage reduction)/i,
-];
+let enhancerMarker = [/(bonus)/i, /(attack speed)/i, /(reduction)/i, /(penetration)/i, /(buff)/i];
+let defensiveMarker = [/(heal)/i, /(shield)/i, /(armor)/i, /(regeneration)/i, /(damage reduction)/i];
 let utilityMarker = [
 	/(movement)/i,
 	/(movespeed)/i,
@@ -651,15 +560,7 @@ function regexToString(regex) {
 
 //TODO: some markers are the same but have multiple wordings --> simplify it later : 'bonus movement speed' & 'movement speed modifier'
 
-let markers_modifier = [
-	'enhanced',
-	'sweetspot',
-	'maximum',
-	'total',
-	'empowered',
-	'minimum',
-	'per',
-];
+let markers_modifier = ['enhanced', 'sweetspot', 'maximum', 'total', 'empowered', 'minimum', 'per'];
 let markers_dmg = [
 	'physical damage',
 	'magic damage',
