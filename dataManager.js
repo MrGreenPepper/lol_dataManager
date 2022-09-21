@@ -27,9 +27,9 @@ export let procedure = {
 		exSpecialScaling: 0,
 		exSkillOrder: 0,
 		exMasteries: 0,
-		objectsToArrays: 1,
+		objectsToArrays: 0,
 		exItems: 0,
-		createBackup: 1,
+		createBackup: 0,
 	},
 	analyser: {
 		resetData: 1,
