@@ -33,7 +33,18 @@ export async function deleteAndCleanMarkers() {
 		await tools.saveJSONData(championData, `./lol_analyser/data/champions/${championName}_data.json`);
 	}
 }
+export async function cleanEmptyTextContent(currentAbility) {
+	let textContentKeys = Object.keys(currentAbility.textContent);
 
+	for (let tK of textContentKeys) {
+		let keys = Object.keys(currentAbility.textContent[tK]);
+		if (keys.length == 0) {
+			delete currentAbility.textContent[tK];
+		}
+	}
+
+	return currentAbility;
+}
 async function deleteUnnecessaryMarkers(championAbilitiesData) {
 	let toIgnoreMarkers = markerData.ignoreMarkerWords;
 	try {

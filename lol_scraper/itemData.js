@@ -4,7 +4,7 @@ import { startBrowser } from './tools/browserControl.js';
 export async function getItemData() {
 	console.log('____________________\n');
 	console.log('scraping items start\n');
-	let itemLinkList = await tools.getItemLinkList();
+	let itemList = await tools.getItemList();
 	// let itemLinkList = [
 	// 	[, 'https://leagueoflegends.fandom.com/wiki/Plated_Steelcaps'],
 	// 	[, 'https://leagueoflegends.fandom.com/wiki/Prowler%27s_Claw'],
@@ -19,21 +19,19 @@ export async function getItemData() {
 	let itemRawData = {};
 	let itemData = {};
 	let scrapedItemList = [];
-	for (let itemNumber in itemLinkList) {
-		let itemLink = itemLinkList[itemNumber];
-
+	for (let [index, item] of itemList.entries()) {
 		try {
-			itemRawData = await scrapeItemData(itemLink);
-			let saveName = tools.fileSystemNameConverter(itemRawData.name);
-			await tools.saveJSONData(itemRawData, `./lol_scraper/data/items/${saveName}_data.json`);
-			await tools.saveJSONData(itemRawData, `./data/items/${saveName}_data.json`);
-			scrapedItemList.push(itemRawData.name);
-			console.info('scraped item: \t', itemRawData.name);
-			console.info(itemNumber, '  of  ', itemLinkList.length, '  done');
+			itemRawData = await scrapeItemData(item);
+			let saveName = item['fileSystemName'];
+			await tools.saveJSONData(itemRawData, `./lol_scraper/data/items/${saveName}`);
+			await tools.saveJSONData(itemRawData, `./data/items/${saveName}`);
+			scrapedItemList.push(item);
+			console.info('scraped item: \t', itemRawData.inGameName);
+			console.info(index + 1, '  of  ', itemList.length, '  done');
 		} catch (err) {
-			tools.reportError('failed to scrap item', itemLink, err.message);
+			tools.reportError('failed to scrap item', item, err.message);
 			console.log(err);
-			console.log(itemLink);
+			console.log(item);
 		}
 	}
 	await tools.saveJSONData(scrapedItemList, './lol_scraper/data/scrapedItemList.json');
@@ -48,11 +46,11 @@ function timer() {
 	});
 }
 
-async function scrapeItemData(itemLink) {
+async function scrapeItemData(item) {
 	let browser = await startBrowser();
 	let page = await browser.newPage();
 
-	await page.goto(itemLink[1]);
+	await page.goto(item.internetLink);
 
 	await page.waitForSelector('span.mw-headline');
 
@@ -346,8 +344,9 @@ async function scrapeItemData(itemLink) {
 			throw err;
 		}
 	});
-	itemData.name = itemLink[0];
-	itemData.link = itemLink[1];
+	itemData.inGameName = item['inGameName'];
+	itemData.internalLink = item['internalLink'];
+	itemData.fileSystemName = item['fileSystemName'];
 	await browser.close();
 	return itemData;
 }

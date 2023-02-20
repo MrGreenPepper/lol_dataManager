@@ -18,12 +18,12 @@ export async function createBackup() {
 	}
 
 	//create item backup
-	let itemList = await tools.getItemLinkList();
+	let itemList = await tools.getItemList();
 	for (let itemEntry of itemList) {
 		try {
-			let itemName = itemEntry[0];
-			let championData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
-			await tools.saveJSONData(championData, `./data/backup/lol_scraper/items/${itemName}_data.json`);
+			let fileSystemName = itemEntry['fileSystemName'];
+			let itemData = await tools.loadJSONData(`./data/items/${fileSystemName}`);
+			await tools.saveJSONData(itemData, `./data/backup/lol_scraper/items/${fileSystemName}`);
 		} catch (error) {
 			console.log('item backup error: ', error);
 		}

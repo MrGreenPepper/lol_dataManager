@@ -55,9 +55,9 @@ export async function getChampionList() {
 	return championList;
 }
 
-export async function getItemLinkList() {
-	let linkList = await loadJSONData('./data/itemLinkList.json');
-	return linkList;
+export async function getItemList() {
+	let itemList = await loadJSONData('./data/itemList.json');
+	return itemList;
 }
 export async function reportError(category, championName, errorMessage, errorStack) {
 	let errorLog = await loadCSVData('./errorLog.csv');

@@ -32,12 +32,11 @@ export async function createBackup() {
 		await tools.saveJSONData(championData, `./data/backup/lol_extractor/champions/${championName}_data.json`);
 	}
 
-	let itemList = await tools.getItemLinkList();
+	let itemList = await tools.getItemList();
 	for (let itemEntry of itemList) {
-		let itemName = itemEntry[0];
-		itemName = await tools.fileSystemNameConverter(itemName);
-		let championData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
-		await tools.saveJSONData(championData, `./data/backup/lol_extractor/items/${itemName}_data.json`);
+		let fileSystemName = itemEntry['fileSystemName'];
+		let championData = await tools.loadJSONData(`./data/items/${fileSystemName}`);
+		await tools.saveJSONData(championData, `./data/backup/lol_extractor/items/${fileSystemName}`);
 	}
 	console.log('extractor backup end\n');
 	console.log('----------------------\n');

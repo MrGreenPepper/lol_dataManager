@@ -1,12 +1,12 @@
 import * as tools from '../tools.js';
 
 export async function unifyItems() {
-	let itemList = await tools.getItemLinkList();
+	let itemList = await tools.getItemList();
 	for (let itemEntry of itemList) {
-		let itemName = itemEntry[0];
+		let fileSystemName = itemEntry['fileSystemName'];
 		try {
-			let loadName = tools.fileSystemNameConverter(itemName);
-			let itemData = await tools.loadJSONData(`./data/items/${loadName}_data.json`);
+			let loadName = tools.fileSystemNameConverter(fileSystemName);
+			let itemData = await tools.loadJSONData(`./data/items/${loadName}`);
 			try {
 				if (Object.keys(itemData.stats).length > 0)
 					itemData.stats.values = await unifyItemMarker(itemData.stats.values);
@@ -14,12 +14,12 @@ export async function unifyItems() {
 				console.log(error);
 			}
 
-			await tools.saveJSONData(itemData, `./data/items/${loadName}_data.json`);
-			await tools.saveJSONData(itemData, `./lol_analyser/data/items/${loadName}_data.json`);
+			await tools.saveJSONData(itemData, `./data/items/${loadName}`);
+			await tools.saveJSONData(itemData, `./lol_analyser/data/items/${loadName}`);
 		} catch (err) {
-			tools.reportError('lol_analyser - items.js: unify itemData failed', itemName, err.message, err.stack);
-			console.log('lol_analyser - items.js: unify itemData failed', itemName, err.message, err.stack);
-			console.log(itemName);
+			tools.reportError('lol_analyser - items.js: unify itemData failed', fileSystemName, err.message, err.stack);
+			console.log('lol_analyser - items.js: unify itemData failed', fileSystemName, err.message, err.stack);
+			console.log(fileSystemName);
 			console.log(err.message);
 			console.log(err.stack);
 		}

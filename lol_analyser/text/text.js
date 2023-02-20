@@ -17,11 +17,15 @@ export async function textToSkillTab() {
 				for (let contentKey of textContentKeys) {
 					let currentTextContent = currentAbility.textContent[contentKey];
 					let structureRegexs = createStructureRegexs(championData, currentTextContent);
-					currentAbility.textContent[contentKey].foundStructure = await identifyStructure(currentTextContent, structureRegexs);
+					currentAbility.textContent[contentKey].foundStructures = await identifyStructure(
+						currentTextContent,
+						structureRegexs
+					);
 				}
 			}
 		} catch (err) {
 			console.log(err);
+			tools.reportError('textToSkillTab', championName, err.message);
 		}
 
 		await tools.saveJSONData(championData, `./data/champions/${championName}_data.json`);
@@ -83,7 +87,9 @@ function createStructureRegexs(championData, textContent) {
 
 	/**generate searches for the emporments */
 	//TODO: is empowered or empowers
-	let empoweredAbilityRegexs = empoweringAbilityRegexGenerator(championData.scraped_data.baseData.abilities.borderData.abilityNames);
+	let empoweredAbilityRegexs = empoweringAbilityRegexGenerator(
+		championData.scraped_data.baseData.abilitiesBorderData.abilityNames
+	);
 	let empoweredBasicsRegexs = empoweringBasicRegexGenerator(championName);
 
 	/**generate searches for the triggers */
@@ -141,7 +147,8 @@ function closedStringRegexGenerator(closedString, testRange) {
 			let stringArray = currentString.split(' ');
 			let regExString = '';
 			for (let i = 0; i < stringArray.length; i++) {
-				if (i != stringArray.length - 1) regExString += '(' + stringArray[i] + `).{${testRange[0]},${testRange[1]}}`;
+				if (i != stringArray.length - 1)
+					regExString += '(' + stringArray[i] + `).{${testRange[0]},${testRange[1]}}`;
 				else regExString += '(' + stringArray[i] + ')';
 			}
 			generatedRegex.push(new RegExp(regExString, 'gim'));
@@ -150,7 +157,8 @@ function closedStringRegexGenerator(closedString, testRange) {
 		generatedRegex = '';
 		let regexArray = closedString.split(' ');
 		for (let i = 0; i < regexArray.length; i++) {
-			if (i != regexArray.length - 1) generatedRegex += '(' + regexArray[i] + `).{${testRange[0]},${testRange[1]}}`;
+			if (i != regexArray.length - 1)
+				generatedRegex += '(' + regexArray[i] + `).{${testRange[0]},${testRange[1]}}`;
 			else generatedRegex += '(' + regexArray[i] + ')';
 		}
 		generatedRegex = new RegExp(generatedRegex, 'gim');
@@ -159,7 +167,11 @@ function closedStringRegexGenerator(closedString, testRange) {
 }
 
 function mergeWithMarkedPassages(currentTextContent, RegExAbilityNames) {
-	currentTextContent.specialScalingContent.trigger = getTriggers(currentTextContent, specialContentPosition, RegExAbilityNames);
+	currentTextContent.specialScalingContent.trigger = getTriggers(
+		currentTextContent,
+		specialContentPosition,
+		RegExAbilityNames
+	);
 	currentTextContent.specialScalingContent.triggerRange = getTriggerRange(currentTextContent);
 	currentTextContent.specialScalingContent.empowerments = getEmporements(currentTextContent);
 

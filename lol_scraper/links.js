@@ -130,13 +130,15 @@ function cleanTable(rawDataTable) {
 
 async function createItemList() {
 	let url_itemList = 'https://leagueoflegends.fandom.com/wiki/List_of_items';
-	let itemLinkList = [];
+	let itemList = [];
 	let browser = await puppeteer.launch();
+	//let browser = await puppeteer.launch({ headless: false });
 	let page = await browser.newPage();
+	let fileSystemName;
 
 	await page.goto(url_itemList);
 
-	itemLinkList = await page.evaluate(() => {
+	itemList = await page.evaluate((tools) => {
 		try {
 			let element = document.getElementById('stickyMenuWrapper');
 			let dtElements = element.querySelectorAll('dt');
@@ -175,14 +177,19 @@ async function createItemList() {
 
 				// console.log(itemName);
 
-				linkList.push([itemName, element.href]);
+				linkList.push({ inGameName: itemName, internetLink: element.href });
 			}
 			return linkList;
 		} catch (err) {
 			console.log(err);
 		}
 	});
-	// console.log('bp');
 	await browser.close();
-	await tools.saveJSONData(itemLinkList, './data/itemLinkList.json');
+
+	for (let item of itemList) {
+		fileSystemName = tools.fileSystemNameConverter(item.inGameName) + '.json';
+		item.fileSystemName = fileSystemName;
+	}
+	// console.log('bp');
+	await tools.saveJSONData(itemList, './data/itemList.json');
 }

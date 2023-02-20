@@ -2,6 +2,11 @@ import * as markerData from './markerData.js';
 import * as tools from '../tools.js';
 
 const CHAMPIONSAVEPATH = './data/champions/';
+export async function modifyAbilityMarkers() {
+	unifyAbilityMarkers();
+	sortOutMaximumSkillTabs();
+	splitMixDamageInSkillTabs();
+}
 
 export async function unifyAbilityMarkers() {
 	let championList = await tools.getChampionList();
@@ -13,6 +18,8 @@ export async function unifyAbilityMarkers() {
 			let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
 
 			let abilityData = championData.analysed_data.baseData.abilities;
+			//TODO: this function not only unifies markers but also restructuring the ability data --> should it be like this?
+			//--> check abilityData here and at the end at debugging
 			let abilityDataKeys = Object.keys(abilityData);
 			for (let abilityNumber of abilityDataKeys) {
 				let currentAbility = abilityData[abilityNumber];
@@ -26,6 +33,7 @@ export async function unifyAbilityMarkers() {
 					abilityData[abilityNumber].textContent[abPartNumber] = summedAbilityPart;
 				}
 
+				//TODO: sortOutMaximum() also restructures the ability data
 				let summedAbility = await sortOutMaximum(currentAbility);
 				summedAbility = await splitMixDamage(summedAbility);
 				abilityData[abilityNumber] = summedAbility;
