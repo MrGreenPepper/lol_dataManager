@@ -36,7 +36,7 @@ export async function loadItems(itemNames) {
 
 function loadItemData(itemName) {
 	return new Promise((resolve, reject) => {
-		let loadName = tools.itemNameConverter(itemName);
+		let loadName = tools.fileSystemNameConverter(itemName);
 
 		try {
 			let loadPath = `${ITEMBASEPATH}${loadName}_data.json`;
@@ -427,7 +427,11 @@ function statsToObject(summedStatsArray) {
 				statsObj.armorPenetration_percent = currentStat[0];
 				break;
 			default:
-				console.log('%cERROR - statsToObject: didnt found statMarker --> gonna drop it:\t', 'color: red', currentStat);
+				console.log(
+					'%cERROR - statsToObject: didnt found statMarker --> gonna drop it:\t',
+					'color: red',
+					currentStat
+				);
 		}
 	}
 	return statsObj;

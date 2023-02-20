@@ -32,7 +32,7 @@ export async function createBackup() {
 
 	let itemList = await tools.getItemLinkList();
 	for (let itemEntry of itemList) {
-		let itemName = tools.itemNameConverter(itemEntry[0]);
+		let itemName = tools.fileSystemNameConverter(itemEntry[0]);
 		let championData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
 		await tools.saveJSONData(championData, `./data/backup/lol_analyser/items/${itemName}_data.json`);
 	}

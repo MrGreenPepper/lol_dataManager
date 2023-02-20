@@ -9,6 +9,7 @@ import * as tools from '../tools.js';
 export async function createBackup() {
 	console.log('_____________________\n');
 	console.log('scraper backup start\n');
+	//create chmpion backup
 	let championList = await tools.getChampionList();
 	for (let championEntry of championList) {
 		let championName = championEntry.championSaveName;
@@ -16,11 +17,16 @@ export async function createBackup() {
 		await tools.saveJSONData(championData, `./data/backup/lol_scraper/champions/${championName}_data.json`);
 	}
 
+	//create item backup
 	let itemList = await tools.getItemLinkList();
 	for (let itemEntry of itemList) {
-		let itemName = itemEntry[0];
-		let championData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
-		await tools.saveJSONData(championData, `./data/backup/lol_scraper/items/${itemName}_data.json`);
+		try {
+			let itemName = itemEntry[0];
+			let championData = await tools.loadJSONData(`./data/items/${itemName}_data.json`);
+			await tools.saveJSONData(championData, `./data/backup/lol_scraper/items/${itemName}_data.json`);
+		} catch (error) {
+			console.log('item backup error: ', error);
+		}
 	}
 	console.log('scraper backup end\n');
 	console.log('----------------------\n');

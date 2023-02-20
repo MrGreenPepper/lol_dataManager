@@ -24,7 +24,7 @@ export async function getItemData() {
 
 		try {
 			itemRawData = await scrapeItemData(itemLink);
-			let saveName = tools.itemNameConverter(itemRawData.name);
+			let saveName = tools.fileSystemNameConverter(itemRawData.name);
 			await tools.saveJSONData(itemRawData, `./lol_scraper/data/items/${saveName}_data.json`);
 			await tools.saveJSONData(itemRawData, `./data/items/${saveName}_data.json`);
 			scrapedItemList.push(itemRawData.name);
@@ -293,7 +293,9 @@ async function scrapeItemData(itemLink) {
 									} else {
 										console.log('creating build path: ', _currentTab);
 										let buildPath = [];
-										let neededItems = _currentTab.querySelectorAll('span.inline-image.item-icon.tooltips-init-complete');
+										let neededItems = _currentTab.querySelectorAll(
+											'span.inline-image.item-icon.tooltips-init-complete'
+										);
 										let goldCosts = _currentTab.querySelector('span.inline-image.label-after');
 										goldCosts = goldCosts.innerText;
 										for (let ic = 0; ic < neededItems.length; ic++) {

@@ -75,11 +75,13 @@ export async function reportError(category, championName, errorMessage, errorSta
 	return;
 }
 
-export function itemNameConverter(itemName) {
+export function fileSystemNameConverter(itemName) {
 	try {
 		//TODO:
 
 		itemName = itemName.replaceAll(' ', '');
+		itemName = itemName.replaceAll('"', '');
+		itemName = itemName.replaceAll("'", '');
 		if (itemName == 'BladeofTheRuinedKing') {
 			itemName = 'BladeoftheRuinedKing';
 		}

@@ -5,10 +5,11 @@ export async function unifyItems() {
 	for (let itemEntry of itemList) {
 		let itemName = itemEntry[0];
 		try {
-			let loadName = tools.itemNameConverter(itemName);
+			let loadName = tools.fileSystemNameConverter(itemName);
 			let itemData = await tools.loadJSONData(`./data/items/${loadName}_data.json`);
 			try {
-				if (Object.keys(itemData.stats).length > 0) itemData.stats.values = await unifyItemMarker(itemData.stats.values);
+				if (Object.keys(itemData.stats).length > 0)
+					itemData.stats.values = await unifyItemMarker(itemData.stats.values);
 			} catch (error) {
 				console.log(error);
 			}
