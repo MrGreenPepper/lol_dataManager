@@ -3,40 +3,22 @@ export * from './items.js';
 export * from './unifyMarkers.js';
 export * from './cleaner.js';
 export * from './specialScalingToSkillTabs.js';
-export * from './text/text.js';
 export * from './skillTabsToArray.js';
 
-import * as tools from '../tools.js';
-
-export async function resetData() {
-	let championList = await tools.getChampionList();
-	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
-		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
-
-		championData.analysed_data = championData.extracted_data;
-
-		await tools.saveJSONData(championData, `./data/champions/${championName}_data.json`);
-	}
-}
+import * as tools from '../tools/tools.js';
 
 export async function createBackup() {
-	console.log('_____________________\n');
-	console.log('analyser backup start\n');
-	let championList = await tools.getChampionList();
-	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
-		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
-		await tools.saveJSONData(championData, `./data/backup/lol_analyser/champions/${championName}_data.json`);
-	}
+	await tools.dataSet.createBackupInto('lol_analyser', 'champions');
+	await tools.dataSet.createBackupInto('lol_analyser', 'items');
 
-	let itemList = await tools.getItemList();
-	for (let itemEntry of itemList) {
-		let fileSystemName = itemEntry['fileSystemName'];
-		let championData = await tools.loadJSONData(`./data/items/${fileSystemName}`);
-		await tools.saveJSONData(championData, `./data/backup/lol_analyser/items/${fileSystemName}`);
-	}
-	console.log('analyser backup end\n');
-	console.log('----------------------\n');
+	return;
+}
+
+export async function renewData() {
+	await tools.dataSet.resetDataFrom('lol_extractor', 'champions');
+	await tools.dataSet.resetDataFrom('lol_extractor', 'items');
+
+	await tools.dataSet.overwriteChampionData('extracted_data', 'analyser_data');
+
 	return;
 }

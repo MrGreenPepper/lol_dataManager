@@ -1,33 +1,20 @@
 export * from './singleChampion.js';
 export * from './matchup.js';
-import * as tools from '../tools.js';
-
-export async function resetData() {
-	let championList = await tools.getChampionList();
-	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
-		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
-
-		championData.calculated_data = championData.analysed_data;
-
-		await tools.saveJSONData(championData, `./data/champions/${championName}_data.json`);
-	}
-}
+import * as tools from '../tools/tools.js';
 
 export async function createBackup() {
-	console.log('_____________________\n');
-	console.log('calculator backup start\n');
-	let championList = await tools.getChampionList();
-	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
-		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
-		await tools.saveJSONData(
-			championData,
-			`./data/backup/lol_calculator/champions/${championName}_data.json`
-		);
-	}
+	await tools.dataSet.createBackupInto('lol_calculator', 'champions');
+	await tools.dataSet.createBackupInto('lol_calculator', 'items');
 
-	console.log('calculator backup end\n');
-	console.log('----------------------\n');
+	return;
+}
+
+export async function renewData() {
+	await tools.dataSet.resetDataFrom('lol_analyser', 'champions');
+	await tools.dataSet.resetDataFrom('lol_analyser', 'items');
+
+	//in case there is an no or an bugged dataSet, copy the old into the new
+	await tools.dataSet.overwriteChampionData('analyser_data', 'calculated_data');
+
 	return;
 }

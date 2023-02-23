@@ -1,6 +1,6 @@
 import fs from 'fs';
 import * as goldTools from './goldTools.js';
-import * as tools from '../../tools.js';
+import * as tools from '../../tools/tools.js';
 const ITEMBASEPATH = './data/items/';
 export async function loadItems(itemNames) {
 	let itemData = {};
@@ -74,7 +74,7 @@ async function getItemPrice(item) {
 		}
 	} catch (err) {
 		console.log('cant get recipe:\t', item);
-		tools.reportError('cant get recipe', item, err.message, err.stack);
+		tools.bugfixing.reportError('cant get recipe', item, err.message, err.stack);
 		console.log(err);
 
 		//throw err;

@@ -1,5 +1,5 @@
 import * as markerTools from './unifyMarkers.js';
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import * as abilityTools from './abilityTools.js';
 
 const CHAMPIONSAVEPATH = './data/champions/';
@@ -149,7 +149,8 @@ async function sortOutMaximum(skillTabArray) {
 		}, 0);
 		//check if the last skillTab is an combination of the first ones,
 		//if push only the last skillTab, otherwise push all back to the origin skillTab
-		if (flatSum / 2 == similarSkillTabs[similarSkillTabs.length - 1].math.flatPart[0]) skillTabArray.push([similarSkillTabs[similarSkillTabs.length - 1]]);
+		if (flatSum / 2 == similarSkillTabs[similarSkillTabs.length - 1].math.flatPart[0])
+			skillTabArray.push([similarSkillTabs[similarSkillTabs.length - 1]]);
 		else skillTabArray.push([...similarSkillTabs]);
 	}
 

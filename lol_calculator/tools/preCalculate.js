@@ -1,5 +1,5 @@
 import * as calculateTools from './calculateTools.js';
-import * as tools from '../../tools.js';
+import * as tools from '../../tools/tools.js';
 
 export async function start() {
 	/** preCaciulates abilities: 1. combines ability Data with the concerning level
@@ -10,9 +10,13 @@ export async function start() {
 
 	let championLevel = this.championLevel;
 	this.soloCalc[`level${championLevel}`].abilities = {};
-	let abilities = JSON.parse(JSON.stringify(this.calculated_data.baseData.abilities));
+	let abilities = JSON.parse(JSON.stringify(this.calculated_data.abilities));
 
-	abilities = await applyLevelsToAbilities(abilities, this.soloCalc[`level${championLevel}`].abilityLevels, championLevel);
+	abilities = await applyLevelsToAbilities(
+		abilities,
+		this.soloCalc[`level${championLevel}`].abilityLevels,
+		championLevel
+	);
 	//i know i dont need this asignment but for better readability
 	abilities = await sumSkillTabs.apply(this, [abilities]);
 	this.soloCalc[`level${championLevel}`].abilities = abilities;
@@ -35,7 +39,9 @@ async function sumSkillTabs(rawAbilities) {
 				for (let skillTabNumber = 0; skillTabNumber < currentAbilityPart.length; skillTabNumber++) {
 					try {
 						let currentSkillTab = currentAbilityPart[skillTabNumber];
-						calculatedAbilities[`ability${i}`][`abilityPart${abilityPart}`][`st_flatStats${skillTabNumber}`] = {};
+						calculatedAbilities[`ability${i}`][`abilityPart${abilityPart}`][
+							`st_flatStats${skillTabNumber}`
+						] = {};
 						let flatStats = {};
 						//TODO: summ SkillTabs and then the abilityParts
 						//filter the abiliies by markers
@@ -63,7 +69,9 @@ async function sumSkillTabs(rawAbilities) {
 						flatStats.majorCategory = currentSkillTab.majorCategory;
 						flatStats.minorCategory = currentSkillTab.minorCategory;
 						flatStats.marker = currentSkillTab.marker;
-						calculatedAbilities[`ability${i}`][`abilityPart${abilityPart}`][`st_flatStats${skillTabNumber}`] = flatStats;
+						calculatedAbilities[`ability${i}`][`abilityPart${abilityPart}`][
+							`st_flatStats${skillTabNumber}`
+						] = flatStats;
 					} catch (err) {
 						console.log(err);
 						console.log(`ability ${i}\t part ${abilityPart} \t sk ${skillTabNumber}`);
@@ -228,7 +236,10 @@ async function applyLevelsToAbilities(abilities, abilityLevels, championLevel) {
 
 				for (let sk = 0; sk < skillTabs.length; sk++) {
 					let currentSkillTab = skillTabs[sk];
-					leveledAbilities[abNumber][abPartNumber][sk] = await applyLevelToSkillTabs(currentSkillTab, abilityLevels[abNumber]);
+					leveledAbilities[abNumber][abPartNumber][sk] = await applyLevelToSkillTabs(
+						currentSkillTab,
+						abilityLevels[abNumber]
+					);
 				}
 			}
 		}
@@ -255,7 +266,8 @@ async function applyLevelToSkillTabs(skillTab, currentAbilityLevel) {
 			if (scalingPart.hasOwnProperty('flats')) {
 				scalingPart = await applyLevelToSkillTabs(scalingPart, currentAbilityLevel);
 			} else {
-				if (Array.isArray(scalingPart[0])) scalingPart[0] = await applyLevelToMathPart(scalingPart[0], currentAbilityLevel);
+				if (Array.isArray(scalingPart[0]))
+					scalingPart[0] = await applyLevelToMathPart(scalingPart[0], currentAbilityLevel);
 			}
 			math.scalings[index] = scalingPart;
 		}
@@ -265,7 +277,10 @@ async function applyLevelToSkillTabs(skillTab, currentAbilityLevel) {
 		for (let currentKey of metaKeys) {
 			let currentMetaData = skillTab.concerningMeta[currentKey];
 			if (Array.isArray(currentMetaData.math.flatPart)) {
-				currentMetaData.math.flatPart = await applyLevelToMathPart(currentMetaData.math.flatPart, currentAbilityLevel);
+				currentMetaData.math.flatPart = await applyLevelToMathPart(
+					currentMetaData.math.flatPart,
+					currentAbilityLevel
+				);
 			}
 		}
 		skillTab.math = math;

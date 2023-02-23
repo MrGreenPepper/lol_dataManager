@@ -1,23 +1,28 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import * as Champion from './champion.js';
 export async function singleChampion() {
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 
 	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
+		let inGameName = championEntry.fileSystenName;
 		try {
-			console.info('singleChampion.js:\t', championName, '\t', championEntry.index);
-			let championA = await Champion.create(championName);
+			console.info('singleChampion.js:\t', inGameName, '\t', championEntry.index);
+			let championA = await Champion.create(inGameName);
 			// await timer();
 
 			await championA.preCalculateFight();
 
-			tools.saveJSONData(championA, `./data/champions/${championName}_data.json`);
-			tools.saveJSONData(championA, `./lol_extractor/data/champions/${championName}_data.json`);
+			tools.fileSystem.saveJSONData(championA, `./data/champions/${inGameName}_data.json`);
+			tools.fileSystem.saveJSONData(championA, `./lol_extractor/data/champions/${inGameName}_data.json`);
 			await timer();
 		} catch (err) {
-			tools.reportError('singleChampions.js: calculate singleChampion error', championName, err.message, err.stack);
-			console.warn('singleChampions.js: \tcalculate singleChampion error', championName);
+			tools.bugfixing.reportError(
+				'singleChampions.js: calculate singleChampion error',
+				inGameName,
+				err.message,
+				err.stack
+			);
+			console.warn('singleChampions.js: \tcalculate singleChampion error', inGameName);
 			console.log(err);
 		}
 	}

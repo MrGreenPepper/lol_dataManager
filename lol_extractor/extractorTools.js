@@ -104,25 +104,18 @@ export async function divideText() {
 	];
 	let markers_text = ['movement', 'dash', 'teleport', 'snared', 'stunned', 'knocked up', 'reset'];
 	//TODO: resets ..... basic attack /cooldown
-	let markers_skilltab = [
-		'basic attack',
-		'true damage',
-		'physical damage',
-		'magic damage',
-		'heal',
-		'shield',
-	];
+	let markers_skilltab = ['basic attack', 'true damage', 'physical damage', 'magic damage', 'heal', 'shield'];
 	markers = [];
 	markers.push(...markers_meta, ...markers_skilltab, ...markers_text);
 
 	//get the raw champion data
-	let sql_syntax = `SELECT * FROM lol_scraper.rawData_${championName}`;
+	let sql_syntax = `SELECT * FROM lol_scraper.rawData_${inGameName}`;
 	dbControl.dbquery(sql_syntax, false).then((rawText) => {
 		//console.log(rawText);
 
 		let rawData = rawText[0];
 		//aim for championData = {"name", "specials", "abilities": #:{}}
-		let championData = { name: championName, specials: '', abilities: {} };
+		let championData = { name: inGameName, specials: '', abilities: {} };
 
 		//1.2 divide Text into meaningful parts
 		let rawDataKeys = Object.keys(rawData);
@@ -139,15 +132,9 @@ export async function divideText() {
 			currentAbilityText = currentAbilityText.slice(championData.abilities[i].name.length);
 			//console.log(currentAbilityText);
 
-			markers_active.push(
-				getActiveMarkers(markers_meta.slice(0), currentAbilityText, 'meta')
-			);
-			markers_active.push(
-				getActiveMarkers(markers_text.slice(0), currentAbilityText, 'text')
-			);
-			markers_active.push(
-				getActiveMarkers(markers_skilltab.slice(0), currentAbilityText, 'skilltabs')
-			);
+			markers_active.push(getActiveMarkers(markers_meta.slice(0), currentAbilityText, 'meta'));
+			markers_active.push(getActiveMarkers(markers_text.slice(0), currentAbilityText, 'text'));
+			markers_active.push(getActiveMarkers(markers_skilltab.slice(0), currentAbilityText, 'skilltabs'));
 
 			championData.abilities[i].markers = markers;
 

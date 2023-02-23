@@ -1,36 +1,41 @@
 import * as markerData from './markerData.js';
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 
 const CHAMPIONSAVEPATH = './data/champions/';
 export async function deleteAndCleanMarkers() {
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
-		console.log(championName);
-		let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
+		let inGameName = championEntry.fileSystenName;
+		console.log(inGameName);
+		let championData = await tools.fileSystem.loadJSONData(`${CHAMPIONSAVEPATH}${inGameName}_data.json`);
 		/** delete unnecessary Markers, rest of the markers are set to lower case and grouped to ability.skillTabs
 		 * and cleaned from unnecessary words like "champion"*/
-		let championAbilities = championData.analysed_data.baseData.abilities;
+		let championAbilities = championData.analysed_data.abilities;
 		try {
 			championAbilities = await deleteUnnecessaryMarkers(championAbilities);
 		} catch (err) {
-			console.log('\ncleanAbilities()	- mark&delete skillTabMarkers \t', championName);
+			console.log('\ncleanAbilities()	- mark&delete skillTabMarkers \t', inGameName);
 			console.log(err);
-			tools.reportError('cleanAbilities()	- mark&delete skillTabMarkers', championName, err.message, err.stack);
+			tools.bugfixing.reportError(
+				'cleanAbilities()	- mark&delete skillTabMarkers',
+				inGameName,
+				err.message,
+				err.stack
+			);
 		}
 
 		try {
 			championAbilities = await cleanMarkers(championAbilities);
 		} catch (err) {
 			console.log(err);
-			tools.reportError('analyse - deleteAndCleanMarkers', championName, err.message, err.stack);
+			tools.bugfixing.reportError('analyse - deleteAndCleanMarkers', inGameName, err.message, err.stack);
 		}
 		// championAbilities.skillTabs = await markerTools.applyToAllSkillTabs(
 		//   championAbilities.skillTabs,
 		//   markerTools.numbersToFloat
 		// );
-		await tools.saveJSONData(championData, `./data/champions/${championName}_data.json`);
-		await tools.saveJSONData(championData, `./lol_analyser/data/champions/${championName}_data.json`);
+		await tools.fileSystem.saveJSONData(championData, `./data/champions/${inGameName}_data.json`);
+		await tools.fileSystem.saveJSONData(championData, `./lol_analyser/data/champions/${inGameName}_data.json`);
 	}
 }
 export async function cleanEmptyTextContent(currentAbility) {

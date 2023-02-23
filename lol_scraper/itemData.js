@@ -1,10 +1,10 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import { startBrowser } from './tools/browserControl.js';
 
 export async function getItemData() {
 	console.log('____________________\n');
 	console.log('scraping items start\n');
-	let itemList = await tools.getItemList();
+	let itemList = await tools.looping.getItemList();
 	// let itemLinkList = [
 	// 	[, 'https://leagueoflegends.fandom.com/wiki/Plated_Steelcaps'],
 	// 	[, 'https://leagueoflegends.fandom.com/wiki/Prowler%27s_Claw'],
@@ -23,18 +23,18 @@ export async function getItemData() {
 		try {
 			itemRawData = await scrapeItemData(item);
 			let saveName = item['fileSystemName'];
-			await tools.saveJSONData(itemRawData, `./lol_scraper/data/items/${saveName}`);
-			await tools.saveJSONData(itemRawData, `./data/items/${saveName}`);
+			await tools.fileSystem.saveJSONData(itemRawData, `./lol_scraper/data/items/${saveName}`);
+			await tools.fileSystem.saveJSONData(itemRawData, `./data/items/${saveName}`);
 			scrapedItemList.push(item);
 			console.info('scraped item: \t', itemRawData.inGameName);
 			console.info(index + 1, '  of  ', itemList.length, '  done');
 		} catch (err) {
-			tools.reportError('failed to scrap item', item, err.message);
+			tools.bugfixing.reportError('failed to scrap item', item, err.message);
 			console.log(err);
 			console.log(item);
 		}
 	}
-	await tools.saveJSONData(scrapedItemList, './lol_scraper/data/scrapedItemList.json');
+	await tools.fileSystem.saveJSONData(scrapedItemList, './lol_scraper/data/scrapedItemList.json');
 
 	console.log('scraping items end\n');
 	console.log('----------------------\n');

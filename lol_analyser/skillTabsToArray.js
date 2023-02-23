@@ -1,4 +1,4 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import * as cleaner from './cleaner.js';
 
 const LOGSAVEPATH = './lol_extractor/data/champions/';
@@ -6,23 +6,23 @@ const DATASAVEPATH = './data/champions/';
 
 export async function skillTabsToArray() {
 	//TODO: moved from extractor to analyser ... control if everything is still fine
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 	for (let champEntry of championList) {
-		let championName = champEntry.championSaveName;
-		//	console.log('\x1b[31m', champEntry.championName, '\x1b[0m');
-		console.log(champEntry.championName, '\t', champEntry.index);
+		let inGameName = champEntry.fileSystenName;
+		//	console.log('\x1b[31m', champEntry.inGameName, '\x1b[0m');
+		console.log(champEntry.inGameName, '\t', champEntry.index);
 		try {
 			//first load the data
-			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
+			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${inGameName}_data.json`);
 
 			/** TASKS */
-			championData.extracted_data.baseData.abilities = await createSkillTabArrays(championData);
+			championData.extracted_data.abilities = await createSkillTabArrays(championData);
 
-			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
-			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
+			await tools.fileSystem.saveJSONData(championData, `${LOGSAVEPATH}${inGameName}_skillTabs.json`);
+			await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${inGameName}_data.json`);
 		} catch (err) {
 			console.log(err);
-			console.log('skilltab extraction failed at champion: ', championName);
+			console.log('skilltab extraction failed at champion: ', inGameName);
 		}
 	}
 }
@@ -30,7 +30,7 @@ export async function skillTabsToArray() {
 export async function createSkillTabArrays(championData) {
 	/**reads out all NOT-EMPTY skillTabs, assigns the concerning text and metaData to it */
 
-	let championAbilities = championData.extracted_data.baseData.abilities;
+	let championAbilities = championData.extracted_data.abilities;
 	let skillTabArray = [];
 
 	for (let i = 0; i < 5; i++) {

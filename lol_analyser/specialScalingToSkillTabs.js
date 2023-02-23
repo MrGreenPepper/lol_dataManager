@@ -1,17 +1,17 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 
 export async function specialScalingToSkillTabs() {
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
-		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
+		let inGameName = championEntry.fileSystenName;
+		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${inGameName}_data.json`);
 
-		let abilityData = championData.analysed_data.baseData.abilities;
+		let abilityData = championData.analysed_data.abilities;
 
 		for (let i = 0; i < abilityData.length; i++) {
 			//			ability = transfromSpecialScalingTabs(abilityData[i]);
 		}
-		await tools.saveJSONData(championData, `./data/champions/${championName}_data.json`);
+		await tools.fileSystem.saveJSONData(championData, `./data/champions/${inGameName}_data.json`);
 	}
 }
 

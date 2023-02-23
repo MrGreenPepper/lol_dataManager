@@ -1,39 +1,41 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
+import { extraSkillTabsFromText } from './text/extraSkillTabsFromText.js';
 const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
+/**extracts calculation relevant data from text. Like extra skillTabs, empowerements etc. */
 export async function exText() {
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 
 	for (let champEntry of championList) {
-		let championName = champEntry.championSaveName;
-		//	console.log('\x1b[31m', champEntry.championName, '\x1b[0m');
-		console.log(champEntry.championName, '\t', champEntry.index);
+		let inGameName = champEntry.inGameName;
+		//	console.log('\x1b[31m', champEntry.inGameName, '\x1b[0m');
+		console.log(champEntry.inGameName, '\t', champEntry.index);
 		try {
 			//first load the data
-			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
+			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${champEntry.fileSystenName}`);
 
 			/** TASKS */
-			let abilities = championData.extracted_data.baseData.abilities;
-			let abilityNames = championData.extracted_data.baseData.abilitiesBorderData.abilityNames;
+			let abilities = championData.extracted_data.abilities;
+			let abilityNames = championData.extracted_data.baseData.abilityNames;
 
 			abilities = applyToAllAbilityParts(abilities, filterMarkedPassagas);
 			abilities = applyToAllAbilityParts(abilities, markPassiveAndInnate);
-			abilities = applyToAllAbilityParts(abilities, textToSkillTab);
 			abilities = applyToAllAbilityParts(abilities, extractText);
 			//TODO: move to analysis
 			abilities = handlePossibleConcerningAbilities(abilities, abilityNames);
 
-			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
-			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
+			championData = extraSkillTabsFromText(championData);
+			await tools.fileSystem.saveJSONData(championData, `${LOGSAVEPATH}${inGameName}_skillTabs.json`);
+			await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${champEntry.fileSystenName}`);
 		} catch (err) {
 			console.log(err);
-			console.log('skilltab extraction failed at champion: ', championName);
+			console.log('skilltab extraction failed at champion: ', inGameName);
 		}
 	}
 }
 
 function handlePossibleConcerningAbilities(abilities, abilityNames) {
-	let abilityRegex = tools.toBasicRegex(abilityNames);
+	let abilityRegex = tools.unifyWording.toBasicRegex(abilityNames);
 
 	for (let abilityNumber = 0; abilityNumber < 5; abilityNumber++) {
 		let textContentKeys = Object.keys(abilities[abilityNumber].textContent);
@@ -42,7 +44,9 @@ function handlePossibleConcerningAbilities(abilities, abilityNames) {
 			currentTextContent.concerningSkills = [];
 			//decide if its an basic ability or a new championState
 			for (let skNumber = 0; skNumber < currentTextContent.possibleConcerningAbilities.length; skNumber++) {
-				let possibleSkillName = tools.basicStringClean(currentTextContent.possibleConcerningAbilities[skNumber]);
+				let possibleSkillName = tools.unifyWording.basicStringClean(
+					currentTextContent.possibleConcerningAbilities[skNumber]
+				);
 				let concerningSkill = {};
 				concerningSkill.skillName = possibleSkillName;
 
@@ -69,7 +73,9 @@ function handlePossibleConcerningAbilities(abilities, abilityNames) {
 					concerningSkill.skillType = 'unique extra character condition';
 				}
 
-				abilities[abilityNumber].textContent[contentKey].concerningSkills.push(structuredClone(concerningSkill));
+				abilities[abilityNumber].textContent[contentKey].concerningSkills.push(
+					structuredClone(concerningSkill)
+				);
 			}
 		}
 		//	delete currentTextContent.possibleConcerningAbilities;
@@ -124,9 +130,11 @@ function filterMarkedPassagas(abilityPart) {
 	for (let i = 0; i < markedPassages.length; i++) {
 		let included = false;
 		for (let n = 0; n < markedPassages.length; n++) {
-			let positionCheck = markedPassages[n][1] <= markedPassages[i][1] && markedPassages[i][2] <= markedPassages[n][2];
+			let positionCheck =
+				markedPassages[n][1] <= markedPassages[i][1] && markedPassages[i][2] <= markedPassages[n][2];
 			// to prevent doubles filter each other and are completly deleted, not both borders can be the same
-			let doubleCheck = markedPassages[n][1] == markedPassages[i][1] && markedPassages[i][2] == markedPassages[n][2];
+			let doubleCheck =
+				markedPassages[n][1] == markedPassages[i][1] && markedPassages[i][2] == markedPassages[n][2];
 			if (positionCheck && !doubleCheck && i != n) included = true;
 		}
 		if (!included) sortedArray.push(markedPassages[i]);
@@ -137,7 +145,8 @@ function filterMarkedPassagas(abilityPart) {
 	for (let i = 0; i < markedPassages.length; i++) {
 		let included = false;
 		for (let n = i + 1; n < markedPassages.length; n++) {
-			let doubleCheck = markedPassages[n][1] == markedPassages[i][1] && markedPassages[i][2] == markedPassages[n][2];
+			let doubleCheck =
+				markedPassages[n][1] == markedPassages[i][1] && markedPassages[i][2] == markedPassages[n][2];
 			if (doubleCheck) included = true;
 		}
 		if (!included) sortedArray.push(markedPassages[i]);
@@ -187,6 +196,13 @@ function textToSkillTab(abilityPart) {
 }
 
 function applyToAllAbilityParts(abilities, applyFunction) {
+	/**
+	 * loops threw the textContents of the abilities and calls the given applyFunction with every single textContent as parameter
+	 * @param {object} abilities - the abilities from a champion
+	 * @param {function} applyFunction - the function which should be applied to every textContent
+	 *
+	 * @returns {object} abilities - the abilities after the applied function
+	 */
 	for (let i = 0; i < 5; i++) {
 		let currentAbility = abilities[i].textContent;
 		let currentAbilityParts = Object.keys(currentAbility);

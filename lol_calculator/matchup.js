@@ -1,16 +1,16 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import * as Champion from './champion.js';
-async function matchup(championNameA, championNameB) {
+async function matchup(inGameNameA, inGameNameB) {
 	/**
 	 *
 	 */
-	let championList = tools.getChampionList();
-	for (let [indexA, championNameA] of championList) {
+	let championList = tools.looping.getChampionList();
+	for (let [indexA, inGameNameA] of championList) {
 		let indexB = ++indexA;
 		for (indexB; indexB < championList.length; indexB++) {
 			try {
-				let championA = await Champion.create(championNameA);
-				let championB = await Champion.create(championNameB);
+				let championA = await Champion.create(inGameNameA);
+				let championB = await Champion.create(inGameNameB);
 				// await timer();
 				for (let i = 0; i < 18; i++) {
 					await championA.preCalculateFight(i);
@@ -25,8 +25,8 @@ async function matchup(championNameA, championNameB) {
 					await championB.calculateRealCombatStats();
 				}
 
-				await tools.saveData(championA, championB.championName);
-				await tools.saveData(championB, championA.championName);
+				await tools.saveData(championA, championB.inGameName);
+				await tools.saveData(championB, championA.inGameName);
 				await timer();
 			} catch (err) {
 				console.log(err.message);

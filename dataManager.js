@@ -1,6 +1,6 @@
 //import getBaseData from './lol_scraper/baseData.js';
 
-import * as tools from './tools.js';
+import * as tools from './tools/tools.js';
 import * as scraper from './lol_scraper/scraper.js';
 import * as extractor from './lol_extractor/extractor.js';
 import * as analyser from './lol_analyser/analyser.js';
@@ -9,33 +9,32 @@ import * as calculator from './lol_calculator/calculator.js';
 export let procedure = {
 	useTestData: 0,
 	//champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
-	champions: [0, 162],
+	champions: [10],
 	scraper: {
 		createLists: 0,
-		getBaseData: 0,
-		createBaseChampionPool: 0,
-		getAbilitiesData: 0,
+		getBaseData: 1,
+		createBaseChampionPool: 1,
+		getAbilitiesData: 1,
 		getInGameData: 0,
 		getItemData: 0,
 		createBackup: 1,
 	},
 	extractor: {
-		resetData: 0,
-		exMetaData: 0,
-		exText: 0,
-		exSkillTabs: 0,
-		exSpecialScaling: 0,
-		exSkillOrder: 0,
-		exMasteries: 0,
-		objectsToArrays: 0,
-		exItems: 0,
-		createBackup: 0,
+		renewData: 1,
+		exMetaData: 1,
+		exText: 1,
+		exSkillTabs: 1,
+		exSpecialScaling: 1,
+		exSkillOrder: 1,
+		exMasteries: 1,
+		objectsToArrays: 1,
+		exItems: 1,
+		createBackup: 1,
 	},
 	analyser: {
-		resetData: 1,
+		renewData: 1,
 		unifyAbilityMarkers: 1,
 		specialScalingToSkillTabs: 1,
-		textToSkillTabs: 1,
 		skillTabsToArray: 1,
 		cleanSkillTabMarkers: 1,
 		categorizeMarkers: 1,
@@ -44,7 +43,7 @@ export let procedure = {
 		createBackup: 1,
 	},
 	calculator: {
-		resetData: 1,
+		renewData: 1,
 		singleChampion: 1,
 		matchup: 1,
 		createBackup: 1,
@@ -101,7 +100,7 @@ await (async function extractProcedure() {
 	 *
 	 */
 	//resets the data by copieng the scraped_data into extraced_data 1 by 1
-	if (procedure.extractor.resetData) await extractor.resetData();
+	if (procedure.extractor.renewData) await extractor.renewData();
 	if (procedure.extractor.exMetaData) await extractor.exMetaData();
 	//TODO: saves it in a way thus it cant be reruned, current workaround by reseting the data everytime, maybe just do kind of error handling
 	if (procedure.extractor.exText) await extractor.exText();
@@ -122,12 +121,11 @@ await (async function extractProcedure() {
 //extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells, lösche bestimmte spells etc.
 await (async function analyseProcedure() {
 	/**reduces the abilities to the necessary math */
-	if (procedure.analyser.resetData) await analyser.resetData();
+	if (procedure.analyser.resetData) await analyser.renewData();
 	//delete unessessary markers (minion damage etc, not maximum)
 	if (procedure.analyser.unifyAbilityMarkers) await analyser.unifyAbilityMarkers();
 	if (procedure.analyser.specialScalingToSkillTabs) await analyser.specialScalingToSkillTabs();
 	//TODO: analyse concerning Skills (is a concerning skill a trigger or is it empowered) and or markedPassages
-	if (procedure.analyser.textToSkillTabs) await analyser.textToSkillTab();
 	if (procedure.analyser.skillTabsToArray) await analyser.skillTabsToArray();
 	if (procedure.analyser.cleanSkillTabMarkers) await analyser.deleteAndCleanMarkers();
 	if (procedure.analyser.categorizeMarkers) await analyser.categorizeMarkers();
@@ -140,7 +138,7 @@ await (async function analyseProcedure() {
 })();
 
 await (async function calculatorProcedure() {
-	if (procedure.calculator.resetData) await calculator.resetData();
+	if (procedure.calculator.resetData) await calculator.renewData();
 	if (procedure.calculator.singleChampion) await calculator.singleChampion();
 	if (procedure.calculator.matchup) await calculator.matchup();
 	if (procedure.calculator.createBackup) await calculator.createBackup();

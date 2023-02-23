@@ -1,4 +1,4 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import { startBrowser } from './tools/browserControl.js';
 import puppeteer from 'puppeteer';
 
@@ -24,9 +24,9 @@ export async function createChampionList() {
 	let tableContent = await page.$$eval('table tr td', (tds) => tds.map((td) => td.innerText));
 	tableContent = cleanTable(tableContent);
 
-	//get the championNames
-	let championNames_ab = tableContent.filter((currentElement) => typeof currentElement == 'string');
-	championNames_ab = championNames_ab.filter((currentElement) => !currentElement.includes('·'));
+	//get the inGameNames
+	let inGameNames_ab = tableContent.filter((currentElement) => typeof currentElement == 'string');
+	inGameNames_ab = inGameNames_ab.filter((currentElement) => !currentElement.includes('·'));
 
 	let abilityLinks = await page.evaluate(() => {
 		let linksRaw = document.querySelectorAll('table tr td a');
@@ -42,7 +42,7 @@ export async function createChampionList() {
 	abilityLinks = abilityLinks.filter((element) => /(wiki).*(LoL)/.test(element[1]));
 	abilityLinks.forEach((element, index) => {
 		element[1] = 'https://leagueoflegends.fandom.com' + element[1];
-		element.push(championNames_ab[index]);
+		element.push(inGameNames_ab[index]);
 	});
 
 	/*INGAME*/
@@ -99,14 +99,14 @@ export async function createChampionList() {
 		let linkSet = {};
 		linkSet.inGameLink = 'https://www.leagueofgraphs.com' + inGameLinks[i][0];
 
-		linkSet.championSaveName = championNames_ab[i];
-		linkSet.championName = abilityLinks[i][0];
+		linkSet.fileSystenName = tools.unifyWording.fileSystemNameConverter(inGameNames_ab[i]) + '.json';
+		linkSet.inGameName = abilityLinks[i][0];
 		linkSet.abilityLink = abilityLinks[i][1];
 		linkSet.index = i;
 		linkList.push(linkSet);
 	}
 
-	tools.saveJSONData(linkList, './data/championLinks.json');
+	tools.fileSystem.saveJSONData(linkList, './data/championLinks.json');
 }
 
 function cleanTable(rawDataTable) {
@@ -187,9 +187,9 @@ async function createItemList() {
 	await browser.close();
 
 	for (let item of itemList) {
-		fileSystemName = tools.fileSystemNameConverter(item.inGameName) + '.json';
+		fileSystemName = tools.unifyWording.fileSystemNameConverter(item.inGameName) + '.json';
 		item.fileSystemName = fileSystemName;
 	}
 	// console.log('bp');
-	await tools.saveJSONData(itemList, './data/itemList.json');
+	await tools.fileSystem.saveJSONData(itemList, './data/itemList.json');
 }

@@ -1,23 +1,22 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import { startBrowser } from './tools/browserControl.js';
 
 export async function getAbilitiesData() {
 	console.log('___________________________\n');
 	console.log('abilityData scrapingn start\n');
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
+		console.info('\ncurrentChampion:\t', championEntry.inGameName);
+		console.log('scraping url:\t\t', championEntry.abilityLink);
+		console.log('champion Index:\t\t', championEntry.index);
 
-		let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
+		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystenName}`);
 		championData = await scrapeAbilitiesData(championData, championEntry.abilityLink);
-		//save the new data on a seperate spot
-		tools.saveJSONData(championData, `./lol_scraper/data/champions/baseData/${championEntry.championSaveName}_abilities.json`);
-		tools.saveJSONData(championData, `./data/champions/${championEntry.championSaveName}_data.json`);
+
+		let savePath = `./data/champions/${championEntry.fileSystenName}`;
+		await tools.fileSystem.saveJSONData(championData, savePath);
 		//final message
-		console.log('abilitiesData saved: ', championData.name);
-		console.info('\ncurrentChampion:\t', championEntry.championName);
-		console.log('champion Index:\t', championEntry.index);
-		console.log('scraping url:\t', championEntry.abilityLink);
+		console.log('--> \tabilitiesData saved: \t', savePath);
 	}
 	console.log('abilityData scraping end\n');
 	console.log('-------------------------\n');
@@ -65,7 +64,9 @@ async function scrapeAbilitiesData(championData, url) {
 						//test if there is a specieal Leveling like per level
 
 						try {
-							let specialScaling = metaData[metaNumber].querySelectorAll('span.pp-tooltip.tooltips-init-complete');
+							let specialScaling = metaData[metaNumber].querySelectorAll(
+								'span.pp-tooltip.tooltips-init-complete'
+							);
 							if (specialScaling.length > 0) {
 								champion.abilities[i].metaData[metaNumber].specialScaling = {};
 								for (let specialNumber = 0; specialNumber < specialScaling.length; specialNumber++) {
@@ -93,12 +94,19 @@ async function scrapeAbilitiesData(championData, url) {
 										topLabel = currentSpecialPart.getAttribute('data-top_label');
 									} catch {}
 									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber] = {};
-									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].text = text;
-									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].botLabel = botLabel;
-									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].botValues = botValues;
-									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].topValues = topValues;
-									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].topLabel = topLabel;
-									console.log(champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber]);
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].text =
+										text;
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].botLabel =
+										botLabel;
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].botValues =
+										botValues;
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].topValues =
+										topValues;
+									champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber].topLabel =
+										topLabel;
+									console.log(
+										champion.abilities[i].metaData[metaNumber].specialScaling[specialNumber]
+									);
 								}
 							}
 						} catch (err) {
@@ -132,7 +140,9 @@ async function scrapeAbilitiesData(championData, url) {
 						champion.abilities[i].textContent[textPart] = {};
 
 						//console.log('textContainer: ', textContainer[textPart]);
-						let text = textContainer[textPart].querySelector('div[style="vertical-align:top; padding: 0 0 0 7px;"]');
+						let text = textContainer[textPart].querySelector(
+							'div[style="vertical-align:top; padding: 0 0 0 7px;"]'
+						);
 						//console.log('textPart:\t', textPart, 'content: ', text);
 						//console.log('textPart:\t', textPart, 'content: ', text.innerHTML);
 						champion.abilities[i].textContent[textPart].text = text.textContent;
@@ -169,11 +179,18 @@ async function scrapeAbilitiesData(championData, url) {
 										topLabel = currentSpecialPart.getAttribute('data-top_label');
 									} catch {}
 									champion.abilities[i].textContent[textPart].specialScaling[specialNumber] = {};
-									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].text = text;
-									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].botLabel = botLabel;
-									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].botValues = botValues;
-									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].topValues = topValues;
-									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].topLabel = topLabel;
+									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].text =
+										text;
+									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].botLabel =
+										botLabel;
+									champion.abilities[i].textContent[textPart].specialScaling[
+										specialNumber
+									].botValues = botValues;
+									champion.abilities[i].textContent[textPart].specialScaling[
+										specialNumber
+									].topValues = topValues;
+									champion.abilities[i].textContent[textPart].specialScaling[specialNumber].topLabel =
+										topLabel;
 									//	console.log(champion.abilities[i].textContent[textPart].specialScaling[specialNumber]);
 								}
 							}
@@ -231,68 +248,24 @@ async function scrapeAbilitiesData(championData, url) {
 		await browser.close();
 
 		//quick convert of the windup and asign to dataSet
-		championRawData.baseStats.windup = championRawData.baseStats.windup.replaceAll('%', '');
-		championRawData.baseStats.windup = championRawData.baseStats.windup.replaceAll(' ', '');
-		championRawData.baseStats.windup = parseFloat(championRawData.baseStats.windup);
-		championData.scraped_data.baseData.abilities = championRawData.abilities;
-		championData.scraped_data.baseData.baseStats.windup = championRawData.baseStats.windup;
+		let windup = championRawData.baseStats.windup.replaceAll('%', '');
+		windup = windup.replaceAll(' ', '');
+		windup = parseFloat(windup);
+		championData.scraped_data.baseStats.windup = windup;
+
+		championData.scraped_data.abilities = championRawData.abilities;
 
 		let abilityNames = [];
 		for (let i = 0; i < 5; i++) {
-			let currentName = tools.basicStringClean(championRawData.abilities[i].name);
+			let currentName = tools.unifyWording.basicStringClean(championRawData.abilities[i].name);
 			abilityNames.push(currentName);
 		}
-		championData.scraped_data.baseData.abilitiesBorderData = {};
-		championData.scraped_data.baseData.abilitiesBorderData.abilityNames = abilityNames;
+		championData.scraped_data.baseData.abilityNames = abilityNames;
 	} catch (err) {
-		await tools.reportError(`scraping abilities failed`, championData.name, err.message, err.stack);
+		await tools.bugfixing.reportError(`scraping abilities failed`, championData.name, err.message, err.stack);
 
 		console.log('champion failed: ', championData.name);
 		console.error(err);
 	}
 	return championData;
-}
-
-async function getChampionLinks() {
-	let url_baseStats = 'https://leagueoflegends.fandom.com/wiki/List_of_champions/Base_statistics';
-	const championList = await tools.loadJSONData('./lol_scraper/data/championList.json');
-
-	const firstLink = `/wiki/${championList[0]}/LoL`;
-	const lastLink = `/wiki/${championList[championList.length - 1]}/LoL`;
-
-	const browser = await startBrowser();
-	const page = await browser.newPage();
-
-	await page.goto(url_baseStats);
-
-	let championLinks = await page.evaluate(
-		(firstLink, lastLink) => {
-			try {
-				let links = Array.from(document.querySelectorAll('[data-champion] a'), (a) => a.getAttribute('href'));
-				console.log(links);
-				links = links.slice(links.indexOf(firstLink), links.indexOf(lastLink) + 2);
-
-				return links;
-			} catch (err) {
-				throw err;
-			}
-		},
-		firstLink,
-		lastLink
-	);
-
-	//let findDuplicates = (championLinks) => championLinks.filter((item, index) => championLinks.indexOf(item) != index);
-	// delete duplicates
-	let seen = {};
-	championLinks = championLinks.filter((item) => {
-		return seen.hasOwnProperty(item) ? false : (seen[item] = true);
-	});
-
-	championLinks.sort();
-
-	//delete  fail entry Kled & Skaarl and all empty ones
-	championLinks = championLinks.filter((element) => {
-		return element !== '/wiki/Kled_%26_Skaarl/LoL' && element !== null && element !== '/wiki/Mega_Gnar/LoL';
-	});
-	return championLinks;
 }

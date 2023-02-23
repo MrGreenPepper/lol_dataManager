@@ -1,14 +1,14 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import * as browserControl from './tools/browserControl.js';
 
 export async function getInGameData() {
 	console.log('_________________________\n');
 	console.log('scraping inGameData start\n');
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 
 	for (let champEntry of championList) {
 		let url = champEntry.inGameLink;
-		let championName = champEntry.championName;
+		let inGameName = champEntry.inGameName;
 		console.log('scraping url: ', url);
 		try {
 			const browser = await browserControl.startBrowser();
@@ -139,9 +139,12 @@ export async function getInGameData() {
 			newData.scraped_data.inGameData.skillOrder = championRawData.abilities.skillOrder;
 			newData.scraped_data.inGameData.summonerSpells = championRawData.summonerSpells;
 
-			await tools.saveJSONData(newData, `./lol_scraper/data/champions/inGameData/${newData.name}_data.json`);
+			await tools.fileSystem.saveJSONData(
+				newData,
+				`./lol_scraper/data/champions/inGameData/${newData.name}_data.json`
+			);
 
-			let oldData = await tools.loadJSONData(`./data/champions/${champEntry.championSaveName}_data.json`);
+			let oldData = await tools.fileSystem.loadJSONData(`./data/champions/${champEntry.fileSystenName}`);
 			//check if there already is an inGameData key
 			if (!oldData.scraped_data.hasOwnProperty('inGameData')) {
 				oldData.scraped_data.inGameData = {};
@@ -151,11 +154,14 @@ export async function getInGameData() {
 			oldData.scraped_data.inGameData.masteries = championRawData.masteries;
 			oldData.scraped_data.inGameData.skillOrder = championRawData.abilities.skillOrder;
 			oldData.scraped_data.inGameData.summonerSpells = championRawData.summonerSpells;
-			await tools.saveJSONData(oldData, `./data/champions/${champEntry.championSaveName}_data.json`);
-			await tools.saveJSONData(oldData, `./lol_scraper/data/champions/inGameData/${champEntry.championSaveName}_data.json`);
-			console.log('inGameData saved: ', championName);
+			await tools.fileSystem.saveJSONData(oldData, `./data/champions/${champEntry.fileSystenName}`);
+			await tools.fileSystem.saveJSONData(
+				oldData,
+				`./lol_scraper/data/champions/inGameData/${champEntry.fileSystenName}`
+			);
+			console.log('inGameData saved: ', inGameName);
 		} catch (err) {
-			tools.reportError('failed scrapping inGameData', championName, err.message);
+			tools.bugfixing.reportError('failed scrapping inGameData', inGameName, err.message);
 			console.error('\nfailed scraping inGameData: \t', err.message);
 			console.error('\n', err.stack, '\n');
 		}

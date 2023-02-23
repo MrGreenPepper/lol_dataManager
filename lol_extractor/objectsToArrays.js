@@ -1,4 +1,4 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 
 const CHAMPIONSAVEPATH = './data/champions/';
 export async function objectsToArrays() {
@@ -8,13 +8,13 @@ export async function objectsToArrays() {
 	let skillTabArray = [];
 	let abilityData;
 
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
-		let championName = championEntry.championSaveName;
+		let inGameName = championEntry.fileSystenName;
 
 		try {
-			let championData = await tools.loadJSONData(`${CHAMPIONSAVEPATH}${championName}_data.json`);
-			abilityData = championData.extracted_data.baseData.abilities;
+			let championData = await tools.fileSystem.loadJSONData(`${CHAMPIONSAVEPATH}${inGameName}_data.json`);
+			abilityData = championData.extracted_data.abilities;
 
 			let abilityDataKeys = Object.keys(abilityData);
 			for (let abilityNumber of abilityDataKeys) {
@@ -36,9 +36,9 @@ export async function objectsToArrays() {
 				abilityData[abilityNumber].textContent = textContentArray;
 			}
 
-			//championData.extracted_data.baseData.abilities = abilityData;	not	needed, cause objects, just for readability
+			//championData.extracted_data.abilities = abilityData;	not	needed, cause objects, just for readability
 
-			await tools.saveJSONData(championData, `${CHAMPIONSAVEPATH}${championName}_data.json`);
+			await tools.fileSystem.saveJSONData(championData, `${CHAMPIONSAVEPATH}${inGameName}_data.json`);
 		} catch (err) {
 			console.log();
 			console.log(err.message);

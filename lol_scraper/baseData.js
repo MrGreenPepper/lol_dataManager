@@ -1,6 +1,6 @@
 import { startBrowser } from './tools/browserControl.js';
 import Puppeteer from 'puppeteer';
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 
 export async function getBaseData() {
 	console.log('_______________________\n');
@@ -19,18 +19,18 @@ export async function getBaseData() {
 	tableHeader = tableHeader.map((currentElement) => currentElement.toLowerCase());
 	tableHeader = tableHeader.map((currentElement) => currentElement.replaceAll('+', '_plus'));
 
-	//tableContent
-	let tableContent = await page.$$eval('table tr td', (tds) => tds.map((td) => td.innerText));
-	tableContent = cleanTable(tableContent);
+	//tableContent - get the data
+	let tableContent = await page.$$eval('table tbody tr td', (tds) => tds.map((td) => td.innerText));
+	tableContent = transformTable(tableContent);
 
-	//get the championNames
-	let championNames = tableContent.filter((currentElement) => typeof currentElement == 'string');
-	championNames = championNames.filter((currentElement) => !currentElement.includes('·'));
+	//get the inGameNames
+	let inGameNames = tableContent.filter((currentElement) => typeof currentElement == 'string');
+	inGameNames = inGameNames.filter((currentElement) => !currentElement.includes('·'));
 
 	//sorting the right values to the right keys
-	let baseData = assignData(tableContent, tableHeader, championNames);
+	let baseData = assignData(tableContent, tableHeader, inGameNames);
 
-	await tools.saveJSONData(baseData, './lol_scraper/data/baseData.json');
+	await tools.fileSystem.saveJSONData(baseData, './lol_scraper/data/baseData.json');
 
 	await browser.close();
 
@@ -39,26 +39,30 @@ export async function getBaseData() {
 	return;
 }
 
-function assignData(tableContent, sortingKeys, championNames) {
+function assignData(tableContent, sortingKeys, inGameNames) {
 	let baseData = {};
-	let championCount = championNames.length;
+	let championCount = inGameNames.length;
 	let keysCount = sortingKeys.length;
 
 	for (let i = 0; i < championCount; i++) {
-		let championName = championNames[i];
+		let inGameName = inGameNames[i];
 
-		baseData[championName] = {};
+		baseData[inGameName] = {};
 
 		for (let k = 1; k < keysCount; k++) {
 			let arrayPosition = i * keysCount + k;
-			baseData[championName][sortingKeys[k]] = tableContent[arrayPosition];
+			baseData[inGameName][sortingKeys[k]] = tableContent[arrayPosition];
 		}
 	}
 
 	return baseData;
 }
 
-function cleanTable(rawDataTable) {
+/**erase unnecessary signs and parse strings to numbers if possible
+ * @param 	[array] rawDataTable  	-	the content to clean
+ * @returns	[array] rawDataTable 	-	cleaned content
+ */
+function transformTable(rawDataTable) {
 	//cleans unnecessary signs
 	rawDataTable = rawDataTable.map((currentElement) => {
 		currentElement = currentElement.replace(/\s/g, '');

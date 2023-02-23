@@ -6,15 +6,15 @@ import * as goldTools from './tools/goldTools.js';
 import * as preCalculate from './tools/preCalculate.js';
 import * as summarizeAbilities from './tools/summarizeAbilities.js';
 import * as realCalculate from './tools/realCalculate.js';
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 
 const DATAPATH = './data/champions/';
 
 class Champion {
-	constructor(championName) {
-		this.championName = championName;
+	constructor(inGameName) {
+		this.inGameName = inGameName;
 
-		let tempData = JSON.parse(fs.readFileSync(`${DATAPATH}${this.championName}_data.json`, 'utf8'));
+		let tempData = JSON.parse(fs.readFileSync(`${DATAPATH}${this.inGameName}_data.json`, 'utf8'));
 		let dataKeys = Object.keys(tempData);
 		// copies the data, per key, from the loaded one
 		for (let key of dataKeys) {
@@ -71,7 +71,7 @@ class Champion {
 	async calculateBaseStats(championLevel) {
 		/** calculate the rotation and dpsjdamage of all levels */
 		let champLevel = championLevel;
-		let baseStats = this.calculated_data.baseData.baseStats;
+		let baseStats = this.calculated_data.baseStats;
 		this.soloCalc[`level${championLevel}`].myStats = {};
 		let myStats = {};
 		myStats.ap = 0;
@@ -194,7 +194,8 @@ class Champion {
 						break;
 					case 'attackSpeed_percent':
 						//TODO: control attack speed calculation
-						currentBaseStats.attackSpeed += (summedItemStats[currentCategory] / 100 + 1) * currentBaseStats.attackSpeed;
+						currentBaseStats.attackSpeed +=
+							(summedItemStats[currentCategory] / 100 + 1) * currentBaseStats.attackSpeed;
 						break;
 					case 'armorPenetration':
 						currentBaseStats[currentCategory] += summedItemStats[currentCategory];
@@ -202,7 +203,8 @@ class Champion {
 					case 'armorPenetration_percent':
 						currentBaseStats[currentCategory] += summedItemStats[currentCategory];
 					case 'lethality':
-						currentBaseStats.armorPenetration += summedItemStats[currentCategory] * (0.6 + (0.4 * (championLevel + 1)) / 18);
+						currentBaseStats.armorPenetration +=
+							summedItemStats[currentCategory] * (0.6 + (0.4 * (championLevel + 1)) / 18);
 						break;
 					case 'lifeSteal_percent':
 						currentBaseStats.lifeSteal += summedItemStats[currentCategory] / 100;
@@ -248,7 +250,8 @@ class Champion {
 						currentBaseStats.hp5 += (summedItemStats[currentCategory] / 100) * currentBaseStats.hp5;
 						break;
 					case 'ms_percent':
-						currentBaseStats.movementSpeed += (summedItemStats[currentCategory] / 100) * currentBaseStats.movementSpeed;
+						currentBaseStats.movementSpeed +=
+							(summedItemStats[currentCategory] / 100) * currentBaseStats.movementSpeed;
 						break;
 					default:
 						console.log('cant add itemStat: ', currentCategory);
@@ -264,9 +267,9 @@ class Champion {
 	}
 }
 
-export async function create(championName) {
+export async function create(inGameName) {
 	try {
-		let champion = new Champion(championName);
+		let champion = new Champion(inGameName);
 		await champion._initialize();
 		return champion;
 	} catch (error) {

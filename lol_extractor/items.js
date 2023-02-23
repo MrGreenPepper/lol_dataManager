@@ -1,4 +1,4 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import * as markerTools from './marker/markerTools.js';
 
 async function extractData() {
@@ -15,11 +15,11 @@ async function extractData() {
 }
 
 export async function exItems() {
-	let itemList = await tools.getItemList();
+	let itemList = await tools.looping.getItemList();
 	for (let item of itemList) {
 		try {
 			let loadName = item['fileSystemName'];
-			let rawData = await tools.loadJSONData(`./lol_scraper/data/items/${loadName}`);
+			let rawData = await tools.fileSystem.loadJSONData(`./lol_scraper/data/items/${loadName}`);
 			let itemData = rawData;
 			try {
 				if (Object.keys(itemData.stats).length > 0) {
@@ -38,11 +38,11 @@ export async function exItems() {
 			} catch (error) {
 				console.log(error);
 			}
-			await tools.saveJSONData(itemData, `./data/items/${loadName}`);
-			await tools.saveJSONData(itemData, `./lol_extractor/data/items/${loadName}`);
+			await tools.fileSystem.saveJSONData(itemData, `./data/items/${loadName}`);
+			await tools.fileSystem.saveJSONData(itemData, `./lol_extractor/data/items/${loadName}`);
 		} catch (err) {
 			console.log(err);
-			tools.reportError('extracting itemData failed', item, err.message, err.stack);
+			tools.bugfixing.reportError('extracting itemData failed', item, err.message, err.stack);
 		}
 	}
 

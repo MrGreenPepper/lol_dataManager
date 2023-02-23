@@ -1,27 +1,25 @@
 import * as extractorTools from './extractorTools.js';
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import * as cleaner from './cleaner.js';
 
 const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exMetaData() {
-	let championList = await tools.getChampionList();
-	for (let champEntry of championList) {
-		let championName = champEntry.championSaveName;
-		console.log('\n\n ', championName);
+	let championList = await tools.looping.getChampionList();
+	for (let [index, champEntry] of championList.entries()) {
+		console.log('\n', champEntry.inGameName);
 		try {
 			//first load the data
-			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
+			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${champEntry.fileSystenName}`);
 
-			championData.extracted_data.baseData.abilities = await extractMetaData(championData);
+			championData.extracted_data.abilities = await extractMetaData(championData);
 			championData = await metaNumbersToFloat(championData);
 
-			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_metaData.json`);
-			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
+			await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${champEntry.fileSystenName}`);
 		} catch (err) {
 			console.log(err);
-			console.log('metaData extraction failed at champion: ', championName);
+			console.log('metaData extraction failed at champion: ', index, ' - ', champEntry.fileSystenName);
 		}
 	}
 	return;
@@ -30,7 +28,7 @@ export async function exMetaData() {
 export function extractMetaData(championData) {
 	let metaDataKeys = [];
 	let abilityKeys;
-	let baseAbilityData = championData.extracted_data.baseData.abilities;
+	let baseAbilityData = championData.extracted_data.abilities;
 
 	abilityKeys = Object.keys(baseAbilityData);
 	abilityKeys.forEach((abilityKey) => {
@@ -183,7 +181,7 @@ function divideMath(originMath) {
 }
 
 export async function metaNumbersToFloat(championData) {
-	let championAbilities = championData.extracted_data.baseData.abilities;
+	let championAbilities = championData.extracted_data.abilities;
 	for (let i = 0; i < 5; i++) {
 		let currentAbility = championAbilities[i];
 

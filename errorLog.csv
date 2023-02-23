@@ -12817,3 +12817,837 @@ analyser_abilities.js:  cant simplify abilities,Zoe,textContent is not defined,R
     at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:30:21)
     at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:127:46)
     at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:123:1
+analyser_abilities.js:  cant simplify abilities,Aatrox,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Ahri,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Akali,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Akshan,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Alistar,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Amumu,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Anivia,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Annie,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Aphelios,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Ashe,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,AurelionSol,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Azir,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Bard,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Bel'Veth,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Blitzcrank,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Brand,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Braum,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Caitlyn,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Camille,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Cassiopeia,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Cho'Gath,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Corki,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Darius,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Diana,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Dr.Mundo,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Draven,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Ekko,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Elise,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Evelynn,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Ezreal,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Fiddlesticks,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Fiora,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Fizz,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Galio,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Gangplank,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Garen,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Gnar,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Gragas,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Graves,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Gwen,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Hecarim,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Heimerdinger,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Illaoi,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Irelia,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Ivern,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Janna,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,JarvanIV,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Jax,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Jayce,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Jhin,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Jinx,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,K'Sante,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kai'Sa,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kalista,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Karma,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Karthus,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kassadin,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Katarina,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kayle,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kayn,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kennen,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kha'Zix,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kindred,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kled,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kled&Skaarl,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Kog'Maw,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,LeBlanc,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,LeeSin,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Leona,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Lillia,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Lissandra,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Lucian,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Lulu,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Lux,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Malphite,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Malzahar,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Maokai,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,MasterYi,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,MegaGnar,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,MissFortune,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Mordekaiser,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Morgana,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Nami,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Nasus,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Nautilus,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Neeko,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Nidalee,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Nilah,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Nocturne,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Nunu&Willump,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Olaf,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Orianna,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Ornn,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Pantheon,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Poppy,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Pyke,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Qiyana,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Quinn,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Rakan,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Rammus,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Rek'Sai,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Rell,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,RenataGlasc,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Renekton,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Rengar,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Riven,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Rumble,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Ryze,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Samira,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Sejuani,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Senna,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Seraphine,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Sett,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Shaco,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Shen,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Shyvana,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Singed,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Sion,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Sivir,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Skarner,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Sona,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Soraka,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Swain,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Sylas,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Syndra,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,TahmKench,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Taliyah,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Talon,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Taric,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Teemo,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Thresh,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Tristana,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Trundle,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Tryndamere,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,TwistedFate,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Twitch,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Udyr,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Urgot,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Varus,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Vayne,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Veigar,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Vel'Koz,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Vex,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Vi,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Viego,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Viktor,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Vladimir,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Volibear,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Warwick,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Wukong,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Xayah,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Xerath,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,XinZhao,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Yasuo,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Yone,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Yorick,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Yuumi,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Zac,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Zed,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Zeri,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Ziggs,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Zilean,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Zoe,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Aatrox,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Ahri,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,Akali,Cannot read properties of undefined (reading 'baseData'),TypeError: Cannot read properties of undefined (reading 'baseData')
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:20:49)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:126:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+scraping abilities failed,Aatrox,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:259:55)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Ahri,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:259:55)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Akali,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:259:55)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Akshan,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:259:55)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Alistar,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:259:55)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Amumu,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:259:55)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:12:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,tools.unifyWording.basicStringClean is not a function,TypeError: tools.unifyWording.basicStringClean is not a function
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:262:28)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:10:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,tools.unifyWording.basicStringClean is not a function,TypeError: tools.unifyWording.basicStringClean is not a function
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:262:41)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:10:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,tools.unifyWording.basicStringClean is not a function,TypeError: tools.unifyWording.basicStringClean is not a function
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:262:41)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:10:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aurelion Sol,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:256:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:10:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Dr. Mundo,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:256:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:10:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Jarvan IV,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:256:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:10:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aurelion Sol,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:252:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:10:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aurelion Sol,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:253:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aurelion Sol,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:253:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aurelion Sol,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Dr. Mundo,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Jarvan IV,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Kled & Skaarl,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Lee Sin,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Master Yi,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Mega Gnar,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Miss Fortune,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Nunu & Willump,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Renata Glasc,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Tahm Kench,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Twisted Fate,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Xin Zhao,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+failed scrapping inGameData,Aatrox,ENOENT: no such file or directory. open './data/champions/Aatrox.json_data.json',undefined
+failed scrapping inGameData,Ahri,ENOENT: no such file or directory. open './data/champions/Ahri.json_data.json',undefined
+failed scrapping inGameData,Akali,ENOENT: no such file or directory. open './data/champions/Akali.json_data.json',undefined
+failed scrapping inGameData,Akshan,ENOENT: no such file or directory. open './data/champions/Akshan.json_data.json',undefined
+skillOrder extraction failed,Aatrox.json,ENOENT: no such file or directory. open './data/champions/Aatrox.json_data.json',Error: ENOENT: no such file or directory, open './data/champions/Aatrox.json_data.json'
+    at Object.openSync (node:fs:586:3)
+    at Object.readFileSync (node:fs:454:35)
+    at Module.loadJSONData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/tools/fileSystem.js:24:22)
+    at Module.exSkillOrder (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_extractor/skillOrder.js:13:46)
+    at async extractProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:109:40)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:85:1
+skillOrder extraction failed,Ahri.json,ENOENT: no such file or directory. open './data/champions/Ahri.json_data.json',Error: ENOENT: no such file or directory, open './data/champions/Ahri.json_data.json'
+    at Object.openSync (node:fs:586:3)
+    at Object.readFileSync (node:fs:454:35)
+    at Module.loadJSONData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/tools/fileSystem.js:24:22)
+    at Module.exSkillOrder (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_extractor/skillOrder.js:13:46)
+    at async extractProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:109:40)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:85:1
+skillOrder extraction failed,Akali.json,ENOENT: no such file or directory. open './data/champions/Akali.json_data.json',Error: ENOENT: no such file or directory, open './data/champions/Akali.json_data.json'
+    at Object.openSync (node:fs:586:3)
+    at Object.readFileSync (node:fs:454:35)
+    at Module.loadJSONData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/tools/fileSystem.js:24:22)
+    at Module.exSkillOrder (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_extractor/skillOrder.js:13:46)
+    at async extractProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:109:40)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:85:1
+scraping abilities failed,Aurelion Sol,Cannot set properties of undefined (setting 'windup'),TypeError: Cannot set properties of undefined (setting 'windup')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:254:46)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1

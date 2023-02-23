@@ -1,28 +1,28 @@
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exSpecialScaling() {
 	/**specialScalings arent % ... they get in place when certain limits are cracked */
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 	for (let champEntry of championList) {
-		let championName = champEntry.championSaveName;
-		//	console.log('\x1b[31m', champEntry.championName, '\x1b[0m');
-		console.log(champEntry.championName, '\t', champEntry.index);
+		let inGameName = champEntry.fileSystenName;
+		//	console.log('\x1b[31m', champEntry.inGameName, '\x1b[0m');
+		console.log(champEntry.inGameName, '\t', champEntry.index);
 		try {
 			//first load the data
-			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
+			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${inGameName}_data.json`);
 
 			/** TASKS */
 			championData = await specialScalingOnMeta(championData);
 			championData = await specialScalingOnChampionsPassive(championData);
-			//		championData.extracted_data.baseData.abilities = await specialScalingOnActives(championData);
+			//		championData.extracted_data.abilities = await specialScalingOnActives(championData);
 
-			//	await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_specialScaling.json`);
-			//		await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
+			//	await tools.fileSystem.saveJSONData(championData, `${LOGSAVEPATH}${inGameName}_specialScaling.json`);
+			//		await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${inGameName}_data.json`);
 		} catch (err) {
 			console.log(err);
-			console.log('skilltab extraction failed at champion: ', championName);
+			console.log('skilltab extraction failed at champion: ', inGameName);
 		}
 	}
 }
@@ -31,7 +31,7 @@ function specialScalingOnMeta(championData) {
 	/** transforms the the special scalings in metaData to kinda 'traditional' metaSkillTabs */
 	//check for specialScaling parts
 	for (let i = 0; i < 5; i++) {
-		let ability = championData.extracted_data.baseData.abilities[i];
+		let ability = championData.extracted_data.abilities[i];
 		// check meta for specialScaling
 		let metaKeys = Object.keys(ability.metaData);
 		/**specialScaling meta */
@@ -46,7 +46,9 @@ function specialScalingOnMeta(championData) {
 				let specialData = metaData.specialScaling[sKey];*/
 				let specialData = metaData.specialScaling[0];
 				let specialValues = specialData.botValues.split(';').map((value) => Number(value));
-				let scalingType = specialData.text.slice(specialData.text.indexOf('(') + 1, specialData.text.indexOf(')')).toLowerCase();
+				let scalingType = specialData.text
+					.slice(specialData.text.indexOf('(') + 1, specialData.text.indexOf(')'))
+					.toLowerCase();
 				let scalingValue;
 				if (specialData.hasOwnProperty('topValues')) {
 					scalingValue = specialData.topValues.split(';').map((value) => Number(value));
@@ -67,13 +69,13 @@ function specialScalingOnMeta(championData) {
 
 function specialScalingOnChampionsPassive(championData) {
 	let specialTabs = [];
-	let championPassive = championData.extracted_data.baseData.abilities[0];
+	let championPassive = championData.extracted_data.abilities[0];
 	let newCurrentTextContent;
 
 	//get the abilityNames to get the skillTabs at the right part
 	let abilityNames = [];
 	for (let i = 0; i < 5; i++) {
-		abilityNames.push(championData.extracted_data.baseData.abilities[i].name.replaceAll('_', ' ').toLowerCase());
+		abilityNames.push(championData.extracted_data.abilities[i].name.replaceAll('_', ' ').toLowerCase());
 	}
 	//transfer the names to regex
 	let RegExAbilityNames = abilityNames.map((abilityname) => {

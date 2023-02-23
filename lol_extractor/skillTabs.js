@@ -1,5 +1,5 @@
 import * as extractorTools from './extractorTools.js';
-import * as tools from '../tools.js';
+import * as tools from '../tools/tools.js';
 import * as markerTools from './marker/markerTools.js';
 import * as cleaner from './cleaner.js';
 
@@ -7,23 +7,23 @@ const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
 
 export async function exSkillTabs() {
-	let championList = await tools.getChampionList();
+	let championList = await tools.looping.getChampionList();
 	for (let champEntry of championList) {
-		let championName = champEntry.championSaveName;
-		//	console.log('\x1b[31m', champEntry.championName, '\x1b[0m');
-		console.log(champEntry.championName, '\t', champEntry.index);
+		let inGameName = champEntry.fileSystenName;
+		//	console.log('\x1b[31m', champEntry.inGameName, '\x1b[0m');
+		console.log(champEntry.inGameName, '\t', champEntry.index);
 		try {
 			//first load the data
-			let championData = await tools.loadJSONData(`./data/champions/${championName}_data.json`);
+			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${inGameName}_data.json`);
 
 			/** TASKS */
 			championData = await extractSkillTabs(championData);
 
-			await tools.saveJSONData(championData, `${LOGSAVEPATH}${championName}_skillTabs.json`);
-			await tools.saveJSONData(championData, `${DATASAVEPATH}${championName}_data.json`);
+			await tools.fileSystem.saveJSONData(championData, `${LOGSAVEPATH}${inGameName}_skillTabs.json`);
+			await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${inGameName}_data.json`);
 		} catch (err) {
 			console.log(err);
-			console.log('skilltab extraction failed at champion: ', championName);
+			console.log('skilltab extraction failed at champion: ', inGameName);
 		}
 	}
 }
@@ -37,7 +37,7 @@ export async function extractSkillTabs(championData) {
 	 */
 	//get the abilitynumbers first
 
-	let championAbilities = championData.extracted_data.baseData.abilities;
+	let championAbilities = championData.extracted_data.abilities;
 	let abilityKeys = Object.keys(championAbilities);
 	let abilityNumbers = abilityKeys.reduce((acc, element) => {
 		if (/[0-9]/g.test(element)) acc++;
@@ -55,7 +55,8 @@ export async function extractSkillTabs(championData) {
 					championAbilities[abNum].textContent[textNum].skillTabs[sTNum] = await stringIntoFormula(
 						championAbilities[abNum].textContent[textNum].skillTabs[sTNum]
 					);
-					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningMeta = championAbilities[abNum].metaData;
+					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningMeta =
+						championAbilities[abNum].metaData;
 					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningText =
 						championAbilities[abNum].textContent[textNum].text;
 				}
