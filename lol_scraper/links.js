@@ -13,7 +13,7 @@ export async function createChampionList() {
 	 */
 	let linkList = [];
 	const url_baseStats = 'https://leagueoflegends.fandom.com/wiki/List_of_champions/Base_statistics';
-	const url_INGAMELINKS = 'https://www.leagueofgraphs.com/champions/builds';
+	const url_leagueofgraphs = 'https://www.leagueofgraphs.com/champions/builds';
 	const browser = await startBrowser();
 	const page = await browser.newPage();
 	page.goto(url_baseStats);
@@ -25,33 +25,36 @@ export async function createChampionList() {
 	tableContent = cleanTable(tableContent);
 
 	//get the championNames
-	let championNames_ab = tableContent.filter((currentElement) => typeof currentElement == 'string');
-	championNames_ab = championNames_ab.filter((currentElement) => !currentElement.includes('·'));
+	let championNames_wiki = tableContent.filter((currentElement) => typeof currentElement == 'string');
+	championNames_wiki = championNames_wiki.filter((currentElement) => !currentElement.includes('·'));
+	//championNames_wiki includes doubles like 'kled' & 'kled&skarl' cause we scrap the names from the baseStatsTable and they have different baseStats
 
-	let abilityLinks = await page.evaluate(() => {
+	let wikiLinks = await page.evaluate(() => {
 		let linksRaw = document.querySelectorAll('table tr td a');
 		let links = [];
 		for (let i = 0; i < linksRaw.length; i++) {
-			links.push([linksRaw[i].innerText, linksRaw[i].getAttribute('href')]);
+			links.push({ inGameName: linksRaw[i].innerText, wikiLink: linksRaw[i].getAttribute('href') });
 		}
 		console.log(links);
 		return links;
 	});
 
-	abilityLinks = abilityLinks.filter((element) => typeof element[0] == 'string' && element[0] != '');
-	abilityLinks = abilityLinks.filter((element) => /(wiki).*(LoL)/.test(element[1]));
-	abilityLinks.forEach((element, index) => {
-		element[1] = 'https://leagueoflegends.fandom.com' + element[1];
-		element.push(championNames_ab[index]);
+	//filter dataSets with incorrect inGameName values
+	wikiLinks = wikiLinks.filter((dataSet) => typeof dataSet.inGameName == 'string' && dataSet.inGameName != '');
+	//filter dataSets with incorrect wikiLinks
+	let linkStructure = /(wiki).*(LoL)/;
+	wikiLinks = wikiLinks.filter((dataSet) => linkStructure.test(dataSet.wikiLink));
+	wikiLinks.forEach((championEntry) => {
+		championEntry.wikiLink = 'https://leagueoflegends.fandom.com' + championEntry.wikiLink;
+		championEntry.identifier = tools.dataSet.createIdentifier(championEntry.inGameName);
 	});
 
 	/*INGAME*/
 
-	page.goto(url_INGAMELINKS);
+	page.goto(url_leagueofgraphs);
 	await page.waitForNavigation();
 
-	let inGameLinksRaw = await page.evaluate(() => {
-		let tableLinks = document.querySelectorAll('table.data_table tr a');
+	let leagueOfGraphsLinks = await page.$$eval('table.data_table tr a', (tableLinks) => {
 		console.log(tableLinks);
 		let championLinks = [];
 		for (let i = 0; i < tableLinks.length; i++) {
@@ -60,56 +63,57 @@ export async function createChampionList() {
 				if (test) {
 					let link = tableLinks[i].getAttribute('href');
 					let champName = test.getAttribute('alt');
-					championLinks.push([link, champName]);
+					championLinks.push({ url: link, inGameName: champName });
 				}
 			} catch {}
 		}
 		console.log('championlinks', championLinks);
 		return championLinks;
 	});
-	inGameLinksRaw = inGameLinksRaw.sort((a, b) => {
-		return a[1] > b[1] ? 1 : -1;
-	});
-	//double kled entry to match baseStats
-	//fix gnar/megaGnar
-	let inGameLinks = [];
-	let indexOfGnar = -1;
-
-	inGameLinksRaw = inGameLinksRaw.map((element, index) => {
-		//save index of gnar for use at miss fortune (sort alphabetical g comes before m)
-		if (element[1] == 'Gnar') indexOfGnar = index;
-		switch (element[1]) {
-			case 'Kled':
-				inGameLinks.push(element);
-				inGameLinks.push(element);
-				break;
-			case 'Miss Fortune':
-				inGameLinks.push(inGameLinksRaw[indexOfGnar]);
-				inGameLinks.push(element);
-				break;
-			default:
-				inGameLinks.push(element);
-		}
-	});
-
 	await browser.close();
 
-	/*match the data*/
-	for (let i = 0; i < abilityLinks.length; i++) {
-		let linkSet = {};
-		let identifier = Symbol('identifier');
-		linkSet.internetLinks = {};
-		linkSet.internetLinks.leagueOfGraphs = 'https://www.leagueofgraphs.com' + inGameLinks[i][0];
-		linkSet.internetLinks.wiki = abilityLinks[i][1];
+	leagueOfGraphsLinks.forEach((championEntry) => {
+		championEntry.identifier = tools.dataSet.createIdentifier(championEntry.inGameName);
+		championEntry.url = 'https://www.leagueofgraphs.com/' + championEntry.url;
+	});
 
-		linkSet.inGameName = abilityLinks[i][0];
-		linkSet[identifier] = tools.dataSet.createIdentifier(linkSet.inGameName);
-		linkSet.fileSystemName = linkSet[identifier] + '.json';
+	//merge the linkLists
+
+	for (let i = 0; i < wikiLinks.length; i++) {
+		let linkSet = {};
+
+		linkSet.inGameName = wikiLinks[i].inGameName;
+		linkSet.identifier = wikiLinks[i].identifier;
+		linkSet.fileSystemName = linkSet.identifier + '.json';
 		linkSet.index = i;
+
+		linkSet.internetLinks = {};
+		linkSet.internetLinks.wiki = wikiLinks[i].wikiLink;
+		linkSet.internetLinks.leagueOfGraphs = findTheMatchingDataSet(linkSet.identifier, leagueOfGraphsLinks).url;
 		linkList.push(linkSet);
 	}
 
-	tools.fileSystem.saveJSONData(linkList, './data/championLinks.json');
+	tools.fileSystem.saveJSONData(linkList, './data/championList.json');
+}
+
+function findTheMatchingDataSet(wikiIdentifier, dataBase) {
+	let matchingDataSet;
+
+	//TODO: are this exceptions (gnar&kled) correct?
+	switch (wikiIdentifier) {
+		case 'megagnar':
+			wikiIdentifier = 'gnar';
+			break;
+		case 'kledskaarl':
+			wikiIdentifier = 'kled';
+			break;
+	}
+
+	for (let dataSet of dataBase) {
+		if (dataSet.identifier == wikiIdentifier) matchingDataSet = dataSet;
+	}
+
+	return matchingDataSet;
 }
 
 function cleanTable(rawDataTable) {
@@ -190,7 +194,7 @@ async function createItemList() {
 	await browser.close();
 
 	for (let item of itemList) {
-		fileSystemName = tools.unifyWording.fileSystemNameConverter(item.inGameName) + '.json';
+		fileSystemName = tools.dataSet.createIdentifier(item.inGameName) + '.json';
 		item.fileSystemName = fileSystemName;
 	}
 	// console.log('bp');

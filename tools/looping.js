@@ -1,8 +1,9 @@
 import * as tools from './tools.js';
 import { procedure } from '../dataManager.js';
 
+/** returns a list of champions and a variety of concerning links */
 export async function getChampionList() {
-	let championList = await tools.fileSystem.loadJSONData('./data/championLinks.json');
+	let championList = await tools.fileSystem.loadJSONData('./data/championList.json');
 	// if length is 2 its a range otherwise its a list of champions
 	if (procedure.champions.length == 2) {
 		championList = championList.filter((element, index) => {

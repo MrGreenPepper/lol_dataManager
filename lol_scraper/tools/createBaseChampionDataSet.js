@@ -11,7 +11,7 @@ export async function createBaseChampionDataSet() {
 			let championData = {};
 
 			try {
-				championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystenName}`);
+				championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystemName}`);
 			} catch {}
 			championData.inGameName = championEntry.inGameName;
 			//generate base structure if not existing
@@ -21,13 +21,7 @@ export async function createBaseChampionDataSet() {
 			}
 
 			//championData.scraped_data.baseStats = baseData[championEntry.inGameName];
-			championData.scraped_data.baseStats = await tools.dataSet.mergeData(
-				championData,
-				['inGameName'],
-				baseData,
-				[],
-				['championData', 'scraped_data', 'baseStats']
-			);
+			championData.scraped_data.baseStats = baseData[championEntry.identifier];
 			championData.scraped_data.baseData = {};
 			championData.scraped_data.abilities = {};
 
