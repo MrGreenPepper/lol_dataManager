@@ -71,7 +71,7 @@ function createStructureRegexs(championData, textContent) {
 	 * @param {object} textContent
 	 *
 	 */
-	let inGameName = championData.name;
+	let inGameName = championData.inGameName;
 	4;
 	let structureRegexs = {};
 	let abilityTesterStatus = false;

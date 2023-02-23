@@ -17,18 +17,14 @@ export async function getBaseData() {
 	tableHeader = tableHeader.split('\t');
 	tableHeader = tableHeader.map((currentElement) => currentElement.replaceAll('\n', ''));
 	tableHeader = tableHeader.map((currentElement) => currentElement.toLowerCase());
-	tableHeader = tableHeader.map((currentElement) => currentElement.replaceAll('+', '_plus'));
+	let tableKeys = tableHeader.map((currentElement) => currentElement.replaceAll('+', '_plus'));
 
 	//tableContent - get the data
 	let tableContent = await page.$$eval('table tbody tr td', (tds) => tds.map((td) => td.innerText));
 	tableContent = transformTable(tableContent);
 
-	//get the inGameNames
-	let inGameNames = tableContent.filter((currentElement) => typeof currentElement == 'string');
-	inGameNames = inGameNames.filter((currentElement) => !currentElement.includes('·'));
-
 	//sorting the right values to the right keys
-	let baseData = assignData(tableContent, tableHeader, inGameNames);
+	let baseData = generateBaseStatsTable(tableContent, tableKeys);
 
 	await tools.fileSystem.saveJSONData(baseData, './lol_scraper/data/baseData.json');
 
@@ -39,23 +35,39 @@ export async function getBaseData() {
 	return;
 }
 
-function assignData(tableContent, sortingKeys, inGameNames) {
-	let baseData = {};
-	let championCount = inGameNames.length;
-	let keysCount = sortingKeys.length;
+/**loops threw the table content until it cant complete a full dataSet */
+function generateBaseStatsTable(tableContent, tableKeys) {
+	let baseStatsTable = {};
+	let keysCount = tableKeys.length;
+	let reachedEndOfTheTable = false;
+	let currentChampionData = {};
+	let identifier;
 
-	for (let i = 0; i < championCount; i++) {
-		let inGameName = inGameNames[i];
+	let i = 0;
 
-		baseData[inGameName] = {};
+	while (reachedEndOfTheTable == false) {
+		currentChampionData = {};
 
-		for (let k = 1; k < keysCount; k++) {
-			let arrayPosition = i * keysCount + k;
-			baseData[inGameName][sortingKeys[k]] = tableContent[arrayPosition];
+		//loops until there is a key but no matching value (i is too high = 'reached end of the table')
+
+		for (let [index, currentKey] of tableKeys.entries()) {
+			//first tableKey is the championName
+			if (index == 0) {
+				identifier = tableContent[i];
+				identifier = tools.dataSet.createIdentifier(identifier);
+			} else if (tableContent[i] != undefined) {
+				currentChampionData[currentKey] = tableContent[i];
+			}
+			i++;
 		}
+
+		//check if the dataSet is complete
+		if (Object.keys(currentChampionData).length == tableKeys.length - 1)
+			baseStatsTable[identifier] = currentChampionData;
+		else reachedEndOfTheTable = true;
 	}
 
-	return baseData;
+	return baseStatsTable;
 }
 
 /**erase unnecessary signs and parse strings to numbers if possible

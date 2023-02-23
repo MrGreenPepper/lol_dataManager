@@ -2,7 +2,7 @@ export * from './baseData.js';
 export * from './abilities.js';
 export * from './inGameData.js';
 export * from './itemData.js';
-export * from './tools/createBaseChampionDataPool.js';
+export * from './tools/createBaseChampionDataSet.js';
 export * from './links.js';
 
 import * as tools from '../tools/tools.js';

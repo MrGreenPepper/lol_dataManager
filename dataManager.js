@@ -11,12 +11,12 @@ export let procedure = {
 	//champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
 	champions: [10],
 	scraper: {
-		createLists: 0,
+		createLists: 1,
 		getBaseData: 1,
-		createBaseChampionPool: 1,
+		createBaseChampionDataSet: 1,
 		getAbilitiesData: 1,
-		getInGameData: 0,
-		getItemData: 0,
+		getInGameData: 1,
+		getItemData: 1,
 		createBackup: 1,
 	},
 	extractor: {
@@ -63,7 +63,7 @@ await (async function scrappingProcedure() {
 	if (procedure.scraper.getBaseData) await scraper.getBaseData();
 
 	//creates single jsonFiles for every champion which is getting filled, to start wich,  with the concerning base data
-	if (procedure.scraper.createBaseChampionPool) await scraper.createBaseChampionDataPool();
+	if (procedure.scraper.createBaseChampionDataSet) await scraper.createBaseChampionDataSet();
 
 	// champion abilities data
 	if (procedure.scraper.getAbilitiesData) await scraper.getAbilitiesData();

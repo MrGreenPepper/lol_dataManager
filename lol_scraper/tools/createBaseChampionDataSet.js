@@ -1,6 +1,6 @@
 import * as tools from '../../tools/tools.js';
 
-export async function createBaseChampionDataPool() {
+export async function createBaseChampionDataSet() {
 	console.log('_______________________\n');
 	console.log('creating baseDataPool start\n');
 	const championList = await tools.looping.getChampionList();
@@ -13,14 +13,21 @@ export async function createBaseChampionDataPool() {
 			try {
 				championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystenName}`);
 			} catch {}
-			championData.name = championEntry.inGameName;
+			championData.inGameName = championEntry.inGameName;
 			//generate base structure if not existing
 			if (!championData.hasOwnProperty('scraped_data')) {
 				championData.scraped_data = {};
 				championData.scraped_data.baseData = {};
 			}
 
-			championData.scraped_data.baseStats = baseData[championEntry.inGameName];
+			//championData.scraped_data.baseStats = baseData[championEntry.inGameName];
+			championData.scraped_data.baseStats = await tools.dataSet.mergeData(
+				championData,
+				['inGameName'],
+				baseData,
+				[],
+				['championData', 'scraped_data', 'baseStats']
+			);
 			championData.scraped_data.baseData = {};
 			championData.scraped_data.abilities = {};
 
@@ -35,7 +42,7 @@ export async function createBaseChampionDataPool() {
 		}
 	} catch (err) {
 		console.error(err);
-		tools.bugfixing.reportError('creating baseData', championData.name, err.message);
+		tools.bugfixing.reportError('creating baseData', err.message);
 	}
 	console.log('creating baseData pool done\n');
 	console.log('---------------------------\n');

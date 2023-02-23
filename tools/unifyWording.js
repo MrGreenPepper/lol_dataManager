@@ -28,7 +28,7 @@ export function basicStringClean(toCleanUp) {
 	}
 	return cleanedString;
 }
-
+/* has became superfluous since using tools.dataSet.createIdentifier() as fileNames also still keeping it for later use
 export function fileSystemNameConverter(itemName) {
 	try {
 		//TODO:
@@ -42,7 +42,7 @@ export function fileSystemNameConverter(itemName) {
 		reportError('cant modify itemName', itemName, err.message, err.stack);
 	}
 	return itemName;
-}
+}*/
 
 export function toBasicRegex(wordComb) {
 	/**tests if the input as an array or a single string --> everything to regex --> returns array or string */

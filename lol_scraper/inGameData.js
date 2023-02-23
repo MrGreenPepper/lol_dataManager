@@ -7,7 +7,7 @@ export async function getInGameData() {
 	let championList = await tools.looping.getChampionList();
 
 	for (let champEntry of championList) {
-		let url = champEntry.inGameLink;
+		let url = champEntry.internetLinks.leagueOfGraphs;
 		let inGameName = champEntry.inGameName;
 		console.log('scraping url: ', url);
 		try {

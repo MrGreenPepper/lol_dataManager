@@ -7,11 +7,11 @@ export async function getAbilitiesData() {
 	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
 		console.info('\ncurrentChampion:\t', championEntry.inGameName);
-		console.log('scraping url:\t\t', championEntry.abilityLink);
+		console.log('scraping url:\t\t', championEntry.internetLinks.wiki);
 		console.log('champion Index:\t\t', championEntry.index);
 
 		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystenName}`);
-		championData = await scrapeAbilitiesData(championData, championEntry.abilityLink);
+		championData = await scrapeAbilitiesData(championData, championEntry.internetLinks.wiki);
 
 		let savePath = `./data/champions/${championEntry.fileSystenName}`;
 		await tools.fileSystem.saveJSONData(championData, savePath);
@@ -262,9 +262,9 @@ async function scrapeAbilitiesData(championData, url) {
 		}
 		championData.scraped_data.baseData.abilityNames = abilityNames;
 	} catch (err) {
-		await tools.bugfixing.reportError(`scraping abilities failed`, championData.name, err.message, err.stack);
+		await tools.bugfixing.reportError(`scraping abilities failed`, championData.inGameName, err.message, err.stack);
 
-		console.log('champion failed: ', championData.name);
+		console.log('champion failed: ', championData.inGameName);
 		console.error(err);
 	}
 	return championData;

@@ -24,9 +24,9 @@ export async function createChampionList() {
 	let tableContent = await page.$$eval('table tr td', (tds) => tds.map((td) => td.innerText));
 	tableContent = cleanTable(tableContent);
 
-	//get the inGameNames
-	let inGameNames_ab = tableContent.filter((currentElement) => typeof currentElement == 'string');
-	inGameNames_ab = inGameNames_ab.filter((currentElement) => !currentElement.includes('·'));
+	//get the championNames
+	let championNames_ab = tableContent.filter((currentElement) => typeof currentElement == 'string');
+	championNames_ab = championNames_ab.filter((currentElement) => !currentElement.includes('·'));
 
 	let abilityLinks = await page.evaluate(() => {
 		let linksRaw = document.querySelectorAll('table tr td a');
@@ -42,7 +42,7 @@ export async function createChampionList() {
 	abilityLinks = abilityLinks.filter((element) => /(wiki).*(LoL)/.test(element[1]));
 	abilityLinks.forEach((element, index) => {
 		element[1] = 'https://leagueoflegends.fandom.com' + element[1];
-		element.push(inGameNames_ab[index]);
+		element.push(championNames_ab[index]);
 	});
 
 	/*INGAME*/
@@ -97,11 +97,14 @@ export async function createChampionList() {
 	/*match the data*/
 	for (let i = 0; i < abilityLinks.length; i++) {
 		let linkSet = {};
-		linkSet.inGameLink = 'https://www.leagueofgraphs.com' + inGameLinks[i][0];
+		let identifier = Symbol('identifier');
+		linkSet.internetLinks = {};
+		linkSet.internetLinks.leagueOfGraphs = 'https://www.leagueofgraphs.com' + inGameLinks[i][0];
+		linkSet.internetLinks.wiki = abilityLinks[i][1];
 
-		linkSet.fileSystenName = tools.unifyWording.fileSystemNameConverter(inGameNames_ab[i]) + '.json';
 		linkSet.inGameName = abilityLinks[i][0];
-		linkSet.abilityLink = abilityLinks[i][1];
+		linkSet[identifier] = tools.dataSet.createIdentifier(linkSet.inGameName);
+		linkSet.fileSystemName = linkSet[identifier] + '.json';
 		linkSet.index = i;
 		linkList.push(linkSet);
 	}
