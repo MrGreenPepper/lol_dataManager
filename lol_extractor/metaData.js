@@ -7,19 +7,19 @@ const DATASAVEPATH = './data/champions/';
 
 export async function exMetaData() {
 	let championList = await tools.looping.getChampionList();
-	for (let [index, champEntry] of championList.entries()) {
-		console.log('\n', champEntry.inGameName);
+	for (let [index, championEntry] of championList.entries()) {
+		console.log('\n', championEntry.inGameName);
 		try {
 			//first load the data
-			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${champEntry.fileSystenName}`);
+			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystemName}`);
 
 			championData.extracted_data.abilities = await extractMetaData(championData);
 			championData = await metaNumbersToFloat(championData);
 
-			await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${champEntry.fileSystenName}`);
+			await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${championEntry.fileSystemName}`);
 		} catch (err) {
 			console.log(err);
-			console.log('metaData extraction failed at champion: ', index, ' - ', champEntry.fileSystenName);
+			console.log('metaData extraction failed at champion: ', index, ' - ', championEntry.fileSystemName);
 		}
 	}
 	return;

@@ -6,13 +6,13 @@ const DATASAVEPATH = './data/champions/';
 export async function exText() {
 	let championList = await tools.looping.getChampionList();
 
-	for (let champEntry of championList) {
-		let inGameName = champEntry.inGameName;
-		//	console.log('\x1b[31m', champEntry.inGameName, '\x1b[0m');
-		console.log(champEntry.inGameName, '\t', champEntry.index);
+	for (let championEntry of championList) {
+		let inGameName = championEntry.inGameName;
+		//	console.log('\x1b[31m', championEntry.inGameName, '\x1b[0m');
+		console.log(championEntry.inGameName, '\t', championEntry.index);
 		try {
 			//first load the data
-			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${champEntry.fileSystenName}`);
+			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystemName}`);
 
 			/** TASKS */
 			let abilities = championData.extracted_data.abilities;
@@ -24,9 +24,9 @@ export async function exText() {
 			//TODO: move to analysis
 			abilities = handlePossibleConcerningAbilities(abilities, abilityNames);
 
-			championData = extraSkillTabsFromText(championData);
+			championData = await extraSkillTabsFromText(championData);
 			await tools.fileSystem.saveJSONData(championData, `${LOGSAVEPATH}${inGameName}_skillTabs.json`);
-			await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${champEntry.fileSystenName}`);
+			await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${championEntry.fileSystemName}`);
 		} catch (err) {
 			console.log(err);
 			console.log('skilltab extraction failed at champion: ', inGameName);

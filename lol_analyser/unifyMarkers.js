@@ -11,11 +11,13 @@ export async function simplifySkillTabs() {
 export async function unifyAbilityMarkers() {
 	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
-		let inGameName = championEntry.fileSystenName;
+		let inGameName = championEntry.fileSystemName;
 
 		console.log(`simplify abilities: ${inGameName} \t ${championEntry.index}`);
 		try {
-			let championData = await tools.fileSystem.loadJSONData(`${CHAMPIONSAVEPATH}${inGameName}_data.json`);
+			let championData = await tools.fileSystem.loadJSONData(
+				`${CHAMPIONSAVEPATH}${championEntry.fileSystemName}`
+			);
 
 			let abilityData = championData.analysed_data.abilities;
 			//TODO: this function not only unifies markers but also restructuring the ability data --> should it be like this?
@@ -39,7 +41,7 @@ export async function unifyAbilityMarkers() {
 				abilityData[abilityNumber] = summedAbility;
 			}
 			championData.analysed_data.abilities = abilityData;
-			await tools.fileSystem.saveJSONData(championData, `${CHAMPIONSAVEPATH}${inGameName}_data.json`);
+			await tools.fileSystem.saveJSONData(championData, `${CHAMPIONSAVEPATH}${championEntry.fileSystemName}`);
 		} catch (err) {
 			console.log(err.message);
 			console.log(err.stack);
@@ -405,8 +407,8 @@ function generateSplitSkillTab(originSkillTab, percentage, newTyp) {
 export async function showAllMarkerPositions() {
 	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
-		let inGameName = championEntry.fileSystenName;
-		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${inGameName}_data.json`);
+		let inGameName = championEntry.fileSystemName;
+		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystemName}`);
 		let abilityData = championData.analysed_data.abilities;
 		let searchMarkers = markerData.searchMarkers;
 
@@ -439,8 +441,8 @@ export async function showAllMarkerPositions() {
 
 export async function categorizeMarkers() {
 	let championList = await tools.looping.getChampionList();
-	for (let champEntry of championList) {
-		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${champEntry.fileSystenName}`);
+	for (let championEntry of championList) {
+		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystemName}`);
 
 		let abilities = championData.analysed_data.abilities;
 		for (let i = 0; i < 5; i++) {
@@ -461,7 +463,7 @@ export async function categorizeMarkers() {
 				}
 			}
 		}
-		await tools.fileSystem.saveJSONData(championData, `./data/champions/${champEntry.fileSystenName}`);
+		await tools.fileSystem.saveJSONData(championData, `./data/champions/${championEntry.fileSystemName}`);
 	}
 
 	return;

@@ -30,13 +30,14 @@ export async function createBackupInto(entryPoint, category) {
 	return;
 }
 
-export async function overwriteChampionData(newDataSet, oldDataSet) {
+/** overwrites an oldDataSet with another dataset */
+export async function overwriteChampionData(superiorData, oldDataSet) {
 	let championList = await tools.looping.getChampionList();
 
 	for (let championEntry of championList) {
-		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystenName}`);
-		championData[oldDataSet] = championData[newDataSet];
-		await tools.fileSystem.saveJSONData(championData, `./data/champions/${championEntry.fileSystenName}`);
+		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystemName}`);
+		championData[oldDataSet] = championData[superiorData];
+		await tools.fileSystem.saveJSONData(championData, `./data/champions/${championEntry.fileSystemName}`);
 	}
 
 	return;

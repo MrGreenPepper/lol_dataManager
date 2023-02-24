@@ -28,11 +28,11 @@ export async function createBaseChampionDataSet() {
 			//save	the	origin	data
 			tools.fileSystem.saveJSONData(
 				championData,
-				`./lol_scraper/data/champions/baseData/${championEntry.fileSystenName}`
+				`./lol_scraper/data/champions/baseData/${championEntry.fileSystemName}`
 			);
 
 			//save the data for later merge
-			tools.fileSystem.saveJSONData(championData, `./data/champions/${championEntry.fileSystenName}`);
+			tools.fileSystem.saveJSONData(championData, `./data/champions/${championEntry.fileSystemName}`);
 		}
 	} catch (err) {
 		console.error(err);

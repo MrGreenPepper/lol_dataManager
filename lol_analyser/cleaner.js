@@ -5,9 +5,9 @@ const CHAMPIONSAVEPATH = './data/champions/';
 export async function deleteAndCleanMarkers() {
 	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
-		let inGameName = championEntry.fileSystenName;
+		let inGameName = championEntry.fileSystemName;
 		console.log(inGameName);
-		let championData = await tools.fileSystem.loadJSONData(`${CHAMPIONSAVEPATH}${inGameName}_data.json`);
+		let championData = await tools.fileSystem.loadJSONData(`${CHAMPIONSAVEPATH}${championEntry.fileSystemName}`);
 		/** delete unnecessary Markers, rest of the markers are set to lower case and grouped to ability.skillTabs
 		 * and cleaned from unnecessary words like "champion"*/
 		let championAbilities = championData.analysed_data.abilities;
@@ -34,8 +34,11 @@ export async function deleteAndCleanMarkers() {
 		//   championAbilities.skillTabs,
 		//   markerTools.numbersToFloat
 		// );
-		await tools.fileSystem.saveJSONData(championData, `./data/champions/${inGameName}_data.json`);
-		await tools.fileSystem.saveJSONData(championData, `./lol_analyser/data/champions/${inGameName}_data.json`);
+		await tools.fileSystem.saveJSONData(championData, `./data/champions/${championEntry.fileSystemName}`);
+		await tools.fileSystem.saveJSONData(
+			championData,
+			`./lol_analyser/data/champions/${championEntry.fileSystemName}`
+		);
 	}
 }
 export async function cleanEmptyTextContent(currentAbility) {
@@ -50,6 +53,7 @@ export async function cleanEmptyTextContent(currentAbility) {
 
 	return currentAbility;
 }
+
 async function deleteUnnecessaryMarkers(championAbilitiesData) {
 	let toIgnoreMarkers = markerData.ignoreMarkerWords;
 	try {

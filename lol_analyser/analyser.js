@@ -18,7 +18,7 @@ export async function renewData() {
 	await tools.dataSet.resetDataFrom('lol_extractor', 'champions');
 	await tools.dataSet.resetDataFrom('lol_extractor', 'items');
 
-	await tools.dataSet.overwriteChampionData('extracted_data', 'analyser_data');
+	await tools.dataSet.overwriteChampionData('extracted_data', 'analysed_data');
 
 	return;
 }

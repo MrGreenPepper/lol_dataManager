@@ -8,7 +8,7 @@ const CHAMPIONSAVEPATH = './data/champions/';
  * @returns {object} championData - championData object with possible new extra skillTabs
  */
 export async function extraSkillTabsFromText(championData) {
-	let championAbilities = championData.analysed_data.abilities;
+	let championAbilities = championData.extracted_data.abilities;
 	try {
 		for (let i = 0; i < 5; i++) {
 			let currentAbility = championAbilities[i];
@@ -80,9 +80,7 @@ function createStructureRegexs(championData, textContent) {
 
 	/**generate searches for the emporments */
 	//TODO: is empowered or empowers
-	let empoweredAbilityRegexs = empoweringAbilityRegexGenerator(
-		championData.scraped_data.abilitiesBorderData.abilityNames
-	);
+	let empoweredAbilityRegexs = empoweringAbilityRegexGenerator(championData.extracted_data.baseData.abilityNames);
 	let empoweredBasicsRegexs = empoweringBasicRegexGenerator(inGameName);
 
 	/**generate searches for the triggers */

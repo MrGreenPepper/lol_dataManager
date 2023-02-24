@@ -3,17 +3,17 @@ import { startBrowser } from './tools/browserControl.js';
 
 export async function getAbilitiesData() {
 	console.log('___________________________\n');
-	console.log('abilityData scrapingn start\n');
+	console.log('abilityData scraping start\n');
 	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
 		console.info('\ncurrentChampion:\t', championEntry.inGameName);
 		console.log('scraping url:\t\t', championEntry.internetLinks.wiki);
 		console.log('champion Index:\t\t', championEntry.index);
 
-		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystenName}`);
+		let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystemName}`);
 		championData = await scrapeAbilitiesData(championData, championEntry.internetLinks.wiki);
 
-		let savePath = `./data/champions/${championEntry.fileSystenName}`;
+		let savePath = `./data/champions/${championEntry.fileSystemName}`;
 		await tools.fileSystem.saveJSONData(championData, savePath);
 		//final message
 		console.log('--> \tabilitiesData saved: \t', savePath);
@@ -61,7 +61,7 @@ async function scrapeAbilitiesData(championData, url) {
 						//			console.log('currentMeta:', metaData[metaNumber]);
 						champion.abilities[i].metaData[metaNumber] = {};
 						champion.abilities[i].metaData[metaNumber].text = metaData[metaNumber].innerText;
-						//test if there is a specieal Leveling like per level
+						//test if there is a special Leveling like per level
 
 						try {
 							let specialScaling = metaData[metaNumber].querySelectorAll(

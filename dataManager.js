@@ -11,25 +11,25 @@ export let procedure = {
 	//champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
 	championsAssortment: ['all'],
 	scraper: {
-		createLists: 1,
-		getBaseData: 1,
-		createBaseChampionDataSet: 1,
-		getAbilitiesData: 1,
-		getInGameData: 1,
-		getItemData: 1,
-		createBackup: 1,
+		createLists: 0,
+		getBaseData: 0,
+		createBaseChampionDataSet: 0,
+		getAbilitiesData: 0,
+		getInGameData: 0,
+		getItemData: 0,
+		createBackup: 0,
 	},
 	extractor: {
-		renewData: 1,
-		exMetaData: 1,
-		exText: 1,
-		exSkillTabs: 1,
-		exSpecialScaling: 1,
-		exSkillOrder: 1,
-		exMasteries: 1,
-		objectsToArrays: 1,
-		exItems: 1,
-		createBackup: 1,
+		renewData: 0,
+		exMetaData: 0,
+		exText: 0,
+		exSkillTabs: 0,
+		exSpecialScaling: 0,
+		exSkillOrder: 0,
+		exMasteries: 0,
+		objectsToArrays: 0,
+		exItems: 0,
+		createBackup: 0,
 	},
 	analyser: {
 		renewData: 1,
@@ -121,7 +121,7 @@ await (async function extractProcedure() {
 //extractor zieht nur die Daten raus analyzer zieht schlüsse, z.B.: weite damage range eines spells, lösche bestimmte spells etc.
 await (async function analyseProcedure() {
 	/**reduces the abilities to the necessary math */
-	if (procedure.analyser.resetData) await analyser.renewData();
+	if (procedure.analyser.renewData) await analyser.renewData();
 	//delete unessessary markers (minion damage etc, not maximum)
 	if (procedure.analyser.unifyAbilityMarkers) await analyser.unifyAbilityMarkers();
 	if (procedure.analyser.specialScalingToSkillTabs) await analyser.specialScalingToSkillTabs();
@@ -138,7 +138,7 @@ await (async function analyseProcedure() {
 })();
 
 await (async function calculatorProcedure() {
-	if (procedure.calculator.resetData) await calculator.renewData();
+	if (procedure.calculator.renewData) await calculator.renewData();
 	if (procedure.calculator.singleChampion) await calculator.singleChampion();
 	if (procedure.calculator.matchup) await calculator.matchup();
 	if (procedure.calculator.createBackup) await calculator.createBackup();

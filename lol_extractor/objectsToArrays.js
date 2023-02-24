@@ -10,10 +10,12 @@ export async function objectsToArrays() {
 
 	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
-		let inGameName = championEntry.fileSystenName;
+		let inGameName = championEntry.fileSystemName;
 
 		try {
-			let championData = await tools.fileSystem.loadJSONData(`${CHAMPIONSAVEPATH}${inGameName}_data.json`);
+			let championData = await tools.fileSystem.loadJSONData(
+				`${CHAMPIONSAVEPATH}${championEntry.fileSystemName}`
+			);
 			abilityData = championData.extracted_data.abilities;
 
 			let abilityDataKeys = Object.keys(abilityData);
@@ -38,7 +40,7 @@ export async function objectsToArrays() {
 
 			//championData.extracted_data.abilities = abilityData;	not	needed, cause objects, just for readability
 
-			await tools.fileSystem.saveJSONData(championData, `${CHAMPIONSAVEPATH}${inGameName}_data.json`);
+			await tools.fileSystem.saveJSONData(championData, `${CHAMPIONSAVEPATH}${championEntry.fileSystemName}`);
 		} catch (err) {
 			console.log();
 			console.log(err.message);

@@ -4,7 +4,7 @@ export async function singleChampion() {
 	let championList = await tools.looping.getChampionList();
 
 	for (let championEntry of championList) {
-		let inGameName = championEntry.fileSystenName;
+		let inGameName = championEntry.fileSystemName;
 		try {
 			console.info('singleChampion.js:\t', inGameName, '\t', championEntry.index);
 			let championA = await Champion.create(inGameName);
@@ -12,8 +12,8 @@ export async function singleChampion() {
 
 			await championA.preCalculateFight();
 
-			tools.fileSystem.saveJSONData(championA, `./data/champions/${inGameName}_data.json`);
-			tools.fileSystem.saveJSONData(championA, `./lol_extractor/data/champions/${inGameName}_data.json`);
+			tools.fileSystem.saveJSONData(championA, `./data/champions/${championEntry.fileSystemName}`);
+			tools.fileSystem.saveJSONData(championA, `./lol_extractor/data/champions/${championEntry.fileSystemName}`);
 			await timer();
 		} catch (err) {
 			tools.bugfixing.reportError(

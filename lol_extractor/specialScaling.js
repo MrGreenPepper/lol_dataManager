@@ -5,13 +5,13 @@ const DATASAVEPATH = './data/champions/';
 export async function exSpecialScaling() {
 	/**specialScalings arent % ... they get in place when certain limits are cracked */
 	let championList = await tools.looping.getChampionList();
-	for (let champEntry of championList) {
-		let inGameName = champEntry.fileSystenName;
-		//	console.log('\x1b[31m', champEntry.inGameName, '\x1b[0m');
-		console.log(champEntry.inGameName, '\t', champEntry.index);
+	for (let championEntry of championList) {
+		let inGameName = championEntry.fileSystemName;
+		//	console.log('\x1b[31m', championEntry.inGameName, '\x1b[0m');
+		console.log(championEntry.inGameName, '\t', championEntry.index);
 		try {
 			//first load the data
-			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${inGameName}_data.json`);
+			let championData = await tools.fileSystem.loadJSONData(`./data/champions/${championEntry.fileSystemName}`);
 
 			/** TASKS */
 			championData = await specialScalingOnMeta(championData);
@@ -19,7 +19,7 @@ export async function exSpecialScaling() {
 			//		championData.extracted_data.abilities = await specialScalingOnActives(championData);
 
 			//	await tools.fileSystem.saveJSONData(championData, `${LOGSAVEPATH}${inGameName}_specialScaling.json`);
-			//		await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${inGameName}_data.json`);
+			//		await tools.fileSystem.saveJSONData(championData, `${DATASAVEPATH}${championEntry.fileSystemName}`);
 		} catch (err) {
 			console.log(err);
 			console.log('skilltab extraction failed at champion: ', inGameName);
