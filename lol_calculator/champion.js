@@ -28,6 +28,7 @@ class Champion {
 	}
 	async _initialize() {
 		await this.loadItemData();
+		//TODO: is the return of this necessary?
 		return this;
 	}
 	async preCalculateFight() {
@@ -274,6 +275,7 @@ export async function create(inGameName) {
 		return champion;
 	} catch (error) {
 		console.log(error);
+		//TODO: is this correct? ->
 		return Promise.reject(error);
 	}
 }

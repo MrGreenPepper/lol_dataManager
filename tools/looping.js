@@ -5,14 +5,16 @@ import { procedure } from '../dataManager.js';
 export async function getChampionList() {
 	let championList = await tools.fileSystem.loadJSONData('./data/championList.json');
 	// if length is 2 its a range otherwise its a list of champions
-	if (procedure.champions.length == 2) {
+
+	if (procedure.championsAssortment == 'all') return championList;
+	if (procedure.championsAssortment.length == 2) {
 		championList = championList.filter((element, index) => {
-			if (procedure.champions[0] <= index && index <= procedure.champions[1]) return true;
+			if (procedure.championsAssortment[0] <= index && index <= procedure.championsAssortment[1]) return true;
 			else return false;
 		});
 	} else {
 		championList = championList.filter((element, index) => {
-			if (procedure.champions.includes(index)) return true;
+			if (procedure.championsAssortment.includes(index)) return true;
 			else return false;
 		});
 	}

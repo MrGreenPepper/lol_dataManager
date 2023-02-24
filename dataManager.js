@@ -9,7 +9,7 @@ import * as calculator from './lol_calculator/calculator.js';
 export let procedure = {
 	useTestData: 0,
 	//champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
-	champions: [10],
+	championsAssortment: ['all'],
 	scraper: {
 		createLists: 1,
 		getBaseData: 1,
