@@ -74,7 +74,7 @@ export async function createChampionList() {
 
 	leagueOfGraphsLinks.forEach((championEntry) => {
 		championEntry.identifier = tools.dataSet.createIdentifier(championEntry.inGameName);
-		championEntry.url = 'https://www.leagueofgraphs.com/' + championEntry.url;
+		championEntry.url = 'https://www.leagueofgraphs.com' + championEntry.url;
 	});
 
 	//merge the linkLists
@@ -89,8 +89,13 @@ export async function createChampionList() {
 
 		linkSet.internetLinks = {};
 		linkSet.internetLinks.wiki = wikiLinks[i].wikiLink;
-		linkSet.internetLinks.leagueOfGraphs = findTheMatchingDataSet(linkSet.identifier, leagueOfGraphsLinks).url;
-		linkList.push(linkSet);
+		try {
+			linkSet.internetLinks.leagueOfGraphs = findTheMatchingDataSet(linkSet.identifier, leagueOfGraphsLinks).url;
+			linkList.push(linkSet);
+		} catch (error) {
+			console.log(error);
+			console.log('cant find matching championData for:', linkSet);
+		}
 	}
 
 	tools.fileSystem.saveJSONData(linkList, './data/championList.json');

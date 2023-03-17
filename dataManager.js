@@ -9,21 +9,24 @@ import * as calculator from './lol_calculator/calculator.js';
 export let procedure = {
 	useTestData: 0,
 	//champions: [10, 24, 46, 63, 66, 76, 77, 78, 88, 101, 124, 133, 151],
-	championsAssortment: ['all'],
+	championsAssortment: [0],
 	scraper: {
 		createLists: 0,
 		getBaseData: 0,
 		createBaseChampionDataSet: 0,
-		getAbilitiesData: 0,
+		getAbilitiesData: 1,
 		getInGameData: 0,
 		getItemData: 0,
+		createSelfDescribingDataStructure: 1,
 		createBackup: 0,
 	},
 	extractor: {
 		renewData: 0,
 		exMetaData: 0,
 		exText: 0,
-		exSkillTabs: 0,
+		exSkillTabs: 1,
+		exSpecialScaling: 1,
+		specialScalingToSkillTabs: 0,
 		exSpecialScaling: 0,
 		exSkillOrder: 0,
 		exMasteries: 0,
@@ -34,7 +37,6 @@ export let procedure = {
 	analyser: {
 		renewData: 1,
 		unifyAbilityMarkers: 1,
-		specialScalingToSkillTabs: 1,
 		skillTabsToArray: 1,
 		cleanSkillTabMarkers: 1,
 		categorizeMarkers: 1,
@@ -74,6 +76,8 @@ await (async function scrappingProcedure() {
 	// everyItem independent from the champions, SCRAPPING + EXTRACT
 	if (procedure.scraper.getItemData) await scraper.getItemData();
 
+	if (procedure.scraper.createSelfDescribingDataStructure) await scraper.createSelfDescribingDataStructure();
+
 	//creates a backup from the current data in .data for champions&items
 	if (procedure.scraper.createBackup) await scraper.createBackup();
 
@@ -105,11 +109,22 @@ await (async function extractProcedure() {
 	//TODO: saves it in a way thus it cant be reruned, current workaround by reseting the data everytime, maybe just do kind of error handling
 	if (procedure.extractor.exText) await extractor.exText();
 	if (procedure.extractor.exSkillTabs) await extractor.exSkillTabs();
+
+	//TODO: structure/double
+	//TODO: analyse concerning Skills (is a concerning skill a trigger or is it empowered) and or markedPassages
 	if (procedure.extractor.exSpecialScaling) await extractor.exSpecialScaling();
+	if (procedure.extractor.specialScalingToSkillTabs) await extractor.specialScalingToSkillTabs();
+
+	//TODO: structure/double
+	if (procedure.analyser.unifyAbilityMarkers) await analyser.unifyAbilityMarkers();
+	if (procedure.analyser.categorizeMarkers) await analyser.categorizeMarkers();
+	if (procedure.analyser.cleanSkillTabMarkers) await analyser.deleteAndCleanMarkers();
+	if (procedure.analyser.showAllMarkerPositions) await analyser.showAllMarkerPositions();
+
+	//extract usual individual stuff
 	if (procedure.extractor.exSkillOrder) await extractor.exSkillOrder();
 	//TODO: masteries
 	if (procedure.extractor.exMasteries) await extractor.exMasteries();
-	if (procedure.extractor.objectsToArrays) await extractor.objectsToArrays();
 	//TODO: items
 	if (procedure.extractor.exItems) await extractor.exItems();
 	if (procedure.extractor.createBackup) await extractor.createBackup();
@@ -123,15 +138,15 @@ await (async function analyseProcedure() {
 	/**reduces the abilities to the necessary math */
 	if (procedure.analyser.renewData) await analyser.renewData();
 	//delete unessessary markers (minion damage etc, not maximum)
-	if (procedure.analyser.unifyAbilityMarkers) await analyser.unifyAbilityMarkers();
-	if (procedure.analyser.specialScalingToSkillTabs) await analyser.specialScalingToSkillTabs();
-	//TODO: analyse concerning Skills (is a concerning skill a trigger or is it empowered) and or markedPassages
+
+	//TODO: für morgen oder so - mal die ganzen marker opperationen sortieren, strukturieren, zusammenfassen, mögliche dopplungen entfernen und sortieren
+	// analyser.handleAbilityMarkers()
+
+	//TODO: structure/double
 	if (procedure.analyser.skillTabsToArray) await analyser.skillTabsToArray();
-	if (procedure.analyser.cleanSkillTabMarkers) await analyser.deleteAndCleanMarkers();
-	if (procedure.analyser.categorizeMarkers) await analyser.categorizeMarkers();
+	if (procedure.extractor.objectsToArrays) await extractor.objectsToArrays();
 
 	if (procedure.analyser.unifyItems) await analyser.unifyItems();
-	if (procedure.analyser.showAllMarkerPositions) await analyser.showAllMarkerPositions();
 	if (procedure.analyser.createBackup) await analyser.createBackup();
 
 	console.log('analysing done:\n', procedure.analyser);

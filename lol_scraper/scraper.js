@@ -4,6 +4,7 @@ export * from './inGameData.js';
 export * from './itemData.js';
 export * from './tools/createBaseChampionDataSet.js';
 export * from './links.js';
+export * from './createSelfDescribingDataStructure.js';
 
 import * as tools from '../tools/tools.js';
 

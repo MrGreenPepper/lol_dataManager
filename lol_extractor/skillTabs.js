@@ -2,6 +2,7 @@ import * as extractorTools from './extractorTools.js';
 import * as tools from '../tools/tools.js';
 import * as markerTools from './marker/markerTools.js';
 import * as cleaner from './cleaner.js';
+import * as looper from '../tools/looping.js';
 
 const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
@@ -28,13 +29,13 @@ export async function exSkillTabs() {
 	}
 }
 
+/** Extracts all skillTabs from a Champion, nether the less how many there are and divide it into markers % mathData (--> divideSkillTabs())
+ *
+ * @param   championData    the complete champion data,
+ *
+ * @returns championData    the same as input but with extracted skilltabs into markers and mathData
+ */
 export async function extractSkillTabs(championData) {
-	/** Extracts all skillTabs from a Champion, nether the less how many there are and divide it into markers % mathData (--> divideSkillTabs())
-	 *
-	 * @param   championData    the complete champion data,
-	 *
-	 * @returns championData    the same as input but with extracted skilltabs into markers and mathData
-	 */
 	//get the abilitynumbers first
 
 	let championAbilities = championData.extracted_data.abilities;
@@ -44,10 +45,16 @@ export async function extractSkillTabs(championData) {
 		return acc;
 	}, 0);
 
-	for (let abNum = 0; abNum < abilityNumbers; abNum++) {
+	let allSkillTabs = [];
+
+	for (let currentSkillTab of looper.getSkillTabs(championData)) {
+		allSkillTabs.push(currentSkillTab);
+	}
+
+	for (let abNum = S0; abNum < abilityNumbers; abNum++) {
 		//console.log('textContent SkillTabs:');
-		let textContentCount = Object.keys(championAbilities[abNum].textContent);
-		for (let textNum = 0; textNum < textContentCount.length; textNum++) {
+		let textContentCount = Object.keys(championAbilities[abNum].textContent).length;
+		for (let textNum = 0; textNum < textContentCount; textNum++) {
 			//empty != undefined
 			if (championAbilities[abNum].textContent[textNum].skillTabs != undefined) {
 				let textContentSkillTabCount = Object.keys(championAbilities[abNum].textContent[textNum].skillTabs);

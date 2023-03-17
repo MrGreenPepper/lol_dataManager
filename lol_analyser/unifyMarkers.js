@@ -1,12 +1,7 @@
-import * as markerData from './markerData.js';
+import * as markerData from './marker/markerData.js';
 import * as tools from '../tools/tools.js';
 
 const CHAMPIONSAVEPATH = './data/champions/';
-export async function simplifySkillTabs() {
-	unifyAbilityMarkers();
-	sortOutMaximumSkillTabs();
-	splitMixDamageInSkillTabs();
-}
 
 export async function unifyAbilityMarkers() {
 	let championList = await tools.looping.getChampionList();
@@ -19,28 +14,6 @@ export async function unifyAbilityMarkers() {
 				`${CHAMPIONSAVEPATH}${championEntry.fileSystemName}`
 			);
 
-			let abilityData = championData.analysed_data.abilities;
-			//TODO: this function not only unifies markers but also restructuring the ability data --> should it be like this?
-			//--> check abilityData here and at the end at debugging
-			let abilityDataKeys = Object.keys(abilityData);
-			for (let abilityNumber of abilityDataKeys) {
-				let currentAbility = abilityData[abilityNumber];
-
-				for (let [abPartNumber, abilityPart] of currentAbility.textContent.entries()) {
-					console.table({
-						abilityNumber: Number(abilityNumber),
-						partNumber: abPartNumber,
-					});
-					let summedAbilityPart = await unifyWording(abilityPart);
-					abilityData[abilityNumber].textContent[abPartNumber] = summedAbilityPart;
-				}
-
-				//TODO: sortOutMaximum() also restructures the ability data
-				let summedAbility = await sortOutMaximum(currentAbility);
-				summedAbility = await splitMixDamage(summedAbility);
-				abilityData[abilityNumber] = summedAbility;
-			}
-			championData.analysed_data.abilities = abilityData;
 			await tools.fileSystem.saveJSONData(championData, `${CHAMPIONSAVEPATH}${championEntry.fileSystemName}`);
 		} catch (err) {
 			console.log(err.message);
@@ -56,11 +29,11 @@ export async function unifyAbilityMarkers() {
 	return;
 }
 
+/**
+ * seperates the words from each other and checks if they can be replaced by a unified version
+ * (f.e.: enhanced, increased etc. --> maximum)
+ */
 async function unifyWording(abilityPart) {
-	/**
-	 * seperates the words from each other and checks if they can be replaced by a unified version
-	 * (f.e.: enhanced, increased etc. --> maximum)
-	 */
 	let unknownMarkerTest = true;
 	for (let skillTab of abilityPart.skillTabs) {
 		unknownMarkerTest = true;
@@ -84,14 +57,7 @@ async function unifyWording(abilityPart) {
 	return abilityPart;
 }
 
-async function wordSeperator(tempSkillTabMarker) {
-	tempSkillTabMarker = tempSkillTabMarker.trim();
-	wordsArray = tempSkillTabMarker.split(' ');
-	return wordsArray;
-}
-
-async function sortOutMaximum(abilityData) {
-	/** sorts outs the most maximum skillTabs and drops the minor ones, keeps all unique skillTabs
+/** sorts outs the most maximum skillTabs and drops the minor ones, keeps all unique skillTabs
 	 1. check for maxima in every separated text part
 	 2. check if there is an overall maximum skillTab,
 	 2.1 by assuming one part as the overallMaxima, 
@@ -102,7 +68,7 @@ async function sortOutMaximum(abilityData) {
 
 	 @return 	{array}		allSkillTabArrays	the filtered abilityData and put into an array
 	*/
-
+async function sortOutMaximum(abilityData) {
 	let allSkillTabArrays = [];
 	let addedFlatParts = [];
 	let addedScalingParts = [];
@@ -177,8 +143,8 @@ async function sortOutMaximum(abilityData) {
 	return allSkillTabArrays;
 }
 
+/**analyses the marker words count and order to find similar skilltabs to the maximum skillTab */
 function searchForMinorSkillTabsByMarker(maximumSkillTab, otherSkillTabs) {
-	/**analyses the marker words count and order to find similar skilltabs to the maximum skillTab */
 	let similarSkillTabs = [];
 	let rawMaxMarker = maximumSkillTab.marker;
 	let boundriesFromMaximum = rawMaxMarker.split('maximum');
@@ -207,14 +173,13 @@ function searchForMinorSkillTabsByMarker(maximumSkillTab, otherSkillTabs) {
 	return similarSkillTabs;
 }
 
+/**filters all skillTabs by the mathType of the mainSkillTab for possible related other skillTabs
+ * @param {object} 	mainSkillTab					the template to search for in the other skillTabs
+ * @param {array of objects} possibleSkillTabs		array holding all skillTab-objects including the main/template-SkillTab
+ *
+ * @return {array} similarSkillTabs					array with related similar skillTabs
+ */
 function searchForMinorSkillTabsByMathTemplate(mainSkillTab, possibleSkillTabs) {
-	/**filters all skillTabs by the mathType of the mainSkillTab for possible related other skillTabs
-	 * @param {object} 	mainSkillTab					the template to search for in the other skillTabs
-	 * @param {array of objects} possibleSkillTabs		array holding all skillTab-objects including the main/template-SkillTab
-	 *
-	 * @return {array} similarSkillTabs					array with related similar skillTabs
-	 */
-
 	let similarSkillTabs = [];
 	let lengthTest = true;
 	let typeTest = true;
@@ -252,10 +217,10 @@ function searchForMinorSkillTabsByMathTemplate(mainSkillTab, possibleSkillTabs) 
 	return similarSkillTabs;
 }
 
+/**iterats threw the different mathArrays from the flats- or scalingParts and checks if they are sumAble,
+ * if they are sumAble sum it otherwise return the firstPart
+ */
 function sumMathPart(mathPartOne, mathPartTwo) {
-	/**iterats threw the different mathArrays from the flats- or scalingParts and checks if they are sumAble,
-	 * if they are sumAble sum it otherwise return the firstPart
-	 */
 	let lengthFirst = mathPartOne.length;
 	let lengthSecond = mathPartTwo.length;
 	let typeControl = true;
@@ -280,8 +245,8 @@ function sumMathPart(mathPartOne, mathPartTwo) {
 	else return originMathPartOne;
 }
 
+/**test two particular small mathParts if they are similar by testing if the length and the type is the same */
 function isTheMathPartSimilar(mathPartOne, mathPartTwo) {
-	/**test two particular small mathParts if they are similar by testing if the length and the type is the same */
 	let lengthTest = true;
 	let typeTest = true;
 
@@ -292,8 +257,8 @@ function isTheMathPartSimilar(mathPartOne, mathPartTwo) {
 	else return false;
 }
 
+/**summs up two arrays containing only numbers */
 function summIntArray(arrayOne, arrayTwo) {
-	/**summs up two arrays containing only numbers */
 	if (arrayOne.length == arrayTwo.length) {
 		for (let i = 0; i < arrayOne.length; i++) {
 			arrayOne[i] += arrayTwo[i];
@@ -303,12 +268,6 @@ function summIntArray(arrayOne, arrayTwo) {
 	return arrayOne;
 }
 
-function checkForSameScalingType(arrayOne, arrayTwo) {
-	/** checks if the two arrays from the skillTabs have the same scalingType */
-	if (arrayOne[1] == arrayTwo[1]) return true;
-	else return false;
-}
-
 function testCorrectOrder(numberArray) {
 	let tester = true;
 	for (let i = 0; i < numberArray - 1; i++) {
@@ -316,9 +275,9 @@ function testCorrectOrder(numberArray) {
 	}
 	return tester;
 }
-async function splitMixDamage(originSkillTabArray) {
-	/**splits all mixed damage skillTabs into 2 separated skillTabs*/
 
+/**splits all mixed damage skillTabs into 2 separated skillTabs*/
+async function splitMixDamage(originSkillTabArray) {
 	//first filter the mixed skillTabs
 
 	let mixedSkillTabs = originSkillTabArray.filter((currentSkillTab) => {
@@ -347,6 +306,7 @@ async function splitMixDamage(originSkillTabArray) {
 
 	return noneMixedTabs;
 }
+
 async function extractDamageSplit(skillTab) {
 	try {
 		let textContent = skillTab.concerningText;
@@ -404,6 +364,7 @@ function generateSplitSkillTab(originSkillTab, percentage, newTyp) {
 
 	return newSkillTab;
 }
+
 export async function showAllMarkerPositions() {
 	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
@@ -468,6 +429,7 @@ export async function categorizeMarkers() {
 
 	return;
 }
+
 /**major marker */
 let damageMarker = [/(damage)/i];
 let enhancerMarker = [/(bonus)/i, /(attack speed)/i, /(reduction)/i, /(penetration)/i, /(buff)/i];
@@ -493,6 +455,7 @@ let hardCCMarker = [
 	/(knockback)/i,
 	/(taunt)/i,
 ];
+
 /**minor marker */
 function getMajorCategory(skillTab) {
 	//TODO: analyse 'duration'-marker with the complete abilityPart to connect it with an other marker

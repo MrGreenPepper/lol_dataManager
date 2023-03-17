@@ -15694,3 +15694,830 @@ cleanAbilities()	- mark&delete skillTabMarkers,ahri.json,currentAbility is not d
     at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
     at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:47)
     at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,akshan.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,amumu.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,aurelionsol.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,camille.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,chogath.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,corki.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,elise.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,evelynn.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,fiddlesticks.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,galio.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,gangplank.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,gwen.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,illaoi.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,katarina.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kayle.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kindred.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kled.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kledskaarl.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kogmaw.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,lucian.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,malzahar.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,nasus.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,rammus.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,seraphine.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,sett.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,shen.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,tahmkench.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,trundle.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,udyr.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,varus.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,vi.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,viego.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,yone.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,zac.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,zoe.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,aatrox.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,ahri.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,akali.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,alistar.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,anivia.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,annie.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,aphelios.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,ashe.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,azir.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,bard.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,belveth.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,blitzcrank.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,brand.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,braum.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,caitlyn.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,cassiopeia.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,darius.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,diana.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,drmundo.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,draven.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,ekko.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,ezreal.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,fiora.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,fizz.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,garen.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,gnar.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,gragas.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,graves.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,hecarim.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,heimerdinger.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,irelia.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,ivern.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,janna.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,jarvaniv.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,jax.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,jayce.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,jhin.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,jinx.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,ksante.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,kaisa.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,kalista.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,karma.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,karthus.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,kassadin.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,kayn.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,kennen.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,khazix.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+cleanAbilities()	- mark&delete skillTabMarkers,leblanc.json,currentAbility is not defined,ReferenceError: currentAbility is not defined
+    at deleteUnnecessaryMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:79:15)
+    at Module.deleteAndCleanMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/cleaner.js:15:30)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:134:47)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,akshan.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,amumu.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,aurelionsol.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,camille.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,chogath.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,corki.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,elise.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,evelynn.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,fiddlesticks.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,galio.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,gangplank.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,gwen.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,illaoi.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,katarina.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kayle.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kindred.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kled.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kledskaarl.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,kogmaw.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,lucian.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,malzahar.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,nasus.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,rammus.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,seraphine.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,sett.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,shen.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,tahmkench.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,trundle.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,udyr.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,varus.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,vi.json,Cannot read properties of null (reading 'length'),TypeError: Cannot read properties of null (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:243:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,viego.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,yone.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,zac.json,Cannot read properties of undefined (reading 'length'),TypeError: Cannot read properties of undefined (reading 'length')
+    at isTheMathPartSimilar (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:288:21)
+    at searchForMinorSkillTabsByMathTemplate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:246:10)
+    at sortOutMaximum (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:163:20)
+    at Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:39:31)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+analyser_abilities.js:  cant simplify abilities,zoe.json,textContent is not defined,ReferenceError: textContent is not defined
+    at extractDamageSplit (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:383:4)
+    at splitMixDamage (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:340:32)
+    at async Module.unifyAbilityMarkers (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_analyser/unifyMarkers.js:40:21)
+    at async analyseProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:130:46)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:122:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:26:49,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at pptr://__puppeteer_evaluation_script__:26:49
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:26:49,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at pptr://__puppeteer_evaluation_script__:26:49
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:26:49,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at pptr://__puppeteer_evaluation_script__:26:49
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:26:49,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at pptr://__puppeteer_evaluation_script__:26:49
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:26:49,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at pptr://__puppeteer_evaluation_script__:26:49
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:26:49,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at pptr://__puppeteer_evaluation_script__:26:49
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:128:52,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at pptr://__puppeteer_evaluation_script__:128:52
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:128:52,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at pptr://__puppeteer_evaluation_script__:128:52
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')N    at pptr://__puppeteer_evaluation_script__:128:35,Error: Evaluation failed: TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at pptr://__puppeteer_evaluation_script__:128:35
+    at ExecutionContext._ExecutionContext_evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:282:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ExecutionContext.evaluate (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/node_modules/puppeteer/lib/esm/puppeteer/common/ExecutionContext.js:114:16)
+    at async scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:33:25)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,abilityIdentifier is not defined,ReferenceError: abilityIdentifier is not defined
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:294:84)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Cannot read properties of undefined (reading 'name'),TypeError: Cannot read properties of undefined (reading 'name')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:295:88)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,toCleanUp.toLowerCase is not a function,TypeError: toCleanUp.toLowerCase is not a function
+    at Module.basicStringClean (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/tools/unifyWording.js:18:25)
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:297:41)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,currentChampionAbilities is not defined,ReferenceError: currentChampionAbilities is not defined
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:300:38)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1
+scraping abilities failed,Aatrox,Cannot read properties of undefined (reading 'name'),TypeError: Cannot read properties of undefined (reading 'name')
+    at scrapeAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:298:83)
+    at async Module.getAbilitiesData (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/lol_scraper/abilities.js:14:18)
+    at async scrappingProcedure (file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:69:42)
+    at async file:///home/nox/mega/GitHub/JavaScript/lol/dataManager/dataManager.js:59:1

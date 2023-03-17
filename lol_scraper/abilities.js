@@ -3,7 +3,7 @@ import { startBrowser } from './tools/browserControl.js';
 
 export async function getAbilitiesData() {
 	console.log('___________________________\n');
-	console.log('abilityData scraping start\n');
+	console.log('abilityData scrapingn start\n');
 	let championList = await tools.looping.getChampionList();
 	for (let championEntry of championList) {
 		console.info('\ncurrentChampion:\t', championEntry.inGameName);
@@ -61,7 +61,7 @@ async function scrapeAbilitiesData(championData, url) {
 						//			console.log('currentMeta:', metaData[metaNumber]);
 						champion.abilities[i].metaData[metaNumber] = {};
 						champion.abilities[i].metaData[metaNumber].text = metaData[metaNumber].innerText;
-						//test if there is a special Leveling like per level
+						//test if there is a specieal Leveling like per level
 
 						try {
 							let specialScaling = metaData[metaNumber].querySelectorAll(

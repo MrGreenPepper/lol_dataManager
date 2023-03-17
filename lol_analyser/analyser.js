@@ -1,4 +1,3 @@
-export * from './analyse_abilities.js';
 export * from './items.js';
 export * from './unifyMarkers.js';
 export * from './cleaner.js';

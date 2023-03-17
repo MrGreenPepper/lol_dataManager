@@ -31,7 +31,7 @@ export function markers_clean_skilltab(text) {
 	text = text.replace(/ /g, '');
 	//text.replace(//g,'');
 }
-export function firstClean(text) {
+export function metaTextCleaner(text) {
 	text = text.replace(/\«/g, '');
 	text = text.replace(/\»/g, '');
 	text = text.replace(/\(/g, '');

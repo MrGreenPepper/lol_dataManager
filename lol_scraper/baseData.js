@@ -9,25 +9,29 @@ export async function getBaseData() {
 
 	const browser = await startBrowser();
 	const page = await browser.newPage();
-	page.goto(url_baseStats);
-	await page.waitForNavigation();
+	try {
+		page.goto(url_baseStats);
+		await page.waitForNavigation();
 
-	//tableHeader - for Keys
-	let tableHeader = await page.$eval('table thead', (tds) => tds.innerText);
-	tableHeader = tableHeader.split('\t');
-	tableHeader = tableHeader.map((currentElement) => currentElement.replaceAll('\n', ''));
-	tableHeader = tableHeader.map((currentElement) => currentElement.toLowerCase());
-	let tableKeys = tableHeader.map((currentElement) => currentElement.replaceAll('+', '_plus'));
+		//tableHeader - for Keys
+		let tableHeader = await page.$eval('table thead', (tds) => tds.innerText);
+		tableHeader = tableHeader.split('\t');
+		tableHeader = tableHeader.map((currentElement) => currentElement.replaceAll('\n', ''));
+		tableHeader = tableHeader.map((currentElement) => currentElement.toLowerCase());
+		let tableKeys = tableHeader.map((currentElement) => currentElement.replaceAll('+', '_plus'));
 
-	//tableContent - get the data
-	let tableContent = await page.$$eval('table tbody tr td', (tds) => tds.map((td) => td.innerText));
-	tableContent = transformTable(tableContent);
+		//tableContent - get the data
+		let tableContent = await page.$$eval('table tbody tr td', (tds) => tds.map((td) => td.innerText));
+		tableContent = transformTable(tableContent);
 
-	//sorting the right values to the right keys
-	let baseData = generateBaseStatsTable(tableContent, tableKeys);
+		//sorting the right values to the right keys
+		let baseData = generateBaseStatsTable(tableContent, tableKeys);
 
-	await tools.fileSystem.saveJSONData(baseData, './lol_scraper/data/baseData.json');
-
+		await tools.fileSystem.saveJSONData(baseData, './lol_scraper/data/baseData.json');
+	} catch (errer) {
+		console.log(error);
+		console.log('cant find baseData');
+	}
 	await browser.close();
 
 	console.log('scrapping baseData done\n');

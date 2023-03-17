@@ -1,6 +1,7 @@
 import * as extractorTools from './extractorTools.js';
 import * as tools from '../tools/tools.js';
 import * as cleaner from './cleaner.js';
+import * as naming from '../tools/naming.js';
 
 const LOGSAVEPATH = './lol_extractor/data/champions/';
 const DATASAVEPATH = './data/champions/';
@@ -26,67 +27,68 @@ export async function exMetaData() {
 }
 
 export function extractMetaData(championData) {
-	let metaDataKeys = [];
+	let abilitiesWithMetaData = [];
 	let abilityKeys;
 	let baseAbilityData = championData.extracted_data.abilities;
 
 	abilityKeys = Object.keys(baseAbilityData);
+	//check which abilities has metadata;
 	abilityKeys.forEach((abilityKey) => {
 		if ('metaData' in baseAbilityData[abilityKey]) {
-			metaDataKeys.push(abilityKey);
+			abilitiesWithMetaData.push(abilityKey);
 		}
 	});
 
-	metaDataKeys.forEach((metaKey) => {
+	abilitiesWithMetaData.forEach((metaKey) => {
 		baseAbilityData[metaKey].metaData = divideMetaData(baseAbilityData[metaKey].metaData);
 	});
 
 	return baseAbilityData;
 }
 
+/**divides the metaData in a describing text part and a math part
+ * if the math part includes a couple numbers divide them also
+ */
 function divideMetaData(rawMetaData) {
 	let marker;
 	let mathRaw;
 
 	let metaData = {};
 
-	let seperatorPosition;
+	let separatorPosition;
 	let rawMetaDataKeys = Object.keys(rawMetaData);
 
 	//first seperate marker and math
 	for (let i = 0; i < rawMetaDataKeys.length; i++) {
 		let currentMetaDataString = rawMetaData[rawMetaDataKeys[i]];
-		seperatorPosition = currentMetaDataString.text.indexOf(':');
-		marker = rawMetaData[rawMetaDataKeys[i]].text.slice(0, seperatorPosition);
-		mathRaw = rawMetaData[rawMetaDataKeys[i]].text.slice(seperatorPosition);
-		marker = cleaner.firstClean(marker);
-		mathRaw = cleaner.firstClean(mathRaw);
-		metaData[rawMetaDataKeys[i]] = {};
-		metaData[rawMetaDataKeys[i]].marker = marker;
-		metaData[rawMetaDataKeys[i]].math = mathRaw;
-		metaData[rawMetaDataKeys[i]].origin = rawMetaData[rawMetaDataKeys[i]];
+		let metaDataIdentifier = naming.generateMetaDataDescription(i);
+		metaData[metaDataIdentifier] = {};
+
+		separatorPosition = currentMetaDataString.text.indexOf(':');
+		marker = rawMetaData[rawMetaDataKeys[i]].text.slice(0, separatorPosition);
+		mathRaw = rawMetaData[rawMetaDataKeys[i]].text.slice(separatorPosition);
+		marker = cleaner.metaTextCleaner(marker);
+		mathRaw = cleaner.metaTextCleaner(mathRaw);
+		metaData[metaDataIdentifier].marker = marker;
+		metaData[metaDataIdentifier].math = mathRaw;
+		metaData[metaDataIdentifier].origin = rawMetaData[rawMetaDataKeys[i]];
+
+		//if we scraped a specialScaling part, copy it also
+		//TODO: handle the specialScaling here
 		try {
-			metaData[rawMetaDataKeys[i]].specialScaling = rawMetaData[rawMetaDataKeys[i]].specialScaling;
+			metaData[metaDataIdentifier].specialScaling = rawMetaData[rawMetaDataKeys[i]].specialScaling;
 		} catch {}
-	}
 
-	//console.table(metaData);
+		//now split the mathpart
 
-	//now split the mathpart if necessary
-	if (rawMetaDataKeys.length > 0) {
-		for (let i = 0; i < rawMetaDataKeys.length; i++) {
-			metaData[rawMetaDataKeys[i]].math = divideMath(metaData[rawMetaDataKeys[i]].math);
+		metaData[metaDataIdentifier].math = divideMath(metaData[metaDataIdentifier].math);
 
-			//	console.table(metaData[rawMetaDataKeys[i]].math);
-		}
-		//console.table(metaData);
-		return metaData;
-	} else {
 		return metaData;
 	}
 }
 
-function divideMath(originMath) {
+//TODO: generalize this and get it to tools
+function divideMath(originMathText) {
 	/** !!!!!!!!!!!!! JUST COPIED FROM skillTabs.js - divideMathFromSkillTabs()    !!!!!!!!!!!!!!!!!!!!!! */
 	/**first divide into flat and scaling part, then divide them */
 
@@ -101,14 +103,12 @@ function divideMath(originMath) {
 	let undefinedRest;
 
 	//first some special cleaning
-	originMath = originMath.replace(/\「/g, '');
-	originMath = originMath.replace(/\」/g, '');
+	originMathText = originMathText.replace(/\「/g, '');
+	originMathText = originMathText.replace(/\」/g, '');
 	/**extract raw scalingPart for later dividing */
 	// get the scaling parts positions in the brackets
 
-	lastPosition = 0;
-
-	flatPartRaw[0] = originMath.slice(0);
+	flatPartRaw[0] = originMathText.slice(0);
 
 	/**divide numbers from the flatPart*/
 	for (let n in flatPartRaw) {
@@ -150,20 +150,20 @@ function divideMath(originMath) {
 	/**test if there is any unrecognized rest by deleting every known out of the origin*/
 
 	for (let fp of flatPart) {
-		originMath = originMath.replace(fp, '');
+		originMathText = originMathText.replace(fp, '');
 	}
 
-	originMath = originMath.replace(flatPartType, '');
-	originMath = originMath.replace(/\//g, '');
-	originMath = originMath.replace(/\(/g, '');
-	originMath = originMath.replace(/\)/g, '');
-	originMath = originMath.replace(/%/g, '');
-	originMath = originMath.replace(/\+/g, '');
-	undefinedRest = originMath;
+	originMathText = originMathText.replace(flatPartType, '');
+	originMathText = originMathText.replace(/\//g, '');
+	originMathText = originMathText.replace(/\(/g, '');
+	originMathText = originMathText.replace(/\)/g, '');
+	originMathText = originMathText.replace(/%/g, '');
+	originMathText = originMathText.replace(/\+/g, '');
+	undefinedRest = originMathText;
 	//next 2 lines seems like the same but the first space is copied direct out of the terminal and some kind of different from the last space
-	originMath = originMath.replace(/ /g, '');
-	originMath = originMath.replace(/ /g, '');
-	if (originMath.length == 0) {
+	originMathText = originMathText.replace(/ /g, '');
+	originMathText = originMathText.replace(/ /g, '');
+	if (originMathText.length == 0) {
 		undefinedRest = 'clean';
 		//	console.log('\x1b[34mclean mathTab number export\x1b[0m');
 	} else {
