@@ -29,9 +29,11 @@ export async function getItemList() {
 	return itemList;
 }
 
-export function* getAllSkills(dataSet) {
+export function* getAllSkills(dataSet, deleteAllEmpty = true) {
 	for (let [skillKey, skillValue] of Object.entries(dataSet)) {
-		yield { [skillKey]: skillValue };
+		if (deleteAllEmpty) {
+			if (Object.keys(skillValue).length > 0) yield { [skillKey]: skillValue };
+		} else yield { [skillKey]: skillValue };
 	}
 }
 
@@ -42,14 +44,14 @@ export function* getAbilities(data) {
 	}
 }
 
-/** returns all textContents of all abilities of a given data  */
+/** returns all textContents of a given data  */
 export function* getTextContents(data) {
 	for (let textContent of searchByKeyInObject('textContent', data)) {
 		yield textContent;
 	}
 }
 
-/** returns all textParts of all abilities of a given data  */
+/** returns all textParts of a given data  */
 export function* getTextParts(data) {
 	for (let textParts of searchByKeyInObject('textPart', data)) {
 		yield textParts;
@@ -65,9 +67,20 @@ export function* getTextParts(data) {
 	}
 }
 */
-export function* getSkillTabs(championDataSet) {
-	for (let skillTab of searchByKeyInObject('skillTab', championDataSet)) {
-		yield skillTab;
+
+/** returns all skillTabs of a given data  */
+export function* getSkillTabs(data, deleteAllEmpty = true) {
+	for (let skillTab of searchByKeyInObject('skillTab', data)) {
+		if (deleteAllEmpty) {
+			if (Object.keys(skillTab.skillTabs).length > 0) yield skillTab;
+		} else yield skillTab;
+	}
+}
+
+/** returns all skillTabs of a given data  */
+export function* getSkillTabProperties(data, withKey = true) {
+	for (let skillTabProperty of searchByKeyInObject('skillTabProperty', data, withKey)) {
+		yield skillTabProperty;
 	}
 }
 /** applies a given function to every skill (passive + abilities) of a specific dataSet (extracted/analysed/ ... )
@@ -94,15 +107,16 @@ export async function applyToAllSkillTabs(championDataSet, applyFunction) {
 }
 
 /** searches in an object for matching keys and returns the key-value pairs */
-function* searchByKeyInObject(searchPhrase, dataObject) {
+function* searchByKeyInObject(searchPhrase, dataObject, withKey = true) {
 	try {
 		let searchRegex = new RegExp(searchPhrase, 'gi');
 		for (let [dataKey, dataValue] of Object.entries(dataObject)) {
 			if (searchRegex.test(dataKey)) {
-				yield { [dataKey]: dataValue };
+				if (withKey) yield { [dataKey]: dataValue };
+				else yield dataValue;
 			} else {
 				if (isObjectNested(dataValue)) {
-					for (let deepData of searchByKeyInObject(searchPhrase, dataValue)) {
+					for (let deepData of searchByKeyInObject(searchPhrase, dataValue, withKey)) {
 						yield deepData;
 					}
 				}
@@ -113,6 +127,7 @@ function* searchByKeyInObject(searchPhrase, dataObject) {
 	}
 }
 
+/**tests if the object is nested/contains other content */
 function isObjectNested(testObject) {
 	try {
 		let objectTest = typeof testObject == 'object';

@@ -47,29 +47,17 @@ export async function extractSkillTabs(championData) {
 
 	let allSkillTabs = [];
 
-	for (let currentSkillTab of looper.getSkillTabs(championData)) {
+	for (let currentSkillTab of looper.getSkillTabs(championAbilities)) {
 		allSkillTabs.push(currentSkillTab);
 	}
 
-	for (let abNum = S0; abNum < abilityNumbers; abNum++) {
-		//console.log('textContent SkillTabs:');
-		let textContentCount = Object.keys(championAbilities[abNum].textContent).length;
-		for (let textNum = 0; textNum < textContentCount; textNum++) {
-			//empty != undefined
-			if (championAbilities[abNum].textContent[textNum].skillTabs != undefined) {
-				let textContentSkillTabCount = Object.keys(championAbilities[abNum].textContent[textNum].skillTabs);
-				for (let sTNum = 0; sTNum < textContentSkillTabCount.length; sTNum++) {
-					championAbilities[abNum].textContent[textNum].skillTabs[sTNum] = await stringIntoFormula(
-						championAbilities[abNum].textContent[textNum].skillTabs[sTNum]
-					);
-					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningMeta =
-						championAbilities[abNum].metaData;
-					championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningText =
-						championAbilities[abNum].textContent[textNum].text;
-				}
-			}
-		}
+	for (let skillTabProperty of looper.getSkillTabProperties(championAbilities, false)) {
+		skillTabProperty = await stringIntoFormula(skillTabProperty);
 	}
+
+	championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningMeta = championAbilities[abNum].metaData;
+	championAbilities[abNum].textContent[textNum].skillTabs[sTNum].concerningText =
+		championAbilities[abNum].textContent[textNum].text;
 
 	//debugger;
 
@@ -126,9 +114,9 @@ async function createSkillTab(originSkillTabMath) {
 	/**first divide into flat and scaling part, then divide them */
 	let skillTabMath = {};
 
-	let [scalings, scalingPartsRaw] = getScalings(originSkillTabMath);
+	let scalings = getScalings(originSkillTabMath);
 
-	let flats = getFlatPart(originSkillTabMath, scalingPartsRaw);
+	let flats = getFlatPart(originSkillTabMath);
 
 	/**test if there is any unrecognized rest by deleting every known out of the origin*/
 
@@ -187,13 +175,13 @@ function getScalings(originSkillTabMathText) {
 				if (scalingType.length == 0) scalingType = 'none';
 				else scalingType = scalingType[0][0];
 				try {
-					scalings.push([scalingValues, scalingType]);
+					scalings.push({ scalingValues: scalingValues, scalingType: scalingType });
 				} catch (err) {
 					console.log(err);
 				}
 		}
 	}
-	return [scalings, scalingPartsRaw];
+	return scalings;
 }
 
 function getFlatPart(originSkillTabMathText) {
@@ -245,7 +233,7 @@ function getFlatPart(originSkillTabMathText) {
 				if (flatPartRaw == '' || flatPartRaw.length == 0) flatPartValues = null;
 				else flatPartValues = [Number(flatPartRaw)];
 		}
-		flats.push([flatPartValues, flatPartType]);
+		flats.push({ flatPartValues: flatPartValues, flatPartType: flatPartType });
 	}
 	//divide the flatPart into numbers
 
@@ -298,8 +286,8 @@ function testForUnnoticedParts(skillTab, originSkillTabMathText) {
 	let scalings = skillTab.scalings;
 
 	flats.forEach((flatPart) => {
-		let flatPartValues = flatPart[0];
-		let flatPartType = flatPart[1];
+		let flatPartValues = flatPart.flatPartValues;
+		let flatPartType = flatPart.flatPartType;
 		if (flatPartType) {
 			let flatPartTypeArray = flatPartType.split(' ');
 			flatPartTypeArray.forEach((element) => {
