@@ -280,11 +280,14 @@ function divideIntoFlatPartsRaw(originSkillTabMathText) {
 	});
 	return flatsRaw;
 }
+
+/** loops threw the skillTab math content and delete all formula data from the original raw text */
 function testForUnnoticedParts(skillTab, originSkillTabMathText) {
 	let undefinedRest = originSkillTabMathText;
 	let flats = skillTab.flats;
 	let scalings = skillTab.scalings;
 
+	//delete the flat math from the raw original string
 	flats.forEach((flatPart) => {
 		let flatPartValues = flatPart.flatPartValues;
 		let flatPartType = flatPart.flatPartType;
@@ -302,8 +305,9 @@ function testForUnnoticedParts(skillTab, originSkillTabMathText) {
 		}
 	});
 
+	//delete the scaling math from the raw original string
 	for (let scalingPart of scalings) {
-		if (Array.isArray(scalingPart)) {
+		if (Array.isArray(scalingPart.scalingValues)) {
 			for (let scalingComponent of scalingPart) {
 				if (Array.isArray(scalingComponent))
 					scalingComponent.map((currentSC) => {
